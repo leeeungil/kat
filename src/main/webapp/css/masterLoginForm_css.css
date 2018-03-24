@@ -1,0 +1,29 @@
+/* 메인(전체규격) css*/
+.totalView {
+	width: 1600px;
+	text-align: center;
+	margin: auto;
+}
+
+/*메인(좌) 블록css*/
+#mainSize {
+	margin-top: 120px;
+	margin-left: 50px;
+	width: 200px;
+	height: 600px;
+	float: left;
+}
+
+/*메인(우) 블록css*/
+#asideSize {
+	margin-top: 120px;
+	margin-left: 900px;
+	width: 300px;
+	height: 600px;
+	float: left;
+	border: 1px solid gray;
+}
+
+#loginform {
+	top: 200px;
+}

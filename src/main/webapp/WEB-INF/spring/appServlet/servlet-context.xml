@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing 
+		infrastructure -->
+
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven />
+
+	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
+		up static resources in the ${webappRoot}/resources directory -->
+
+	<!-- css / sript / img 주소 등록 -->
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/css/**" location="/css/" />
+	<resources mapping="/script/**" location="/script/" />
+	<resources mapping="/img/**" location="/img/" />
+	<resources mapping="/uploadfile/**" location="/uploadfile/" />
+
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
+		in the /WEB-INF/views directory -->
+	<beans:bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+
+	<!-- 컨트롤 패키지 등록 -->
+	<context:component-scan base-package="com.kat" />
+
+	<!-- 모델 등록 -->
+	<beans:bean id="seatinfo" class="com.kat.seat.model.SeatInfo" scope="prototype" />
+	<beans:bean id="SeatInfoListView" class="com.kat.seat.model.SeatInfoListView" scope="prototype" />
+	<beans:bean id="menuInfo" class="com.kat.seat.model.MenuInfo" scope="prototype" />
+	<beans:bean id="MenuInfoListView" class="com.kat.seat.model.MenuInfoListView" scope="prototype" />
+	<beans:bean id="UpdateReservation" class="com.kat.seat.model.UpdateReservation" scope="prototype" />
+	<beans:bean id="ShopPhoto" class="com.kat.seat.model.ShopPhoto" scope="prototype" />
+	<beans:bean id="InfoShop" class="com.kat.seat.model.InfoShop" scope="prototype" />
+	<beans:bean id="InfoShopListView" class="com.kat.seat.model.InfoShopListView" scope="prototype" />
+	<beans:bean id="JoinInfo" class="com.kat.seat.model.JoinInfo" scope="prototype" />
+	<beans:bean id="JoinInfoChk" class="com.kat.seat.model.JoinInfoChk" scope="prototype" />
+	<beans:bean id="InfoShopAddress" class="com.kat.seat.model.InfoShopAddress" scope="prototype" />
+	<beans:bean id="ReservationBreakdown" class="com.kat.seat.model.ReservationBreakdown" scope="prototype" />
+	<beans:bean id="Breakdown" class="com.kat.seat.model.Breakdown" scope="prototype" />
+	<beans:bean id="BreakdownListView" class="com.kat.seat.model.BreakdownListView" scope="prototype" />
+	<beans:bean id="UserInfo" class="com.kat.seat.model.UserInfo" scope="prototype" />
+	<beans:bean id="UserReInfo" class="com.kat.seat.model.UserReInfo" scope="prototype" />
+	<beans:bean id="Shop_re_name_phone" class="com.kat.seat.model.Shop_re_name_phone" scope="prototype" />
+	<beans:bean id="UserBreakdown" class="com.kat.seat.model.UserBreakdown" scope="prototype" />
+	<beans:bean id="UserBreakdownListView" class="com.kat.seat.model.UserBreakdownListView" scope="prototype" />
+	<beans:bean id="SeatPosition" class="com.kat.seat.model.SeatPosition" scope="prototype" />
+
+	<!-- 서비스 등록 -->
+	<beans:bean id="addSeatService" class="com.kat.seat.service.AddSeatService" />
+	<beans:bean id="addMenuService" class="com.kat.seat.service.AddMenuService" />
+	<beans:bean id="addSeatPositionService" class="com.kat.seat.service.AddSeatPositionService" />
+	<beans:bean id="seatReservationService" class="com.kat.seat.service.SeatReservationService" />
+	<beans:bean id="loginService" class="com.kat.seat.service.LoginService" />
+
+
+
+
+	<!-- 은길이형 -->
+	<!--모델 등록 -->
+	<beans:bean id="board" class="com.kat.article.model.Board" scope="prototype" />
+	<beans:bean id="boardInfoListView" class="com.kat.article.model.BoardInfoListView" scope="prototype" />
+	<beans:bean id="notice" class="com.kat.master.model.Notice" scope="prototype" />
+	<beans:bean id="noticeInfoListView" class="com.kat.master.model.NoticeInfoListView" scope="prototype" />
+	<beans:bean id="master" class="com.kat.master.model.Master" scope="prototype" />
+	<beans:bean id="review" class="com.kat.review.model.Review" scope="prototype" />
+	<beans:bean id="reviewInfoListView" class="com.kat.review.model.ReviewInfoListView" scope="prototype" />
+
+	<!--서비스 등록 -->
+	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />
+	<beans:bean id="boardListService" class="com.kat.article.service.BoardListService" />
+	<beans:bean id="noticeService" class="com.kat.master.service.NoticeService" />
+	<beans:bean id="noticeListService" class="com.kat.master.service.NoticeListService" />
+	<beans:bean id="articleNoticeListService" class="com.kat.article.service.ArticleNoticeListService" />
+	<beans:bean id="masterBoardListService" class="com.kat.master.service.MasterBoardListService" />
+	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
+	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
+
+
+	<!-- 정린이형 -->
+	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
+
+
+	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="defaultEncoding">
+			<beans:value>UTF-8</beans:value>
+		</beans:property>
+	</beans:bean>
+
+
+	<!-- 데이터 베이스 설정 -->
+	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://localhost:3306/gee1019?characterEncoding=utf8"
+		p:username="gee1019" p:password="ontable1221" /> -->
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
+		p:driverClassName="com.mysql.jdbc.Driver"
+		p:url="jdbc:mysql://localhost:3306/kat?characterEncoding=utf8"
+		p:username="root" p:password="min337337" />
+
+	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
+		p:dataSource-ref="dataSource" />
+
+
+	<!-- mybatisDao설정 -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource" />
+		<beans:property name="mapperLocations"
+			value="classpath:com/kat/mapper/mybatis/*.xml" />
+	</beans:bean>
+
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory" />
+	</beans:bean>
+
+
+	<!-- 메일 설정 -->
+	<beans:bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<beans:property name="host" value="smtp.gmail.com" />
+		<beans:property name="port" value="587" /><!-- 465 or 25 -->
+		<beans:property name="username" value="a0322166@gmail.com" />
+		<beans:property name="password" value="wjdfls1634" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+		<beans:property name="javaMailProperties">
+			<beans:props>
+				<beans:prop key="mail.transport.protocol">smtp</beans:prop>
+				<beans:prop key="mail.smtp.auth">true</beans:prop>
+				<beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+				<beans:prop key="mail.debug">true</beans:prop>
+			</beans:props>
+		</beans:property>
+	</beans:bean>
+
+	<!-- 메일 클래스 등록 -->
+	<beans:bean id="reservationMail" class="com.kat.mail.ReservationMail" />
+
+	<!-- 정린이형 메일인증 -->
+	<beans:bean id="mrNotifer" class="com.kat.mail.MimeRegistrationNotifier"></beans:bean>
+
+
+</beans:beans>

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+#seatSize {
+	width: 70px;
+	height: 70px;
+	margin: 10px;
+}
+
+#re_kat {
+	margin-top: 50px;
+	width: 420px;
+	float: left;
+	font-size: 12px;
+}
+
+#info_re {
+	border: 1px solid #BDBDBD;
+	margin: 30px;
+	padding: 20px;
+	height: 143px;
+
+}
+
+.listInfo td{
+	border: 1px solid #BDBDBD;
+}
+
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+.totalView_resu {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	height: 550px;
+}
+
+#seat_list_resucess {
+	width: 500px;
+	text-align: center;
+	margin: auto;
+	border-radius: 10px;
+	padding: 7px;
+}
+
+.List_menu_resucess {
+	text-align: center;
+	margin: auto;
+	border: 1px solid #BDBDBD;
+	width: 500px;
+	padding: 10px;
+	font-size: 17px;
+}
+
+#join_kat_resuecess {
+	margin-top: 50px;
+	margin-left: 50px;
+	width: 500px;
+	float: left;
+}
+
+#agree_align_resucees {
+	margin-left: 20px;
+	margin-top: 110px;
+}
+
+#tabe_align_resucess input {
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	width: 200px;
+	padding: 10px;
+	background-color: #16bab4;
+	position: relative;
+	bottom: 4px;
+	font-size: 20px;
+	border: none;
+}
+
+#tabe_align_resucess input:hover {
+	background-color: #00938e;
+}
+
+#agree_align_re {
+	text-align: left;
+}
+
+#tabe_align_resucess td {
+	text-align: center;
+}

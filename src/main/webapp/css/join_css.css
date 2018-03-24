@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+li {
+	list-style: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#join_kat {
+	margin-top: 30px;
+	margin-left: 50px;
+	width: 700px;
+	float: left;
+}
+
+#agree {
+	font-size: 20px;
+	color: #16bab4;
+	margin-left: 10px;
+}
+
+#join_size_1 {
+	font-size: 40px;
+	color: #16bab4;
+}
+
+#agree_align {
+	text-align: left;
+}
+
+#tabe_align {
+	text-align: center;
+}
+
+#tabe_align input {
+	font-size: 20px;
+	padding: 10px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#tabe_align input:hover {
+	background-color: #00938e;
+}
+
+#joinhome {
+	border: 1px solid #BDBDBD;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+#join_agreeinfo {
+	text-align: left;
+}
+
+#seat_list {
+	border: 1px solid #BDBDBD;
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+	padding: 7px;
+}
+
+.List_menu {
+	text-align: center;
+	margin: auto;
+	border: 1px solid #BDBDBD;
+	width: 1000px;
+	border-radius: 10px;
+}
+
+#add_search_header {
+	text-align: left;
+	margin: 20px;
+}
+
+.List_menu td {
+	border-bottom: 1px solid #BDBDBD;
+	padding: 5px 10px 5px 20px;
+}
+
+.member_png {
+	width: 40px;
+	position: relative;
+	top: 7px;
+	margin-right: 10px;
+}

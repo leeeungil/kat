@@ -1,0 +1,461 @@
+@charset "UTF-8";
+
+.totalView_recview {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	height: 1500px;
+}
+
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+.totalView_shop {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	height: 300px;
+}
+
+/*메인(좌) 블록 css*/
+#mainSize {
+	margin-top: 30px;
+	width: 500px;
+	float: left;
+	text-align: left;
+}
+
+/*매장사진 css*/
+#mainSize img {
+	width: 100px;
+	height: 100px;
+	margin-left: 10px;
+}
+
+/* 지도 */
+#asideSize {
+	margin-top: 70px;
+	width: 450px;
+	float: left;
+	margin-left: 0px;
+}
+
+#mapsize {
+	color: #8C8C8C;
+	font-size: 20px;
+	text-align: left;
+}
+
+#asideSeatSize {
+	margin-top: 230px;
+	width: 500px;
+    height: 800px;
+	float: left;
+	margin-left: 250px;
+}
+
+/*지도 css*/
+#mapArea {
+	border: 1px solid #ddd;
+	display: block;
+	width: 960px;
+	height: 300px;
+	/* clear:both;*/
+	z-index: 1;
+	border-radius: 5px;
+	margin-left: 10px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/*가격정보 css*/
+#priceInfo {
+	margin-top: 50x;
+	margin-left: 50px;
+	width: 400px;
+	height: 200px;
+	font-size: 12px;
+}
+
+#priceInfo td {
+	height: 40px;
+	width: 20px;
+}
+
+.line1 {
+	border-bottom: 1px solid #64d1cd;
+	font-size: 20px;
+	color: #8C8C8C;
+	padding: 12px;
+    text-align: left;
+}
+
+.line2 {
+	border-bottom: 1px solid #64d1cd;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.line4{
+	border-bottom: 1px solid #64d1cd;
+}
+
+#roleInfo {
+	border: 1px solid gray;
+	margin-top: 30px;
+	margin-left: 10px;
+	width: 480px;
+	margin-bottom: 20px;
+	padding: 10px;
+	font-size: 12px;
+	line-height: 180%;
+}
+
+.centered1, .centered2, .centered3, .centered4 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#reviewListTable td {
+	border-bottom: 1px solid #64d1cd;
+	text-align: center;
+}
+
+/*매장명 css*/
+#on_company_name {
+	margin-bottom: 20px;
+}
+
+/*리뷰보기 버튼 css*/
+#reviewListViewBtn {
+	padding: 20px 50px 20px 50px;
+	margin: 5px;
+	color: #fff;
+	background-color: #16bab4;
+	display: inline-block;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	cursor: pointer;
+	border-radius: .25em;
+	width: 100px;
+	margin-top: 20px;
+	border: 1px solid #747474;
+}
+
+/*footer css*/
+#end {
+	position: relative;
+	background-color: aqua;
+}
+
+.shopall img {
+	margin: 0 auto;
+	width: 300px;
+}
+
+#reservationBtn {
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	width: 380px;
+	padding: 10px;
+	background-color: #16bab4;
+	position: relative;
+	bottom: 4px;
+	font-size: 20px;
+	margin-top: 30px;
+	margin-left: 50px;
+}
+
+#reservationBtn_1 {
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	width: 380px;
+	padding: 10px;
+	background-color: #16bab4;
+	position: relative;
+	bottom: 4px;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+#reservationBtn:hover {
+	background-color: #00938e;
+}
+
+#reservationBtn_1:hover {
+	background-color: #00938e;
+}
+
+#shop_name {
+	font-size: 32px;
+	color: #006c69;
+}
+
+li {
+	list-style: none;
+}
+
+#btnstyle_reservation button {
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	width: 100px;
+	padding: 10px;
+	background-color: #16bab4;
+	position: relative;
+	bottom: 4px;
+	font-size: 12px;
+	border: none;
+}
+
+#btnstyle_reservation button:hover {
+	background-color: #00938e;
+}
+
+#btnstyle_reservation input {
+	background-color: #FFFFFF;
+	border: none;
+	padding: 10px;
+	outline: none;
+    font-size: 15px;
+	width: 60px;
+	font-weight: 600;
+}
+
+#pay {
+	padding: 5px 10px 5px 10px;
+	margin: 5px;
+	color: #fff;
+	background-color: #16bab4;
+	border-color: #16bab4;
+	font-size: inherit;
+	cursor: pointer;
+	width: 100px;
+	border: none;
+}
+#pay:hover {
+	background-color: #00938e;
+}
+
+#map_kat {
+	margin-top: 120px;
+	margin-left: 350px;
+	width: 450px;
+	height: 800px;
+	float: left;
+}
+
+#join_size_1 {
+	font-size: 30px;
+	color: #16bab4;
+}
+
+#agree {
+	font-size: 20px;
+	color: #16bab4;
+	margin-left: 10px;
+}
+
+#info_re {
+	margin-left: 70px;
+	margin-top: 30px;
+}
+
+#info_re tr {
+	margin-top: 5px;
+}
+
+#re_size {
+	width: 1000px;
+    float: left;
+	text-align: center;
+}
+
+#asideSeatSize_re {
+	margin-top: 110px;
+	width: 300px;
+	float: left;
+	margin-left: 40px;
+}
+
+#add_search_header_re {
+	font-size: 32px;
+	color: #006c69;
+	margin-bottom: 10px;
+}
+
+#mainSize_reing {
+	width: 100px;
+	height: 100px;
+}
+
+.List_menu_size_ing {
+	text-align: center;
+	margin: auto;
+	border: 1px solid #BDBDBD;
+	width: 400px;
+	font-size: 12px;
+    margin-top: 20px;
+}
+
+.List_menu_size_ing td {
+	border-top: 1px solid #BDBDBD;
+}
+
+#map_kat_re {
+	width: 500px;
+	margin-left: 500px;
+	margin-top: -100px;
+}
+
+#seat_list_reing {
+	width: 600px;
+	text-align: center;
+	margin: auto;
+	margin-top: 60px;
+	margin-bottom: 100px;
+	padding: 7px;
+}
+
+.List_menu_rsize {
+    ext-align: center;
+    border: 1px solid #BDBDBD;
+	width: 700px;
+	font-size: 12px;
+	margin: auto;
+}
+
+.List_menu_rsize td {
+	border-bottom: 1px solid #BDBDBD;
+	padding: 5px 10px 5px 10px;
+}
+
+#reviewListTable {
+	width: 960px;
+	margin-top: 30px;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+#reviewListTable td {
+	padding: 3px;
+	height: 30px;
+}
+
+.centered1 {
+	width: 70px;
+}
+
+.centered2 {
+	width: 680px;
+}
+
+#review_btn {
+	padding: 5px;
+	margin: 5px;
+	color: #fff;
+	display: inline-block;
+	cursor: pointer;
+	width: 380px;
+	padding: 10px;
+	background-color: #16bab4;
+	position: relative;
+	bottom: 4px;
+	font-size: 20px;
+	margin-top: 10px;
+	margin-left: 50px;
+}
+
+#review_btn:hover {
+	background-color: #00938e;
+}
+
+#loginchk_font {
+	color: red;
+	margin-left: 60px;
+}
+
+#table_h td {
+	border-bottom: 1px solid #C5C5C5;
+}
+#menu_size{
+	width: 70px;
+}
+
+/***** Google maps CSS *****/
+#map {
+	height: 100%;
+	width: 100%;
+	border: 2px solid darkgrey;
+}
+
+.controls {
+	margin-top: 10px;
+	border: 1px solid transparent;
+	border-radius: 2px 0 0 2px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	height: 32px;
+	outline: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+	background-color: #fff;
+	font-family: Roboto;
+	font-size: 15px;
+	font-weight: 300;
+	margin-left: 12px;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 300px;
+}
+
+#pac-input:focus {
+	border-color: #4d90fe;
+}
+
+.pac-container {
+	font-family: Roboto;
+}
+
+#type-selector {
+	color: #fff;
+	background-color: #4d90fe;
+	padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+	font-family: Roboto;
+	font-size: 13px;
+    font-weight: 300;
+}
+
+.pac-container {
+	background-color: #FFF;
+	z-index: 20;
+	position: fixed;
+	display: inline-block;
+	float: left;
+}
+
+.modal {
+	z-index: 20;
+}
+
+.modal-backdrop {
+	z-index: 10;
+} 

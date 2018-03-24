@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	display: inline-block;
+}
+
+.main_table {
+	text-align: center;
+	margin: auto;
+	margin-top: 90px;
+	border-radius: 15px;
+	padding: 1px;
+	width: 1000px;
+}
+
+.main_table td {
+	padding: 10px;
+	width: 600px;
+	border-radius: 15px;
+	font-size: 12px;
+}
+
+#photolist {
+	margin: 10px;
+	height: 200px;
+	float: left;
+	border: 1px solid #ddd;
+	margin-top:90px;
+}
+
+#shopSize {
+	width: 250px;
+	margin-top: 40px;
+	margin-left: 30px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+}
+
+#photoinfo {
+	width: 435px;
+	height: 150px;
+	text-align: left;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+
+#friendSize {
+	height: 200px;
+	width: 200px;
+	border-radius: 70px;
+}
+
+#shopfontsize {
+	font-size: 6px;
+	position: relative;
+	bottom: 4px;
+}
+
+#asideSize {
+	margin-top: 5px;
+	margin-left: 0px;
+	height: 800px;
+	float: left;
+}
+
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+#photosize img {
+	border: none;
+}
+
+#photolist a {
+	padding: 5px 50px 5px 50px;
+	margin: 5px;
+	color: #fff;
+	background-color: #16bab4;
+	border-color: #16bab4;
+	display: inline-block;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	cursor: pointer;
+	border-radius: .25em;
+	width: 105px;
+	text-align: center;
+}
+
+#photolist a:hover {
+	background-color: #00938e;
+}
+
+.shoppin {
+	position: relative;
+	height: 15px;
+	top: 8px;
+}
+
+.shopicon {
+	position: relative;
+	height: 15px;
+	top: 8px;
+}
+
+#namefont {
+	font-size: 20px;
+	font-weight: bold;
+	color: #000000;
+}

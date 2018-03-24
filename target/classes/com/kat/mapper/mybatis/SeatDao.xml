@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kat.seat.dao.SeatDao">
+
+	<!-- 좌석 정보 등록 -->
+	<insert id="insertSeat" parameterType="com.kat.seat.model.SeatInfo">
+		insert into file (file_seat, file_seatphoto, create_date , user_id , seat_status , reservation_id, Delete_seat) values (#{file_seat}, #{file_seatphoto}, #{create_date}, #{user_id}, #{seat_status}, #{reservation_id}, #{Delete_seat})
+	</insert>
+
+	<!-- 등록된 좌석 수 -->
+	<select id="seatSelectCount" resultType="int">
+		select count(*) from file where user_id= #{param1} and Delete_seat in('사용')
+	</select>
+
+	<!--좌석 리스트 담기 -->
+	<select id="seatList" resultType="com.kat.seat.model.SeatInfo">
+		select * from file where user_id = #{param1} and Delete_seat in('사용') order by create_date desc limit #{param2}, #{param3}
+	</select>
+	
+	<!-- 좌석 수정할 데이터 가져오기 -->
+	<select id="getSeatinfo" resultType="com.kat.seat.model.SeatInfo">
+		select * from file where file_no = #{no1} and Delete_seat in('사용')
+	</select>
+	
+	<!-- 수정하기 -->
+	<insert id="seatUpdate" parameterType="com.kat.seat.model.SeatInfo">
+		update on_file set file_seat = #{file_seat}, file_seatphoto = #{file_seatphoto} where file_no = #{file_no}
+	</insert>
+	
+	<!-- 삭제하기 정보는 유지 -->
+	<select id="seatdelete">
+		update on_file set Delete_seat = #{param1} , seat_status =  #{param2}  where file_no = #{param3}
+	</select>
+	
+	<!-- 예약가능 상태 닫기 수정하기 -->
+	<insert id="reservationUpdate" parameterType="com.kat.seat.model.UpdateReservation">
+		update on_file set seat_status = #{seat_status}  where file_no = #{file_no}
+	</insert>
+	
+	<!-- 예약가능 상태 오픈 수정하기 -->
+	<insert id="reservationUpdateopen" parameterType="com.kat.seat.model.UpdateReservation">
+		update on_file set seat_status = #{seat_status} , reservation_id = #{reservation_id}  where file_no = #{file_no}
+	</insert>
+	
+	<!-- JSON 좌석 리스트 담기 -->
+	<select id="seatReservation" resultType="com.kat.seat.model.SeatInfo">
+		select * from file where user_id = #{param1} limit #{param2}, #{param3}
+	</select>
+	
+	<!-- JSON 좌석 리스트 담기 -->
+	<select id="selectSeat" resultType="com.kat.seat.model.SeatInfo">
+		select * from file where file_no = #{param1}
+	</select>
+	
+	<!-- 예약가능 상태 담기 -->
+	<select id="getseatPayment" resultType="String">
+		select seat_status from file where file_no = #{param1}
+	</select>
+	
+	<!-- 예약가능 상태 담기 -->
+	<select id="nullchk" resultType="String">
+		select reservation_id from file where file_no = #{param1}
+	</select>
+	
+	<!-- 예약 처리 -->
+	<insert id="seatReservationSucess">
+		update file set reservation_id = #{param1} , seat_status = #{param2}, recentTime = #{param3} where file_no = #{param4}
+	</insert>
+	
+	
+	<!-- 예약내역 등록 -->
+	<insert id="setBreakdown" parameterType="com.kat.seat.model.ReservationBreakdown">
+		insert into kat_reservation (file_no, reservation_id, reservation_time, reservation_phone ) values (#{file_no}, #{reservation_id}, #{reservation_time}, #{reservation_phone})
+	</insert>
+	
+	
+	<!-- 예약내역 수 -->
+	<select id="BreakdownCount" resultType="int">
+		select count(*) 
+		from file inner join kat_reservation on file.file_no = kat_reservation.file_no where user_id = #{param1}
+	</select>
+	
+	<!-- 예약내역 리스트로 담기 -->
+	<select id="BreakdownListList" resultType="com.kat.seat.model.Breakdown">
+		select file.user_id , file.file_seat , file.file_seatphoto, kat_reservation.reservation_id , kat_reservation.reservation_time , reservation_phone
+		from file inner join kat_reservation on file.file_no = kat_reservation.file_no where user_id = #{param1} order by reservation_time desc limit #{param2}, #{param3}
+	</select>
+	
+	<!-- 예약자 전화번호 -->
+	<select id="reservation_phone" resultType="String">
+	select kat_phone from kat_member where kat_id = #{param1}
+	</select>
+	
+	<!-- 예약내역 리스트로 담기 -->
+	<select id="getSeat" resultType="com.kat.seat.model.SeatInfo">
+	select * from file where file_no = #{param1}
+	</select>
+	
+	<!-- 예약자 예약내역 정보 등록 -->
+	<insert id="insertRe_user" parameterType="com.kat.seat.model.UserReInfo">
+		insert into kat_user_reservation (shop_id, file_no, file_seat, shop_re_time, user_id, shop_name, shop_phone) values (#{shop_id}, #{file_no}, #{file_seat}, #{shop_re_time}, #{user_id}, #{shop_name}, #{shop_phone})
+	</insert>
+	
+	<!-- 매장 이름 가져오기 -->
+	<select id="shopName_phone" resultType="com.kat.seat.model.Shop_re_name_phone">
+	select kat_business.business_name, kat_business.business_phone
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no where kat_id = #{param1};
+	</select>
+
+	<!-- 예약자 전화번호 -->
+	<select id="userEmail" resultType="String">
+	select  kat_email from kat_member where kat_id = #{param1};
+	</select>
+	
+	<!-- 좌석 최근 예약시간 가져오기 -->
+	<select id="retime" resultType="Date">
+	select  recentTime from on_file where file_no = #{param1};
+	</select>
+	
+	<!-- 현재 좌석이 예약이 비어있는지 가져오기 삭제 부분-->
+	<select id="getseatEmpty" resultType="String">
+	select  reservation_id from file where file_no = #{param1};
+	</select>
+	
+	<!-- 예약불가 수 사운드 사용 -->
+	<select id="getseatR_size" resultType="int">
+	select  count(*) from file where user_id = #{param1} and seat_status ='예약가능';
+	</select>
+	
+	<!-- 좌석 예약닫기 사용 체크를 위한 비어있음 수 가져오기 사운드 부분 -->
+	<select id="getseatR_close" resultType="int">
+	select  count(*) from file where user_id = #{param1} and reservation_id ='비어있음';
+	</select>
+	
+	
+	<!-- 일반회원 예약내역 수 -->
+	<select id="BreakdownCountUser" resultType="int">
+	SELECT count(*) FROM kat_user_reservation where user_id = #{param1};
+	</select>
+	
+	<!-- 일반회원 예약내역 리스트로 담기 -->
+	<select id="BreakdownListListUser" resultType="com.kat.seat.model.UserBreakdown">
+	SELECT * FROM kat_user_reservation where user_id = #{param1} order by shop_re_time desc limit #{param2} , #{param3};
+	</select>
+	
+	
+	<!-- 처음 매장좌석 위치 등록 -->
+	<insert id="insertPosition" parameterType="com.kat.seat.model.SeatPosition">
+		insert into seat_position (user_id, seat_position) values (#{user_id}, #{seat_position});
+	</insert>
+	
+	<!-- 좌석위치 등록여부 -->
+	<select id="Position" resultType="String">
+	SELECT seat_position FROM seat_position where user_id = #{param1};
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+

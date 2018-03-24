@@ -1,0 +1,338 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+header {
+	text-align: center;
+	margin: auto;
+}
+
+#logo {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-align: right;
+	font-size: 35px;
+	font-family: serif;
+	color: #16bab4;
+}
+
+#navHeader {
+	width: 1000px;
+	border: 1px solid #16bab4;
+	height: 85px;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	padding: 0 100px 0 100px;
+	text-align: left;
+	position: fixed;
+	/*top:30px;*/
+	z-index: 3;
+}
+
+#navHeader li {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+img {
+	max-width: 100%;
+	border: 0px solid;
+}
+
+#a123 {
+	display: block;
+	padding-right: 20px;
+	float: right;
+	width: 400px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	top: 30px;
+}
+
+.Slides {
+	padding-top: 80px;
+}
+
+#content_menu {
+	text-align: center;
+	width: 1000px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.btn1 {
+	border: 0px solid;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.btn2 {
+	border: 0px solid;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.search1 {
+	border: 1px solid;
+	width: 300px;
+	height: 45px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.search2 {
+	width: 70px;
+	height: 45px;
+	font-size: 20px;
+	margin-right: 10px;
+	background-color: dimgray;
+	border: 1px solid dimgray;
+	color: white;
+}
+
+#content_menu a {
+	text-decoration: underline;
+}
+
+.mainImg {
+	text-align: center;
+	margin: auto;
+	width: 1000px;
+}
+
+#aaa {
+	list-style: none;
+	display: block;
+	width: 464px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 27px;
+	padding: 40px 38px 40px 38px;
+	padding-top: 80px;
+}
+
+#aaa li {
+	float: left;
+	width: 20%;
+	margin-left: -1px;
+	margin-top: -1px;
+	text-align: center;
+	position: relative;
+	border: 1px solid;
+	color: #3a3a3a;
+	font-size: 18px;
+}
+
+#abc {
+	background-color: #f5fcfc;
+	width: 440px;
+	height: 54px;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 260px;
+	padding: 0 38px 0 20px;
+	font-size: 18px;
+}
+
+.btn_close {
+	background: url(project/img/close.png) 0 0 no-repeat;
+	background-size: 100%;
+	text-indent: -20000px;
+	float: left;
+	width: 22px;
+	margin-top: 15px;
+	border: 0px
+}
+
+.btn_action {
+	font-size: 17px;
+	float: right;
+	margin-top: 15px;
+	color: #16bab4;
+}
+
+/* 메인(전체규격) css*/
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+/*메인(좌) 블록css*/
+#mainSize {
+	margin-top: 120px;
+	margin-left: 50px;
+	width: 700px;
+	height: 800px;
+	float: left;
+}
+
+/*메인(우) 블록css*/
+#asideSize {
+	margin-top: 120px;
+	margin-left: 400px;
+	width: 300px;
+	height: 800px;
+	float: left;
+	border: 1px solid gray;
+}
+
+/*공지사항 css*/
+#notice {
+	width: 300px;
+	height: 60px;
+	margin-left: 200px;
+	text-align: left;
+}
+
+#noticeList {
+	margin-left: 200px;
+	width: 800px;
+	text-align: center;
+	border: 3px solid gray;
+}
+
+.menu {
+	list-style: none;
+	line-height: 50px;
+	border-bottom: 1px solid gray;
+}
+
+.menu a {
+	cursor: pointer;
+}
+
+.menu p {
+	list-style: none;
+}
+
+.menu .hide {
+	list-style: none;
+	display: none;
+	width: 800px;
+	border: 1px solid none;
+}
+
+.hide li {
+	border: 1px solid gray;
+	height: 150px;
+	background-color: #F2F2F2;
+}
+
+/*고객센터정보 css*/
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	border: 1px solid #efefef;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+/*공지사항 버튼css*/
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*문의하기 버튼css*/
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*자주묻는질문 버튼css*/
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*공지사항보기 페이징*/
+.paging {
+	text-align: center;
+}
+
+.paging a {
+	/*display: inline-block 인라인 요소의 특징과 블록 요소의 특징을 모두 갖는다
+        크기를 가질 수 있으며 텍스트 정렬도 적용받는다*/
+	display: inline-block;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 5px 8px;
+	border: 1px solid #ccc;
+	color: #000;
+	background-color: #F5A7A7;
+}
+
+/*현재페이징에 select클래스를 적용한다.*/
+.paging a.select {
+	color: #fff;
+	background-color: #FFA7A7;
+}

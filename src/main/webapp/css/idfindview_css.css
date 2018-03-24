@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+li {
+	list-style: none;
+}
+
+#idfinddiv_1 {
+	padding-top: 30px;
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#idfinddiv_2 {
+	width: 450px;
+	height: 350px;
+	margin: 0 auto;
+	margin-top: 25px;
+}
+
+#idfinddiv_2 p {
+	font-size: 32px;
+	color: #006c69;
+}
+
+#litext {
+	color: #808080;
+}
+
+.style_user_idfind input[type="email"] {
+	border: 1px solid #BDBDBD;
+	font-size: 20px;
+	padding: 5px;
+	width: 300px;
+}
+
+.style_user_idfind input[type="button"] {
+	margin-top: 15px;
+	border: 1px solid #BDBDBD;
+	font-size: 20px;
+	padding: 5px;
+	width: 310px;
+	color: #fff;
+	border: 1px solid #16bab4;
+	background-color: #16bab4;
+}

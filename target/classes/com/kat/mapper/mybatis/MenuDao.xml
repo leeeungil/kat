@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kat.seat.dao.MenuDao">
+
+	<!-- 좌석 정보 등록 -->
+	<insert id="insertMenu" parameterType="com.kat.seat.model.MenuInfo">
+		insert into menu (menu_name, menu_price, menu_catagory , company_no , user_id , file_menuphoto, create_date, menu_loc, menu_nation) values (#{menu_name}, #{menu_price}, #{menu_catagory}, #{company_no}, #{user_id}, #{file_menuphoto}, #{create_date}, #{menu_loc}, #{menu_nation})
+	</insert>
+
+	<!-- 등록된 메뉴 수 -->
+	<select id="menuSelectCount" resultType="int">
+		select count(*) from menu where user_id= #{param1}
+	</select>
+
+	<!--메뉴 리스트 담기 -->
+	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
+		select * from menu where user_id = #{param1} order by create_date desc limit #{param2}, #{param3}
+	</select>
+	
+	<!-- 메뉴 수정할 데이터 가져오기 -->
+	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
+		select * from menu where menu_no = #{no1}
+	</select>
+	
+	<!-- 수정하기 -->
+	<insert id="menuUpdate" parameterType="com.kat.seat.model.MenuInfo">
+		update menu set menu_name = #{menu_name}, menu_price = #{menu_price}, menu_catagory = #{menu_catagory} , file_menuphoto = #{file_menuphoto} where menu_no = #{menu_no}
+	</insert>
+	
+	<!-- 삭제하기 -->
+	<select id="menudelete">
+		delete from menu where menu_no = #{no1}
+	</select>
+	
+	
+	<!-- 매장 사진 등록 -->
+	<insert id="insertshop" parameterType="com.kat.seat.model.ShopPhoto">
+		insert into shopphoto (user_id, file_shopphoto, create_date) values (#{user_id}, #{file_shopphoto}, #{create_date})
+	</insert>
+	
+	<!-- 등록된 매장 사진수 -->
+	<select id="shopCount" resultType="int">
+		select count(*) from shopphoto where user_id= #{param1}
+	</select>
+	
+	<!--사진 리스트 담기 -->
+	<select id="shopPhotoList" resultType="com.kat.seat.model.ShopPhoto">
+		select * from shopphoto where user_id = #{param1} limit #{param2}, #{param3}
+	</select>
+	
+	<!--매장사진 삭제하기 -->
+	<select id="shopPhotodelete">
+		delete from shopphoto where photo_no = #{no1}
+	</select>
+	
+	<!--사진 리스트 담기 -->
+	<select id="shopSearchList" resultType="com.kat.seat.model.ShopPhoto">
+		select * from shopphoto where user_id = #{param1} limit #{param2}, #{param3}
+	</select>
+	
+	<!--company_no 담기 -->
+	<select id="company_no" resultType="int">
+		select company_no from kat_member where kat_id = #{param1}
+	</select>
+	
+	
+	
+	
+	<!-- 키워드로 검색 수 -->
+	<select id="shopCountList" resultType="int">
+	select count(*) 
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where menu_name like CONCAT('%',#{keyword},'%')
+	</select>
+	<!-- 키워드로 검색 리스트 담기 -->
+	<select id="shopSearch" resultType="com.kat.seat.model.InfoShopSearch">
+	select kat_member.company_no, kat_business.business_name, kat_business.address1, menu.menu_catagory , menu.menu_name, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner joinkat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	</select>
+	
+	
+	<!-- 메뉴종류로 검색 수 -->
+	<select id="shopCountList2" resultType="int">
+	select count(distinct(kat_member.company_no))
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where menu_catagory like CONCAT('%',#{keyword},'%')
+	</select>	
+	<!-- 메뉴종류로 검색 리스트 담기 -->
+	<select id="shopSearch2" resultType="com.kat.seat.model.InfoShopSearch">
+	select distinct(kat_member.company_no), kat_business.business_name, kat_business.address1, menu.menu_catagory, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where menu_catagory like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	</select>
+	
+	
+	<!-- 지역으로 검색 수 -->
+	<select id="shopCountList3" resultType="int">
+	select count(distinct(kat_member.company_no))
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where address1 like CONCAT('%',#{keyword},'%')
+	</select>	
+	<!-- 지역으로 검색 리스트 담기 -->
+	<select id="shopSearch3" resultType="com.kat.seat.model.InfoShopSearch">
+	select distinct(kat_member.company_no), menu.menu_name, kat_business.address1 , menu.user_id , menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where address1 like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	</select>
+	
+	
+	<!-- 지역 /키워드로 검색 수 -->
+	<select id="shopCountList4" resultType="int">
+	select count(*) 
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where address1 like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%')
+	</select>	
+	<!-- 지역 /키워드로 검색 리스트 담기 -->
+	<select id="shopSearch4" resultType="com.kat.seat.model.InfoShopSearch">
+	select kat_member.company_no, menu.menu_name, kat_business.address1, menu.menu_catagory , menu.menu_name, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where address1 like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
+	</select>
+	
+	
+	<!-- 메뉴종류 /키워드로 검색 수 -->
+	<select id="shopCountList5" resultType="int">
+	select count(*) 
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where menu_catagory like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%')
+	</select>	
+	<!-- 메뉴종류 /키워드로 검색 리스트 담기 -->
+	<select id="shopSearch5" resultType="com.kat.seat.model.InfoShopSearch">
+	select kat_member.company_no, menu.menu_name, kat_business.address1, menu.menu_catagory , menu.menu_name, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where menu_catagory like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
+	</select>
+	
+	
+	<!-- 지역 / 메뉴종류 검색 수 -->
+	<select id="shopCountList6" resultType="int">
+	select count(distinct(kat_member.company_no))
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%')
+	</select>	
+	<!-- 지역 / 메뉴종류 리스트 담기 -->
+	<select id="shopSearch6" resultType="com.kat.seat.model.InfoShopSearch">
+	select distinct(kat_member.company_no), menu.menu_name, kat_business.address1, menu.menu_catagory, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
+	</select>
+	
+	
+	<!-- 지역 / 메뉴종류  / 키워드 검색 수 -->
+	<select id="shopCountList7" resultType="int">
+	select count(*) 
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no 
+	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%')
+	</select>	
+	
+	<!-- 지역 / 메뉴종류  / 키워드 검색 리스트 담기 -->
+	<select id="shopSearch7" resultType="com.kat.seat.model.InfoShopSearch">
+	select kat_member.company_no, menu.menu_name, kat_business.address1, menu.menu_catagory , menu.menu_name, menu.user_id, menu.file_menuphoto, menu.menu_loc
+	from kat_member inner join kat_business on kat_member.company_no = kat_business.company_no inner join menu on kat_business.company_no = menu.company_no
+	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%') limit #{param4}, #{param5}
+	</select>
+	
+	<!-- 매장 정보 가져오기 -->
+	<select id="getShopAddress" resultType="com.kat.seat.model.InfoShopAddress">
+	select m.company_no , m.kat_id, b.address1, b.business_name from kat_member m , kat_business b 
+	where m.company_no = b.company_no and m.kat_id = #{param1}
+	</select>
+	
+	
+	<!-- 사업자인지 확인하기 -->
+	<select id="getCategory" resultType="String">
+	select category from kat_member where kat_id= #{param1};
+	</select>
+	
+	<select id="shopCount2" resultType="int">
+		<!-- select count(*) from shopphoto where user_id= #{param1} -->
+		select count(*) from shopphoto 
+	</select>
+	
+	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">
+	select m.company_no , m.kat_id, b.address1, b.business_name from kat_member m , kat_business b 
+	where m.company_no = b.company_no and m.kat_id = #{param1}
+	</select>
+	
+	<select id="shopPhotoList2" resultType="com.kat.seat.model.ShopPhoto">
+		<!-- select * from shopphoto where user_id = #{param1} limit #{param2}, #{param3} -->
+		select * from shopphoto 
+	</select>
+	
+	<select id="menuSelectCount2" resultType="int">
+		select count(*) from menu 
+	</select>
+	
+	<select id="menuList2" resultType="com.kat.seat.model.MenuInfo">
+		SELECT * 
+		FROM kat.menu
+
+	</select>
+	
+
+
+</mapper>
+
+
+
+
+
+
+
+

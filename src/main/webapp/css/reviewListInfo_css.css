@@ -1,0 +1,151 @@
+/* 메인(전체규격) css*/
+.totalView {
+	width: 1600px;
+	text-align: center;
+	margin: auto;
+}
+
+/*메인(좌) 블록css*/
+#mainSize {
+	margin-top: 120px;
+	margin-left: 50px;
+	width: 200px;
+	height: 600px;
+	float: left;
+}
+
+/*메인(우) 블록css*/
+#asideSize {
+	margin-top: 120px;
+	margin-left: 900px;
+	width: 300px;
+	height: 600px;
+	float: left;
+	border: 1px solid gray;
+}
+
+/*상세보기 css*/
+#reviewDetailListForm {
+	width: 300px;
+	height: 60px;
+	margin-left: 200px;
+	text-align: left;
+}
+
+#reviewDetail {
+	margin-left: 100px;
+	width: 900px;
+	text-align: center;
+	border: 3px solid gray;
+}
+
+#reviewDetailListTable {
+	width: 900px;
+	height: 200px;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 200px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 600px;
+}
+
+#user_id {
+	height: 50px;
+	width: 700px;
+	border: none;
+}
+
+#review_title {
+	height: 50px;
+	width: 700px;
+	border: none;
+}
+
+
+/*고객센터정보 css*/
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	border: 1px solid #efefef;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+/*공지사항 버튼css*/
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*문의하기 버튼css*/
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*자주묻는질문 버튼css*/
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}

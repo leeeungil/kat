@@ -1,0 +1,58 @@
+.totalView {
+	padding-top: 30px;
+	width: 1000px;
+	height: 600px;
+	text-align: left;
+}
+
+#mainSize {
+	width: 600px;
+	height: 400px;
+	float: left;
+	margin-top: 38px;
+}
+
+#boardsendListForm {
+	width: 300px;
+	height: 60px;
+	margin-left: 10px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#masterinquireListTable {
+	margin-left: 20px;
+	width: 720px;
+	font-size: 12px;
+	border: 1px solid gray;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#masterinquireListTable td{
+	height: 30px;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 200px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 700px;
+}
+
+#user_id {
+	height: 50px;
+	width: 700px;
+	border: none;
+}
+
+#board_title {
+	height: 50px;
+	width: 700px;
+	border: none;
+}

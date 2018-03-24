@@ -1,0 +1,153 @@
+.totalView {
+	padding-top: 30px;
+	width: 1000px;
+	height: 700px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#mainSize {
+	margin-left: 50px;
+	width: 500px;
+	float: left;
+	text-align: left;
+}
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+	margin-left: 120px;
+	margin-top: 29px;
+}
+
+#detailListForm {
+	width: 300px;
+	height: 60px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#detail {
+	width: 600px;
+	text-align: center;
+	border: 1px solid gray;
+	margin-top: 20px;
+}
+
+#detailListTable {
+	width: 600px;
+	height: 100px;
+}
+
+.line1 {
+	width: 200px;
+	height: 50px;
+	font-size: 30px;
+	color: #006c69;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 500px;
+}
+
+#user_id {
+	height: 50px;
+	width: 490px;
+	border: none;
+}
+
+#notice_title {
+	height: 50px;
+	width: 490px;
+	border: none;
+}
+
+#notice_content {
+	width: 490px;
+	border: none;
+	text-align: center;
+}
+
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color: #006c69;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	padding: 10px;
+	resize: none;
+	overflow-x: hidden;
+	resize: none;
+}

@@ -1,0 +1,148 @@
+.totalView {
+	padding-top: 10px;
+	width: 1000px;
+	height: 750px;
+	text-align: center;
+}
+
+#mainSize {
+	margin-left: 50px;
+	width: 600px;
+	float: left;
+	text-align: left;
+	margin-top: 25px;
+}
+
+#masterNotice {
+	width: 300px;
+	height: 60px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#noticeWrite {
+	width: 650px;
+	text-align: center;
+	border: 1px solid gray;
+	margin-top: 20px;
+	font-size: 12px;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 150px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 400px;
+	text-align: left;
+	padding-left: 20px;
+}
+
+#user_id {
+	height: 50px;
+	width: 400px;
+	border: none;
+	font-size: 20px;
+}
+
+#notice_title {
+	height: 50px;
+	width: 400px;
+	border: none;
+}
+
+#noticeWriteBtn {
+	width: 100px;
+	height: 40px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	margin: 10px;
+}
+
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	border: 1px solid #efefef;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}
+
+#notice_content{
+	padding: 5px;
+}

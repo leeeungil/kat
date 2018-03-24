@@ -1,0 +1,81 @@
+.totalView {
+	padding-top: 30px;
+	width: 1000px;
+	height: 600px;
+	text-align: center;
+}
+
+#mainSize {
+	width: 600px;
+	height: 600px;
+	float: left;
+	text-align: left;
+	margin-top: 30px;
+}
+
+#mainSize_nt {
+	width: 600px;
+	height: 400px;
+	float: left;
+	text-align: left;
+	margin-top: 37px;
+}
+
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+}
+
+#noticeListForm {
+	width: 300px;
+	height: 60px;
+	margin-left: 10px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#noticeListTable {
+	margin-left: 20px;
+	width: 720px;
+	font-size: 12px;
+	border: 1px solid gray;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 200px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 700px;
+}
+
+#user_id {
+	height: 50px;
+	width: 700px;
+	border: none;
+}
+
+#notice_title {
+	height: 50px;
+	width: 700px;
+	border: none;
+}
+
+#btn_size {
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#noticeListTable tr{
+	height: 30px;
+}

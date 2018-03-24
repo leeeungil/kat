@@ -1,0 +1,188 @@
+/* 메인(전체규격) css*/
+.totalView_info {
+	padding-top: 50px;
+	width: 1000px;
+	text-align: center;
+	height: 600px;
+	margin: 0 auto;
+}
+
+.totalView {
+	padding-top: 50px;
+	width: 1000px;
+	text-align: center;
+	height: 600px;
+}
+
+#mainSize {
+	margin-left: 60px;
+	width: 600px;
+	height: 600px;
+	float: left;
+}
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+	margin-left: 30px;
+}
+
+/*상세보기 css*/
+#detailListForm {
+	width: 300px;
+	height: 60px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#detail {
+	width: 600px;
+	text-align: center;
+}
+
+#detailListTable {
+	font-size: 12px;
+	border: 3px solid gray;
+}
+
+#btnupdate {
+	padding: 10px;
+	outline: none;
+	width: 100px;
+	margin: 10px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#btnupdate:hover {
+	background-color: #00938e;
+}
+
+#btndelete {
+	padding: 10px;
+	outline: none;
+	width: 100px;
+	margin: 10px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#btndelete:hover {
+	background-color: #00938e;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 50px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 500px;
+}
+
+#user_id {
+	height: 50px;
+	width: 490px;
+	border: none;
+}
+
+#board_title {
+	height: 50px;
+	width: 490px;
+	border: none;
+}
+
+#board_content {
+	width: 490px;
+	border: none;
+}
+
+/*고객센터정보 css*/
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color: #006c69;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+/*공지사항 버튼css*/
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*문의하기 버튼css*/
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+/*자주묻는질문 버튼css*/
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}

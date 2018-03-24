@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+li {
+	list-style: none;
+	
+}
+
+
+#pwchange_div_1 {
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 30px;
+	width: 50%;
+	
+}
+
+#pwchange_div_2 {
+	text-align: center;
+	width: 500px;
+	height: inherit;
+	margin: 0 auto;
+	padding-top: 20px;
+	
+}
+
+#pwchange_div_2 p {
+	font-size: 28px;
+	color: #006c69;
+	text-align: center;
+	
+}
+
+#pwchange_div_2 a {
+	font-size: 20px;
+	color: #006c69;
+	text-align: center;
+	
+}
+
+
+
+
+
+
+
+
+
+
+

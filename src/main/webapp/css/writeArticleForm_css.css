@@ -1,0 +1,156 @@
+.totalView {
+	padding-top: 50px;
+	width: 1000px;
+	height: 700px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#mainSize {
+	margin-left: 20px;
+	width: 600px;
+	height: 700px;
+	float: left;
+	text-align: left;
+}
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+	margin-left: 50px;
+}
+
+#inquire {
+	font-size: 32px;
+	color: #006c69;
+	margin-left: 20px;
+}
+
+#inquireWriteTable {
+	width: 600px;
+}
+
+#inquireWrite {
+	width: 600px;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+}
+
+.line1 {
+	width: 100px;
+	height: 50px;
+	border-bottom: 1px solid gray;
+}
+
+.line2 {
+	width: 500px;
+}
+
+#user_id {
+	height: 50px;
+	width: 491px;
+	font-size: 15px;
+	padding: 3px;
+}
+
+#board_title {
+	height: 50px;
+	width: 491px;
+	padding: 3px;
+}
+
+#board_content {
+	width: 493px;
+	border: 1px solid gray;
+	padding: 3px;
+}
+
+#inquireWriteBtn {
+	width: 100px;
+	height: 40px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	margin: 10px;
+}
+
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color: #006c69;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}

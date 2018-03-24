@@ -1,0 +1,147 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	display: inline-block;
+}
+
+#idspan{
+	margin-left: 10px;
+}
+
+#add_search_border {
+	text-align: left;
+}
+
+#add_search_border {
+	border: 1px solid #BDBDBD;
+	width: 780px;
+	text-align: left;
+	margin: auto;
+	margin-top: 30px;
+	padding: 7px;
+	font-size: 12px;
+}
+
+#add_search_header {
+	font-size: 32px;
+	color: #006c69;
+	margin: 10px;
+}
+
+#btnstyle input {
+	padding: 5px 50px 5px 50px;
+	margin: 5px;
+	border-color: #2e6da4;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#btnstyle {
+	margin-left: 5px;
+}
+
+#join_kat {
+	margin-top: 10px;
+	width: 1000px;
+	float: left;
+	text-align: center;
+}
+
+.textstyle input[type="text"] {
+	border: 1px solid #BDBDBD;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	width: 300px;
+}
+
+.textstyle input[type="password"] {
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 5px;
+    width: 300px;
+}
+
+.textstyle input[type="button"] {
+	padding: 5px 25px 5px 25px;
+	margin: 5px;
+	border-color: #2e6da4;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+
+#add_search_li_border {
+	border: 1px solid #BDBDBD;
+	padding: 10px;
+	margin: 10px;
+	border-radius: 10px;
+	width: 150px;
+	text-align: center;
+}
+
+#join_center {
+	text-align: center;
+	margin: auto;
+	width: 800px;
+}
+
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+}
+
+#postcode {
+	width: 100px;
+}
+
+#address1, #address2, #postcode {
+	border: 1px solid #16bab4;
+}
+
+#address2 {
+	margin-left: 245px;
+}
+
+#kk_searchaddr {
+	padding: 5px;
+	margin: 5px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#kk_searchaddr:hover {
+	background-color: #00938e;
+}
+
+#address2 {
+	width: 500px;
+}
+
+.textstyle input[type="email"] {
+	border: 1px solid #BDBDBD;
+	border-radius: 10px;
+	font-size: 20px;
+	padding: 5px;
+	width: 300px;
+}
+
+.member_png {
+	width: 40px;
+	position: relative;
+	top: 7px;
+	margin-right: 10px;
+}

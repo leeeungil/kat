@@ -1,0 +1,318 @@
+@charset "UTF-8";
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	text-decoration: none;
+}
+
+header {
+	text-align: center;
+	margin: auto;
+}
+
+#logo {
+	display: inline-block;
+	margin-top: 20px;
+	margin-left: 20px;
+	text-align: right;
+	font-size: 35px;
+	font-family: serif;
+	color: #16bab4;
+}
+
+#navHeader {
+	width: 1000px;
+	border: 1px solid #16bab4;
+	height: 85px;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	padding: 0 100px 0 100px;
+	text-align: left;
+	position: fixed;
+	/*top:30px;*/
+	z-index: 3;
+}
+
+#navHeader li {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+img {
+	max-width: 100%;
+	border: 0px solid;
+}
+
+#a123 {
+	display: block;
+	padding-right: 20px;
+	float: right;
+	width: 400px;
+	text-align: center;
+	margin: auto;
+	position: relative;
+	top: 30px;
+}
+
+.Slides {
+	padding-top: 80px;
+}
+
+#content_menu {
+	text-align: center;
+	width: 1000px;
+	margin: auto;
+	margin-top: 30px;
+}
+
+.btn1 {
+	border: 0px solid;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.btn2 {
+	border: 0px solid;
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.search1 {
+	border: 1px solid;
+	width: 300px;
+	height: 45px;
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+.search2 {
+	width: 70px;
+	height: 45px;
+	font-size: 20px;
+	margin-right: 10px;
+	background-color: dimgray;
+	border: 1px solid dimgray;
+	color: white;
+}
+
+#content_menu a {
+	text-decoration: underline;
+}
+
+.mainImg {
+	text-align: center;
+	margin: auto;
+	width: 1000px;
+}
+
+#aaa {
+	list-style: none;
+	display: block;
+	width: 464px;
+	font-size: 18px;
+	font-weight: 200;
+	line-height: 27px;
+	padding: 40px 38px 40px 38px;
+	padding-top: 80px;
+}
+
+#aaa li {
+	float: left;
+	width: 20%;
+	margin-left: -1px;
+	margin-top: -1px;
+	text-align: center;
+	position: relative;
+	border: 1px solid;
+	color: #3a3a3a;
+	font-size: 18px;
+}
+
+#abc {
+	background-color: #f5fcfc;
+	width: 440px;
+	height: 54px;
+	margin: auto;
+	margin-top: 10px;
+	margin-left: 260px;
+	padding: 0 38px 0 20px;
+	font-size: 18px;
+}
+
+.btn_close {
+	background: url(project/img/close.png) 0 0 no-repeat;
+	background-size: 100%;
+	text-indent: -20000px;
+	float: left;
+	width: 22px;
+	margin-top: 15px;
+	border: 0px
+}
+
+.btn_action {
+	font-size: 17px;
+	float: right;
+	margin-top: 15px;
+	color: #16bab4;
+}
+
+/* 메인(전체규격) css*/
+.totalView {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	height: 900px;
+}
+
+.totalView_Rfoot {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	height: 770px;
+}
+
+.totalView_shopfoot {
+	width: 1000px;
+	text-align: center;
+	height: 600px;
+	margin: 0 auto;
+}
+
+.totalView_b {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	height: 1030px;
+}
+
+.totalView_seup {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	height: 600px;
+}
+
+.totalView_me {
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+	height: 700px;
+}
+
+#asideSize_me {
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 600px;
+	float: left;
+}
+
+/*메인(우) 블록*/
+#asideSize {
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 800px;
+	float: left;
+}
+
+#add_search_border_re {
+	border: 1px solid #BDBDBD;
+	width: 600px;
+	text-align: left;
+	margin: auto;
+	margin-top: 30px;
+	padding: 7px;
+	font-size: 12px;
+	margin-left: 275px;
+}
+
+#asideSize_seup {
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 500px;
+	float: left;
+	text-align: left;
+}
+
+#asideSize_seatsucess {
+	margin-top: 5px;
+	margin-left: 10px;
+	height: 500px;
+	float: left;
+	text-align: left;
+}
+
+.totalView_seatsucess {
+	width: 1000px;
+	text-align: center;
+	margin: auto;
+	height: 600px;
+}
+
+/*문의하기 css*/
+#inquireTitle {
+	width: 300px;
+	height: 60px;
+	margin-left: 100px;
+	text-align: left;
+}
+
+#inquireWrite {
+	margin-left: 100px;
+	width: 1000px;
+	text-align: center;
+	border: 3px solid gray;
+}
+
+#inquireWriteTable {
+	width: 1000px;
+	height: 200px;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 200px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 600px;
+}
+
+#member_email_id {
+	width: 700px;
+	height: 50px;
+	border: none;
+}
+
+#board_title {
+	width: 700px;
+	height: 50px;
+	border: none;
+}
+
+/*문의하기 쓰기버튼*/
+#companyInquireWriteBtn {
+	width: 100px;
+	height: 40px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+/*메인(사이드바) 블록*/
+#sideMenu {
+	float: left;
+	width: 275px;
+}
+
+textarea {
+	resize: none;
+}

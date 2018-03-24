@@ -1,0 +1,154 @@
+.totalView {
+	padding-top: 50px;
+	width: 1000px;
+	text-align: center;
+	height: 600px;
+	margin: 0 auto;
+}
+
+#mainSize {
+	margin-left: 20px;
+	width: 600px;
+	float: left;
+	margin-top: 50px;
+}
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+	margin-left: 50px;
+}
+
+#review {
+	width: 300px;
+	height: 60px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+}
+
+#reviewWrite {
+	width: 600px;
+	text-align: center;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 150px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 495px;
+}
+
+#user_id {
+	height: 50px;
+	width: 495px;
+	border: none;
+}
+
+#review_content {
+	height: 50px;
+	width: 495px;
+	border: none;
+}
+
+#reviewBtn {
+	padding: 10px;
+	outline: none;
+	width: 100px;
+	margin: 10px;
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+}
+
+#reviewBtn:hover {
+	background-color: #00938e;
+}
+
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color: #006c69;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}
+
+#reviewWriteTable {
+	font-size: 12px;
+}
