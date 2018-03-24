@@ -24,13 +24,12 @@ public class LoginForm1Controller {
 			throws IllegalStateException, IOException {
 
 		System.out.println("로그 Login1 컨트롤"); // 일반 회원 로그인 컨트롤
-
 		int idchk = loginService.loginidchk(user_id, user_pass);
-
 		ModelAndView modelAndView = new ModelAndView();
-
+		System.out.println("[LoginForm1Controlleridchk] CALL SUCCESS");
+		System.out.println("[LoginForm1Controlleridchk] idchk : " + idchk);
+		
 		if (idchk == 3) {
-			
 			req.getSession(false).setAttribute("user_id", user_id);
 			req.getSession(false).setAttribute("user_category", "일반 회원");
 			
@@ -39,8 +38,6 @@ public class LoginForm1Controller {
 			modelAndView.setViewName("/kat_login/LoginFormChk");
 			modelAndView.addObject("idchk1", idchk);
 		}
-
 		return modelAndView;
 	}
-
 }

@@ -1,7 +1,6 @@
 package com.kat.review.controller;
 
 import java.io.IOException;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ public class ReviewWriteController {
 
 	@Autowired
 	private ReviewService reviewService;
-
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String writeReviewForm(String SearchName,Model model) {
@@ -30,11 +28,9 @@ public class ReviewWriteController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String reviewSubmit(String SearchName,Review review) throws IllegalStateException, IOException {
 		
-		review.setRegdate(new Date());
 		System.out.println("reviewSubmit : " + SearchName);
 		System.out.println("review :" + review);
 		reviewService.reviewinsert(SearchName,review);
-				
 				
 		return  "redirect:/kat/seatInfoLsit/reservation.do?SearchName="+SearchName;
 	}

@@ -1,7 +1,5 @@
 package com.kat.seat.service;
 
-import java.util.Date;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,64 +13,54 @@ public class LoginService {
 	private SqlSessionTemplate sqlSessionTemplate;
 
 	private LoginDao dao;
-
+	
 	// 일반 회원
 	public void joinInsert(JoinInfo joinInfo) {
-
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		// 가입한 시간
-		joinInfo.setCreate_date(new Date());
-
+		System.out.println("[DAO #joinInsert] CALL SUCCESS");
+		System.out.println("[DAO #joinInsert] joinInfo : " + joinInfo.toString());
 		dao.insertMember(joinInfo);
-
 	}
 
 	// 사업자 회원
 	public void joinInsertBusiness(JoinInfo joinInfo) {
-
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		joinInfo.setCreate_date(new Date());
-
 		System.out.println("사업자값 확인" + joinInfo);
 		dao.insertMember(joinInfo);
-
 		dao.insertBusiness(joinInfo);
-
 	}
 
 	// 아이디 비밀번호 일치 여부 확인
 	public int loginidchk(String user_id, String user_pass) {
-
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 
 		int result = 0;
 		JoinInfoChk chk = dao.idChk(user_id);
-
-		if (chk == null) {
-			result = 1; // 아이디 없음
-		} else if (!chk.matchPassword(user_pass)) {
+		
+		System.out.println(user_pass);
+		System.out.println(chk.toString());
+		
+		if (!chk.getPassword().equals(user_pass)) {
 			result = 2; // 비밀번호 불일치
-		} else if (chk.getCategory().equals("member")) {
+		} else if (chk.getLevel().equals("1")) {
 			result = 3; // 일반회원
-		} else if (chk.getCategory().equals("business")) {
+		} else if (chk.getLevel().equals("2")) {
 			result = 4; // 사업자회원
 		}
-
 		return result;
-
 	}
 
 	// 아이디 정보 값 가져오기
-	public JoinInfo userInfo(String id) {
+	public JoinInfo userInfo(String user_id) {
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		JoinInfo user_info = dao.userinfo(id);
+		System.out.println(user_id);
+		JoinInfo user_info = dao.userinfo(user_id);
 
 		return user_info;
 	}
 
 	// 업데이트 할 사업자데이터 가져오기
 	public JoinInfo getMyPageInfoView(String userid) {
-
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfo infoview = dao.getMemberinfo(userid);
 
@@ -81,7 +69,6 @@ public class LoginService {
 
 	// 업데이트 할 회원데이터 가져오기
 	public JoinInfo getMyPageInfoView1(String userid) {
-
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfo infoview = dao.getMemberinfo1(userid);
 
@@ -91,9 +78,7 @@ public class LoginService {
 	// 비밀번호 변경
 	public void update_pw(JoinInfo joinInfo) {
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-
 		dao.update_pw(joinInfo);
-
 	}
 
 	// ajax id 중복체크
@@ -102,7 +87,6 @@ public class LoginService {
 		int infochkid = dao.checkAjaxId(id);
 		System.out.println("ajax 서비스 id= " + infochkid);
 		return infochkid;
-
 	}
 
 	// ajax email 중복체크
@@ -111,21 +95,19 @@ public class LoginService {
 		int infochkemail = dao.checkAjaxEmail(id);
 		System.out.println("ajax 서비스 id= " + infochkemail);
 		return infochkemail;
-
 	}
 
-	public int loginidchk_2(String userid, String user_pass) {
+	public int loginidchk_2(String user_id, String user_pass) {
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 
 		int result = 0;
-		JoinInfoChk chk = dao.idChk(userid);
+		JoinInfoChk chk = dao.idChk(user_id);
 
 		if (chk == null) {
 			result = 1; // 아이디 없음
 		} else if (!chk.matchPassword(user_pass)) {
 			result = 2; // 비밀번호 불일치
 		}
-
 		return result;
 	}
 

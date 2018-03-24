@@ -1,112 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kat.seat.dao.LoginDao">
 
 	<!-- 일반 회원 정보 등록 -->
-	<insert id="insertMember" parameterType="com.kat.seat.model.JoinInfo"
-		useGeneratedKeys="true" keyProperty="company_no">
-		insert into
-		kat_member
-		(kat_id, kat_name, kat_password1, kat_phone
-		,kat_email, create_date, category, user_chk)
-		values (#{kat_id},
-		#{kat_name}, #{kat_password1},
-		#{kat_phone},
-		#kat_email}, #{create_date}, #{category},
-		#{user_chk})
+	<insert id="insertMember" parameterType="com.kat.seat.model.JoinInfo">
+		INSERT INTO MEMBER
+		VALUES (0, #{user_id}, #{name}, #{password}, #{phone}, #{email}, now(), #{level}, 0)
 	</insert>
 
 	<!-- 사업자 정보 등록 -->
 	<insert id="insertBusiness" parameterType="com.kat.seat.model.JoinInfo">
-		insert into
-		kat_business (company_no, business_name, postcode , address1 ,
-		address2 , business_phone ,business_num) values (#{company_no},
-		#{business_name}, #{postcode} , #{address1} , #{address2},
-		#{business_phone}, #{business_num})
+		INSERT INTO BUSINESS
+		VALUES (#{user_id}, #{company}, #{postcode} , #{address1} , #{address2}, #{business_phone}, #{business_number}, 0)
 	</insert>
 
-	<!-- 아이디 비밀번호 확인 -->
+	<!-- 비밀번호 확인 -->
 	<select id="idChk" resultType="com.kat.seat.model.JoinInfoChk">
-		select company_no, kat_id,
-		kat_password1, category from
-		kat_member where kat_id =
-		#{id};
+		SELECT member_no, user_id, password, level
+		FROM MEMBER WHERE USER_ID = #{user_id};
 	</select>
 
-
-	<!--아이디 정보 값 가져오기 -->
+	<!-- 마이 페이지 호출 -->
 	<select id="userinfo" resultType="com.kat.seat.model.JoinInfo">
-		select * from kat_member,
-		kat_business
-		where kat_member.company_no = #{param1}
+		SELECT member_no, M.user_id, name, password, phone, email, level, delete_flag, company,
+				postcode, address1, address2, business_phone, business_number, com_delete_flag
+		FROM MEMBER M, BUSINESS B
+		WHERE M.USER_ID=B.USER_ID AND M.USER_ID = #{user_id}
 	</select>
-
 
 	<!-- 수정할 사업자정보 가져오기 -->
 	<select id="getMemberinfo" resultType="com.kat.seat.model.JoinInfo">
-		select * from
-		kat_member join kat_business on
-		kat_member.company_no=kat_business.company_no where kat_id
-		= #{id1}
+		SELECT member_no, M.user_id, name, password, phone, email, level, delete_flag, company,
+				postcode, address1, address2, business_phone, business_number, com_delete_flag
+		FROM MEMBER M, BUSINESS B
+		WHERE M.USER_ID=B.USER_ID AND USER_ID = #{user_id}
 	</select>
 
 	<!-- 수정할 회원정보 가져오기 -->
 	<select id="getMemberinfo1" resultType="com.kat.seat.model.JoinInfo">
-		select * from
-		kat_member
-		where kat_id = #{id1}
+		SELECT *
+		FROM MEMBER
+		WHERE USER_ID = #{user_id}
 	</select>
 
 	<!-- 회원정보 수정 -->
 	<update id="memberUpdate" parameterType="com.kat.seat.model.JoinInfo">
-		update kat_member
-		set kat_name = #{kat_name}, kat_phone = #{kat_phone}
-		<!-- kat_email = #{kat_email} --> where kat_id = #{kat_id}
+		UPDATE MEMBER
+		SET NAME = #{name}, PHONE = #{phone}
+		WHERE USER_ID = #{user_id}
 	</update>
 
+	<!-- 사업자정보 수정 -->
 	<update id="businessUpdate" parameterType="com.kat.seat.model.JoinInfo">
-		update kat_member
-		m JOIN kat_business b
-		on m.company_no=b.company_no set
-		kat_name= #{kat_name}, kat_phone= #{kat_phone},
-		<!-- kat_email = #{kat_email}, --> business_name = #{business_name},
-		postcode = #{postcode}, address1 = #{address1}, address2 =
-		#{address2},
-		business_phone = #{business_phone}, business_num =
-		#{business_num}
-		where kat_id = #{kat_id}
+		UPDATE MEMBER M JOIN BUSINESS B
+		ON M.USER_ID=B.USER_ID
+		SET NAME={name}, PHONE=#{phone}, COMPANY=#{company}, POSTCODE = #{postcode}, ADDRESS1 = #{address1}, 
+		ADDRESS2 = #{address2}, BUSINESS_PHONE = #{business_phone}, BUSINESS_NUMBER = #{business_number}
+		WHERE USER_ID = #{user_id}
 	</update>
-
 
 	<update id="update_pw" parameterType="com.kat.seat.model.JoinInfo">
-		update kat_member set
-		kat_password1 = #{kat_password1} where
-		kat_id =
-		#{kat_id}
+		UPDATE MEMBER
+		SET PASSWORD = #{password}
+		WHERE USER_ID = #{user_id}
 	</update>
 
 	<select id="checkAjaxId" resultType="Integer">
-		select COUNT(*) from
-		kat_member where kat_id = #{param}
+		SELECT COUNT(*)
+		FROM MEMBER WHERE USER_ID = #{user_id}
 	</select>
 
-
 	<select id="checkAjaxEmail" resultType="Integer">
-		select COUNT(*) from
-		kat_member where kat_email = #{param}
+		SELECT COUNT(*)
+		FROM MEMBER WHERE EMAIL = #{email}
 	</select>
 
 	<select id="ajaxemailid" resultType="String">
-		select kat_id from
-		kat_member where kat_email = #{param1}
+		SELECT USER_ID
+		FROM MEMBER
+		WHERE EMAIL = #{email}
 	</select>
 
 	<select id="ajaxemailpw" resultType="String">
-		select kat_password1
-		from kat_member where kat_email = #{param1}
+		SELECT PASSWORD
+		FROM MEMBER WHERE EMAIL = #{email}
 	</select>
 
 

@@ -24,33 +24,28 @@ public class UpdateController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-		joinInfo.setKat_id(userid);
+		joinInfo.setUser_id(userid);
 		
 		// 사업자, 일반 구분 데이터 가져오기
 		JoinInfo info = updateService.getMyPageUpdateInfo1(userid);
 		
-		String category = info.getCategory();
+		String level = info.getLevel();
 
-		System.out.println("구분 가져오기" + category);
+		System.out.println("구분 가져오기" + level);
 
-		if (category.equals("business")) {
-
+		if (level.equals("2")) {
 			System.out.println("사업자용");
 			updateService.businessUpdate(joinInfo);
 			modelAndView.addObject("MypageUpdateSucess", joinInfo);
-			modelAndView.addObject("category", category);
-
-		} else if (category.equals("member")) {
-
+			modelAndView.addObject("category", level);
+		} else if (level.equals("1")) {
 			System.out.println("일반회원용");
 			updateService.memberUpdate(joinInfo);
 			modelAndView.addObject("MypageUpdateSucess", joinInfo);
-			modelAndView.addObject("category", category);
+			modelAndView.addObject("category", level);
 		}
-
 		
 		System.out.println("값 확인" + joinInfo);
-
 		modelAndView.setViewName("UpdateMypage_main");
 
 		return modelAndView;

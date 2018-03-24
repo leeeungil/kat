@@ -15,13 +15,13 @@ public interface LoginDao {
 	public JoinInfoChk idChk(String user_id);
 
 	// 회원정보 가져오기
-	public JoinInfo userinfo(String id);
+	public JoinInfo userinfo(String user_id);
 
 	// 수정할 데이터 가져오기
-	public JoinInfo getMemberinfo(String userid);
+	public JoinInfo getMemberinfo(String user_id);
 
 	// 수정할 데이터 가져오기
-	public JoinInfo getMemberinfo1(String userid);
+	public JoinInfo getMemberinfo1(String user_id);
 
 	// 마이페이지 (수정)업데이트
 	public void memberUpdate(JoinInfo joinInfo);
@@ -32,10 +32,10 @@ public interface LoginDao {
 	public int update_pw(JoinInfo joinInfo);
 
 	// id ajax
-	public int checkAjaxId(String id);
+	public int checkAjaxId(String user_id);
 
 	// email ajax
-	public int checkAjaxEmail(String id);
+	public int checkAjaxEmail(String email);
 
 	public String ajaxemailid(String joinInfo);
 

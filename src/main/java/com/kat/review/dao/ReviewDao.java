@@ -11,9 +11,9 @@ public interface ReviewDao {
 
 	public List<Review> reviewList(String SearchName, int firstRow, int CountPerPage);
 
-	public Review info(int no);
+	public Review info(int review_no);
 
-	public Review getinfo(int no);
+	public Review getinfo(int review_no);
 
 	public void reviewupdate(Review review);
 

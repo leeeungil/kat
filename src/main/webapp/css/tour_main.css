@@ -793,7 +793,7 @@ Traveler Review
 #hd {
 	width:1400px;
 	margin:0 auto;
-	margin-top:170px;
+	margin-top:200px;
 	height:200px;
 	/* position:fixed; */
 	line-height:50px;
@@ -813,8 +813,8 @@ Traveler Review
 	height:38px;
 	line-height:45px;
 	margin:0 auto;
-	margin-top:500px;
-	margin-left:100px;
+	margin-top:520px;
+	margin-left:160px;
 	padding-left:40px;
 	text-align:center;
 }
@@ -893,10 +893,9 @@ Traveler Review
 }
 
 #friendkakao {
-	height:180px;
+	height:90px;
 	border:1px solid none;
 	background-color:#FFF100;
-	line-height: 0.9;
 }
 
 #friendkakao>span {
@@ -906,8 +905,9 @@ Traveler Review
 }
 
 .serviceq {
-    width: 1400px;
-    margin: 0 auto;
-    text-align: center;
-    margin-top:-10px;
+	width: 1600px;
+	margin-left: 20px;
+	margin: 0 auto;
+	padding-top: 50px;
+	text-align: center;
 }

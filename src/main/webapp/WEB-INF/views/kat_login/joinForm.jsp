@@ -498,7 +498,7 @@ function emailfocus(){
 					<ul>
 						<li id="add_search_li_border">아이디</li>
 						<li class="textstyle"><input type="text" id="kat_id"
-							name="kat_id"></li>
+							name="user_id"></li>
 						<li class="textstyle"><input type="button" id="ajaxid"
 							value="ID 중복체크"> <input type="hidden" id="ajaxid_1"
 							value="N"></li>
@@ -507,12 +507,12 @@ function emailfocus(){
 					<ul>
 						<li id="add_search_li_border">이름</li>
 						<li class="textstyle"><input type="text" id="kat_name"
-							name="kat_name"></li>
+							name="name"></li>
 					</ul>
 					<ul>
 						<li id="add_search_li_border">비밀번호</li>
 						<li class="textstyle"><input type="password"
-							id="kat_password1" name="kat_password1"></li>
+							id="kat_password1" name="password"></li>
 					</ul>
 					<ul>
 						<li id="add_search_li_border">비밀번호 확인</li>
@@ -522,13 +522,13 @@ function emailfocus(){
 					<ul>
 						<li id="add_search_li_border">전화번호</li>
 						<li class="textstyle"><input type="text" id="kat_phone"
-							name="kat_phone"></li>
+							name="phone"></li>
 						<li>ex) 010-1234-5678</li>
 					</ul>
 					<ul>
 						<li id="add_search_li_border">이메일</li>
 						<li class="textstyle"><input type="email" id="kat_email"
-							name="kat_email" onfocus="emailfocus()"></li>
+							name="email" onfocus="emailfocus()"></li>
 						<li class="textstyle"><input type="button" value="이메일 확인"
 							id="ajaxemail"><input type="hidden" id="ajaxemail_1"
 							value="N"></li>
@@ -545,16 +545,16 @@ function emailfocus(){
 					</ul>
 					<ul>
 						<li id="add_search_li_border">등록여부 선택</li>
-						<li><input type="radio" id="category" name="category"
-							value="business" class="businessbtn"> 사업자회원 &nbsp;</li>
-						<li><input type="radio" id="category" name="category"
-							value="member" class="memberbtn" checked> 일반회원 &nbsp;</li>
+						<li><input type="radio" id="level2" name="level"
+							value="2" class="businessbtn"> 사업자회원 &nbsp;</li>
+						<li><input type="radio" id="level1" name="level"
+							value="1" class="memberbtn" checked> 일반회원 &nbsp;</li>
 
 					</ul>
 					<ul id="business_display1" style="display: none">
 						<li id="add_search_li_border">매장 이름</li>
 						<li class="textstyle"><input type="text" id="business_Name"
-							name="business_name"></li>
+							name="company"></li>
 					</ul>
 					<ul id="business_display2" style="display: none">
 						<li id="add_search_li_border">매장 주소</li>
@@ -576,7 +576,7 @@ function emailfocus(){
 					<ul id="business_display4" style="display: none">
 						<li id="add_search_li_border">사업장등록 번호</li>
 						<li class="textstyle"><input type="text" id="business_num"
-							name="business_num"></li>
+							name="business_number"></li>
 					</ul>
 					<ul id="btnstyle">
 						<li><input type="submit" id="Registration"

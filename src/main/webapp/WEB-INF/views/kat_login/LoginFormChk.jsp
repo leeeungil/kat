@@ -21,7 +21,6 @@ if (${idchk1} == 4) {
 	alert('사업자회원 입니다. 확인후 다시 로그인해주세요');
 	location.href = "<%=request.getContextPath()%>/kat_main.do"
 }
-
 </script>
 
 <head>

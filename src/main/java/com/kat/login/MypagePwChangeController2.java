@@ -25,24 +25,22 @@ public class MypagePwChangeController2 {
 
 		System.out.println("Password 변경 컨트롤_2");
 
-		String userid = (String) request.getSession(false).getAttribute("user_id");
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
 
-		int idchk1 = loginService.loginidchk_2(userid, user_pass);
+		int idchk1 = loginService.loginidchk_2(user_id, user_pass);
 		
 		JoinInfo userinfo = null;
-		joinInfo.setKat_id(userid);
+		joinInfo.setUser_id(user_id);
 		
 		ModelAndView modelAndView = new ModelAndView();
 
 		System.out.println("joininfo" + userinfo );
 		
 		if (idchk1 == 0) {
-			userinfo = loginService.userInfo(userid);
+			userinfo = loginService.userInfo(user_id);
 			loginService.update_pw(joinInfo);
 			modelAndView.addObject("idchk2", idchk1);
 			modelAndView.setViewName("UpdateMypagePwChange_main");
-			
-			
 		}
 		
 		if (idchk1 == 2) {
@@ -50,13 +48,10 @@ public class MypagePwChangeController2 {
 			modelAndView.setViewName("mypagePwchange_main");
 		}
 
-		System.out.println("userid 확인" + userid );
+		System.out.println("userid 확인" + user_id );
 		System.out.println("joininfo 확인" + joinInfo );
 		System.out.println("idchk1 확인 " + idchk1);
 		
-		
 		return modelAndView;
-
 	}
-
 }

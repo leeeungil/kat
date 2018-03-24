@@ -75,7 +75,7 @@
 			<div id="ma1" style="margin-top:250px; text-align:center; background-color:#D8D8D8; font-size:30px;"></div>
 			<div class="service">
                <div class="sitem1">
-                    <a href="<%=request.getContextPath()%>/kat/tourHouse/house.do"><img src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg" style="width:310px; height:250px; border-radius:10px;"></a>
+                    <a href="<%=request.getContextPath()%>/kat_main.do"><img src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg" style="width:310px; height:250px; border-radius:10px;"></a>
                     <div>
                        <br>
                         <p>&nbsp;&nbsp;숙박</p><br>
