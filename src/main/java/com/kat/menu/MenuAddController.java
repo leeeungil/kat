@@ -2,7 +2,6 @@ package com.kat.menu;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -57,12 +56,11 @@ public class MenuAddController {
 		int num = addMenuService.companyinfo(userid);
 
 		System.out.println("num 값" + num);
-		System.out.println("값확인 menu"+ menuInfo.getMenu_price());
+		System.out.println("값확인 menu"+ menuInfo.getCost());
 		
 
-		menuInfo.setCreate_date(new Date());
 		menuInfo.setUser_id(userid);
-		menuInfo.setCompany_no(num);
+		menuInfo.setProduct_no(num);
 
 		long time = System.currentTimeMillis(); // 현재시간 주기
 
@@ -72,9 +70,9 @@ public class MenuAddController {
 		System.out.println(dir);
 
 		// 업로드 파일의 물리적 저장
-		if (!menuInfo.getMenuPhotoFile().isEmpty()) {
-			menuInfo.getMenuPhotoFile().transferTo(new File(dir, userid + "_menu_" + time));
-			menuInfo.setFile_menuphoto(userid + "_menu_" + time);
+		if (!menuInfo.getMultipart_product_file().isEmpty()) {
+			menuInfo.getMultipart_product_file().transferTo(new File(dir, userid + "_menu_" + time));
+			menuInfo.setMenu_photo_file(userid + "_menu_" + time);
 		}
 
 		addMenuService.addMenu(menuInfo);

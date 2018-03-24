@@ -133,14 +133,15 @@ CREATE TABLE product (
 
 DROP TABLE BUSINESS;
 CREATE TABLE BUSINESS (
-  `user_id` varchar(100) NOT NULL,
+  `member_no` varchar(100) NOT NULL,
   `company` varchar(100) DEFAULT NULL,
   `postcode` varchar(100) DEFAULT NULL,
   `address1` varchar(100) DEFAULT NULL,
   `address2` varchar(100) DEFAULT NULL,
   `business_phone` varchar(100) DEFAULT NULL,
   `business_number` varchar(100) DEFAULT NULL,
-  `com_delete_flag` int(11) DEFAULT NULL
+  `com_delete_flag` int(11) DEFAULT NULL,
+  PRIMARY KEY (`member_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 DROP TABLE MEMBER;

@@ -1,6 +1,5 @@
 package com.kat.seat.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -20,90 +19,89 @@ public class AddMenuService {
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
-
 	private MenuDao dao;
 
 	// 좌석 집어넣기
 	public void addMenu(MenuInfo menuInfo) {
-
+System.out.println("[AddMenuService addMenu] ACCESS SUCCESS");
+System.out.println("[AddMenuService addMenu] menuInfo : "+menuInfo.toString());
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-
-		menuInfo.setCreate_date(new Date());
-
 		dao.insertMenu(menuInfo);
-
+System.out.println("[AddMenuService addMenu] MAPPER(insertMenu) FINISH");
 	}
 
 	// 메뉴 리스트 페이지
 	private static final int MESSAGE_COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
-
-	public MenuInfoListView getMenuList(String id, int pageNumber) {
-
-		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-
-		MenuInfoListView view = new MenuInfoListView();
+	public MenuInfoListView getMenuList(String user_id, int pageNumber) {
+System.out.println("[AddMenuService getMenuList] ACCESS SUCCESS");
+System.out.println("[AddMenuService getMenuList] user_id : "+user_id);
+System.out.println("[AddMenuService getMenuList] pageNumber : "+pageNumber);
+		MenuInfoListView menuInfoListView = new MenuInfoListView();
 		List<MenuInfo> seatList = null;
 		int PageNumber;
 		int firstRow = 0;
-
-		int TotalCount = dao.menuSelectCount(id);
-
+		dao = sqlSessionTemplate.getMapper(MenuDao.class);
+System.out.println("[AddMenuService getMenuList] MAPPER(menuSelectCount) ACCESS");
+		int TotalCount = dao.menuSelectCount(user_id);
+System.out.println("[AddMenuService getMenuList] MAPPER(menuSelectCount) RETURN");
+System.out.println("[AddMenuService getMenuList] TotalCount : "+TotalCount);
+		
+System.out.println("[AddMenuService getMenuList] MAPPER(menuList) ACCESS");
 		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
-
-		seatList = dao.menuList(id, firstRow, MESSAGE_COUNT_PER_PAGE);
-
+		seatList = dao.menuList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
+System.out.println("[AddMenuService getMenuList] MAPPER(menuList) RETURN");
+System.out.println("[AddMenuService getMenuList] seatList : "+seatList.toString());
 		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
-
 		if (TotalCount % MESSAGE_COUNT_PER_PAGE != 0) {
 			PageNumber += 1;
 		}
+		menuInfoListView.setMenuInfoList(seatList);
+		menuInfoListView.setPageTotalCount(TotalCount);
+		menuInfoListView.setPageNumber(PageNumber);
 
-		view.setMenuInfoList(seatList);
-		view.setPageTotalCount(TotalCount);
-		view.setPageNumber(PageNumber);
-
-		return view;
+		return menuInfoListView;
 	}
 
-	// 업데이트 할 메뉴 데이터 가져오기
-	public MenuInfo getMenuUpdateInfo(int no) {
-
+	// 업데이트 할 제품 데이터 가져오기
+	public MenuInfo getMenuUpdateInfo(int product_no) {
+System.out.println("[AddMenuService getMenuUpdateInfo] ACCESS SUCCESS");
+System.out.println("[AddMenuService getMenuUpdateInfo] product_no : " + product_no);
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-		MenuInfo info = dao.getMenuinfo(no);
-
+		MenuInfo info = dao.getMenuinfo(product_no);
+System.out.println("[AddMenuService getMenuUpdateInfo] MAPPER(getMenuinfo) RETURN");
+System.out.println("[AddMenuService getMenuUpdateInfo] info : "+ info.toString());
 		return info;
 	}
 
-	// 메뉴 수정하기
+	// 제품 수정하기
 	public void menuUpdate(MenuInfo menuInfo) {
-
+System.out.println("[AddMenuService menuUpdate] ACCESS SUCCESS");
+System.out.println("[AddMenuService menuUpdate] menuInfo : " + menuInfo.toString());
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 		dao.menuUpdate(menuInfo);
-
+System.out.println("[AddMenuService menuUpdate] MAPPER(menuUpdate) FINISH");
 	}
 
 	// 메뉴 삭제하기
-	public void menudelete(int no) {
-
+	public void menudelete(int product_no) {
+System.out.println("[AddMenuService menudelete] ACCESS SUCCESS");
+System.out.println("[AddMenuService menudelete] product_no : " + product_no);
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-		
-		dao.menudelete(no);
-
+		dao.menudelete(product_no);
+System.out.println("[AddMenuService menudelete] MAPPER(menudelete) FINISH");
 	}
 
 	// 매장 사진 올리기
 	public void addShopPhoto(ShopPhoto shopPhoto) {
+System.out.println("[AddMenuService addShopPhoto] ACCESS SUCCESS");
+System.out.println("[AddMenuService addShopPhoto] shopPhoto : " + shopPhoto.toString());
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-
-		shopPhoto.setCreate_date(new Date());
-
 		dao.insertshop(shopPhoto);
-
+System.out.println("[AddMenuService addShopPhoto] MAPPER(insertshop) FINISH");
 	}
 
 	// 매장 사진 리스트로 가져오기
 	public ShopPhotoListView getshopPhotoList(String userid) {
-
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 		ShopPhotoListView view = new ShopPhotoListView();
 		List<ShopPhoto> shopPhoto = null;
@@ -121,7 +119,6 @@ public class AddMenuService {
 
 	// 매장사진 리스트 페이지
 	private static final int COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
-
 	public ShopPhotoListView getshopPhotoDelete(String userid, int pageNumber) {
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 		ShopPhotoListView view = new ShopPhotoListView();
@@ -130,9 +127,7 @@ public class AddMenuService {
 		int PageNumber;
 
 		int TotalCount = dao.shopCount(userid); // 매장 사진 수
-
 		firstRow = (pageNumber - 1) * COUNT_PER_PAGE;
-
 		shopPhoto = dao.shopPhotoList(userid, firstRow, COUNT_PER_PAGE);
 
 		PageNumber = TotalCount / COUNT_PER_PAGE;
@@ -191,19 +186,16 @@ public class AddMenuService {
 
 	// 아이디 company_no 가져오기
 	public int companyinfo(String userid) {
-
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-		int num = dao.company_no(userid);
+		int member_no = dao.company_no(userid);
 
-		return num;
+		return member_no;
 	}
 
 	// 검색 코드부분
 	private static final int SEARCH_PER_PAGE = 6; // 한 페이지에 출력할 데이터
 	// 검색 리스트 가져오기
-
 	public InfoShopSearchListView getListInfo(Search search, int pageNumber) {
-
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 		InfoShopSearchListView view = new InfoShopSearchListView();
 		List<InfoShopSearch> infoShopSearch = null;

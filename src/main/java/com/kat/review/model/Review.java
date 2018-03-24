@@ -4,6 +4,7 @@ public class Review {
 	private int review_no;
 	private String review_title;
 	private String review_content;
+	private String create_date;
 	private String user_id;
 	private String writer_name;
 	private String password;
@@ -27,6 +28,12 @@ public class Review {
 	}
 	public void setReview_content(String review_content) {
 		this.review_content = review_content;
+	}
+	public String getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
 	}
 	public String getUser_id() {
 		return user_id;
@@ -62,9 +69,8 @@ public class Review {
 	@Override
 	public String toString() {
 		return "Review [review_no=" + review_no + ", review_title=" + review_title + ", review_content="
-				+ review_content + ", user_id=" + user_id + ", writer_name=" + writer_name + ", password=" + password
-				+ ", business_number=" + business_number + ", review_point=" + review_point + "]";
+				+ review_content + ", create_date=" + create_date + ", user_id=" + user_id + ", writer_name="
+				+ writer_name + ", password=" + password + ", business_number=" + business_number + ", review_point="
+				+ review_point + "]";
 	}
-
-	
 }	

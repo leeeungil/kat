@@ -1,70 +1,50 @@
 package com.kat.seat.model;
 
-import java.util.Date;
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class MenuInfo {
-
-	private int menu_no; // 메뉴 번호
-	private String menu_name; // 메뉴 이름
-	private int menu_price; // 메뉴 가격
-	private String menu_catagory; // 메뉴 종류
-	private int company_no; // 매장 번호
-	private String user_id; // 메뉴를 등록한아이디 *
-	private String file_menuphoto; // DB 저장용 사진 *
-	private MultipartFile menuPhotoFile; // 사진 업로드 처리위한 변수
-	private Date create_date; // 업로드 시간 *
-	private String menu_loc; //대륙구분
-    private String menu_nation; //나라구분
-	public MenuInfo() {
-		super();
-		// TODO Auto-generated constructor stub
+	private int product_no; // 상품 번호
+	private String product_name; // 상품 이름
+	private int cost; // 상품 가격
+	private String catagory; // 상품 종류
+	private int business_number; // 사업자 번호
+	private String user_id; // 상품 등록 아이디
+	private String menu_photo_file; // db 저장용 상품 사진
+	private MultipartFile multipart_product_file; // 서버 파일 저장용
+	private String create_date; // 상품 등록 시간 
+	private String continent; // 대륙구분
+    private String country; // 나라구분
+    private String city; // 도시구분
+    
+	public int getProduct_no() {
+		return product_no;
 	}
-	public MenuInfo(int menu_no, String menu_name, int menu_price, String menu_catagory, int company_no, String user_id,
-			String file_menuphoto, MultipartFile menuPhotoFile, Date create_date, String menu_loc, String menu_nation) {
-		super();
-		this.menu_no = menu_no;
-		this.menu_name = menu_name;
-		this.menu_price = menu_price;
-		this.menu_catagory = menu_catagory;
-		this.company_no = company_no;
-		this.user_id = user_id;
-		this.file_menuphoto = file_menuphoto;
-		this.menuPhotoFile = menuPhotoFile;
-		this.create_date = create_date;
-		this.menu_loc = menu_loc;
-		this.menu_nation = menu_nation;
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
 	}
-	public int getMenu_no() {
-		return menu_no;
+	public String getProduct_name() {
+		return product_name;
 	}
-	public void setMenu_no(int menu_no) {
-		this.menu_no = menu_no;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
-	public String getMenu_name() {
-		return menu_name;
+	public int getCost() {
+		return cost;
 	}
-	public void setMenu_name(String menu_name) {
-		this.menu_name = menu_name;
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
-	public int getMenu_price() {
-		return menu_price;
+	public String getCatagory() {
+		return catagory;
 	}
-	public void setMenu_price(int menu_price) {
-		this.menu_price = menu_price;
+	public void setCatagory(String catagory) {
+		this.catagory = catagory;
 	}
-	public String getMenu_catagory() {
-		return menu_catagory;
+	public int getBusiness_number() {
+		return business_number;
 	}
-	public void setMenu_catagory(String menu_catagory) {
-		this.menu_catagory = menu_catagory;
-	}
-	public int getCompany_no() {
-		return company_no;
-	}
-	public void setCompany_no(int company_no) {
-		this.company_no = company_no;
+	public void setBusiness_number(int business_number) {
+		this.business_number = business_number;
 	}
 	public String getUser_id() {
 		return user_id;
@@ -72,44 +52,48 @@ public class MenuInfo {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public String getFile_menuphoto() {
-		return file_menuphoto;
+	public String getMenu_photo_file() {
+		return menu_photo_file;
 	}
-	public void setFile_menuphoto(String file_menuphoto) {
-		this.file_menuphoto = file_menuphoto;
+	public void setMenu_photo_file(String menu_photo_file) {
+		this.menu_photo_file = menu_photo_file;
 	}
-	public MultipartFile getMenuPhotoFile() {
-		return menuPhotoFile;
+	public MultipartFile getMultipart_product_file() {
+		return multipart_product_file;
 	}
-	public void setMenuPhotoFile(MultipartFile menuPhotoFile) {
-		this.menuPhotoFile = menuPhotoFile;
+	public void setMultipart_product_file(MultipartFile multipart_product_file) {
+		this.multipart_product_file = multipart_product_file;
 	}
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-	public String getMenu_loc() {
-		return menu_loc;
+	public String getContinent() {
+		return continent;
 	}
-	public void setMenu_loc(String menu_loc) {
-		this.menu_loc = menu_loc;
+	public void setContinent(String continent) {
+		this.continent = continent;
 	}
-	public String getMenu_nation() {
-		return menu_nation;
+	public String getCountry() {
+		return country;
 	}
-	public void setMenu_nation(String menu_nation) {
-		this.menu_nation = menu_nation;
+	public void setCountry(String country) {
+		this.country = country;
 	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+
 	@Override
 	public String toString() {
-		return "MenuInfo [menu_no=" + menu_no + ", menu_name=" + menu_name + ", menu_price=" + menu_price
-				+ ", menu_catagory=" + menu_catagory + ", company_no=" + company_no + ", user_id=" + user_id
-				+ ", file_menuphoto=" + file_menuphoto + ", menuPhotoFile=" + menuPhotoFile + ", create_date="
-				+ create_date + ", menu_loc=" + menu_loc + ", menu_nation=" + menu_nation + "]";
+		return "MenuInfo [product_no=" + product_no + ", product_name=" + product_name + ", cost=" + cost
+				+ ", catagory=" + catagory + ", business_number=" + business_number + ", user_id=" + user_id
+				+ ", menu_photo_file=" + menu_photo_file + ", create_date=" + create_date + ", continent=" + continent
+				+ ", country=" + country + ", city=" + city + "]";
 	}
-	
-    
-	
 }

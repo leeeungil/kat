@@ -11,7 +11,8 @@ public class JoinInfo {
 	private String email; // 회원 이메일
 	private String level; // 회원 구분
 	private int delete_flag; // 회원 구분
-
+	private String create_date;
+	
 	// 사업자 추가 정보
 	private String company; // 매장 이름
 	private String postcode; // 우편번호
@@ -68,6 +69,12 @@ public class JoinInfo {
 	}
 	public void setDelete_flag(int delete_flag) {
 		this.delete_flag = delete_flag;
+	}
+	public String getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
 	}
 	public String getCompany() {
 		return company;

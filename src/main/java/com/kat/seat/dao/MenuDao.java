@@ -13,25 +13,25 @@ public interface MenuDao {
 	public void insertMenu(MenuInfo menuInfo);
 
 	// 메뉴 리스트 수
-	public int menuSelectCount(String id);
+	public int menuSelectCount(String user_id);
 
 	// 메뉴 리스트 담기
-	public List<MenuInfo> menuList(String id, int firstRow, int messageCountPerPage);
+	public List<MenuInfo> menuList(String user_id, int firstRow, int messageCountPerPage);
 
 	// 수정할 데이터 가져오기
-	public MenuInfo getMenuinfo(int no);
+	public MenuInfo getMenuinfo(int product_no);
 
 	// 메뉴 (수정)업데이트
 	public void menuUpdate(MenuInfo menuInfo);
 
 	// 메뉴 삭제
-	public void menudelete(int no);
+	public void menudelete(int product_no);
 	
 	// 매장 사진등록
 	public void insertshop(ShopPhoto shopPhoto);
 
 	// 등록된 매장 사진수
-	public int shopCount(String userid);
+	public int shopCount(String user_id);
 
 	// 등록된 매장 리스트로 가져오기
 	public List<ShopPhoto> shopPhotoList(String userid, int firstRow, int totalCount);
@@ -50,8 +50,6 @@ public interface MenuDao {
 
 	// 키워드로 겁색한 리스트 담기
 	public List<InfoShopSearch> shopSearch(String keyword, int firstRow, int searchPerPage);
-
-	
 	
 	// 메뉴로 검색한 리스트 수
 	public int shopCountList2(String menu);

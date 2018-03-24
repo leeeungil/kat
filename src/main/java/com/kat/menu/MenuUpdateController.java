@@ -20,7 +20,7 @@ public class MenuUpdateController {
 	private AddMenuService addMenuService;
 
 	@RequestMapping("kat/menuForm/MenuUpdate.do")
-	public ModelAndView listSubmit(@RequestParam(name = "no") int no, MenuInfo menuInfo,
+	public ModelAndView listSubmit(@RequestParam(name = "no") int product_no, MenuInfo menuInfo,
 			@RequestParam(name = "menuphoto") String menuphoto, MultipartHttpServletRequest request)
 			throws IllegalStateException, IOException {
 
@@ -35,20 +35,20 @@ public class MenuUpdateController {
 		System.out.println(dir);
 
 		// 업로드 파일의 물리적 저장
-		if (!menuInfo.getMenuPhotoFile().isEmpty()) {
-			menuInfo.getMenuPhotoFile().transferTo(new File(dir, userid + "_menu_" + time));
-			menuInfo.setFile_menuphoto(userid + "_menu_" + time);
+		if (!menuInfo.getMultipart_product_file().isEmpty()) {
+			menuInfo.getMultipart_product_file().transferTo(new File(dir, userid + "_menu_" + time));
+			menuInfo.setMenu_photo_file(userid + "_menu_" + time);
 		}
 
 		// 업데이트 (수정) 하기
-		menuInfo.setMenu_no(no);
+		menuInfo.setProduct_no(product_no);
 		addMenuService.menuUpdate(menuInfo);
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("kat_sucess/menuUpdateSucess_main");
 
 		// 수정된 데이터 가져오기
-		MenuInfo menuInfoUpdate = addMenuService.getMenuUpdateInfo(no);
+		MenuInfo menuInfoUpdate = addMenuService.getMenuUpdateInfo(product_no);
 		modelAndView.addObject("MenuUpdateSucess", menuInfoUpdate);
 
 		// 수정되어 기존 사진 삭제 소스
@@ -64,7 +64,6 @@ public class MenuUpdateController {
 			System.out.println("파일이 존재하지 않습니다.");
 		}
 		// 삭제 소스 끝부분
-
 		return modelAndView;
 	}
 }
