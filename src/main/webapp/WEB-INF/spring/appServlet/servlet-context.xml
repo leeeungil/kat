@@ -62,7 +62,6 @@
 	<!-- 서비스 등록 -->
 	<beans:bean id="addSeatService" class="com.kat.seat.service.AddSeatService" />
 	<beans:bean id="addMenuService" class="com.kat.seat.service.AddMenuService" />
-	<beans:bean id="addSeatPositionService" class="com.kat.seat.service.AddSeatPositionService" />
 	<beans:bean id="seatReservationService" class="com.kat.seat.service.SeatReservationService" />
 	<beans:bean id="loginService" class="com.kat.seat.service.LoginService" />
 

@@ -11,12 +11,10 @@ public class LoginFailController {
 
 	@RequestMapping("kat/login/failchk.do")
 	public ModelAndView loginfail() throws IllegalStateException, IOException {
-
-		System.out.println("로그 loginfail 컨트롤");
-		
+System.out.println("[LogoutController logout] LOGIN FAIL ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("kat_login/LoginChk");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
 	

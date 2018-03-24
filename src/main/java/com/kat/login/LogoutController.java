@@ -13,15 +13,12 @@ public class LogoutController {
 
 	@RequestMapping("kat/login/logout.do")
 	public ModelAndView logout(HttpSession session) throws IllegalStateException, IOException {
-
-		System.out.println("로그 logout 컨트롤");
-
+System.out.println("[LogoutController logout] LOGOUT - SESSION CLEAR ACCESS");
 		session.invalidate();
-
+System.out.println("[LogoutController logout] LOGOUT - SESSION CLEAR FINISH");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("kat_main");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
-
 }

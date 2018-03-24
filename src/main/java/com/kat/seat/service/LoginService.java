@@ -26,7 +26,7 @@ System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 	// 사업자 회원
 	public void joinInsertBusiness(JoinInfo joinInfo) {
 System.out.println("[LoginService joinInsertBusiness] BUSINESS MEMBER REGISTRATION ACCESS");
-System.out.println("[LoginService joinInsertBusiness] joinInfo : " + joinInfo.toString());
+System.out.println("[LoginService joinInsertBusiness] " + joinInfo.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		dao.insertMember(joinInfo);
 System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
@@ -42,8 +42,8 @@ System.out.println("[LoginService loginidchk] user_pass : " + user_pass);
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		int result = 0;
 		JoinInfoChk joinInfoChk = dao.idChk(user_id);
-System.out.println("[LoginService joinInsert] MAPPER(idChk) RETURN");
-System.out.println("[LoginService loginidchk] joinInfoChk : " + joinInfoChk.toString());
+System.out.println("[LoginService loginidchk] MAPPER(idChk) RETURN");
+System.out.println("[LoginService loginidchk] " + joinInfoChk.toString());
 		if (!joinInfoChk.getPassword().equals(user_pass)) {
 			result = 2; // 비밀번호 불일치
 		} else if (joinInfoChk.getLevel().equals("1")) {
@@ -51,7 +51,7 @@ System.out.println("[LoginService loginidchk] joinInfoChk : " + joinInfoChk.toSt
 		} else if (joinInfoChk.getLevel().equals("2")) {
 			result = 4; // 사업자회원
 		}
-System.out.println("[LoginService joinInsert] loginResult : " + result);
+System.out.println("[LoginService loginidchk] loginResult : " + result);
 		return result;
 	}
 
@@ -62,7 +62,7 @@ System.out.println("[LoginService userInfo] user_id : " + user_id);
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfo user_info = dao.userinfo(user_id);
 System.out.println("[LoginService userInfo] MAPPER(userinfo) RETURN");
-System.out.println("[LoginService userInfo] user_info : " + user_info.toString());
+System.out.println("[LoginService userInfo] " + user_info.toString());
 		return user_info;
 	}
 
@@ -73,7 +73,7 @@ System.out.println("[LoginService getMyPageInfoView] user_id : " + user_id);
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfo infoview = dao.getMemberinfo(user_id);
 System.out.println("[LoginService getMyPageInfoView] MAPPER(getMemberinfo) RETURN");
-System.out.println("[LoginService getMyPageInfoView] infoview : " + infoview.toString());
+System.out.println("[LoginService getMyPageInfoView] " + infoview.toString());
 		return infoview;
 	}
 
@@ -84,7 +84,7 @@ System.out.println("[LoginService getMyPageInfoView1] user_id : " + user_id);
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfo infoview = dao.getMemberinfo1(user_id);
 System.out.println("[LoginService getMyPageInfoView1] MAPPER(getMemberinfo1) RETURN");
-System.out.println("[LoginService getMyPageInfoView1] infoview : " + infoview.toString());
+System.out.println("[LoginService getMyPageInfoView1] " + infoview.toString());
 		return infoview;
 	}
 
@@ -105,7 +105,6 @@ System.out.println("[LoginService ajaxchk_id] user_id : " + user_id);
 		int infoChkId = dao.checkAjaxId(user_id);
 System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId) RETURN");
 System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkId);
-
 		return infoChkId;
 	}
 
@@ -117,7 +116,6 @@ System.out.println("[LoginService ajaxchk_email] user_id : " + user_id);
 		int infoChkEmail = dao.checkAjaxEmail(user_id);
 System.out.println("[LoginService ajaxchk_email] MAPPER(checkAjaxEmail) RETURN");
 System.out.println("[LoginService ajaxchk_email] infoChkEmail : " + infoChkEmail);
-
 		return infoChkEmail;
 	}
 
