@@ -6,7 +6,6 @@
 <mapper namespace="com.kat.master.dao.NoticeDao">
 
 	<insert id="noticeinsert" parameterType="com.kat.master.model.Notice">
-
 		insert into notice
 		(notice_title, notice_content, user_id ,regdate) values
 		(#{notice_title}, #{notice_content}, #{user_id}, #{regdate})

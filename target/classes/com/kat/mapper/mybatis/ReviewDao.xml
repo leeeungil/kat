@@ -1,50 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kat.review.dao.ReviewDao">
-  
 	<insert id="reviewinsert" parameterType="com.kat.review.model.Review">
-		INSERT INTO review (business_name, user_id, review_content, password, regdate) 
-		VALUES (#{business_name}, #{user_id}, #{review_content}, #{password}, #{regdate})
+		INSERT INTO PRODUCT_REVIEW (BUSINESS_NUMBER, USER_ID, REVIEW_CONTENT, PASSWORD, CREATE_DATE) 
+		VALUES (#{business_name}, #{user_id}, #{review_content}, #{password}, now())
 	</insert>
 	
     <select id="reviewList" resultType="com.kat.review.model.Review">
 	    SELECT *
-	    FROM review
-	    WHERE business_name = #{param1} order by regdate desc limit #{param2},#{param3}
-	    
+	    FROM PRODUCT_REVIEW
+	    WHERE business_number = #{business_number}
+	    order by CREATE_DATE desc
+	    limit #{firstRow},#{CountPerPage}
 	</select>
 	
 	<select id="reviewselectcount" resultType="int">
-	    SELECT count(*) FROM review  where business_name = #{param1};
+	    SELECT COUNT(*) FROM PRODUCT_REVIEW WHERE BUSINESS_NUMBER = #{business_number};
 	</select>
 	
 	<select id="info" resultType="com.kat.review.model.Review">
-	    SELECT review_no,review_title,review_content
-	    FROM review
-	    WHERE review_no = #{param1}
+	    SELECT review_no, review_title, review_content
+	    FROM PRODUCT_REVIEW
+	    WHERE review_no = #{review_no}
 	</select>
 	
 	<select id="getinfo" resultType="com.kat.review.model.Review">
 	    SELECT *
-	    FROM review
-	    WHERE review_no = #{no1}
+	    FROM PRODUCT_REVIEW WHERE review_no = #{review_no}
 	</select>
 	
 	<insert id="reviewupdate" parameterType="com.kat.review.model.Review">
-	    UPDATE review
+	    UPDATE PRODUCT_REVIEW
 	    SET review_title = #{review_title}, review_content = #{review_content}
 	    WHERE review_no = #{review_no}
 	</insert>
 	
 	<select id="mainreviewList" resultType="com.kat.review.model.Review">
-	    SELECT *
-	    FROM review
+	    SELECT * FROM PRODUCT_REVIEW
 	    WHERE review_point between 3 and 5
-	    ORDER BY regdate desc limit 3;
+	    ORDER BY CREATE_DATE desc
+	    limit 3;
 	</select>
-		
-	 
 </mapper>
