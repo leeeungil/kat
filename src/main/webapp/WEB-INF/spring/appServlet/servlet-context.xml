@@ -111,7 +111,7 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
 		p:driverClassName="com.mysql.jdbc.Driver"
 		p:url="jdbc:mysql://localhost:3306/kat?characterEncoding=utf8"
-		p:username="root" p:password="wnsdud159!" />
+		p:username="root" p:password="min337337" />
 
 	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
 		p:dataSource-ref="dataSource" />
