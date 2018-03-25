@@ -212,7 +212,7 @@
 	</select>
 	
 	<select id="menuList2" resultType="com.kat.seat.model.MenuInfo">
-		SELECT * FROM MENU;
+		SELECT * FROM PRODUCT;
 	</select>
 </mapper>
 
