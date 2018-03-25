@@ -23,18 +23,18 @@
 
 	<!-- 마이 페이지 호출 -->
 	<select id="userinfo" resultType="com.kat.seat.model.JoinInfo">
-		SELECT member_no, M.user_id, name, password, phone, email, level, delete_flag, company,
+		SELECT M.member_no, user_id, name, password, phone, email, level, delete_flag, company,
 				postcode, address1, address2, business_phone, business_number, com_delete_flag
 		FROM MEMBER M LEFT JOIN BUSINESS B
-		ON M.USER_ID = B.USER_ID WHERE M.USER_ID = #{user_id}
+		ON M.MEMBER_NO = B.MEMBER_NO WHERE M.USER_ID = #{user_id}
 	</select>
 
 	<!-- 수정할 사업자정보 가져오기 -->
 	<select id="getMemberinfo" resultType="com.kat.seat.model.JoinInfo">
-		SELECT member_no, M.user_id, name, password, phone, email, level, delete_flag, company,
+		SELECT M.member_no, user_id, name, password, phone, email, level, delete_flag, company,
 				postcode, address1, address2, business_phone, business_number, com_delete_flag
 		FROM MEMBER M LEFT JOIN BUSINESS B
-		ON M.USER_ID = B.USER_ID WHERE M.USER_ID = #{user_id}
+		ON M.MEMBER_NO = B.MEMBER_NO WHERE M.USER_ID = #{user_id}
 	</select>
 
 	<!-- 수정할 회원정보 가져오기 -->

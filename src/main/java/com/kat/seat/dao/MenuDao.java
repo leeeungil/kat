@@ -34,7 +34,7 @@ public interface MenuDao {
 	public int shopCount(String user_id);
 
 	// 등록된 매장 리스트로 가져오기
-	public List<ShopPhoto> shopPhotoList(String userid, int firstRow, int totalCount);
+	public List<ShopPhoto> shopPhotoList(String user_id, int firstRow, int totalCount);
 
 	// 매장 사진 삭제
 	public void shopPhotodelete(int no);
@@ -43,7 +43,7 @@ public interface MenuDao {
 	public List<ShopPhoto> shopSearchList(String administrator, int firstRow, int endRow);
 
 	// company_no 가져오기
-	public int company_no(String userid);
+	public int company_no(String user_id);
 
 	// 키워드로 검색한 리스트 수
 	public int shopCountList(String keyword);
@@ -91,15 +91,15 @@ public interface MenuDao {
 	public InfoShopAddress getShopAddress(String searchName);
 
 	// 접속 아이디가 사업자인지 확인하기
-	public String getCategory(String userid);
+	public String getCategory(String user_id);
 
 	
 	
-	public int shopCount2(String userid);
+	public int shopCount2(String user_id);
 
-	public InfoShopAddress getShopAddress2(String id,int pageNumber);
+	public InfoShopAddress getShopAddress2(String user_id);
 
-	public List<ShopPhoto> shopPhotoList2(String userid, int firstRow, int totalCount);
+	public List<ShopPhoto> shopPhotoList2(String user_id, int firstRow, int totalCount);
 
 	public int menuSelectCount2();
 

@@ -50,12 +50,15 @@
 	
 	<!-- 등록된 매장 사진수 -->
 	<select id="shopCount" resultType="int">
-		SELECT COUNT(*) FROM SHOP_PHOTO where user_id= #{param1}
+		SELECT COUNT(*) FROM SHOP_PHOTO WHERE USER_ID = #{user_id}
 	</select>
-	
+
 	<!--사진 리스트 담기 -->
 	<select id="shopPhotoList" resultType="com.kat.seat.model.ShopPhoto">
-		SELECT * FROM SHOP_PHOTO where user_id = #{param1} limit #{param2}, #{param3}
+		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
+		FROM SHOP_PHOTO
+		WHERE USER_ID = #{user_id}
+		LIMIT #{firstRow}, #{totalCount}
 	</select>
 	
 	<!--매장사진 삭제하기 -->
@@ -65,7 +68,8 @@
 	
 	<!--사진 리스트 담기 -->
 	<select id="shopSearchList" resultType="com.kat.seat.model.ShopPhoto">
-		SELECT * FROM SHOP_PHOTO where user_id = #{param1} limit #{param2}, #{param3}
+		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
+		FROM SHOP_PHOTO where user_id = #{param1} limit #{param2}, #{param3}
 	</select>
 	
 	<!-- member_id 담기 -->
@@ -183,22 +187,24 @@
 	
 	<!-- 사업자인지 확인하기 -->
 	<select id="getCategory" resultType="String">
-	select category from member where user_id= #{param1};
+		select category from member where user_id= #{param1};
 	</select>
 	
 	<select id="shopCount2" resultType="int">
-		<!-- SELECT COUNT(*) FROM SHOP_PHOTOwhere user_id= #{param1} -->
+		<!-- SELECT COUNT(*) FROM SHOP_PHOTO where user_id= #{param1} -->
 		SELECT COUNT(*) FROM SHOP_PHOTO
 	</select>
 	
 	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">
-	select m.member_no, m.user_id, b.address1, b.business_name from member m , business b 
-	where m.member_no = b.company_no and m.user_id = #{param1}
+		SELECT M.MEMBER_NO, USER_ID, ADDRESS1, COMPANY
+		FROM MEMBER M LEFT JOIN BUSINESS B
+		ON M.MEMBER_NO = B.MEMBER_NO AND M.USER_ID = #{user_id}
 	</select>
 	
 	<select id="shopPhotoList2" resultType="com.kat.seat.model.ShopPhoto">
 		<!-- SELECT * FROM SHOP_PHOTOwhere user_id = #{param1} limit #{param2}, #{param3} -->
-		SELECT * FROM SHOP_PHOTO
+		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
+		FROM SHOP_PHOTO
 	</select>
 	
 	<select id="menuSelectCount2" resultType="int">

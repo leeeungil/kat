@@ -25,23 +25,15 @@ import com.kat.review.service.ReviewListService;
  */
 @Controller
 public class HomeController {
-
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
-
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
 		String formattedDate = dateFormat.format(date);
-
 		model.addAttribute("serverTime", formattedDate);
-
 		return "home";
 	}
 
@@ -51,15 +43,14 @@ public class HomeController {
 	@RequestMapping(value = "/kat_main.do", method = RequestMethod.GET)
 	public ModelAndView home(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
 			HttpServletRequest request) throws IllegalStateException, IOException {
-
+System.out.println("[HomeController home] HOME ACCESS");
+System.out.println("[HomeController home] pageNumber : " + pageNumber);
 		ModelAndView modelAndView = new ModelAndView();
 		ReviewInfoListView reviewInfoListView = reviewListService.getMainReviewList(pageNumber);
 
 		modelAndView.setViewName("kat_main");
 		modelAndView.addObject("ListInfoReview", reviewInfoListView);
-		System.out.println("로그 Home 컨트롤");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
-
 }

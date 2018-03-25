@@ -9,7 +9,7 @@ public class ShopPhoto {
 	private String user_id; // 매장사진 등록한 아이디
 	private String file_shopphoto; // DB 저장용 사진
 	private MultipartFile shopPhotoFile; // 사진 업로드 처리위한 변수
-	private Date create_date; // 업로드 시간
+	private String create_date; // 업로드 시간
 
 	public int getPhoto_no() {
 		return photo_no;
@@ -35,13 +35,13 @@ public class ShopPhoto {
 	public void setShopPhotoFile(MultipartFile shopPhotoFile) {
 		this.shopPhotoFile = shopPhotoFile;
 	}
-	public Date getCreate_date() {
+
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-
 	@Override
 	public String toString() {
 		return "ShopPhoto [photo_no=" + photo_no + ", user_id=" + user_id + ", file_shopphoto=" + file_shopphoto

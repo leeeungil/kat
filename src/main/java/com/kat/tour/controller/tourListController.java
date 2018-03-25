@@ -23,17 +23,17 @@ public class tourListController {
 	@RequestMapping("kat/tourlist/tourlist1.do")
 	public ModelAndView tourListSubmit(@RequestParam(name = "page", defaultValue = "1") int pageNumber, HttpServletRequest request, Model model)
 	throws IllegalStateException, IOException{
+System.out.println("[tourListController tourListSubmit] ACCESS SUCCESS");
+System.out.println("[tourListController tourListSubmit] pageNumber : " + pageNumber);
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-
 		ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList(userid); // 매장 사진 가져오기
-		
+System.out.println("[tourListController tourListSubmit] " + shopPhotoListView.toString());
+
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("tourView_main");
         modelAndView.addObject("InfoShopListView", shopPhotoListView);
-        
+System.out.println("=============================================================");
         return modelAndView;
-		
 	}	
-		
 }

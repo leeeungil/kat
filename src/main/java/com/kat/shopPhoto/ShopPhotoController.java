@@ -56,7 +56,6 @@ public class ShopPhotoController {
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 
-		shopPhoto.setCreate_date(new Date());
 		shopPhoto.setUser_id(userid);
 
 		long time = System.currentTimeMillis(); // 현재시간 주기
