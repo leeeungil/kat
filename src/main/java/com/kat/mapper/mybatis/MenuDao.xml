@@ -18,9 +18,9 @@
 	<!--메뉴 리스트 담기 -->
 	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
 		SELECT product_no, product_name, cost, catagory, business_number, user_id, menu_photo_file, create_date, continent, country, city
-		FROM PRODUCT WHERE USER_ID = #{user_id}
+		FROM PRODUCT WHERE USER_ID = #{param1}
 		ORDER BY CREATE_DATE DESC 
-		LIMIT #{firstRow}, #{messageCountPerPage}
+		LIMIT #{param2}, #{param3}
 	</select>
 	
 	<!-- 메뉴 수정할 데이터 가져오기 -->

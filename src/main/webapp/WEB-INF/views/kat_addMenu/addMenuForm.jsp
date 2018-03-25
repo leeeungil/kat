@@ -48,45 +48,45 @@ function checkform() {
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 대륙선택</li>
-					<li><input type="radio" id="category" name="menu_loc"
+					<li><input type="radio" id="category" name="continent"
 						value="아시아" class="default"> 아시아 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_loc"
+					<li><input type="radio" id="category" name="continent"
 						value="유럽" class="companybtn"> 유럽 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_loc"
+					<li><input type="radio" id="category" name="continent"
 						value="남미" class="Universitybtn"> 남미 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_loc"
+					<li><input type="radio" id="category" name="continent"
 						value="북미" class="Universitybtn"> 북미 &nbsp;</li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 국가선택</li>
-					<li><input type="radio" id="category" name="menu_nation"
-						value="1" class="default"> 대한민국 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
+						value="1" class="default"> 한국 &nbsp;</li>
+					<li><input type="radio" id="category" name="country"
 						value="2" class="companybtn"> 일본&nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="3" class="Universitybtn"> 중국 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
-						value="4" class="Universitybtn"> 태국 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
+						value="4" class="Universitybtn"> 말레이시아 &nbsp;</li>
+					<li><input type="radio" id="category" name="country"
 						value="5" class="default"> 독일 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="6" class="companybtn"> 스페인&nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="7" class="Universitybtn"> 프랑스 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="8" class="Universitybtn"> 체코 &nbsp;</li>
 					<li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;
-					<input type="radio" id="category" name="menu_nation"
+					<input type="radio" id="category" name="country"
 						value="9" class="default">브라질 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="10" class="companybtn"> 아르헨티나&nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="11" class="Universitybtn"> 칠레 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="12" class="Universitybtn"> 온두라스 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="13" class="default"> 미국 &nbsp;</li>
-					<li><input type="radio" id="category" name="menu_nation"
+					<li><input type="radio" id="category" name="country"
 						value="14" class="companybtn"> 캐나다&nbsp;</li>
 				</ul>
 				<ul>
