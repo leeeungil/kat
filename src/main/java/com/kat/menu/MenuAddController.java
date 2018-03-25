@@ -27,20 +27,16 @@ public class MenuAddController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getUploadForm(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
 			HttpServletRequest request) throws IllegalStateException, IOException {
-
-		System.out.println("로그 MenuList 컨트롤");
-
+System.out.println("[MenuAddController getUploadForm] INSERT PRODUCT FORM CALL ACCESS");
+System.out.println("[MenuAddController getUploadForm] pageNumber : " + pageNumber);
 		ModelAndView modelAndView = new ModelAndView();
-
-		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-
-		MenuInfoListView menuInfoListView = addMenuService.getMenuList(userid, pageNumber); // 리스트 구현
-
-		System.out.println(menuInfoListView); // menu 데이터 출력
+		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
+		MenuInfoListView menuInfoListView = addMenuService.getMenuList(user_id, pageNumber); // 리스트 구현
+System.out.println("[MenuAddController getUploadForm] menuInfoListView : " + menuInfoListView);
 
 		modelAndView.setViewName("addMenu_main");
 		modelAndView.addObject("MenuListInfo", menuInfoListView);
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
 
@@ -52,11 +48,9 @@ System.out.println("[MenuAddController addSeatSubmit] " + menuInfo.toString());
 
 		ModelAndView modelAndView = new ModelAndView();
 		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-
 		menuInfo.setUser_id(user_id);
-
-		long time = System.currentTimeMillis(); // 현재시간 주기
 		
+		long time = System.currentTimeMillis(); // 현재시간 주기
 		/* 업로드 폴더 시스템 물리적 경로 찾기 */
 		String uploadURI = "/uploadfile/menuphoto";
 		String dir = request.getSession().getServletContext().getRealPath(uploadURI);

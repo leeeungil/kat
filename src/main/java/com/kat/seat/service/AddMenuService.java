@@ -40,13 +40,12 @@ System.out.println("[AddMenuService getMenuList] pageNumber : " + pageNumber);
 		List<MenuInfo> seatList = null;
 		int PageNumber;
 		int firstRow = 0;
+		
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-System.out.println("[AddMenuService getMenuList] MAPPER(menuSelectCount) ACCESS");
 		int TotalCount = dao.menuSelectCount(user_id);
 System.out.println("[AddMenuService getMenuList] MAPPER(menuSelectCount) RETURN");
 System.out.println("[AddMenuService getMenuList] TotalCount : " + TotalCount);
 		
-System.out.println("[AddMenuService getMenuList] MAPPER(menuList) ACCESS");
 		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
 		seatList = dao.menuList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
 System.out.println("[AddMenuService getMenuList] MAPPER(menuList) RETURN");
