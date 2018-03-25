@@ -57,8 +57,8 @@
 	<select id="shopPhotoList" resultType="com.kat.seat.model.ShopPhoto">
 		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
 		FROM SHOP_PHOTO
-		WHERE USER_ID = #{user_id}
-		LIMIT #{firstRow}, #{totalCount}
+		WHERE USER_ID = #{param1}
+		LIMIT #{param2}, #{param3}
 	</select>
 	
 	<!--매장사진 삭제하기 -->
