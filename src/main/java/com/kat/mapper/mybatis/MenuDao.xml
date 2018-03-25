@@ -73,12 +73,9 @@
 	</select>
 	
 	<!-- member_id 담기 -->
-	<select id="company_no" resultType="int">
+<!-- 	<select id="member_no" resultType="int">
 		select member_no from member where user_id = #{param1}
-	</select>
-	
-	
-	
+	</select> -->
 	
 	<!-- 키워드로 검색 수 -->
 	<select id="shopCountList" resultType="int">

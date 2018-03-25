@@ -252,12 +252,15 @@ System.out.println("[AddMenuService getAddress2] "+ infoShopAddress.toString());
 	}
 
 	// 아이디 company_no 가져오기
-	public int companyinfo(String userid) {
+	/*public int companyinfo(String user_id) {
+System.out.println("[AddMenuService companyinfo] ACCESS SUCCESS");
+System.out.println("[AddMenuService companyinfo] user_id : "+ user_id);
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-		int member_no = dao.company_no(userid);
-
+		int member_no = dao.member_no(user_id);
+System.out.println("[AddMenuService companyinfo] MAPPER(member_no) RETURN");
+System.out.println("[AddMenuService companyinfo] member_no : "+ member_no);
 		return member_no;
-	}
+	}*/
 
 	// 검색 코드부분
 	private static final int SEARCH_PER_PAGE = 6; // 한 페이지에 출력할 데이터

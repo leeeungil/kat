@@ -42,8 +42,8 @@ public interface MenuDao {
 	// 검색어 키를 이용해서 매장 사진 리스트 뽑기
 	public List<ShopPhoto> shopSearchList(String administrator, int firstRow, int endRow);
 
-	// company_no 가져오기
-	public int company_no(String user_id);
+	// member_no 가져오기
+//	public int member_no(String user_id);
 
 	// 키워드로 검색한 리스트 수
 	public int shopCountList(String keyword);

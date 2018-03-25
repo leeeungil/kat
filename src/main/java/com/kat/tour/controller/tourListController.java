@@ -23,7 +23,7 @@ public class tourListController {
 	@RequestMapping("kat/tourlist/tourlist1.do")
 	public ModelAndView tourListSubmit(@RequestParam(name = "page", defaultValue = "1") int pageNumber, HttpServletRequest request, Model model)
 	throws IllegalStateException, IOException{
-System.out.println("[tourListController tourListSubmit] ACCESS SUCCESS");
+System.out.println("[tourListController tourListSubmit] ACCESS ACCESS");
 System.out.println("[tourListController tourListSubmit] pageNumber : " + pageNumber);
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기

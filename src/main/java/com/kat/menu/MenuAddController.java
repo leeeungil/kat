@@ -47,37 +47,31 @@ public class MenuAddController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView addSeatSubmit(MenuInfo menuInfo, MultipartHttpServletRequest request)
 			throws IllegalStateException, IOException {
-
-		System.out.println("로그 MenuAdd 컨트롤");
+System.out.println("[MenuAddController addSeatSubmit] MENU ADD ACCESS");
+System.out.println("[MenuAddController addSeatSubmit] " + menuInfo.toString());
 
 		ModelAndView modelAndView = new ModelAndView();
+		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 
-		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-		int num = addMenuService.companyinfo(userid);
-
-		System.out.println("num 값" + num);
-		System.out.println("값확인 menu"+ menuInfo.getCost());
-		
-
-		menuInfo.setUser_id(userid);
-		menuInfo.setProduct_no(num);
+		menuInfo.setUser_id(user_id);
 
 		long time = System.currentTimeMillis(); // 현재시간 주기
-
+		
 		/* 업로드 폴더 시스템 물리적 경로 찾기 */
 		String uploadURI = "/uploadfile/menuphoto";
 		String dir = request.getSession().getServletContext().getRealPath(uploadURI);
-		System.out.println(dir);
+System.out.println("[MenuAddController addSeatSubmit] dir : " + dir);
 
 		// 업로드 파일의 물리적 저장
 		if (!menuInfo.getMultipart_product_file().isEmpty()) {
-			menuInfo.getMultipart_product_file().transferTo(new File(dir, userid + "_menu_" + time));
-			menuInfo.setMenu_photo_file(userid + "_menu_" + time);
+			menuInfo.getMultipart_product_file().transferTo(new File(dir, user_id + "_menu_" + time));
+			menuInfo.setMenu_photo_file(user_id + "_menu_" + time);
 		}
-
+		
 		addMenuService.addMenu(menuInfo);
+System.out.println("[MenuAddController addSeatSubmit] addMenuService.addMenu FINISH");
 		modelAndView.setViewName("redirect:/kat/menuForm/menuAdd.do");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
 
