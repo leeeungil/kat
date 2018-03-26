@@ -106,5 +106,6 @@ public interface MenuDao {
 	public List<MenuInfo> menuList2( int firstRow, int messageCountPerPage);
 
 	
+	
 
 }

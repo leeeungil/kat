@@ -36,28 +36,29 @@ System.out.println("[AddMenuService addMenu] MAPPER(insertMenu) FINISH");
 System.out.println("[AddMenuService getMenuList] ACCESS SUCCESS");
 System.out.println("[AddMenuService getMenuList] user_id : " + user_id);
 System.out.println("[AddMenuService getMenuList] pageNumber : " + pageNumber);
-		MenuInfoListView menuInfoListView = new MenuInfoListView();
+        dao = sqlSessionTemplate.getMapper(MenuDao.class);
+		MenuInfoListView menuListInfoview = new MenuInfoListView();
 		List<MenuInfo> seatList = null;
 		int PageNumber;
 		int firstRow = 0;
 		
-		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 		int TotalCount = dao.menuSelectCount(user_id);
 System.out.println("[AddMenuService getMenuList] MAPPER(menuSelectCount) RETURN");
 System.out.println("[AddMenuService getMenuList] TotalCount : " + TotalCount);
 		
 		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
 		seatList = dao.menuList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
+System.out.println("[AddMenuService getMenuList] seatList : " + seatList);		
 System.out.println("[AddMenuService getMenuList] MAPPER(menuList) RETURN");
 System.out.println("[AddMenuService getMenuList] " + seatList.toString());
 		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
 		if (TotalCount % MESSAGE_COUNT_PER_PAGE != 0) {
 			PageNumber += 1;
 		}
-		menuInfoListView.setMenuInfoList(seatList);
-		menuInfoListView.setPageTotalCount(TotalCount);
-		menuInfoListView.setPageNumber(PageNumber);
-		return menuInfoListView;
+		menuListInfoview.setMenuInfoList(seatList);
+		menuListInfoview.setPageTotalCount(TotalCount);
+		menuListInfoview.setPageNumber(PageNumber);
+		return menuListInfoview;
 	}
 
 	// 업데이트 할 제품 데이터 가져오기
@@ -426,5 +427,4 @@ System.out.println("[AddMenuService companyinfo] member_no : "+ member_no);
 		
 		return category;
 	}
-
 }

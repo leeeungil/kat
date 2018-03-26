@@ -21,7 +21,6 @@ public class EmailAjaxController {
 	public String logout(HttpServletRequest request,Model model) throws IllegalStateException, IOException {
 		System.out.println("로그 email 인증 ajax ");
 		String email = request.getParameter("emailver");
-		
 		String sendCode =new TempKey().getKey(5, false);
 		mrNotifer.sendConfirmMail(sendCode,email);
 		model.addAttribute("sendCode",sendCode);

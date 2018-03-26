@@ -1,5 +1,7 @@
 package com.kat.seat.model;
 
+import java.util.Date;
+
 import org.springframework.web.multipart.MultipartFile;
 
 public class MenuInfo {
@@ -11,11 +13,31 @@ public class MenuInfo {
 	private String user_id; // 상품 등록 아이디
 	private String menu_photo_file; // db 저장용 상품 사진
 	private MultipartFile multipart_product_file; // 서버 파일 저장용
-	private String create_date; // 상품 등록 시간 
+	private Date create_date; // 상품 등록 시간 
 	private String continent; // 대륙구분
     private String country; // 나라구분
     private String city; // 도시구분
-    
+	public MenuInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public MenuInfo(int product_no, String product_name, int cost, String catagory, int business_number, String user_id,
+			String menu_photo_file, MultipartFile multipart_product_file, Date create_date, String continent,
+			String country, String city) {
+		super();
+		this.product_no = product_no;
+		this.product_name = product_name;
+		this.cost = cost;
+		this.catagory = catagory;
+		this.business_number = business_number;
+		this.user_id = user_id;
+		this.menu_photo_file = menu_photo_file;
+		this.multipart_product_file = multipart_product_file;
+		this.create_date = create_date;
+		this.continent = continent;
+		this.country = country;
+		this.city = city;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -64,10 +86,10 @@ public class MenuInfo {
 	public void setMultipart_product_file(MultipartFile multipart_product_file) {
 		this.multipart_product_file = multipart_product_file;
 	}
-	public String getCreate_date() {
+	public Date getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(String create_date) {
+	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
 	public String getContinent() {
@@ -88,12 +110,14 @@ public class MenuInfo {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
 	@Override
 	public String toString() {
 		return "MenuInfo [product_no=" + product_no + ", product_name=" + product_name + ", cost=" + cost
 				+ ", catagory=" + catagory + ", business_number=" + business_number + ", user_id=" + user_id
-				+ ", menu_photo_file=" + menu_photo_file + ", create_date=" + create_date + ", continent=" + continent
-				+ ", country=" + country + ", city=" + city + "]";
+				+ ", menu_photo_file=" + menu_photo_file + ", multipart_product_file=" + multipart_product_file
+				+ ", create_date=" + create_date + ", continent=" + continent + ", country=" + country + ", city="
+				+ city + "]";
 	}
+
+	
 }

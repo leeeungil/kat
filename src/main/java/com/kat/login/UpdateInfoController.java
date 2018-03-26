@@ -23,7 +23,7 @@ public class UpdateInfoController {
 			throws IllegalStateException, IOException {
 
 		// 업데이트 할 사업자정보 가져오기
-		System.out.println("dd"+userid);
+
 		JoinInfo joinInfo = updateService.getMyPageUpdateInfo1(userid);
 		JoinInfo joinInfo1 = updateService.getMyPageUpdateInfo(userid);
 		

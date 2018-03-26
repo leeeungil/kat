@@ -6,7 +6,7 @@
 	<!-- 일반 회원 정보 등록 -->
 	<insert id="insertMember" parameterType="com.kat.seat.model.JoinInfo">
 		INSERT INTO MEMBER
-		VALUES (0, #{user_id}, #{name}, #{password}, #{phone}, #{email}, now(), #{level}, 0)
+		VALUES (0, #{user_id}, #{name}, #{password}, #{phone}, #{email}, #{create_date}, #{level}, 0)
 	</insert>
 
 	<!-- 사업자 정보 등록 -->
@@ -31,7 +31,7 @@
 
 	<!-- 수정할 사업자정보 가져오기 -->
 	<select id="getMemberinfo" resultType="com.kat.seat.model.JoinInfo">
-		SELECT M.member_no, user_id, name, password, phone, email, level, delete_flag, company,
+	SELECT M.member_no, user_id, name, password, phone, email, level, delete_flag, company,
 				postcode, address1, address2, business_phone, business_number, com_delete_flag
 		FROM MEMBER M LEFT JOIN BUSINESS B
 		ON M.MEMBER_NO = B.MEMBER_NO WHERE M.USER_ID = #{user_id}
@@ -54,8 +54,8 @@
 	<!-- 사업자정보 수정 -->
 	<update id="businessUpdate" parameterType="com.kat.seat.model.JoinInfo">
 		UPDATE MEMBER M JOIN BUSINESS B
-		ON M.USER_ID=B.USER_ID
-		SET NAME={name}, PHONE=#{phone}, COMPANY=#{company}, POSTCODE = #{postcode}, ADDRESS1 = #{address1}, 
+		ON M.MEMBER_NO=B.MEMBER_NO
+		SET NAME =#{name}, PHONE=#{phone}, COMPANY=#{company}, POSTCODE = #{postcode}, ADDRESS1 = #{address1}, 
 		ADDRESS2 = #{address2}, BUSINESS_PHONE = #{business_phone}, BUSINESS_NUMBER = #{business_number}
 		WHERE USER_ID = #{user_id}
 	</update>

@@ -121,7 +121,7 @@ function emailfocus(){
 																	$(
 																			"#emailspan")
 																			.text(
-																					"중복된 이메일입니다.")
+																					"중복된 이메일 이메일입니다.")
 																			.css(
 																					'color',
 																					'red');
@@ -496,6 +496,15 @@ function emailfocus(){
 						회원 가입 정보등록
 					</div>
 					<ul>
+						<li id="add_search_li_border">등록여부 선택</li>
+						<li><input type="radio" id="level2" name="level"
+							value="2" class="businessbtn"> 사업자회원 &nbsp;</li>
+						<li><input type="radio" id="level1" name="level"
+							value="1" class="memberbtn" checked> 일반회원 &nbsp;</li>
+
+					</ul>
+					
+					<ul>
 						<li id="add_search_li_border">아이디</li>
 						<li class="textstyle"><input type="text" id="kat_id"
 							name="user_id"></li>
@@ -543,15 +552,9 @@ function emailfocus(){
 						<li class="textstyle"><input type="text" id="user_sendcode">
 							<input type="button" value="확인" onclick="okok()"></li>
 					</ul>
-					<ul>
-						<li id="add_search_li_border">등록여부 선택</li>
-						<li><input type="radio" id="level2" name="level"
-							value="2" class="businessbtn"> 사업자회원 &nbsp;</li>
-						<li><input type="radio" id="level1" name="level"
-							value="1" class="memberbtn" checked> 일반회원 &nbsp;</li>
-
-					</ul>
-					<ul id="business_display1" style="display: none">
+					
+					
+					<!-- <ul id="business_display1" style="display: none">
 						<li id="add_search_li_border">매장 이름</li>
 						<li class="textstyle"><input type="text" id="business_Name"
 							name="company"></li>
@@ -577,7 +580,7 @@ function emailfocus(){
 						<li id="add_search_li_border">사업장등록 번호</li>
 						<li class="textstyle"><input type="text" id="business_num"
 							name="business_number"></li>
-					</ul>
+					</ul> -->
 					<ul id="btnstyle">
 						<li><input type="submit" id="Registration"
 							name="Registrationbtn" value="등록"></li>

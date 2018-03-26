@@ -7,7 +7,7 @@
 	<!-- 좌석 정보 등록 -->
 	<insert id="insertMenu" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
-		values (0, #{product_name}, #{cost}, #{catagory}, #{business_number}, #{user_id}, #{menu_photo_file}, now(), #{continent}, #{country}, #{city})
+		values (#{product_name}, #{cost}, #{catagory}, #{business_number}, #{user_id}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
 	</insert>
 
 	<!-- 등록된 메뉴 수 -->
@@ -18,11 +18,11 @@
 	<!--메뉴 리스트 담기 -->
 	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
 		SELECT product_no, product_name, cost, catagory, business_number, user_id, menu_photo_file, create_date, continent, country, city
-		FROM PRODUCT WHERE USER_ID = #{param1}
-		ORDER BY CREATE_DATE DESC 
+		FROM PRODUCT WHERE user_id = #{param1}
+		ORDER BY create_date DESC 
 		LIMIT #{param2}, #{param3}
 	</select>
-	
+		
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
 		SELECT product_no, product_name, cost, catagory, business_number, user_id, menu_photo_file, create_date, continent, country, city

@@ -1,5 +1,7 @@
 package com.kat.seat.service;
 
+import java.util.Date;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,6 +21,7 @@ public class LoginService {
 System.out.println("[LoginService joinInsert] GENERAL MEMBER REGISTRATION ACCESS");
 System.out.println("[LoginService joinInsert] joinInfo : " + joinInfo.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
+		joinInfo.setCreate_date(new Date());
 		dao.insertMember(joinInfo);
 System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 	}
@@ -28,6 +31,8 @@ System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 System.out.println("[LoginService joinInsertBusiness] BUSINESS MEMBER REGISTRATION ACCESS");
 System.out.println("[LoginService joinInsertBusiness] " + joinInfo.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
+System.out.println("[LoginService joinInsertBusiness] " + joinInfo);
+        joinInfo.setCreate_date(new Date());
 		dao.insertMember(joinInfo);
 System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 		dao.insertBusiness(joinInfo);

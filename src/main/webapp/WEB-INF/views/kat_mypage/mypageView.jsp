@@ -16,22 +16,22 @@
 		<table id="style_t1">
 
 
-			<c:if test="${JoinListInfo1.category eq 'member'}">
+			<c:if test="${JoinListInfo1.level eq '1'}">
 				<tr>
 					<th>아이디</th>
-					<td>${JoinListInfo1.kat_id}</td>
+					<td>${JoinListInfo1.user_id}</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>${JoinListInfo1.kat_name}</td>
+					<td>${JoinListInfo1.name}</td>
 				</tr>
 				<tr>
 					<th>전화번호</th>
-					<td>${JoinListInfo1.kat_phone}</td>
+					<td>${JoinListInfo1.phone}</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td>${JoinListInfo1.kat_email}</td>
+					<td>${JoinListInfo1.email}</td>
 				</tr>
 				<tr>
 					<th>가입일</th>
@@ -40,22 +40,22 @@
 				</tr>
 			</c:if>
 
-			<c:if test="${JoinListInfo.category eq 'business'}">
+			<c:if test="${JoinListInfo.level eq '2'}">
 				<tr>
 					<th>아이디</th>
-					<td>${JoinListInfo.kat_id}</td>
+					<td>${JoinListInfo.user_id}</td>
 				</tr>
 				<tr>
 					<th>이름</th>
-					<td>${JoinListInfo.kat_name}</td>
+					<td>${JoinListInfo.name}</td>
 				</tr>
 				<tr>
 					<th>전화번호</th>
-					<td>${JoinListInfo.kat_phone}</td>
+					<td>${JoinListInfo.phone}</td>
 				</tr>
 				<tr>
 					<th>이메일</th>
-					<td>${JoinListInfo.kat_email}</td>
+					<td>${JoinListInfo.email}</td>
 				</tr>
 				<tr>
 					<th>가입일</th>
@@ -64,7 +64,7 @@
 				</tr>
 				<tr>
 					<th>매장명</th>
-					<td>${JoinListInfo.business_name}</td>
+					<td>${JoinListInfo.company}</td>
 				</tr>
 				<tr>
 					<th>우편번호</th>
@@ -84,7 +84,7 @@
 				</tr>
 				<tr>
 					<th>사업자 등록번호</th>
-					<td>${JoinListInfo.business_num}</td>
+					<td>${JoinListInfo.business_number}</td>
 				</tr>
 			</c:if>
 		</table>

@@ -221,27 +221,27 @@
 			<hr>
 			<br>
 			<ul>
-				<c:if test="${MyPageUpdate.category eq 'member'}">
-					<li>이름 &nbsp; <input type="text" name="kat_name"
-						value="${MyPageUpdate.kat_name}"></li>
+				<c:if test="${MyPageUpdate.level eq '1'}">
+					<li>이름 &nbsp; <input type="text" name="name"
+						value="${MyPageUpdate.name}"></li>
 					
 
-					<li>전화번호 &nbsp; <input type="text" name="kat_phone"
-						value="${MyPageUpdate.kat_phone}"></li>
+					<li>전화번호 &nbsp; <input type="text" name="phone"
+						value="${MyPageUpdate.phone}"></li>
 				</c:if>
 			</ul>
 			<ul>
-				<c:if test="${MyPageUpdate.category eq 'business'}">
+				<c:if test="${MyPageUpdate.level eq '2'}">
 
-					<li>이름 &nbsp; <input type="text" name="kat_name"
-						value="${MyPageUpdate1.kat_name}"></li>
-					<
+					<li>이름 &nbsp; <input type="text" name="name"
+						value="${MyPageUpdate1.name}"></li>
+					
 
-					<li>전화번호 &nbsp; <input type="text" name="kat_phone"
-						value="${MyPageUpdate1.kat_phone}"></li>
+					<li>전화번호 &nbsp; <input type="text" name="phone"
+						value="${MyPageUpdate1.phone}"></li>
 
-					<li>매장명 &nbsp; <input type="text" name="business_name"
-						value="${MyPageUpdate1.business_name}"></li>
+					<li>매장명 &nbsp; <input type="text" name="company"
+						value="${MyPageUpdate1.company}"></li>
 
 					<li class="textstyle">매장 주소 &nbsp; <input type="button"
 						onclick="searchaddr()" id="kk_searchaddr" value="주소찾기"></li>
@@ -258,8 +258,8 @@
 					<li>매장전화번호 &nbsp; <input type="text" name="business_phone"
 						value="${MyPageUpdate1.business_phone}"></li>
 
-					<li>사업자등록번호 &nbsp; <input type="text" name="business_num"
-						value="${MyPageUpdate1.business_num}"></li>
+					<li>사업자등록번호 &nbsp; <input type="text" name="business_number"
+						value="${MyPageUpdate1.business_number}"></li>
 				</c:if>
 			</ul>
 			<ul>

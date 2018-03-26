@@ -31,6 +31,7 @@ System.out.println("[MenuAddController getUploadForm] INSERT PRODUCT FORM CALL A
 System.out.println("[MenuAddController getUploadForm] pageNumber : " + pageNumber);
 		ModelAndView modelAndView = new ModelAndView();
 		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
+System.out.println("[MenuAddController getUploadForm] user_id : "+ user_id);		
 		MenuInfoListView menuInfoListView = addMenuService.getMenuList(user_id, pageNumber); // 리스트 구현
 System.out.println("[MenuAddController getUploadForm] menuInfoListView : " + menuInfoListView);
 
