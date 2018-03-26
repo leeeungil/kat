@@ -33,9 +33,11 @@ public interface LoginDao {
 
 	// id ajax
 	public int checkAjaxId(String user_id);
-
+	public int checkAjaxId2(String user_id);
+	
 	// email ajax
 	public int checkAjaxEmail(String email);
+	public int checkAjaxEmail2(String email);
 
 	public String ajaxemailid(String joinInfo);
 

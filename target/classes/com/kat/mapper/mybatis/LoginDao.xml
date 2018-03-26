@@ -5,7 +5,7 @@
 	<!-- 일반 회원 정보 등록 -->
 	<insert id="insertMember" parameterType="com.kat.seat.model.JoinInfo">
 		INSERT INTO MEMBER
-		VALUES (0, #{user_id}, #{name}, #{password}, #{phone}, #{email}, #{create_date}, #{level}, 0)
+		VALUES (0, #{user_id}, #{name}, #{password}, #{phone}, #{email}, now(), 0)
 	</insert>
 
 	<!-- 사업자 정보 등록 -->
@@ -64,17 +64,7 @@
 		SET PASSWORD = #{password}
 		WHERE USER_ID = #{user_id}
 	</update>
-
-	<select id="checkAjaxId" resultType="Integer">
-		SELECT COUNT(*)
-		FROM MEMBER WHERE USER_ID = #{user_id}
-	</select>
-
-	<select id="checkAjaxEmail" resultType="Integer">
-		SELECT COUNT(*)
-		FROM MEMBER WHERE EMAIL = #{email}
-	</select>
-
+	
 	<select id="ajaxemailid" resultType="String">
 		SELECT USER_ID
 		FROM MEMBER
@@ -85,6 +75,20 @@
 		SELECT PASSWORD
 		FROM MEMBER WHERE EMAIL = #{email}
 	</select>
-
-
+	
+	<!-- ID DUPLICATE CHECK -->
+	<select id="checkAjaxId" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE USER_ID = #{user_id}
+	</select>
+	<select id="checkAjaxId2" resultType="Integer">
+		SELECT COUNT(*) FROM BUSINESS WHERE USER_ID = #{user_id}
+	</select>
+	
+	<!-- EMAIL DUPLICATE CHECK -->
+	<select id="checkAjaxEmail" resultType="Integer">
+		SELECT COUNT(*) FROM MEMBER WHERE EMAIL = #{email}
+	</select>
+	<select id="checkAjaxEmail2" resultType="Integer">
+		SELECT COUNT(*) FROM BUSINESS WHERE EMAIL = #{email}
+	</select>
 </mapper>

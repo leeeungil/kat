@@ -11,13 +11,10 @@ public class JoinAgreeController {
 
 	@RequestMapping("kat/join/agreechk.do")
 	public ModelAndView joinAgreechk() throws IllegalStateException, IOException {
-
-		System.out.println("로그 JoinAgree 컨트롤");
-		
+System.out.println("[JoinAgreeController joinAgreechk] SIGN_IN BTN CLICK ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("joinAgree_main");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
-	
 }

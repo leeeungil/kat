@@ -18,24 +18,21 @@ public class JoinFormInsertController {
 
 	@RequestMapping("kat/join/joinFormInsert.do")
 	public ModelAndView joinFormInsert(JoinInfo joinInfo) throws IllegalStateException, IOException {
-		System.out.println("로그 joinFormInsert 컨트롤");
-
+System.out.println("[JoinFormInsertController joinFormInsert] MEMBER ACCESS");		
 System.out.println("[JoinFormInsertController joinFormInsert] joinInfo : " + joinInfo);		
-		String level = joinInfo.getLevel();
-System.out.println("[JoinFormInsertController joinFormInsert]");	
-System.out.println("[JoinFormInsertController joinFormInsert] level : " + level);
-		joinInfo.setDelete_flag(0); //회원사용여부
 		ModelAndView modelAndView = new ModelAndView();
 		
 		try {
-			if (level.equals("1")) loginService.joinInsert(joinInfo);
-			else if (level.equals("2")) loginService.joinInsertBusiness(joinInfo);
+//			if (level.equals("1")) 
+//			else if (level.equals("2")) loginService.joinInsertBusiness(joinInfo);
 
+			loginService.joinInsert(joinInfo);
 			modelAndView.addObject("joinName", joinInfo);
 			modelAndView.setViewName("joinSucess_main");
 		} catch (Exception e) {
 			modelAndView.setViewName("/kat_exception/exception");
 		}
+System.out.println("=============================================================");
 		return modelAndView;
 	}
 }

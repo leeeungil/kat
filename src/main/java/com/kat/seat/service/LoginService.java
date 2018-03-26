@@ -1,7 +1,5 @@
 package com.kat.seat.service;
 
-import java.util.Date;
-
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -21,7 +19,6 @@ public class LoginService {
 System.out.println("[LoginService joinInsert] GENERAL MEMBER REGISTRATION ACCESS");
 System.out.println("[LoginService joinInsert] joinInfo : " + joinInfo.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		joinInfo.setCreate_date(new Date());
 		dao.insertMember(joinInfo);
 System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 	}
@@ -32,7 +29,6 @@ System.out.println("[LoginService joinInsertBusiness] BUSINESS MEMBER REGISTRATI
 System.out.println("[LoginService joinInsertBusiness] " + joinInfo.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 System.out.println("[LoginService joinInsertBusiness] " + joinInfo);
-        joinInfo.setCreate_date(new Date());
 		dao.insertMember(joinInfo);
 System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 		dao.insertBusiness(joinInfo);
@@ -110,15 +106,20 @@ System.out.println("[LoginService ajaxchk_id] user_id : " + user_id);
 		int infoChkId = dao.checkAjaxId(user_id);
 System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId) RETURN");
 System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkId);
+		if(infoChkId==0) {
+			infoChkId = dao.checkAjaxId2(user_id);
+System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId2) RETURN");
+System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkId);
+		}
 		return infoChkId;
 	}
 
 	// ajax email 중복체크
-	public int ajaxchk_email(String user_id) {
+	public int ajaxchk_email(String email) {
 System.out.println("[LoginService ajaxchk_email] EMAIL DUPLICATION CHECK ACCESS");
-System.out.println("[LoginService ajaxchk_email] user_id : " + user_id);
+System.out.println("[LoginService ajaxchk_email] email : " + email);
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		int infoChkEmail = dao.checkAjaxEmail(user_id);
+		int infoChkEmail = dao.checkAjaxEmail(email);
 System.out.println("[LoginService ajaxchk_email] MAPPER(checkAjaxEmail) RETURN");
 System.out.println("[LoginService ajaxchk_email] infoChkEmail : " + infoChkEmail);
 		return infoChkEmail;

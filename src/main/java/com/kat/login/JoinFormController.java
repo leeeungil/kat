@@ -11,12 +11,10 @@ public class JoinFormController {
 
 	@RequestMapping("kat/join/joinForm.do")
 	public ModelAndView joinForm() throws IllegalStateException, IOException {
-
-		System.out.println("로그 JoinForm 컨트롤");
-
+System.out.println("[JoinFormController joinForm] LOAD SIGN_IN FORM ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("joinForm_main");
-
+System.out.println("=============================================================");
 		return modelAndView;
 	}
 }
