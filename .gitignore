@@ -4,3 +4,5 @@ RemoteSystemsTempFiles/
 Servers/
 target/
 
+*.MF
+*.properties

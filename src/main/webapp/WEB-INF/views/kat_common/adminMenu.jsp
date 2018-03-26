@@ -29,7 +29,7 @@
             </li>
 
             <li class="menu">
-                <ul id="menu_btn">매장사진 등록</ul>
+                <ul id="menu_btn">업체사진 등록</ul>
                 <ul class="hide">
                     <li><a href="<%=request.getContextPath()%>/kat/shopPhotoForm/shopPhotoAdd.do">사진 업로드</a></li>
                 </ul>

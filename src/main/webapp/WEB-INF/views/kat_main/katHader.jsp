@@ -458,18 +458,18 @@ span {
 			<ul>
 			    <li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>숙소</strong></a></li>
-				<%-- <li class="btn_center"><a style="color: #111111; font-size:18px;"
+				<li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>셔틀</strong></a></li>
 				<li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>투어</strong></a></li>
 				<li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>티켓</strong></a></li>
 				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>스냅</strong></a></li>	 --%>
+					href="<%=request.getContextPath()%>/master/board/list.do"><strong>스냅</strong></a></li>
 				<li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>동행/장터</strong></a></li>
-				<%-- <li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>여행정보</strong></a></li> --%>
+				<li class="btn_center"><a style="color: #111111; font-size:18px;"
+					href="<%=request.getContextPath()%>/master/board/list.do"><strong>여행정보</strong></a></li>
 				<li class="btn_center"><a style="color: #111111; font-size:18px;"
 					href="<%=request.getContextPath()%>/master/board/list.do"><strong>고객센터</strong></a></li>
 			</ul>

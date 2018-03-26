@@ -8,9 +8,9 @@
 		method="post" name="addform" enctype="multipart/form-data">
 		<div id="Add" class="Tabs">
 			<div id="add_search_border_shop">
-				<div id="add_search_header_shop"> <img class="shop_png" src="<%=request.getContextPath()%>/uploadfile/icon/shop.png"> 매장사진 등록</div>
+				<div id="add_search_header_shop"> <img class="shop_png" src="<%=request.getContextPath()%>/uploadfile/icon/shop.png"> 업체사진 등록</div>
 				<ul>
-					<li id="add_seat">매장 사진등록</li>
+					<li id="add_seat">업체 사진등록</li>
 					<li class="filebox bs3-primary preview-image"><input
 						class="upload-name" value="파일을 선택해주세요!" disabled="disabled"
 						style="width: 200px;"> <label for="input_file">파일

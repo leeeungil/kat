@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>매장사진 등록</title>
+<title>업체 사진 등록</title>
 
 <!-- css 가져오기 -->
 <link type="text/css" rel="stylesheet"

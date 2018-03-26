@@ -7,7 +7,7 @@
 	<!-- 좌석 정보 등록 -->
 	<insert id="insertMenu" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
-		values (#{product_name}, #{cost}, #{catagory}, #{business_number}, #{user_id}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
+		values (#{product_name}, #{cost}, #{catagory}, #{business_number}, #{business_no}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
 	</insert>
 
 	<!-- 등록된 메뉴 수 -->
