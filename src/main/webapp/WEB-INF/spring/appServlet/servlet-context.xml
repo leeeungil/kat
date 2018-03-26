@@ -9,9 +9,7 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing 
-		infrastructure -->
-
+	<!-- DispatcherServlet Context: defines this servlet's request-processing  infrastructure -->
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -26,8 +24,7 @@
 	<resources mapping="/uploadfile/**" location="/uploadfile/" />
 
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
-		in the /WEB-INF/views directory -->
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -47,6 +44,7 @@
 	<beans:bean id="InfoShop" class="com.kat.seat.model.InfoShop" scope="prototype" />
 	<beans:bean id="InfoShopListView" class="com.kat.seat.model.InfoShopListView" scope="prototype" />
 	<beans:bean id="JoinInfo" class="com.kat.seat.model.JoinInfo" scope="prototype" />
+	<beans:bean id="JoinInfoBusiness" class="com.kat.seat.model.JoinInfoBusiness" scope="prototype" />
 	<beans:bean id="JoinInfoChk" class="com.kat.seat.model.JoinInfoChk" scope="prototype" />
 	<beans:bean id="InfoShopAddress" class="com.kat.seat.model.InfoShopAddress" scope="prototype" />
 	<beans:bean id="ReservationBreakdown" class="com.kat.seat.model.ReservationBreakdown" scope="prototype" />
@@ -64,9 +62,6 @@
 	<beans:bean id="addMenuService" class="com.kat.seat.service.AddMenuService" />
 	<beans:bean id="seatReservationService" class="com.kat.seat.service.SeatReservationService" />
 	<beans:bean id="loginService" class="com.kat.seat.service.LoginService" />
-
-
-
 
 	<!-- 은길이형 -->
 	<!--모델 등록 -->
@@ -88,10 +83,8 @@
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
 
-
 	<!-- 정린이형 -->
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
-
 
 	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
 	<beans:bean id="multipartResolver"
@@ -101,19 +94,11 @@
 		</beans:property>
 	</beans:bean>
 
-
 	<!-- 데이터 베이스 설정 -->
-	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://localhost:3306/gee1019?characterEncoding=utf8"
-		p:username="gee1019" p:password="ontable1221" /> -->
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
-		p:driverClassName="com.mysql.jdbc.Driver"
-		p:url="jdbc:mysql://localhost:3306/kat?characterEncoding=utf8"
-		p:username="root" p:password="min337337" />
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" p:driverClassName="com.mysql.jdbc.Driver" 
+		p:url="jdbc:mysql://localhost:3306/kat?characterEncoding=utf8" p:username="root" p:password="min337337" />
 
-	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
-		p:dataSource-ref="dataSource" />
+	<beans:bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource" />
 
 
 	<!-- mybatisDao설정 -->
@@ -150,6 +135,4 @@
 
 	<!-- 정린이형 메일인증 -->
 	<beans:bean id="mrNotifer" class="com.kat.mail.MimeRegistrationNotifier"></beans:bean>
-
-
 </beans:beans>
