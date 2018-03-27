@@ -318,14 +318,15 @@
 		<form method="post" name="addform" action="<%=request.getContextPath()%>/kat/join/joinFormInsert.do" onsubmit="return checkform();">
 			<div id="Add" class="Tabs">
 				<div id="add_search_border">
+				<a href="<%=request.getContextPath()%>/kat/join/businessjoinForm.do"><span>사업자 회원가입을 원하시는분은 여기를 눌러주세요</span></a>
 					<div id="add_search_header">
 						<img class="member_png" src="<%=request.getContextPath()%>/uploadfile/icon/member.png">
 						회원 가입 정보등록
 					</div>
 					<ul>
-						<li id="add_search_li_border">등록여부 선택</li>
+						<!-- <li id="add_search_li_border">등록여부 선택</li>
 						<li><input type="radio" id="level2" name="level" value="2" class="businessbtn"> 사업자회원 &nbsp;</li>
-						<li><input type="radio" id="level1" name="level" value="1" class="memberbtn" checked> 일반회원 &nbsp;</li>
+						<li><input type="radio" id="level1" name="level" value="1" class="memberbtn" checked> 일반회원 &nbsp;</li> -->
 					</ul>
 					<ul>
 						<li id="add_search_li_border">아이디</li>
