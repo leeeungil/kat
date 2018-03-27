@@ -79,10 +79,16 @@ CREATE TABLE PRODUCT_REVIEW (
 
 
 /*
- * 1. 공지사항 NOTICE
- * 2. 상품(투어, 티켓, 셔틀 등) PRODUCT 
- * 3. 후기(투어, 티켓, 셔틀 등) PRODUCT_REVIEW
- * 4. 숙박  %%예정
+ * 0. 공지사항 NOTICE
+ * 1. 상품(투어) PRODUCT 
+ * 2. 상품(티켓) PRODUCT 
+ * 3. 상품(셔틀 등) PRODUCT 
+
+ * 11. 후기(투어) PRODUCT_REVIEW
+ * 12. 후기(티켓) PRODUCT_REVIEW
+ * 13. 후기(셔틀 등) PRODUCT_REVIEW
+
+ * 20. 숙박  %%예정
  * */
 DROP TABLE PHOTO;
 CREATE TABLE PHOTO (

@@ -19,7 +19,6 @@ public class MenuInfo {
     private String city; // 도시구분
 	public MenuInfo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public MenuInfo(int product_no, String product_name, int cost, String catagory, int business_number, String user_id,
 			String menu_photo_file, MultipartFile multipart_product_file, Date create_date, String continent,

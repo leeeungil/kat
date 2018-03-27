@@ -1,0 +1,10 @@
+회원가입 버튼 클릭 : JoinAgreeController.java ===============> joinAgree_main
+약관 동의 후 다음 버튼 클릭 : JoinFormController.java ===============> joinForm_main
+ID 중복체크 버튼 클릭 : IdchkAjaxController.java ===============> LoginService ajaxchk_id(일반), ajaxchk_id2(사업자) CHECK
+이메일 중복체크 버튼 클릭 :
+회원가입 완료 버튼 : JoinFormInsertController.java ===============> loginService.joinInsert(joinInfo);
+일반 회원 로그인 버튼 클릭 (완)
+사업자 회원 로그인 버튼 클릭 (완)
+아이디 찾기
+비밀번호 찾기
+

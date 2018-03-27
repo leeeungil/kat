@@ -188,7 +188,6 @@
 	</select>
 	
 	<select id="shopCount2" resultType="int">
-		<!-- SELECT COUNT(*) FROM SHOP_PHOTO where user_id= #{param1} -->
 		SELECT COUNT(*) FROM SHOP_PHOTO
 	</select>
 	

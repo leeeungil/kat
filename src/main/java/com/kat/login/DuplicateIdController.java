@@ -11,27 +11,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kat.seat.service.LoginService;
 
-
 @Controller
-public class IdchkAjaxController {
+public class DuplicateIdController {
 
 	@Autowired
 	private LoginService loginService;
 	
-	
 	@RequestMapping("ajaxidchk.do")
 	public String checkAjaxId1 ( Model model, HttpServletRequest request) throws IllegalStateException, IOException {
-		
-		System.out.println("로그 id 중복체크 ajax");
-		
+System.out.println("[IdchkAjaxController checkAjaxId1] ID DUPLICATE CHECK ACCESS");		
 		String ajaxidchk = request.getParameter("checkAjaxId");
-		
-		int nt =loginService.ajaxchk_id(ajaxidchk);
-			
-		model.addAttribute("ajax_id", nt);
-				
+		int chk_result =loginService.ajaxchk_id(ajaxidchk);
+System.out.println("[IdchkAjaxController checkAjaxId1] chk_result : " + chk_result);
+		model.addAttribute("ajax_id", chk_result);
+System.out.println("=============================================================");
 		return "/Check";
-		
 	}
-	
 }

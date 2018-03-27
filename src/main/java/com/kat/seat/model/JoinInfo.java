@@ -10,6 +10,14 @@ public class JoinInfo {
 	private String create_date; // 가입 일자 
 	private int delete_flag; // 회원 구분
 	
+	private String level;
+	
+	public String getLevel() {
+		return level;
+	}
+	public void setLevel(String level) {
+		this.level = level;
+	}
 	public int getMember_no() {
 		return member_no;
 	}
@@ -62,6 +70,6 @@ public class JoinInfo {
 	public String toString() {
 		return "JoinInfo [member_no=" + member_no + ", user_id=" + user_id + ", name=" + name + ", password=" + password
 				+ ", phone=" + phone + ", email=" + email + ", create_date=" + create_date + ", delete_flag="
-				+ delete_flag + "]";
+				+ delete_flag + ", level=" + level + "]";
 	}
 }

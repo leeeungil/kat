@@ -9,7 +9,6 @@ public class Search {
 	private String select_key; // 검색키워드
 	public Search() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Search(String select_area, String select_area2, String select_menu, String select_key) {
 		super();
