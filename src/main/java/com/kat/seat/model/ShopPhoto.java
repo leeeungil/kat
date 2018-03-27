@@ -1,7 +1,5 @@
 package com.kat.seat.model;
 
-import java.util.Date;
-
 import org.springframework.web.multipart.MultipartFile;
 
 public class ShopPhoto {

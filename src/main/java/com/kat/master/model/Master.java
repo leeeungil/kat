@@ -12,7 +12,6 @@ public class Master {
 	private int user_chk;
 	public Master() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Master(String master_id, String master_pw, Date create_date, String category, int master_no, int user_chk) {
 		super();

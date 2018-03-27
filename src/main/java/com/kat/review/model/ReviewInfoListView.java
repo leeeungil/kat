@@ -11,7 +11,6 @@ public class ReviewInfoListView {
 	private String CompanyId;
 	public ReviewInfoListView() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public ReviewInfoListView(List<Review> reviewList, List<Review> mainreviewList, int pageTotalCount, int pageNumber,
 			String companyId) {
