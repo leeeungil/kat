@@ -554,7 +554,7 @@ function emailfocus(){
 					</ul>
 					
 					
-					<!-- <ul id="business_display1" style="display: none">
+					<ul id="business_display1" style="display: none">
 						<li id="add_search_li_border">매장 이름</li>
 						<li class="textstyle"><input type="text" id="business_Name"
 							name="company"></li>
@@ -580,7 +580,7 @@ function emailfocus(){
 						<li id="add_search_li_border">사업장등록 번호</li>
 						<li class="textstyle"><input type="text" id="business_num"
 							name="business_number"></li>
-					</ul> -->
+					</ul>
 					<ul id="btnstyle">
 						<li><input type="submit" id="Registration"
 							name="Registrationbtn" value="등록"></li>
