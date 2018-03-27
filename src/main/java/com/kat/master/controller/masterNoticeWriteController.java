@@ -30,11 +30,9 @@ public class masterNoticeWriteController {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public String NoticeSubmit(Notice notice,HttpServletRequest request) throws IllegalStateException, IOException {
-		
 		System.out.println("공지사항 insert 부분");
 		System.out.println(notice);
 		
-		notice.setRegdate(new Date());
 		noticeService.noticeinsert(notice);
 		
 		return "redirect:/master/board/noticelist.do";
