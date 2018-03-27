@@ -116,7 +116,7 @@
            
 			<!-- Traveler Review -->
 			<div class="ReviewBox"	>
-				<ul id="review1"><li>후기</li></ul>
+				<ul class="review1" id="review1"><li>후기</li></ul>
 				<ul id="content-slider3" class="content-slider3">
 					<li style="text-align:center; margin-left:51px;">
 						<c:forEach var="review" items="${ListInfoReview.getMainreviewList()}" varStatus="status">
