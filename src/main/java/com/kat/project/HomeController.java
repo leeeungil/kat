@@ -37,10 +37,10 @@ public class HomeController {
 		return "home";
 	}
 
-	@Autowired
-	private ReviewListService reviewListService;
+	/*@Autowired
+	private ReviewListService reviewListService;*/
 
-	@RequestMapping(value = "/kat_main.do", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/kat_main.do", method = RequestMethod.GET)
 	public ModelAndView home(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
 			HttpServletRequest request) throws IllegalStateException, IOException {
 System.out.println("[HomeController home] HOME ACCESS");
@@ -52,5 +52,10 @@ System.out.println("[HomeController home] pageNumber : " + pageNumber);
 		modelAndView.addObject("ListInfoReview", reviewInfoListView);
 System.out.println("=============================================================");
 		return modelAndView;
+	}*/
+	
+	@RequestMapping(value ="/kat_main.do", method = RequestMethod.GET)
+	public String home() {  
+		return "kat_main";
 	}
 }

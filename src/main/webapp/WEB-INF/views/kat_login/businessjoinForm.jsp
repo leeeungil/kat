@@ -324,8 +324,8 @@
 					</div>
 					<ul>
 						<li id="add_search_li_border">등록여부 선택</li>
-						<li><input type="radio" id="level2" name="level" value="2" class="businessbtn"> 사업자회원 &nbsp;</li>
-						<li><input type="radio" id="level1" name="level" value="1" class="memberbtn" checked> 일반회원 &nbsp;</li>
+						<!-- <li><input type="radio" id="level2" name="level" value="2" class="businessbtn"> 사업자회원 &nbsp;</li> -->
+						<!-- <li><input type="radio" id="level1" name="level" value="1" class="memberbtn" checked> 일반회원 &nbsp;</li> -->
 					</ul>
 					<ul>
 						<li id="add_search_li_border">아이디</li>
