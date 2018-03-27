@@ -65,11 +65,10 @@ public interface MenuDao {
 
 	
 	// 장준영 수정 중
-	// continent, country
+	// continent, country count
 	public int productCount_12(String continent, String country);
-
-	// 키워드로 겁색한 리스트 담기
-	public List<InfoShopSearch> productSearch_12(String keyword, int firstRow, int searchPerPage);
+	// continent, country search
+	public List<InfoShopSearch> productSearch_12(String continent, String country, int firstRow, int searchPerPage);
 	
 	// 메뉴로 검색한 리스트 수
 	public int shopCountList2(String menu);
