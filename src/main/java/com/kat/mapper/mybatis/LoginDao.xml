@@ -11,7 +11,7 @@
 	<!-- 사업자 정보 등록 -->
 	<insert id="insertBusiness" parameterType="com.kat.seat.model.JoinInfo">
 		INSERT INTO BUSINESS
-		VALUES (#{member_no}, #{company}, #{postcode} , #{address1} , #{address2}, #{business_phone}, #{business_number}, 0)
+		VALUES (#{business_no}, #{user_id}, #{name} ,#{password}, #{phone}, #{email}, now(), #{company}, #{zip_code}, #{address1}, #{address2}, #{business_phone}, #{business_number}, 0)
 	</insert>
 
 	<!-- member, business login check -->
