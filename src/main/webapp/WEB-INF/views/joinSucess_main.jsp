@@ -11,7 +11,7 @@
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/join_css.css">
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main_css.css">
+	href="<%=request.getContextPath()%>/css/home_main.css">
 
 <!-- 스크립트 가져오기 -->
 <script src="<%=request.getContextPath()%>/script/join_script.js"></script>

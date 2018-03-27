@@ -13,7 +13,7 @@
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/adminMenu_css.css">
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main_css.css">
+	href="<%=request.getContextPath()%>/css/home_main.css">
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/breakdown_css.css">
 

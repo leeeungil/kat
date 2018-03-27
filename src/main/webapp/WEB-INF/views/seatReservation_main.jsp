@@ -15,7 +15,7 @@
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/adminMenu_css.css">
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main_css.css">
+	href="<%=request.getContextPath()%>/css/home_main.css">
 
 <!-- 스크립트 가져오기 -->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>

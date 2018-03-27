@@ -208,16 +208,17 @@ img {
 .main_select:hover {
 	background-color: rgb(46, 154, 254);
 	box-shadow: #7bb3e6 3px 3px 9px 1px;
+	font-weight: 800;
 }
 
 .search_data {
     background-color: rgb(100, 180, 254, 80%);
     color: #ffffff;
-    font-weight: 800;
 }
 #search_data:hover {
 	background-color: rgb(46, 154, 254);
 	box-shadow: #7bb3e6 3px 3px 9px 1px;
+    font-weight: 800;
 }
 
 /*키워드 입력*/

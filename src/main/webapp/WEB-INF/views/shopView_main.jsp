@@ -10,7 +10,7 @@
 <!-- css 가져오기 -->
 
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main_css.css?ver=1">
+	href="<%=request.getContextPath()%>/css/home_main.css?ver=1">
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/shopView_css.css?ver=1">	
 
