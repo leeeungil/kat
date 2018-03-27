@@ -388,7 +388,7 @@
 					</ul>
 					
 					
-					<!-- <ul id="business_display1" style="display: none">
+					<ul id="business_display1" style="display: none">
 						<li id="add_search_li_border">매장 이름</li>
 						<li class="textstyle">
 							<input type="text" id="business_Name" name="company">
@@ -414,8 +414,14 @@
 					</ul>
 					<ul id="business_display4" style="display: none">
 						<li id="add_search_li_border">사업장등록 번호</li>
+<<<<<<< HEAD
+						<li class="textstyle"><input type="text" id="business_num"
+							name="business_number"></li>
+					</ul>
+=======
 						<li class="textstyle"><input type="text" id="business_num" name="business_number"></li>
 					</ul> -->
+>>>>>>> 96412bb756151cc0d770ec50860c6dabb164c4f3
 					<ul id="btnstyle">
 						<li><input type="submit" id="Registration" name="Registrationbtn" value="등록"></li>
 						<li>
