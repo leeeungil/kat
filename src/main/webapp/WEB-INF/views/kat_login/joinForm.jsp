@@ -315,10 +315,10 @@
 
 <div id="join_kat">
 	<div id=join_center>
+	<a href="<%=request.getContextPath()%>/kat/join/businessjoinForm.do"><span>사업자 회원가입을 원하시는분은 여기를 눌러주세요</span></a>
 		<form method="post" name="addform" action="<%=request.getContextPath()%>/kat/join/joinFormInsert.do" onsubmit="return checkform();">
 			<div id="Add" class="Tabs">
 				<div id="add_search_border">
-				<a href="<%=request.getContextPath()%>/kat/join/businessjoinForm.do"><span>사업자 회원가입을 원하시는분은 여기를 눌러주세요</span></a>
 					<div id="add_search_header">
 						<img class="member_png" src="<%=request.getContextPath()%>/uploadfile/icon/member.png">
 						회원 가입 정보등록

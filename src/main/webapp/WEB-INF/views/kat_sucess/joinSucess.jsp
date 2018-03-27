@@ -8,8 +8,7 @@
 		<br> <span id="agree">On Table 회원이 되신걸 진심으로 축하드립니다.</span>
 		<table id="tabe_align">
 			<tr>
-				<td><br> <br> <textarea rows="20" cols="120"
-						id="join_agreeinfo" readonly style="resize: none">
+				<td><br> <br> <textarea rows="20" cols="120" id="join_agreeinfo" readonly style="resize: none">
 							              
   ※ 회원가입 완료
     

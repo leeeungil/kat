@@ -315,15 +315,15 @@
 
 <div id="join_kat">
 	<div id=join_center>
-		<form method="post" name="addform" action="<%=request.getContextPath()%>/kat/join/joinFormInsert.do" onsubmit="return checkform();">
+		<form method="post" name="addform" action="<%=request.getContextPath()%>/kat/join/businessjoinForm.do" onsubmit="return checkform();">
 			<div id="Add" class="Tabs">
 				<div id="add_search_border">
 					<div id="add_search_header">
 						<img class="member_png" src="<%=request.getContextPath()%>/uploadfile/icon/member.png">
-						회원 가입 정보등록
+						사업자 회원 가입 정보등록
 					</div>
 					<ul>
-						<li id="add_search_li_border">등록여부 선택</li>
+						<!-- <li id="add_search_li_border">등록여부 선택</li> -->
 						<!-- <li><input type="radio" id="level2" name="level" value="2" class="businessbtn"> 사업자회원 &nbsp;</li> -->
 						<!-- <li><input type="radio" id="level1" name="level" value="1" class="memberbtn" checked> 일반회원 &nbsp;</li> -->
 					</ul>
@@ -388,13 +388,13 @@
 					</ul>
 					
 					
-					<ul id="business_display1" style="display: none">
+					<ul>
 						<li id="add_search_li_border">매장 이름</li>
 						<li class="textstyle">
 							<input type="text" id="business_Name" name="company">
 						</li>
 					</ul>
-					<ul id="business_display2" style="display: none">
+					<ul>
 						<li id="add_search_li_border">매장 주소</li>
 						<li class="textstyle">
 							<input type="text" id="postcode" name="postcode" placeholder="우편번호" readonly>
@@ -407,12 +407,12 @@
 							<input type="text" id="address2" name="address2" placeholder="상세주소">
 						</li>
 					</ul>
-					<ul id="business_display3" style="display: none">
+					<ul>
 						<li id="add_search_li_border">매장 전화번호</li>
 						<li class="textstyle"><input type="text" id="business_phone" name="business_phone"></li>
 						<li>ex) 031-1234-5678</li>
 					</ul>
-					<ul id="business_display4" style="display: none">
+					<ul>
 						<li id="add_search_li_border">사업장등록 번호</li>
 
 						<li class="textstyle"><input type="text" id="business_num"

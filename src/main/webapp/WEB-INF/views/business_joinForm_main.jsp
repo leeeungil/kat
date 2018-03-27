@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원가입 정보입력</title>
+<title>사업자 회원가입 정보입력</title>
 
 <!-- css 가져오기 -->
-<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/joinForm_css.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/businessjoinForm.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/home_main.css">
 
 <!-- 스크립트 가져오기 -->

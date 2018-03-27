@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kat.seat.dao.LoginDao;
 import com.kat.seat.model.JoinInfo;
+import com.kat.seat.model.JoinInfoBusiness;
 import com.kat.seat.model.JoinInfoChk;
 
 public class LoginService {
@@ -24,14 +25,12 @@ System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 	}
 
 	// 사업자 회원
-	public void joinInsertBusiness(JoinInfo joinInfo) {
+	public void joinInsertBusiness(JoinInfoBusiness joinInfoBusiness) {
 System.out.println("[LoginService joinInsertBusiness] BUSINESS MEMBER REGISTRATION ACCESS");
-System.out.println("[LoginService joinInsertBusiness] " + joinInfo.toString());
+System.out.println("[LoginService joinInsertBusiness] " + joinInfoBusiness.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-System.out.println("[LoginService joinInsertBusiness] " + joinInfo);
-		dao.insertMember(joinInfo);
-System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
-		dao.insertBusiness(joinInfo);
+System.out.println("[LoginService joinInsertBusiness] " + joinInfoBusiness);
+		dao.insertBusiness(joinInfoBusiness);
 System.out.println("[LoginService joinInsert] MAPPER(insertBusiness) FINISH");
 	}
 

@@ -1,6 +1,7 @@
 package com.kat.seat.dao;
 
 import com.kat.seat.model.JoinInfo;
+import com.kat.seat.model.JoinInfoBusiness;
 import com.kat.seat.model.JoinInfoChk;
 
 public interface LoginDao {
@@ -9,7 +10,7 @@ public interface LoginDao {
 	public void insertMember(JoinInfo joinInfo);
 
 	// 사업자 회원가입
-	public void insertBusiness(JoinInfo joinInfo);
+	public void insertBusiness(JoinInfoBusiness joinInfoBusiness);
 
 
 	// 회원정보 가져오기
