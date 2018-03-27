@@ -71,11 +71,6 @@ img {
 	margin: auto;
 }
 
-.Slides {
-	padding-top: 10px;
-	z-index: 10;
-}
-
 @media screen and (max-width: 1400px) {
 	.main_slideshow {
 		width: 1400px;

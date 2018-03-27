@@ -8,15 +8,6 @@
 	list-style: none;
 }
 
-li {
-	list-style: none;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
 a {
 	text-decoration: none;
 	color: black;
@@ -30,16 +21,14 @@ span {
 #loginmodal {
 	border: 1px solid #16bab4;
 	width: 650px;
-	height: 450px;
 	/*팝업창의 크기조절*/
-	margin-top: -50px;
+    margin-top: 5.5vh; 
 	/*팝업창 위아래 간격조절*/
 	background: #f3f6fa;
 	border-radius: 6px;
 	position: fixed;
 	text-align: center;
 	z-index: 99;
-	margin-top: 50px;
 }
 
 /* 레이어 로그인 DIV 부분 */
@@ -71,7 +60,6 @@ span {
 
 /* 로그인 타이틀 부분 */
 #loginTitle {
-	/*border: 1px solid black;*/
 	width: 100%;
 	height: 80px;
 	font-size: 18px;
@@ -90,18 +78,6 @@ span {
 	border: none;
 	font-size: 12px;
 	outline: none;
-	cursor: pointer;
-}
-
-/* 로그인 리스트 */
-#loginTitle li {
-	/*border: 1px solid black;*/
-	border-right: 2px solid #f3f6fa;
-	float: left;
-	line-height: 80px;
-	width: 282px;
-	vertical-align: middle;
-	text-align: center;
 	cursor: pointer;
 }
 
@@ -360,6 +336,10 @@ span {
 #titleoff:hover {
 	background-color: #BDBDBD;
 }
+
+.loginFormLi {
+	margin-right: 0px!important;
+}
 </style>
 
 <script>
@@ -382,7 +362,6 @@ span {
 		objDiv1.style.display = "none";
 
 		if (objDiv.style.display == "block") {
-
 		} else {
 			objDiv.style.display = "block";
 		}
@@ -392,14 +371,10 @@ span {
 		var loginForm = document.getElementById("loginmodal");
 
 		if (loginForm.style.display == "none") {
-
 			loginForm.style.display = "block";
-
 		} else if (loginForm.style.display == "block") {
-
 			loginForm.style.display = "none";
 		}
-
 	}
 </script>
 
@@ -407,7 +382,9 @@ span {
 	<div id="header_inner">
 		<!-- 헤더 로고-->
 		<div id="header_logo">
-			<a href="<%=request.getContextPath()%>/kat_main.do"><p style="color:#2E9AFE; font-weight: 400; border:1px solid #2E9AFE; border-radius:10px;"><strong>Your Platform</strong></p></a>
+			<a href="<%=request.getContextPath()%>/kat_main.do">
+				<p style="color:#2E9AFE; font-weight: 400; border:1px solid #2E9AFE; border-radius:10px;"><strong>Your Platform</strong></p>
+			</a>
 		</div>
 		<ul style="text-align:right; margin-top:-60px;">
 		<c:if test="${user_id == null}">
@@ -419,82 +396,84 @@ span {
 				</c:if>
 
 				<c:if test="${user_id != null}">
-					<li>[ ${user_id} ] 님 로그인중 [ <c:if
-							test="${user_id == 'Master'}">
+					<li>[ ${user_id} ] 님 로그인중 [ 
+						<c:if test="${user_id == 'Master'}">
 							<span style="color: red;"><strong>마스터 </strong></span>
 						</c:if> ${user_category} ]
 					</li>
 					<c:if test="${user_id != 'Master'}">
-						<li id="categoryfont"><a
-							href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong>
-						</a></li>
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong></a>
+						</li>
 						<c:if test="${user_category == '사업자 회원'}">
-							<li id="categoryfont"><a
-								href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품
-									관리</strong></a></li>
+							<li id="categoryfont">
+								<a href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품관리</strong></a>
+							</li>
 						</c:if>
 					</c:if>
-
 					<c:if test="${user_id == 'Master'}">
-						<li id="categoryfont"><a
-							href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>
-								페이지 관리</strong></a></li>
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>페이지 관리</strong></a>
+						</li>
 					</c:if>
 					<c:if test="${user_category == '일반 회원'}">
-						<li id="categoryfont"><a
-							href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>
-								예약내역</strong></a></li>
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
+						</li>
 					</c:if>
 
-					<li><a
-						href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>
-							로그아웃</strong> </a></li>
-
+					<li>
+						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
+					</li>
 				</c:if>	
-		<li id="google_translate_element"></li>
+			<li id="google_translate_element"></li>
 		</ul>
 		<!-- 헤더 메뉴 -->
 		<div id="menus">
 			<ul>
-			    <li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>숙소</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>셔틀</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>투어</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>티켓</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>스냅</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>동행/장터</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>여행정보</strong></a></li>
-				<li class="btn_center"><a style="color: #111111; font-size:18px;"
-					href="<%=request.getContextPath()%>/master/board/list.do"><strong>고객센터</strong></a></li>
+			    <li class="btn_center">
+			    	<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>숙소</strong></a>
+			    </li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>셔틀</strong></a>
+				</li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>투어</strong></a>
+				</li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>티켓</strong></a>
+				</li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>스냅</strong></a>
+				</li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>동행/장터</strong></a
+				></li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>여행정보</strong></a>
+				</li>
+				<li class="btn_center">
+					<a style="color: #111111; font-size:18px;" href="<%=request.getContextPath()%>/master/board/list.do"><strong>고객센터</strong></a>
+				</li>
 			</ul>
         <script type="text/javascript">
-        function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'ko',
-        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
-        	multilanguagePage: true}, 'google_translate_element');
-        }
+	        function googleTranslateElementInit() {
+	        	new google.translate.TranslateElement({pageLanguage: 'ko',
+	        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
+	        	multilanguagePage: true}, 'google_translate_element');
+	        }
         </script>
         <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-        
 	</div>
 
 	<div id="logincenter">
 		<!-- 로그인 팝업 부분 -->
 		<div id="loginmodal" style="display: none;">
 			<div id="loginTitle" style="display: block;">
-
 				<ul>
-					<li id="titleon" onclick="titleOn_hide()" style="display: block;">
-						회원 로그인</li>
-					<li id="titleoff" onclick="titleOff_hide()" style="display: block;">
-						사업자 로그인</li>
-					<li style="width: 80px;">
+					<li class='loginFormLi' id="titleon" onclick="titleOn_hide()" style="display: block;"> 회원 로그인</li>
+					<li class='loginFormLi' id="titleoff" onclick="titleOff_hide()" style="display: block;"> 사업자 로그인</li>
+					<li class='loginFormLi' style="width: 80px;">
 						<button type="button" onclick="login();" id="close">
 							<span id="close_size">X</span>
 						</button>
@@ -553,5 +532,5 @@ span {
 			</form>
 		</div>
 	</div>
-
+</div>
 </header>

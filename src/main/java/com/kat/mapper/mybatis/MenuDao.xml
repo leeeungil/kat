@@ -188,7 +188,7 @@
 	</select>
 	
 	<select id="shopCount2" resultType="int">
-		SELECT COUNT(*) FROM SHOP_PHOTO
+		SELECT COUNT(*) FROM PHOTO PH, PRODUCT PR WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
 	</select>
 	
 	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">

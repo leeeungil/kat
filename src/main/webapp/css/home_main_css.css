@@ -169,60 +169,36 @@ img {
 	margin:auto;
 }
 
-.Slides {
-	 	padding-top: 10px; 
-	 	z-index:10;
-	
+.mainSlider {
+    z-index: 10;
+    width: 100vw;
+    height: 75vh;
 }
 
-@media screen and (max-width: 1400px) {
-	.main_slideshow {
-		width: 1400px;
-	}
+/* main search total form  */
+.content_form {
+	position: absolute;
+    margin: auto;
+    width: 100%;
+    top: 48vh;
+    text-align: center;
 }
-
-/* 컨텐츠 메뉴 */
-#content_menu {
-	text-align: center;
-	margin: auto;
-	width: 1400px;
-	margin-top: -250px;
-	z-index:12;
-}
-
-#content_menu a {
+.content_menu a {
 	text-decoration: none;
 }
-/* 지역선택 */
-.select_area {
-	border: 0px solid;
-	width: 200px;
-	height: 50px;
-	font-size: 20px;
-	margin-right: 10px;
-	background-color: #ddd;
-	text-align: center;
+/* main select common */
+.main_select {
+	width: 6em;
+	height: 2em;
+	color: #ffffff;
+	background-color: #000000;
 	cursor: pointer;
+	border: 0px solid;
+	text-align: center;
+	margin-right: 10px;
 	z-index:12;
 }
-
-.select_area:hover {
-	background-color: #BDBDBD;
-}
-
-/* 메뉴선택 */
-.select_menu {
-	border: 0px solid;
-	width: 200px;
-	height: 50px;
-	font-size: 20px;
-	margin-right: 10px;
-	background-color: #ddd;
-	text-align: center;
-	cursor: pointer;
-}
-
-.select_menu:hover {
+.select_area:hover, .select_menu:hover {
 	background-color: #BDBDBD;
 }
 /*키워드 입력*/

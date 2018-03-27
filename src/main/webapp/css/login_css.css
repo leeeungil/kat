@@ -4,11 +4,6 @@ li {
 	list-style: none;
 }
 
-* {
-	margin: 0;
-	padding: 0;
-}
-
 a {
 	text-decoration: none;
 	color: black;
@@ -16,26 +11,6 @@ a {
 
 span {
 	color: #858484;
-}
-
-/* 로그인 팝업창 부분 */
-#loginmodal {
-	border: 1px solid #16bab4;
-	width: 450px;
-	height: 550px;
-	/*팝업창의 크기조절*/
-	margin-top: -50px;
-	/*팝업창 위아래 간격조절*/
-	background: #f3f6fa;
-	border-radius: 6px;
-	position: fixed;
-	text-align: center;
-	z-index: 99;
-	margin-top: 50px;
-}
-
-li {
-	list-style: none;
 }
 
 /* 레이어 로그인 DIV 부분 */
@@ -65,16 +40,6 @@ li {
 	font-size: 30px;
 }
 
-/* 로그인 타이틀 부분 */
-#loginTitle {
-	/*border: 1px solid black;*/
-	width: 100%;
-	height: 80px;
-	font-size: 18px;
-	font-weight: 200;
-	background-color: #e7e7e7;
-}
-
 #logincenter {
 	text-align: center;
 	margin: auto;
@@ -101,12 +66,6 @@ li {
 }
 
 /* ================회원 아이디 리스트================ */
-
-/* 회원 로그인 리스트 */
-#member_in {
-	padding: 30px 72px 27px 72px;
-	background-color: #f3f6fa;
-}
 
 #member_in input {
 	background-color: #f3f6fa;

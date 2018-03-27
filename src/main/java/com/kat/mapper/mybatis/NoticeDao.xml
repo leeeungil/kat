@@ -17,21 +17,18 @@
 	</select>
 
 	<select id="noticeListmaster" resultType="com.kat.master.model.Notice">
-		select * from notice order by regdate desc limit #{param1}, #{param2}
+		SELECT notice_no, notice_title, notice_content, master_no, create_date, delete_flag
+		FROM NOTICE WHERE DELETE_FLAG = 0
+		ORDER BY CREATE_DATE DESC limit #{param1}, #{param2}
 	</select>
 
 	<select id="noticeselectcount" resultType="int">
-		SELECT count(*)
-		FROM notice
-		<!-- WHERE user_id = #{param1} -->
+		SELECT count(*)	FROM notice
 	</select>
 
 	<select id="info" resultType="com.kat.master.model.Notice">
-		SELECT
-		notice_no,notice_title,notice_content
-		FROM notice
-		WHERE notice_no =
-		#{param1}
+		SELECT notice_no, notice_title, notice_content, master_no, create_date, delete_flag
+		FROM NOTICE WHERE DELETE_FLAG = 0 AND NOTICE_NO = #{param1}
 	</select>
 
 	<select id="getinfo" resultType="com.kat.master.model.Notice">
