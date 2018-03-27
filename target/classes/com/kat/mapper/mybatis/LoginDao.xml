@@ -14,10 +14,15 @@
 		VALUES (#{member_no}, #{company}, #{postcode} , #{address1} , #{address2}, #{business_phone}, #{business_number}, 0)
 	</insert>
 
-	<!-- 비밀번호 확인 -->
-	<select id="idChk" resultType="com.kat.seat.model.JoinInfoChk">
-		SELECT member_no, user_id, password, level
-		FROM MEMBER WHERE USER_ID = #{user_id};
+	<!-- member, business login check -->
+	<select id="login_member" resultType="com.kat.seat.model.JoinInfoChk">
+		SELECT member_no, user_id, password
+		FROM MEMBER WHERE DELETE_FLAG = 0 AND USER_ID = #{user_id}
+	</select>
+	
+	<select id="login_business" resultType="com.kat.seat.model.JoinInfoChk">
+		SELECT business_no AS member_no, user_id, password
+		FROM BUSINESS WHERE DELETE_FLAG = 0 AND USER_ID = #{user_id}
 	</select>
 
 	<!-- 마이 페이지 호출 -->
@@ -77,18 +82,18 @@
 	</select>
 	
 	<!-- ID DUPLICATE CHECK -->
-	<select id="checkAjaxId" resultType="Integer">
+	<select id="chkMemberId" resultType="Integer">
 		SELECT COUNT(*) FROM MEMBER WHERE USER_ID = #{user_id}
 	</select>
-	<select id="checkAjaxId2" resultType="Integer">
+	<select id="chkBusinessId" resultType="Integer">
 		SELECT COUNT(*) FROM BUSINESS WHERE USER_ID = #{user_id}
 	</select>
 	
 	<!-- EMAIL DUPLICATE CHECK -->
-	<select id="checkAjaxEmail" resultType="Integer">
+	<select id="chkMemberEmail" resultType="Integer">
 		SELECT COUNT(*) FROM MEMBER WHERE EMAIL = #{email}
 	</select>
-	<select id="checkAjaxEmail2" resultType="Integer">
+	<select id="chkBusinessEmail" resultType="Integer">
 		SELECT COUNT(*) FROM BUSINESS WHERE EMAIL = #{email}
 	</select>
 </mapper>

@@ -11,8 +11,6 @@ public interface LoginDao {
 	// 사업자 회원가입
 	public void insertBusiness(JoinInfo joinInfo);
 
-	// 아이디 체크
-	public JoinInfoChk idChk(String user_id);
 
 	// 회원정보 가져오기
 	public JoinInfo userinfo(String user_id);
@@ -30,16 +28,22 @@ public interface LoginDao {
 
 	// 비밀번호 변경
 	public int update_pw(JoinInfo joinInfo);
-
-	// id ajax
-	public int checkAjaxId(String user_id);
-	public int checkAjaxId2(String user_id);
 	
-	// email ajax
-	public int checkAjaxEmail(String email);
-	public int checkAjaxEmail2(String email);
-
 	public String ajaxemailid(String joinInfo);
-
+	
 	public String ajaxemailpw(String joinInfo);
+
+	
+	// 정리한 메소드들
+	// 로그인 체크
+	public JoinInfoChk login_member(String user_id);
+	public JoinInfoChk login_business(String user_id);
+
+	// ajax : id duplicate chk
+	public int chkMemberId(String user_id);
+	public int chkBusinessId(String user_id);
+	
+	// ajax : email duplicate chk
+	public int chkMemberEmail(String email);
+	public int chkBusinessEmail(String email);
 }

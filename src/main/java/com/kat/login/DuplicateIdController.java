@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.kat.seat.service.LoginService;
 
 @Controller
-public class IdchkAjaxController {
+public class DuplicateIdController {
 
 	@Autowired
 	private LoginService loginService;
