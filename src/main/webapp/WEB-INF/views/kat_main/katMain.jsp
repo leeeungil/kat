@@ -11,62 +11,62 @@
 <div id="main">
 	<section>
 		<article id="article_main">
-			<!-- 컨텐츠 메뉴 (지역선택,메뉴선택,키워드,검색,초기화) -->
+			<!-- 컨텐츠 메뉴 ( 대륙, 국가, 도시, 상품, 검색, 초기화 ) -->
 			<form class='content_form' id="content_form" action="<%=request.getContextPath()%>/kat/SearchList/SearchInfo.do" method="post">
-				<div class='content_menu' id="content_menu">
-					<input type="text" placeholder="대륙" class="main_select select_continent" id="continent_select" onclick="main_choice_menu(1)" name="select_continent" readonly>
-					<input type="text" placeholder="국가" class="main_select select_country" id="country_select" onclick="main_choice_menu(2)" name="select_country" readonly>
-					<input type="text" placeholder="도시" class="main_select select_city" id="city_select" onclick="main_choice_menu(3) " name="select_city" readonly>
-					<input type="text" placeholder="상품" class="main_select select_product" id="product_select" onclick="main_choice_menu(4) " name="select_product" readonly>
+				<div class='content_menu' id="content_menu"> 
+					<input type="text" value="대륙" class="main_select select_continent" id="continent_select" onclick="main_choice_menu(1)" name="select_continent" readonly>
+					<input type="text" value="국가" class="main_select select_country" id="country_select" onclick="main_choice_menu(2)" name="select_country" readonly>
+					<input type="text" value="도시" class="main_select select_city" id="city_select" onclick="main_choice_menu(3) " name="select_city" readonly>
+					<input type="text" value="상품" class="main_select select_product" id="product_select" onclick="main_choice_menu(4) " name="select_product" readonly>
 					<!-- <input type="search" placeholder=" KEYWORD" class="menu_keyword" onclick="key_hide()" name="select_key" style="font-size: 26px;"> -->
-					<input type="submit" placeholder="Search" id="search_data" style="font-size: 26px;">
+					<input type="submit" value="검색" class='main_select search_data' id="search_data">
 					
 					<!-- <input type="reset" value="초기화" id="searchreset"> -->
 
 					<!-- 메뉴 선택 컨텐츠 -->
 					<div id="continent" style="display: none">
 						<ul id="menu_step2">
-							<li id="B" onclick="menu_select('셔틀')">셔틀</li>
-							<li id="W" onclick="menu_select('투어')">투어</li>
-							<li id="K" onclick="menu_select('가이드')">가이드</li>
-							<li id="E" onclick="menu_select('기타')">기타</li>
+							<li id="B" onclick="continent_select('셔틀')">셔틀</li>
+							<li id="W" onclick="continent_select('투어')">투어</li>
+							<li id="K" onclick="continent_select('가이드')">가이드</li>
+							<li id="E" onclick="continent_select('기타')">기타</li>
 						</ul>
 					</div>
 					<!-- 메뉴 선택 컨텐츠 -->
 					<div id="country" style="display: none">
 						<ul id="menu_step2">
-							<li id="B" onclick="menu_select('셔틀')">셔틀</li>
-							<li id="W" onclick="menu_select('투어')">투어</li>
-							<li id="K" onclick="menu_select('가이드')">가이드</li>
-							<li id="E" onclick="menu_select('기타')">기타</li>
+							<li id="B" onclick="country_select('셔틀')">셔틀</li>
+							<li id="W" onclick="country_select('투어')">투어</li>
+							<li id="K" onclick="country_select('가이드')">가이드</li>
+							<li id="E" onclick="country_select('기타')">기타</li>
 						</ul>
 					</div>
 					<!-- 지역선택 컨텐츠 -->
 					<div id="city" style="display: none">
 						<ul id="area_step2">
-							<li id="seoul" onclick="area_select('서울')">서울</li>
-							<li id="gyeonggi" onclick="area_select('경기')">경기도</li>
-							<li id="jeju" onclick="area_select('제주')">제주</li>
-							<li id="busan" onclick="area_select('부산')">부산</li>
-							<li id="chungnam" onclick="area_select('충남')">충청남도</li>
-							<li id="chungbuk" onclick="area_select('충북')">충청북도</li>
-							<li id="jeonnam" onclick="area_select('전남')">전라남도</li>
-							<li id="gyeongbuk" onclick="area_select('경북')">경상북도</li>
-							<li id="gyeongnam" onclick="area_select('경남')">경상남도</li>
-							<li id="jeonbuk" onclick="area_select('전북')">전라북도</li>
-							<li id="ulsan" onclick="area_select('울산')">울산</li>
-							<li id="daejeon" onclick="area_select('대전')">대전</li>
-							<li id="daegu" onclick="area_select('대구')">대구</li>
+							<li id="seoul" onclick="city_select('서울')">서울</li>
+							<li id="gyeonggi" onclick="city_select('경기')">경기도</li>
+							<li id="jeju" onclick="city_select('제주')">제주</li>
+							<li id="busan" onclick="city_select('부산')">부산</li>
+							<li id="chungnam" onclick="city_select('충남')">충청남도</li>
+							<li id="chungbuk" onclick="city_select('충북')">충청북도</li>
+							<li id="jeonnam" onclick="city_select('전남')">전라남도</li>
+							<li id="gyeongbuk" onclick="city_select('경북')">경상북도</li>
+							<li id="gyeongnam" onclick="city_select('경남')">경상남도</li>
+							<li id="jeonbuk" onclick="city_select('전북')">전라북도</li>
+							<li id="ulsan" onclick="city_select('울산')">울산</li>
+							<li id="daejeon" onclick="city_select('대전')">대전</li>
+							<li id="daegu" onclick="city_select('대구')">대구</li>
 						</ul>
 					</div>
 
 					<!-- 메뉴 선택 컨텐츠 -->
 					<div id="product" style="display: none">
 						<ul id="menu_step2">
-							<li id="B" onclick="menu_select('셔틀')">셔틀</li>
-							<li id="W" onclick="menu_select('투어')">투어</li>
-							<li id="K" onclick="menu_select('가이드')">가이드</li>
-							<li id="E" onclick="menu_select('기타')">기타</li>
+							<li id="B" onclick="product_select('셔틀')">셔틀</li>
+							<li id="W" onclick="product_select('투어')">투어</li>
+							<li id="K" onclick="product_select('가이드')">가이드</li>
+							<li id="E" onclick="product_select('기타')">기타</li>
 						</ul>
 					</div>
 				</div>
@@ -170,6 +170,7 @@
 		x[myIndex - 1].style.display = "block";
 		setTimeout(carousel, 4000);
 	}
+	
 	/* 메인 통합 검색 */
 	/* 대륙 선택 */
 	function continent_select(continent) {
