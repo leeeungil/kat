@@ -42,14 +42,34 @@ public interface MenuDao {
 	// 검색어 키를 이용해서 매장 사진 리스트 뽑기
 	public List<ShopPhoto> shopSearchList(String administrator, int firstRow, int endRow);
 
-	// member_no 가져오기
-//	public int member_no(String user_id);
+	// 지역 / 메뉴종류 / 키워드 리스트 담기
+	public List<InfoShopSearch> shopSearch7(String area, String menu, String keyword, int firstRow, int searchPerPage);
 
-	// 키워드로 검색한 리스트 수
-	public int shopCountList(String keyword);
+	// 매장 주소 / 이름 가져오기
+	public InfoShopAddress getShopAddress(String searchName);
+
+	// 접속 아이디가 사업자인지 확인하기
+	public String getCategory(String user_id);
+
+	
+	
+	public int shopCount2(String user_id);
+
+	public InfoShopAddress getShopAddress2(String user_id);
+
+	public List<ShopPhoto> shopPhotoList2(String user_id, int firstRow, int totalCount);
+
+	public int menuSelectCount2();
+
+	public List<MenuInfo> menuList2( int firstRow, int messageCountPerPage);
+
+	
+	// 장준영 수정 중
+	// continent, country
+	public int productCount_12(String continent, String country);
 
 	// 키워드로 겁색한 리스트 담기
-	public List<InfoShopSearch> shopSearch(String keyword, int firstRow, int searchPerPage);
+	public List<InfoShopSearch> productSearch_12(String keyword, int firstRow, int searchPerPage);
 	
 	// 메뉴로 검색한 리스트 수
 	public int shopCountList2(String menu);
@@ -83,29 +103,4 @@ public interface MenuDao {
 
 	// 지역 / 메뉴종류 / 키워드 리스트 수
 	public int shopCountList7(String area, String menu, String keyword);
-
-	// 지역 / 메뉴종류 / 키워드 리스트 담기
-	public List<InfoShopSearch> shopSearch7(String area, String menu, String keyword, int firstRow, int searchPerPage);
-
-	// 매장 주소 / 이름 가져오기
-	public InfoShopAddress getShopAddress(String searchName);
-
-	// 접속 아이디가 사업자인지 확인하기
-	public String getCategory(String user_id);
-
-	
-	
-	public int shopCount2(String user_id);
-
-	public InfoShopAddress getShopAddress2(String user_id);
-
-	public List<ShopPhoto> shopPhotoList2(String user_id, int firstRow, int totalCount);
-
-	public int menuSelectCount2();
-
-	public List<MenuInfo> menuList2( int firstRow, int messageCountPerPage);
-
-	
-	
-
 }

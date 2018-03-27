@@ -72,24 +72,65 @@
 		FROM SHOP_PHOTO where user_id = #{param1} limit #{param2}, #{param3}
 	</select>
 	
-	<!-- member_id 담기 -->
-<!-- 	<select id="member_no" resultType="int">
-		select member_no from member where user_id = #{param1}
-	</select> -->
-	
-	<!-- 키워드로 검색 수 -->
-	<select id="shopCountList" resultType="int">
-	SELECT COUNT(*) 
-	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no 
-	where menu_name like CONCAT('%',#{keyword},'%')
-	</select>
-	<!-- 키워드로 검색 리스트 담기 -->
-	<select id="shopSearch" resultType="com.kat.seat.model.InfoShopSearch">
-	select member.company_no, business.business_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
-	from member inner joinbusiness on member.company_no = business.company_no inner join product on business.company_no = product.company_no
-	where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	<!-- 매장 정보 가져오기 -->
+	<select id="getShopAddress" resultType="com.kat.seat.model.InfoShopAddress">
+	select m.member_no , m.user_id, b.address1, b.business_name from member m , business b 
+	where m.member_no = b.company_no and m.user_id = #{param1}
 	</select>
 	
+	
+	<!-- 사업자인지 확인하기 -->
+	<select id="getCategory" resultType="String">
+		select category from member where user_id= #{param1};
+	</select>
+	
+	<select id="shopCount2" resultType="int">
+		SELECT COUNT(*) FROM PHOTO PH, PRODUCT PR WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
+	</select>
+	
+	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">
+		SELECT M.MEMBER_NO, USER_ID, ADDRESS1, COMPANY
+		FROM MEMBER M LEFT JOIN BUSINESS B
+		ON M.MEMBER_NO = B.MEMBER_NO AND M.USER_ID = #{user_id}
+	</select>
+	
+	<select id="shopPhotoList2" resultType="com.kat.seat.model.ShopPhoto">
+		<!-- SELECT * FROM SHOP_PHOTOwhere user_id = #{param1} limit #{param2}, #{param3} -->
+		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
+		FROM SHOP_PHOTO
+	</select>
+	
+	<select id="menuSelectCount2" resultType="int">
+		SELECT COUNT(*) FROM PRODUCT 
+	</select>
+	
+	<select id="menuList2" resultType="com.kat.seat.model.MenuInfo">
+		SELECT * FROM PRODUCT;
+	</select>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 장준영 수정 중 : 메인에서 상품 검색하기 -->
+	<!-- continent, country 해당 상품 수 -->
+	<select id="productCount_12" resultType="int">
+		SELECT COUNT(*)
+		FROM PRODUCT WHERE CONTINENT=#{param1} AND COUNTRY=#{param2} AND DELETE_FLAG=0
+	</select>
+	<!-- continent, country 해당 상품 리스트 -->
+	<select id="productSearch_12" resultType="com.kat.seat.model.InfoShopSearch">
+		select member.company_no, business.business_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
+		from member inner joinbusiness on member.company_no = business.company_no inner join product on business.company_no = product.company_no
+		where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	</select>
 	
 	<!-- 메뉴종류로 검색 수 -->
 	<select id="shopCountList2" resultType="int">
@@ -173,42 +214,6 @@
 	select member.company_no, product.menu_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
 	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%') limit #{param4}, #{param5}
-	</select>
-	
-	<!-- 매장 정보 가져오기 -->
-	<select id="getShopAddress" resultType="com.kat.seat.model.InfoShopAddress">
-	select m.member_no , m.user_id, b.address1, b.business_name from member m , business b 
-	where m.member_no = b.company_no and m.user_id = #{param1}
-	</select>
-	
-	
-	<!-- 사업자인지 확인하기 -->
-	<select id="getCategory" resultType="String">
-		select category from member where user_id= #{param1};
-	</select>
-	
-	<select id="shopCount2" resultType="int">
-		SELECT COUNT(*) FROM PHOTO PH, PRODUCT PR WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
-	</select>
-	
-	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">
-		SELECT M.MEMBER_NO, USER_ID, ADDRESS1, COMPANY
-		FROM MEMBER M LEFT JOIN BUSINESS B
-		ON M.MEMBER_NO = B.MEMBER_NO AND M.USER_ID = #{user_id}
-	</select>
-	
-	<select id="shopPhotoList2" resultType="com.kat.seat.model.ShopPhoto">
-		<!-- SELECT * FROM SHOP_PHOTOwhere user_id = #{param1} limit #{param2}, #{param3} -->
-		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
-		FROM SHOP_PHOTO
-	</select>
-	
-	<select id="menuSelectCount2" resultType="int">
-		SELECT COUNT(*) FROM PRODUCT 
-	</select>
-	
-	<select id="menuList2" resultType="com.kat.seat.model.MenuInfo">
-		SELECT * FROM PRODUCT;
 	</select>
 </mapper>
 
