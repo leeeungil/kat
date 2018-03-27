@@ -4,7 +4,7 @@
 
 <!-- script 가져오기 -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js?ver=1"></script>
-<script src="<%=request.getContextPath()%>/script/lightslider.js?ver=1"></script>
+<script src="<%=request.getContextPath()%>/script/lightslider.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
 
 <!-- 메인 부분 -->

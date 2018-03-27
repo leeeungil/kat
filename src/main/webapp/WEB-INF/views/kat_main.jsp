@@ -8,14 +8,12 @@
 <title>Your trip 세계에 오신걸 환영합니다.</title>
 
 <!-- css 가져오기 -->
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/login_css.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/home_main.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/login_css.css">
 
 <!-- 스크립트 가져오기 -->
-<script src="https://code.jquery.com/jquery-1.9.1.min.js?ver=1"></script>
-<script src="<%=request.getContextPath()%>/script/login_script.js?ver=1"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/script/login_script.js"></script>
 
 </head>
 <body>
