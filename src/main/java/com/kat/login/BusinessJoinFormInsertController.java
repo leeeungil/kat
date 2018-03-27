@@ -13,31 +13,30 @@ import com.kat.seat.service.LoginService;
 
 @Controller
 public class BusinessJoinFormInsertController {
-	@Autowired
-	private LoginService loginService;
-	
-	@RequestMapping(method = RequestMethod.GET)
-	public String businessFormSubmit() {
-		return "business_joinForm_main";
-	}
-
-	@RequestMapping("kat/join/businessjoinForm.do")
-	public ModelAndView businessjoinFormInsert(JoinInfo joinInfo) throws IllegalStateException, IOException {
-System.out.println("[BusinessJoinFormInsertController] BUSINESS ACCESS");
-System.out.println("[BusinessJoinFormInsertController] joinInfo : " + joinInfo);
-
-    ModelAndView modelAndView =  new ModelAndView();
-    
-    try {
-    	loginService.joinInsertBusiness(joinInfo);
-System.out.println("[BusinessJoinFormInsertController] joinInfo : " + joinInfo);      	
-    	modelAndView.addObject("joinName", joinInfo);
-    	modelAndView.setViewName("JoinSucess_main");
-    } catch (Exception e){
-    	modelAndView.setViewName("/kat_exception/exception");
-    }
-System.out.println("===================================================");
-     return modelAndView;
-	}
+//	@Autowired
+//	private LoginService loginService;
+//	
+//	@RequestMapping(method = RequestMethod.GET)
+//	public String businessFormSubmit() {
+//		return "business_joinForm_main";
+//	}
+//
+//	@RequestMapping("kat/join/businessjoinForm.do")
+//	public ModelAndView businessjoinFormInsert(JoinInfo joinInfo) throws IllegalStateException, IOException {
+//System.out.println("[BusinessJoinFormInsertController] BUSINESS SIGN_IN ACCESS");
+//System.out.println("[BusinessJoinFormInsertController] " + joinInfo.toString());
+//
+//    ModelAndView modelAndView =  new ModelAndView();
+//    try {
+//    	loginService.joinInsertBusiness(joinInfo);
+//System.out.println("[BusinessJoinFormInsertController] joinInfo : " + joinInfo);      	
+//    	modelAndView.addObject("joinName", joinInfo);
+//    	modelAndView.setViewName("JoinSucess_main");
+//    } catch (Exception e){
+//		modelAndView.setViewName("/kat_exception/exception");
+//    }
+//System.out.println("===================================================");
+//     return modelAndView;
+//	}
 
 }
