@@ -80,74 +80,73 @@
 				<img class="mainSlider" src="<%=request.getContextPath()%>/img/mainSlider/4.jpg"> 
 				<img class="mainSlider" src="<%=request.getContextPath()%>/img/mainSlider/5.jpg">
 			</div>
-
-			<div id="ma1" style="margin-top:250px; text-align:center; background-color:#D8D8D8; font-size:30px;">
-			</div>
 			<div class="service">
-				<div class="sitem1">
-					<a href="<%=request.getContextPath()%>/kat_main.do">
-						<img src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg" style="width:310px; height:250px; border-radius:10px;">
-                    </a>
-                    <div>
-						<br><p>&nbsp;&nbsp;숙박</p><br>
-                    </div>
-				</div>
-				<div class="sitem1">
-					<a href="<%=request.getContextPath()%>/kat_main.do">
-						<img src="<%=request.getContextPath()%>/img/costa-rica-shuttle-service-1619362_640.jpg" style="width:310px; height:250px; border-radius:10px;">
-					</a>
-					<div>
-						<br><p>&nbsp;&nbsp;셔틀</p><br>
-					</div>
-				</div>
-				<div class="sitem1">
-					<a href="<%=request.getContextPath()%>/kat/tourMain/tour.do">
-						<img src="<%=request.getContextPath()%>/img/city-3142651_640.jpg" style="width:310px; height:250px; border-radius:10px;">
-					</a>
-					<div>
-						<br><p>&nbsp;&nbsp;투어</p><br>
-					</div>
-				</div>
-				<div class="sitem1">
-					<a href="<%=request.getContextPath()%>/kat_main.do">
-						<img src="<%=request.getContextPath()%>/img/admission-2974645_640.jpg" style="width:310px; height:250px; border-radius:10px;">
-					</a>
-					<div>
-						<br><p>&nbsp;&nbsp;티켓</p><br>
-					</div>
-				</div>
+				<ul class="siteTotal">
+					<li class="sitem1">
+						<div class="wrap">
+							<a href="<%=request.getContextPath()%>/kat_main.do">
+								<img class="siteImage" src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg">
+		                    </a>
+		                    <div class="siteLabel">
+								<br><p>&nbsp;&nbsp;숙박</p><br>
+		                    </div>
+						</div>
+					</li>
+					<li class="sitem1">
+						<a href="<%=request.getContextPath()%>/kat_main.do">
+							<img class="siteImage" src="<%=request.getContextPath()%>/img/costa-rica-shuttle-service-1619362_640.jpg">
+						</a>
+						<div class="siteLabel">
+							<br><p>&nbsp;&nbsp;셔틀</p><br>
+						</div>
+					</li>
+					<li class="sitem1">
+						<a href="<%=request.getContextPath()%>/kat/tourMain/tour.do">
+							<img class="siteImage" src="<%=request.getContextPath()%>/img/city-3142651_640.jpg">
+						</a>
+						<div class="siteLabel">
+							<br><p>&nbsp;&nbsp;투어</p><br>
+						</div>
+					</li>
+					<li class="sitem1">
+						<a href="<%=request.getContextPath()%>/kat_main.do">
+							<img class="siteImage" src="<%=request.getContextPath()%>/img/admission-2974645_640.jpg">
+						</a>
+						<div class="siteLabel">
+							<br><p>&nbsp;&nbsp;티켓</p><br>
+						</div>
+					</li>
+				</ul>
 			</div>
            
 			<!-- Traveler Review -->
-			<div class="ReviewBox" style="margin-top: 150px;">
-				<div class="review">
-					<span id="review1">후기</span>
-					<ul id="content-slider3" class="content-slider3">
-						<li style="text-align:center; margin-left:51px;">
-							<c:forEach var="review" items="${ListInfoReview.getMainreviewList()}" varStatus="status">
-							<div class="a1">
-								<span>${review.review_title}</span>
-								<div class="map_i">
-								</div>
-								<div class="review_i">
-									<table>
-										<tbody><tr>
-											<td style="font-size: 12px; text-align: right;"><fmt:formatDate pattern="yyyy-MM-dd" value="${review.regdate}"/></td>
-										</tr>
-										<tr>
-											<td style="font-size: 14px; text-align: left;">${review.user_id}</td>
-											<td style="font-size: 14px; text-align: left;">${review.review_point}</td>
-										</tr>
-										<tr>
-											<td style="font-size: 12px; text-align: left;">${review.review_content}</td>
-										</tr></tbody>
-									</table>
-								</div>
+			<div class="ReviewBox"	>
+				<ul id="review1"><li>후기</li></ul>
+				<ul id="content-slider3" class="content-slider3">
+					<li style="text-align:center; margin-left:51px;">
+						<c:forEach var="review" items="${ListInfoReview.getMainreviewList()}" varStatus="status">
+						<div class="a1">
+							<span>${review.review_title}</span>
+							<div class="map_i">
 							</div>
-							</c:forEach>
-						</li>
-					</ul>
-				</div>
+							<div class="review_i">
+								<table>
+									<tbody><tr>
+										<td style="font-size: 12px; text-align: right;"><fmt:formatDate pattern="yyyy-MM-dd" value="${review.regdate}"/></td>
+									</tr>
+									<tr>
+										<td style="font-size: 14px; text-align: left;">${review.user_id}</td>
+										<td style="font-size: 14px; text-align: left;">${review.review_point}</td>
+									</tr>
+									<tr>
+										<td style="font-size: 12px; text-align: left;">${review.review_content}</td>
+									</tr></tbody>
+								</table>
+							</div>
+						</div>
+						</c:forEach>
+					</li>
+				</ul>
 			</div>
 		</article>
 	</section>
