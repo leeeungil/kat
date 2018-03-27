@@ -378,7 +378,7 @@ span {
 </script>
 
 <header>
-	<div id="header_inner">
+	<div class="header_inner" id="header_inner">
 		<!-- 헤더 로고-->
 		<div id="header_logo">
 			<a href="<%=request.getContextPath()%>/kat_main.do">

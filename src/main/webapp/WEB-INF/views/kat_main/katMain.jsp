@@ -81,42 +81,37 @@
 				<img class="mainSlider" src="<%=request.getContextPath()%>/img/mainSlider/5.jpg">
 			</div>
 			<div class="service">
-				<ul class="siteTotal">
-					<li class="sitem1">
-						<div class="wrap">
+				<div class="wrap_div">
+					<ul class="total_Ul">
+						<li class="total_Li">
+							<div><font></font></div>
+						</li>
+					</ul>
+					<ul class="siteTotal">
+						<li class="sitem1">
+							<div class="wrap">
+								<a href="<%=request.getContextPath()%>/kat_main.do">
+									<img class="siteImage" src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg">
+			                    </a>
+							</div>
+						</li>
+						<li class="sitem1">
 							<a href="<%=request.getContextPath()%>/kat_main.do">
-								<img class="siteImage" src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg">
-		                    </a>
-		                    <div class="siteLabel">
-								<br><p>&nbsp;&nbsp;숙박</p><br>
-		                    </div>
-						</div>
-					</li>
-					<li class="sitem1">
-						<a href="<%=request.getContextPath()%>/kat_main.do">
-							<img class="siteImage" src="<%=request.getContextPath()%>/img/costa-rica-shuttle-service-1619362_640.jpg">
-						</a>
-						<div class="siteLabel">
-							<br><p>&nbsp;&nbsp;셔틀</p><br>
-						</div>
-					</li>
-					<li class="sitem1">
-						<a href="<%=request.getContextPath()%>/kat/tourMain/tour.do">
-							<img class="siteImage" src="<%=request.getContextPath()%>/img/city-3142651_640.jpg">
-						</a>
-						<div class="siteLabel">
-							<br><p>&nbsp;&nbsp;투어</p><br>
-						</div>
-					</li>
-					<li class="sitem1">
-						<a href="<%=request.getContextPath()%>/kat_main.do">
-							<img class="siteImage" src="<%=request.getContextPath()%>/img/admission-2974645_640.jpg">
-						</a>
-						<div class="siteLabel">
-							<br><p>&nbsp;&nbsp;티켓</p><br>
-						</div>
-					</li>
-				</ul>
+								<img class="siteImage" src="<%=request.getContextPath()%>/img/costa-rica-shuttle-service-1619362_640.jpg">
+							</a>
+						</li>
+						<li class="sitem1">
+							<a href="<%=request.getContextPath()%>/kat/tourMain/tour.do">
+								<img class="siteImage" src="<%=request.getContextPath()%>/img/city-3142651_640.jpg">
+							</a>
+						</li>
+						<li class="sitem1">
+							<a href="<%=request.getContextPath()%>/kat_main.do">
+								<img class="siteImage" src="<%=request.getContextPath()%>/img/admission-2974645_640.jpg">
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
            
 			<!-- Traveler Review -->
