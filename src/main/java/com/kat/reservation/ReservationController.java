@@ -31,7 +31,7 @@ public class ReservationController {
 		System.out.println("로그 Register 컨트롤");
 		ModelAndView modelAndView = new ModelAndView();
 
-		SeatInfoListView seatInfoListView = addSeatService.SeatListView(shop); // 리스트 구현
+		/*SeatInfoListView seatInfoListView = addSeatService.SeatListView(shop);*/ // 리스트 구현 //2018.03.28 이은길주석처리
 		ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList(shop); // 매장 사진 가져오기
 		shopPhotoListView.setUser_id(shop); // 매장 ajax 처리
 
@@ -51,7 +51,7 @@ public class ReservationController {
 				modelAndView.addObject("SeatListPhotoUser", chknull);
 			}
 			
-			modelAndView.addObject("SeatListInfo", seatInfoListView);
+			/*modelAndView.addObject("SeatListInfo", seatInfoListView);*/ //2018.03.28 이은길주석처리
 			modelAndView.addObject("ShopPhotoList", shopPhotoListView);
 			modelAndView.setViewName("shopViewReservation_main");
 			return modelAndView;

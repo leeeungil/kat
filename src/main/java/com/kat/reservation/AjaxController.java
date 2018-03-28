@@ -26,9 +26,9 @@ public class AjaxController {
 		System.out.println("로그 ajax 실행중");
 		ModelAndView modelAndView = new ModelAndView();
 
-		SeatInfoListView seatInfoListView = addSeatService.SeatListView(shop); // 리스트 구현
+		/*SeatInfoListView seatInfoListView = addSeatService.SeatListView(shop);*/ // 리스트 구현 //2018.03.28 이은길주석처리
 		
-		modelAndView.addObject("SeatListInfo", seatInfoListView);
+		/*modelAndView.addObject("SeatListInfo", seatInfoListView);*/  //2018.03.28 이은길주석처리
 
 		modelAndView.setViewName("kat_shopView/AjaxListView");
 

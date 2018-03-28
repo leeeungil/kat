@@ -37,12 +37,12 @@ public class SeatAddController {
 
 		System.out.println("아이디 값 확인" + userid);
 
-		SeatInfoListView seatInfoListView = addSeatService.getSeatList(userid, pageNumber); // 리스트 구현
+		/*SeatInfoListView seatInfoListView = addSeatService.getSeatList(userid, pageNumber);*/ // 리스트 구현 // 주석처리 2018.03.28 이은길
 
-		System.out.println(seatInfoListView); // seat 데이터 출력
+		/*System.out.println(seatInfoListView);*/ // seat 데이터 출력  주석처리 2018.03.28 이은길
 
 		modelAndView.setViewName("addSeat_main");
-		modelAndView.addObject("SeatListInfo", seatInfoListView);
+		/*modelAndView.addObject("SeatListInfo", seatInfoListView);*/ //주석처리 2018.03.28 이은길 
 
 		return modelAndView;
 	}

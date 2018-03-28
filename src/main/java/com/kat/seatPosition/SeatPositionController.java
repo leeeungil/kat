@@ -32,12 +32,12 @@ public class SeatPositionController {
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 
-		SeatInfoListView seatListPhoto = addSeatService.getSeatListall(userid); // 리스트 구현
+		/*SeatInfoListView seatListPhoto = addSeatService.getSeatListall(userid);*/ // 리스트 구현  //2018.03.28 이은길주석처리
 
-		System.out.println(seatListPhoto); // seat 데이터 출력
+		/*System.out.println(seatListPhoto);*/ // seat 데이터 출력  //2018.03.28 이은길주석처리
 
-		modelAndView.setViewName("positionSeat_main");
-		modelAndView.addObject("SeatListPhoto", seatListPhoto);
+		modelAndView.setViewName("positionSeat_main"); 
+		/*modelAndView.addObject("SeatListPhoto", seatListPhoto);*/  //2018.03.28 이은길주석처리
 		return modelAndView;
 
 	}

@@ -36,8 +36,8 @@ public class AddSeatService {
 		dao.insertSeat(seatInfo);
 	}
 
-	// 리스트 페이지
-	private static final int MESSAGE_COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
+	// 리스트 페이지 //2018.03.28 이은길주석처리
+	/*private static final int MESSAGE_COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
 
 	public SeatInfoListView getSeatList(String id, int pageNumber) {
 
@@ -66,7 +66,7 @@ public class AddSeatService {
 
 		return view;
 
-	}
+	}*/
 
 	// 업데이트 할 좌석 데이터 가져오기
 	public SeatInfo getseatUpdateInfo(int no) {
@@ -96,7 +96,8 @@ public class AddSeatService {
 
 	}
 
-	public SeatInfoListView getSeatListall(String id) {
+	//2018.03.28 이은길주석처리
+	/*public SeatInfoListView getSeatListall(String id) {
 
 		dao = sqlSessionTemplate.getMapper(SeatDao.class);
 
@@ -112,10 +113,10 @@ public class AddSeatService {
 		view.setPageTotalCount(TotalCount);
 
 		return view;
-	}
+	}*/
 
-	// 예약할 좌석 리스트 가져오기
-	public SeatInfoListView SeatListView(String shop) {
+	// 예약할 좌석 리스트 가져오기 //2018.03.28 이은길주석처리
+	/*public SeatInfoListView SeatListView(String shop) {
 		dao = sqlSessionTemplate.getMapper(SeatDao.class);
 
 		SeatInfoListView view = new SeatInfoListView();
@@ -130,10 +131,10 @@ public class AddSeatService {
 		view.setPageTotalCount(TotalCount);
 
 		return view;
-	}
+	}*/
 
-	// JSON 사용
-	public ArrayList<SeatInfo> SeatReservation(String shop) {
+	// JSON 사용  //2018.03.28 이은길주석처리
+	/*public ArrayList<SeatInfo> SeatReservation(String shop) {
 
 		dao = sqlSessionTemplate.getMapper(SeatDao.class);
 		ArrayList<SeatInfo> seatList = new ArrayList<SeatInfo>();
@@ -144,7 +145,7 @@ public class AddSeatService {
 		seatList = dao.seatReservation(shop, firstRow, TotalCount);
 
 		return seatList;
-	}
+	}*/
 
 	// 선택된 예약 좌석 정보 가져오기
 	public SeatInfo paymentView(int shop) {

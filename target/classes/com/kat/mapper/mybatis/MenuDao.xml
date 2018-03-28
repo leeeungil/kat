@@ -7,25 +7,26 @@
 	<!-- 좌석 정보 등록 -->
 	<insert id="insertMenu" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
-		values (#{product_name}, #{cost}, #{catagory}, #{business_number}, #{business_no}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
+		values (0,#{product_name},#{PRAODUCT_TYPE} #{cost}, #{catagory}, #{business_number}, #{business_no}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
 	</insert>
 
-	<!-- 등록된 메뉴 수 -->
+	<!-- 등록된 PRODUCT 갯수 -->
 	<select id="menuSelectCount" resultType="int">
-		SELECT COUNT(*) FROM PRODUCT where user_id = #{user_id}
+		SELECT COUNT(*) 
+		FROM PRODUCT 
+		WHERE USER_ID = #{USER_ID}
 	</select>
 
-	<!--메뉴 리스트 담기 -->
+	<!--PRODUCT 리스트 담기 -->
 	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
-		SELECT product_no, product_name, cost, catagory, business_number, user_id, menu_photo_file, create_date, continent, country, city
-		FROM PRODUCT WHERE user_id = #{param1}
-		ORDER BY create_date DESC 
-		LIMIT #{param2}, #{param3}
+		SELECT PRODUCT_NO, PRODUCT_NAME, PH.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, PH.CREATE_DATE, DELETE_FLAG, BOARD_NO
+		FROM PHOTO PH, PRODUCT PR
+		WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
 	</select>
 		
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
-		SELECT product_no, product_name, cost, catagory, business_number, user_id, menu_photo_file, create_date, continent, country, city
+		SELECT product_no, product_name, cost, product_type, business_number, user_id, menu_photo_file, create_date, continent, country, city
 		FROM PRODUCT 
 		where product_no = #{product_no}
 	</select>
@@ -85,7 +86,9 @@
 	</select>
 	
 	<select id="shopCount2" resultType="int">
-		SELECT COUNT(*) FROM PHOTO PH, PRODUCT PR WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
+		SELECT COUNT(*) 
+		FROM PHOTO PH, PRODUCT PR 
+		WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
 	</select>
 	
 	<select id="getShopAddress2" resultType="com.kat.seat.model.InfoShopAddress">

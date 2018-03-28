@@ -40,21 +40,21 @@ public class SeatReservationService {
 		int PageNumber;
 		int firstRow = 0;
 
-		int TotalCount = dao.seatSelectCount(id);
+		/*int TotalCount = dao.seatSelectCount(id);*/ //2018.03.28 이은길주석처리
 
 		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
 
 		seatList = dao.seatList(id, firstRow, MESSAGE_COUNT_PER_PAGE);
 
-		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
+		/*PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
 
 		if (TotalCount % MESSAGE_COUNT_PER_PAGE != 0) {
 			PageNumber += 1;
-		}
+		}*/  //2018.03.28 이은길주석처리
 
 		view.setSeatInfoList(seatList);
-		view.setPageTotalCount(TotalCount);
-		view.setPageNumber(PageNumber);
+		/*view.setPageTotalCount(TotalCount);
+		view.setPageNumber(PageNumber);*/ //2018.03.28 이은길주석처리
 
 		return view;
 
@@ -88,8 +88,8 @@ public class SeatReservationService {
 
 	}
 
-	// 좌석 리스트 전체 가져오기
-	public SeatInfoListView getSeatListall(String id) {
+	// 좌석 리스트 전체 가져오기  //2018.03.28 이은길주석처리
+	/*public SeatInfoListView getSeatListall(String id) {
 
 		dao = sqlSessionTemplate.getMapper(SeatDao.class);
 
@@ -105,7 +105,7 @@ public class SeatReservationService {
 		view.setPageTotalCount(TotalCount);
 
 		return view;
-	}
+	}*/
 
 	// 예약 가능 상태 업데이트
 	public void reservationUpdate(UpdateReservation update) {

@@ -24,13 +24,13 @@ public class MenuAddController {
 	@Autowired
 	private AddMenuService addMenuService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView getUploadForm(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
+	@RequestMapping(method = RequestMethod.GET)	public ModelAndView getUploadForm(@RequestParam(name = "page", defaultValue = "1" ) int pageNumber,
 			HttpServletRequest request) throws IllegalStateException, IOException {
 System.out.println("[MenuAddController getUploadForm] INSERT PRODUCT FORM CALL ACCESS");
 System.out.println("[MenuAddController getUploadForm] pageNumber : " + pageNumber);
 		ModelAndView modelAndView = new ModelAndView();
 		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
+
 System.out.println("[MenuAddController getUploadForm] user_id : "+ user_id);		
 		MenuInfoListView menuInfoListView = addMenuService.getMenuList(user_id, pageNumber); // 리스트 구현
 System.out.println("[MenuAddController getUploadForm] menuInfoListView : " + menuInfoListView);
@@ -63,7 +63,7 @@ System.out.println("[MenuAddController addSeatSubmit] dir : " + dir);
 			menuInfo.setMenu_photo_file(user_id + "_menu_" + time);
 		}
 		
-		addMenuService.addMenu(menuInfo);
+		/*addMenuService.addMenu(menuInfo);*/
 System.out.println("[MenuAddController addSeatSubmit] addMenuService.addMenu FINISH");
 		modelAndView.setViewName("redirect:/kat/menuForm/menuAdd.do");
 System.out.println("=============================================================");

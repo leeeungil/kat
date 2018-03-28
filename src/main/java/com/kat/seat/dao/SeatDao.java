@@ -18,8 +18,8 @@ public interface SeatDao {
 	// 좌석 데이터 등록
 	public void insertSeat(SeatInfo seatInfo);
 
-	// 데이터 리스트 수
-	public int seatSelectCount(String id);
+	// 데이터 리스트 수 //2018.03.28 이은길주석처리
+	/*public int seatSelectCount(String id);*/
 
 	// 좌석 리스트 담기
 	public List<SeatInfo> seatList(String id, int firstRow, int messageCountPerPage);

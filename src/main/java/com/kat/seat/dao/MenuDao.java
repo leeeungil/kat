@@ -12,10 +12,10 @@ public interface MenuDao {
 	// 메뉴 데이터 등록
 	public void insertMenu(MenuInfo menuInfo);
 
-	// 메뉴 리스트 수
+	// PRODUCT 리스트 수
 	public int menuSelectCount(String user_id);
 
-	// 메뉴 리스트 담기
+	// PRODUCT 리스트 담기
 	public List<MenuInfo> menuList(String user_id, int firstRow, int messageCountPerPage);
 
 	// 수정할 데이터 가져오기

@@ -37,14 +37,14 @@ function checkform() {
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 종류</li>
-					<li><input type="radio" id="category" name="catagory"
-						value="투어" class="default"> 투어 &nbsp;</li>
-					<li><input type="radio" id="category" name="catagory"
-						value="가이드" class="companybtn"> 가이드 &nbsp;</li>
-					<li><input type="radio" id="category" name="catagory"
-						value="셔틀" class="Universitybtn"> 셔틀 &nbsp;</li>
-					<li><input type="radio" id="category" name="catagory"
-						value="기타" class="Universitybtn"> 기타 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type"
+						value="1" class="default"> 투어 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type"
+						value="2" class="companybtn"> 티켓 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type"
+						value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type"
+						value="4" class="Universitybtn"> 기타 &nbsp;</li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 대륙 선택</li>
@@ -130,14 +130,12 @@ function checkform() {
 				<ul>
 					<li id="add_seat">여행상품 사진등록</li>
 					<li class="filebox bs3-primary preview-image"><input
-						class="upload-name" value="파일을 선택해주세요!" disabled="disabled"
-						style="width: 200px;"> <label for="input_file">파일
-							업로드</label> <input type="file" id="input_file" class="upload-hidden"
-						name="menu_photo_File"></li>
+						class="upload-name" value="파일을 선택해주세요!" disabled="disabled" 	style="width: 200px;"> <label for="input_file">파일 업로드</label> 
+						<input type="file" id="input_file" class="upload-hidden" name="menu_photo_file">
+					</li>
 				</ul>
 				<ul id="btnstyle">
-					<li><input type="submit" id="Registration" name="seatbtn"
-						value="등록"></li>
+					<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
 					<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
 				</ul>
 			</div>
