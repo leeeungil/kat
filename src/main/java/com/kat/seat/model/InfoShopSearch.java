@@ -5,7 +5,7 @@ public class InfoShopSearch {
 	private int company_no; // 기본키
 	private String business_name; // 매장 이름
 	private String address1; // 매장 주소
-	private String menu_catagory; // 메뉴 종류
+	private String menu_category; // 메뉴 종류
 	private String menu_name; // 메뉴 이름
 	private String user_id; // 매장 아이디
 	private String menu_loc;
@@ -34,12 +34,12 @@ public class InfoShopSearch {
 		this.address1 = address1;
 	}
 
-	public String getMenu_catagory() {
-		return menu_catagory;
+	public String getMenu_category() {
+		return menu_category;
 	}
 
-	public void setMenu_catagory(String menu_catagory) {
-		this.menu_catagory = menu_catagory;
+	public void setMenu_category(String menu_category) {
+		this.menu_category = menu_category;
 	}
 
 	public String getMenu_name() {
@@ -69,7 +69,7 @@ public class InfoShopSearch {
 	@Override
 	public String toString() {
 		return "InfoShopSearch [company_no=" + company_no + ", business_name=" + business_name + ", address1="
-				+ address1 + ", menu_catagory=" + menu_catagory + ", menu_name=" + menu_name + ", user_id=" + user_id
+				+ address1 + ", menu_category=" + menu_category + ", menu_name=" + menu_name + ", user_id=" + user_id
 				+ ", menu_loc=" + menu_loc + "]";
 	}
 

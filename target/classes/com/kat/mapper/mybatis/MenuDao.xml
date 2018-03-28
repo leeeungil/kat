@@ -4,10 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kat.seat.dao.MenuDao">
-	<!-- 좌석 정보 등록 -->
-	<insert id="insertMenu" parameterType="com.kat.seat.model.MenuInfo">
+	<!-- 상품 데이터 등록 -->
+	<insert id="insertProduct" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
-		values (0,#{product_name},#{PRAODUCT_TYPE} #{cost}, #{catagory}, #{business_number}, #{business_no}, #{menu_photo_file}, #{create_date}, #{continent}, #{country}, #{city})
+		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, now(), 0)
+		<selectKey resultType="int" order="AFTER">
+			SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
+		</selectKey>
+	</insert>
+	<!-- 상품 이미지 등록 -->
+	<insert id="insertImage" parameterType="com.kat.seat.model.MenuInfo">
+		INSERT INTO PHOTO
+		VALUES (0, #{product_type}, #{product_no} ,#{menu_photo_file}, #{user_id}, now())
 	</insert>
 
 	<!-- 등록된 PRODUCT 갯수 -->
@@ -18,15 +26,15 @@
 	</select>
 
 	<!--PRODUCT 리스트 담기 -->
-	<!-- <select id="menuList" resultType="com.kat.seat.model.MenuInfo">
+	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
 		SELECT PRODUCT_NO, PRODUCT_NAME, PH.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, PH.CREATE_DATE, 0, BOARD_NO
 		FROM PRODUCT PR LEFT JOIN PHOTO PH
 		ON PR.PRODUCT_TYPE = PH.PRODUCT_TYPE WHERE PR.PRODUCT_NO = "1"
-	</select> -->
-	<insert id="menuList" parameterType="com.kat.seat.model.MenuInfo">
-	  INSERT INTO PRODUCT (product_name, product_type, cost, business_number, user_id, continent, city, create_date, delete_flag)
-	  VALUES (#{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{city}, #{create_date}, 0)
-	</insert>
+	</select>
+	<!-- <insert id="menuList">
+	  INSERT INTO PRODUCT (product_no, product_name, product_type, cost, business_number, user_id, continent, country, city, create_date, delete_flag)
+	  VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, now(), 0)
+	</insert> -->
 		
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
@@ -38,7 +46,7 @@
 	<!-- 수정하기 -->
 	<insert id="menuUpdate" parameterType="com.kat.seat.model.MenuInfo">
 		UPDATE PRODUCT
-		SET product_name = #{product_name}, cost = #{cost}, catagory = #{catagory} , menu_photo_file = #{menu_photo_file}
+		SET product_name = #{product_name}, cost = #{cost}, category = #{category} , menu_photo_file = #{menu_photo_file}
 		where product_no = #{product_no}
 	</insert>
 	
@@ -82,7 +90,6 @@
 	select m.member_no , m.user_id, b.address1, b.business_name from member m , business b 
 	where m.member_no = b.company_no and m.user_id = #{param1}
 	</select>
-	
 	
 	<!-- 사업자인지 확인하기 -->
 	<select id="getCategory" resultType="String">
@@ -134,7 +141,7 @@
 	</select>
 	<!-- continent, country 해당 상품 리스트 -->
 	<select id="productSearch_12" resultType="com.kat.seat.model.InfoShopSearch">
-		select member.company_no, business.business_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
+		select member.company_no, business.business_name, business.address1, product.menu_category , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
 		from member inner joinbusiness on member.company_no = business.company_no inner join product on business.company_no = product.company_no
 		where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
 	</select>
@@ -143,13 +150,13 @@
 	<select id="shopCountList2" resultType="int">
 	select count(distinct(member.company_no))
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no 
-	where menu_catagory like CONCAT('%',#{keyword},'%')
+	where menu_category like CONCAT('%',#{keyword},'%')
 	</select>	
 	<!-- 메뉴종류로 검색 리스트 담기 -->
 	<select id="shopSearch2" resultType="com.kat.seat.model.InfoShopSearch">
-	select distinct(member.company_no), business.business_name, business.address1, product.menu_catagory, product.user_id, product.file_menuphoto, product.menu_loc
+	select distinct(member.company_no), business.business_name, business.address1, product.menu_category, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
-	where menu_catagory like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
+	where menu_category like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
 	</select>
 	
 	
@@ -175,7 +182,7 @@
 	</select>	
 	<!-- 지역 /키워드로 검색 리스트 담기 -->
 	<select id="shopSearch4" resultType="com.kat.seat.model.InfoShopSearch">
-	select member.company_no, product.menu_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
+	select member.company_no, product.menu_name, business.address1, product.menu_category , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
 	where address1 like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
 	</select>
@@ -185,13 +192,13 @@
 	<select id="shopCountList5" resultType="int">
 	SELECT COUNT(*) 
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no 
-	where menu_catagory like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%')
+	where menu_category like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%')
 	</select>	
 	<!-- 메뉴종류 /키워드로 검색 리스트 담기 -->
 	<select id="shopSearch5" resultType="com.kat.seat.model.InfoShopSearch">
-	select member.company_no, product.menu_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
+	select member.company_no, product.menu_name, business.address1, product.menu_category , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
-	where menu_catagory like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
+	where menu_category like CONCAT('%',#{param1},'%') and menu_name like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
 	</select>
 	
 	
@@ -199,13 +206,13 @@
 	<select id="shopCountList6" resultType="int">
 	select count(distinct(member.company_no))
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no 
-	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%')
+	where address1 like CONCAT('%',#{param1},'%') and menu_category like CONCAT('%',#{param2},'%')
 	</select>	
 	<!-- 지역 / 메뉴종류 리스트 담기 -->
 	<select id="shopSearch6" resultType="com.kat.seat.model.InfoShopSearch">
-	select distinct(member.company_no), product.menu_name, business.address1, product.menu_catagory, product.user_id, product.file_menuphoto, product.menu_loc
+	select distinct(member.company_no), product.menu_name, business.address1, product.menu_category, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
-	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
+	where address1 like CONCAT('%',#{param1},'%') and menu_category like CONCAT('%',#{param2},'%') limit #{param3}, #{param4}
 	</select>
 	
 	
@@ -213,14 +220,14 @@
 	<select id="shopCountList7" resultType="int">
 	SELECT COUNT(*) 
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no 
-	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%')
+	where address1 like CONCAT('%',#{param1},'%') and menu_category like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%')
 	</select>	
 	
 	<!-- 지역 / 메뉴종류  / 키워드 검색 리스트 담기 -->
 	<select id="shopSearch7" resultType="com.kat.seat.model.InfoShopSearch">
-	select member.company_no, product.menu_name, business.address1, product.menu_catagory , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
+	select member.company_no, product.menu_name, business.address1, product.menu_category , product.menu_name, product.user_id, product.file_menuphoto, product.menu_loc
 	from member inner join business on member.company_no = business.company_no inner join product on business.company_no = product.company_no
-	where address1 like CONCAT('%',#{param1},'%') and menu_catagory like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%') limit #{param4}, #{param5}
+	where address1 like CONCAT('%',#{param1},'%') and menu_category like CONCAT('%',#{param2},'%') and menu_name like CONCAT('%',#{param3},'%') limit #{param4}, #{param5}
 	</select>
 </mapper>
 

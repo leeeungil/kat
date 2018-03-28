@@ -33,7 +33,6 @@
   cursor: pointer;
   z-index: 2;
   font-size: 16px;
-  text-decoration: none;
   color: #ffffff;
   background: #3ab4a6;
   -webkit-transition: color .2s ease;
@@ -87,7 +86,6 @@
   cursor: pointer;
   z-index: 2;
   font-size: 14px;
-  text-decoration: none;
   color: #dddddd;
   background: #49505a;
   -webkit-transition: color .2s ease;

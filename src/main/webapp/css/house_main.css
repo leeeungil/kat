@@ -4,14 +4,9 @@
 
 메인 css
 * {
-	margin: 0px;
-	padding: 0px;
 	font-family: 'Nanum Gothic Coding', monospace;
 }
 
-a {
-	text-decoration: none;
-}
 헤더 부분
 header {
 	border-bottom: 1px solid #16bab4;
@@ -34,7 +29,7 @@ header {
 	font-weight: bold;
 }
 
-#header_inner {
+/* #header_inner {
 	margin: 0 auto;
 	height: 95px;
 	background-color: #ffffff;
@@ -50,7 +45,7 @@ header {
 #header_inner li {
 	display: inline-block;
 	margin-right: 30px;
-}
+} */
 
 img {
 	max-width: 100%;
@@ -86,9 +81,6 @@ img {
 	z-index: 12;
 }
 
-#content_menu a {
-	text-decoration: none;
-}
 대륙선택
 .select_area1 {
 	border: 0px solid;
@@ -768,10 +760,8 @@ Traveler Review
 .dropdown-content a {
     color: black;
     padding: 12px 16px;
-    text-decoration: none;
     display: table-cell;
     text-align:center;
-    
 }
 
 .dropdown a:hover {

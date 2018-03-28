@@ -18,7 +18,7 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/kat_main/katHader.jsp" flush="false"></jsp:include>
+	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>
 	<main>
 	<div class="totalView">
 		<jsp:include page="/WEB-INF/views/kat_sucess/joinSucess.jsp" flush="false"></jsp:include>

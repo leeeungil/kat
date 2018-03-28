@@ -1,130 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <script type="text/javascript">
 function checkform() {
-
-	if ($("#menuname").val() == "") {
+	if ($("#product_name").val() == "") {
 		alert("상품을 입력해주세요.!");
 		return false;
 	} else if ($("#menuprice").val() == "") {
 		alert("가격을 입력해주세요.!");
 		return false;
 	}
-	
 	return true;
 }
-
-
 </script>
 
 <div id="asideSize_menu">
-	<form action="<%=request.getContextPath()%>/kat/menuForm/menuAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
+	<form action="<%=request.getContextPath()%>/kat/menuForm/productAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
 		<div id="Add" class="Tabs">
 			<div id="add_search_border_menu">
-				<div id="add_search_header"><img class="menu_png" src="<%=request.getContextPath()%>/uploadfile/icon/menu.png"> 상품정보 등록</div>
-				<ul>
-					<li id="add_seat">여행상품 이름</li>
-					<li class="textstyle"><input type="text" id="menuname" name="product_name"></li>
-				</ul>
-				<ul>
-					<li id="add_seat">여행상품 가격</li>
-					<li class="textstyle"><input type="number" id="menuprice" name="cost" min="0" max="1000000" value="0"></li>
-				</ul>
+				<div id="add_search_header">
+					<img class="menu_png" src="<%=request.getContextPath()%>/uploadfile/icon/menu.png"> 상품정보 등록</div>
+				<ul><li id="add_seat">여행상품 이름
+				</li><li class="textstyle">
+					<input type="text" id="product_name" name="product_name">
+				</li></ul>
+				<ul><li id="add_seat">여행상품 가격
+				</li><li class="textstyle">
+					<input type="number" id="menuprice" name="cost" min="0" max="1000000" value="0">
+				</li></ul>
 				<ul>
 					<li id="add_seat">여행상품 종류</li>
-					<li><input type="radio" id="category" name="product_type" value="1" class="default"> 투어 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type" value="2" class="companybtn"> 티켓 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type" value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type" value="4" class="Universitybtn"> 기타 &nbsp;</li>
+					<li><input type="radio" id="product_type" name="product_type" value="1" class="default"> 투어 &nbsp;</li>
+					<li><input type="radio" id="product_type" name="product_type" value="2" class="companybtn"> 티켓 &nbsp;</li>
+					<li><input type="radio" id="product_type" name="product_type" value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
+					<li><input type="radio" id="product_type" name="product_type" value="4" class="Universitybtn"> 기타 &nbsp;</li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 대륙 선택</li>
-					<li><input type="radio" id="category" name="continent"
-						value="아시아" class="default"> 아시아 &nbsp;</li>
-					<li><input type="radio" id="category" name="continent"
-						value="유럽" class="companybtn"> 유럽 &nbsp;</li>
-					<li><input type="radio" id="category" name="continent"
-						value="남미" class="Universitybtn"> 남미 &nbsp;</li>
-					<li><input type="radio" id="category" name="continent"
-						value="북미" class="Universitybtn"> 북미 &nbsp;</li>
+					<li><input type="radio" id="continent" name="continent" value="아시아" class="default"> 아시아 &nbsp;</li>
+					<li><input type="radio" id="continent" name="continent" value="유럽" class="companybtn"> 유럽 &nbsp;</li>
+					<li><input type="radio" id="continent" name="continent" value="남미" class="Universitybtn"> 남미 &nbsp;</li>
+					<li><input type="radio" id="continent" name="continent" value="북미" class="Universitybtn"> 북미 &nbsp;</li>
 				</ul>
 				<ul>
-					<li id="add_seat">여행상품 국가 선택</li><br>
-					<li><input type="radio" id="category" name="country"
-						value="한국" class="default"> 한국 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="일본" class="companybtn"> 일본&nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="중국" class="Universitybtn"> 중국 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="말레이시아" class="Universitybtn"> 말레이시아 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="독일" class="default"> 독일 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="스페인" class="companybtn"> 스페인&nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="프랑스" class="Universitybtn"> 프랑스 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="체코" class="Universitybtn"> 체코 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="브라질" class="default">브라질 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="아르헨티나" class="companybtn"> 아르헨티나&nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="칠레" class="Universitybtn"> 칠레 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="온두라스" class="Universitybtn"> 온두라스 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="미국" class="default"> 미국 &nbsp;</li>
-					<li><input type="radio" id="category" name="country"
-						value="캐나다" class="companybtn"> 캐나다&nbsp;</li>
+					<li id="add_seat">여행상품 국가 선택</li>
+					<li><input type="radio" id="country" name="country" value="일본" class="companybtn"> 일본&nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="중국" class="Universitybtn"> 중국 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="말레이시아" class="Universitybtn"> 말레이시아 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="독일" class="default"> 독일 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="스페인" class="companybtn"> 스페인&nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="프랑스" class="Universitybtn"> 프랑스 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="체코" class="Universitybtn"> 체코 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="브라질" class="default">브라질 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="아르헨티나" class="companybtn"> 아르헨티나&nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="칠레" class="Universitybtn"> 칠레 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="온두라스" class="Universitybtn"> 온두라스 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="미국" class="default"> 미국 &nbsp;</li>
+					<li><input type="radio" id="country" name="country" value="캐나다" class="companybtn"> 캐나다&nbsp;</li>
 				</ul>
 				<ul>
-					<li id="add_seat">여행상품 도시 선택</li><br>
-					<li><input type="radio" id="category" name="city"
-						value="1" class="default"> 한국(서울) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="2" class="companybtn"> 한국(부산)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="3" class="Universitybtn"> 한국(인천) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="4" class="Universitybtn"> 한국(제주) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="5" class="default"> 한국(강릉) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="6" class="companybtn"> 일본(도쿄)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="7" class="Universitybtn"> 일본(오사카) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="8" class="Universitybtn"> 일본(후쿠오카) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="9" class="default">중국(상하이) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="10" class="companybtn"> 중국(베이징)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="11" class="Universitybtn"> 말레이시아(쿠알라룸프루) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="12" class="Universitybtn"> 독일(베를린) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="13" class="default"> 스페인(마드리드) &nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="14" class="companybtn"> 프랑스(파리)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="15" class="companybtn"> 체코(프라하)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="16" class="companybtn"> 미국(워싱턴)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="17" class="companybtn"> 미국(뉴욕)&nbsp;</li>
-					<li><input type="radio" id="category" name="city"
-						value="18" class="companybtn"> 캐나다(오타와)&nbsp;</li>			
+					<li id="add_seat">여행상품 도시 선택</li>
+					<li><input type="radio" id="city" name="city" value="1" class="default"> 한국(서울) &nbsp;</li>
+					<li><input type="radio" id="city" name="city" value="2" class="companybtn"> 한국(부산)&nbsp;</li>
+					<li><input type="radio" id="city" name="city" value="3" class="Universitybtn"> 한국(인천) &nbsp;</li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 사진등록</li>
-					<li class="filebox bs3-primary preview-image"><input
-						class="upload-name" value="파일을 선택해주세요!" disabled="disabled" 	style="width: 200px;"> <label for="input_file">파일 업로드</label> 
-						<input type="file" id="input_file" class="upload-hidden" name="menu_photo_file">
+					<li class="filebox bs3-primary preview-image">
+					<input class="upload-name" value="파일을 선택해주세요!" disabled="disabled" style="width: 200px;"> <label for="input_file">파일 업로드</label> 
+						<input type="file" id="input_file" class="upload-hidden" name="multipart_product_file">
 					</li>
 				</ul>
 				<ul id="btnstyle">
@@ -164,7 +108,7 @@ function checkform() {
 				<tr>
 					<td colspan="6" id="pagecenter"><c:forEach var="i" begin="1"
 							end="${MenuListInfo.getPageNumber()}" step="1">
-							<a href="<c:url value="/kat/menuForm/menuAdd.do?page=${i}"/>">[${i}]</a>
+							<a href="<c:url value="/kat/menuForm/productAdd.do?page=${i}"/>">[${i}]</a>
 						</c:forEach></td>
 				</tr>
 			</table>

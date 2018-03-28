@@ -7,7 +7,7 @@
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/passwordChange_css.css">
 
-<jsp:include page="/WEB-INF/views/kat_main/katHader.jsp"
+<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp"
 	flush="false"></jsp:include>
 <jsp:include
 	page="/WEB-INF/views/kat_mypage/passwordChange.jsp"

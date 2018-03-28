@@ -1,0 +1,235 @@
+/* common으로 이동 */
+a {
+    text-decoration: none;
+}
+/* header_sub */
+.header_wrap {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    z-index: 1000;
+    padding: 0;
+}
+.top_wrap {
+	font-size: 12px;
+    background: #26252b;
+    height: 35px;
+    line-height: 35px;
+    box-shadow: #0000009c 0px 1px 4px 0px;
+}
+.content-wrap {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+}
+.top_wrap .btn-fav {
+    color: #b0b0b0;
+    float: left;
+    letter-spacing: -1px;
+    cursor: pointer;
+}
+.top_wrap .top_right {
+    float: right;
+}
+.top_wrap .top_right .search-box {
+    float: left;
+    display: none;
+}
+.top_wrap .top_right .top-loginbox {
+    float: left;
+}
+.top_wrap .top_right .top-loginbox li {
+    float: left;
+    padding: 0 8px 0 0;
+    cursor: pointer;
+}
+.top_wrap .top_right .top-loginbox li:before {
+    content: "";
+    border-left: 1px solid #545456;
+    height: 8px;
+    display: inline-block;
+    margin-right: 8px;
+}
+.top_wrap .top_right .top-loginbox a {
+    color: #ffffff;
+}
+.top_wrap .top_right .btn-fullmenu {
+	float: left;
+    color: #ffffff;
+    background: #0084fe;
+    width: 75px;
+    height: 34px;
+    line-height: 35px;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 4px;
+    box-shadow: #2e9afea3 0 2px 1px 0px;
+}
+.top_wrap .top_right .btn-fullmenu a {
+    color: white;
+}
+
+/* header main */
+.header {
+    position: relative;
+    z-index: 2;
+    width: 1100px;
+    height: 100px;
+    margin: 0 auto;
+    zoom: 1;
+}
+.header > h1 {
+	float: left;
+    padding: 10px 0;
+    line-height: 34px;
+}
+.header > h1 > a {
+	color: #0084fe;
+}
+.header > h1 img {
+    vertical-align: middle;
+    max-height: 80px;
+}
+i {
+    display: inline-block;
+    font-family: xeicon;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.xi-magnifier:before {
+    content: "\e63b";
+}
+.blind {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    font-size: 0;
+    line-height: 0;
+    display: none !important;
+}
+
+.gnb {
+    float: right;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    height: 100%;
+    font-size: 13px;
+}
+.gnb > ul > li {
+    float: left;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.gnb > ul > li > a {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+    line-height: 97px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #242424;
+    min-width: 120px;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+.gnb > ul > li:before {
+    content: "";
+    border-left: 1px solid #dddddd;
+    height: 12px;
+    display: inline-block;
+}
+
+/* header_main hover */
+.gnb > ul > li > a.on, .gnb > ul > li > a:hover, .gnb > ul > li > a:focus, .gnb > ul > li > a:focus, .gnb > ul > li.on > a {
+	color: #2d99fd;
+    border-color: #0084fe;
+}
+
+.gnb-submenu {
+    margin: 10px 0 35px;
+    overflow: hidden;
+    position: relative;
+    left: 342px;
+}
+.gnb-submenu-wrap.on {
+    height: 152px;
+    border-top: 1px solid #dddddd;
+    border-bottom: 1px solid #eee;
+}
+.gnb-submenu-wrap {
+    height: 0;
+    position: absolute;
+    border-top: 0px solid #ffffff;
+    border-bottom: 0px solid #eee;
+    background: #ffffff;
+    width: 100%;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.gnb-submenu > li:first-child {
+    border-left: 0;
+}
+.gnb-submenu > li {
+    float: left;
+    border-left: 1px solid #dddddd;
+    min-height: 120px;
+    margin: 4px 0;
+    min-width: 126px;
+}
+.gnb-submenu > li > ul > li {
+    padding: 4px 15px 0 15px;
+}
+.gnb-submenu ul li a {
+    position: relative;
+}
+.gnb-submenu li a {
+    color: #3a3a3a;
+    font-size: 14px;
+}
+.xe-clearfix:after {
+    clear: both;
+}
+.xe-clearfix:after, .xe-clearfix:before {
+    content: " ";
+    display: table;
+}
+
+/* 번역 */
+.goog-te-gadget {
+    font-family: arial;
+    font-size: 10px;
+    color: #ffffff;
+    white-space: nowrap;
+}
+.goog-te-gadget-simple {
+	border: 0px solid;
+    font-size: 9pt;
+    display: inline-block;
+    padding: 0px;
+    cursor: pointer;
+    zoom: 1;
+    background: none;
+}
+.goog-te-gadget img {
+    vertical-align: middle;
+    border: none;
+    display: none;
+}
+.goog-te-gadget-simple .goog-te-menu-value span {
+    text-decoration: none;
+    color: white!important;
+}

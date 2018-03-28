@@ -6,7 +6,7 @@ public class InfoShop {
 	private String shop_photo; // 매장 사진 *
 	private String shop_name; // 매장이름
 	private String shop_location; // 매장위치
-	private String shop_catagory; // 메뉴 종류
+	private String shop_category; // 메뉴 종류
 	private String user_id; // 매장 아이디
 	private String menu_loc;
 
@@ -42,12 +42,12 @@ public class InfoShop {
 		this.shop_location = shop_location;
 	}
 
-	public String getShop_catagory() {
-		return shop_catagory;
+	public String getShop_category() {
+		return shop_category;
 	}
 
-	public void setShop_catagory(String shop_catagory) {
-		this.shop_catagory = shop_catagory;
+	public void setShop_category(String shop_category) {
+		this.shop_category = shop_category;
 	}
 
 	public String getUser_id() {
@@ -69,7 +69,7 @@ public class InfoShop {
 	@Override
 	public String toString() {
 		return "InfoShop [shop_no=" + shop_no + ", shop_photo=" + shop_photo + ", shop_name=" + shop_name
-				+ ", shop_location=" + shop_location + ", shop_catagory=" + shop_catagory + ", user_id=" + user_id
+				+ ", shop_location=" + shop_location + ", shop_category=" + shop_category + ", user_id=" + user_id
 				+ ", menu_loc=" + menu_loc + "]";
 	}
 	

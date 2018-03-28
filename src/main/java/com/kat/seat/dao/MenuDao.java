@@ -9,15 +9,11 @@ import com.kat.seat.model.ShopPhoto;
 
 public interface MenuDao {
 
-	// 메뉴 데이터 등록
-	public void insertMenu(MenuInfo menuInfo);
-
 	// PRODUCT 리스트 수
 	public int menuSelectCount(String user_id);
 
 	// PRODUCT 리스트 담기
-	/*public List<MenuInfo> menuList(String user_id, int firstRow, int messageCountPerPage);*/
-	public void menuList(MenuInfo menuInfo);
+	public List<MenuInfo> menuList(String user_id, int firstRow, int endRow);
 
 	// 수정할 데이터 가져오기
 	public MenuInfo getMenuinfo(int product_no);
@@ -51,8 +47,6 @@ public interface MenuDao {
 
 	// 접속 아이디가 사업자인지 확인하기
 	public String getCategory(String user_id);
-
-	
 	
 	public int shopCount2(String user_id);
 
@@ -103,4 +97,15 @@ public interface MenuDao {
 
 	// 지역 / 메뉴종류 / 키워드 리스트 수
 	public int shopCountList7(String area, String menu, String keyword);
+	
+	
+	
+	
+	
+	// 장준영 수정 완료
+	// 상품 데이터 등록
+	public int insertProduct(MenuInfo menuInfo);
+	
+	// 상품 이미지 등록
+	public void insertImage(MenuInfo menuInfo);
 }

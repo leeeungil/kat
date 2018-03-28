@@ -24,7 +24,7 @@
             <li class="menu">
                 <ul id="menu_btn">상품관리</ul>
                 <ul class="hide">
-                    <li><a href="<%=request.getContextPath()%>/kat/menuForm/menuAdd.do">메뉴 등록하기</a></li>
+                    <li><a href="<%=request.getContextPath()%>/kat/menuForm/productAdd.do">메뉴 등록하기</a></li>
                 </ul>
             </li>
 

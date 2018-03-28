@@ -25,17 +25,13 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/kat_main/katHader.jsp"
-		flush="false"></jsp:include>
+	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>
 	
 	<div class="totalView">
-		<jsp:include page="/WEB-INF/views/kat_common/adminMenu.jsp"
-			flush="false"></jsp:include>
-		<jsp:include page="/WEB-INF/views/kat_addMenu/addMenuForm.jsp"
-			flush="false"></jsp:include>
+		<jsp:include page="/WEB-INF/views/kat_common/adminMenu.jsp" flush="false"></jsp:include>
+		<jsp:include page="/WEB-INF/views/kat_addMenu/addMenuForm.jsp" flush="true"></jsp:include>
 	</div>
 	
-	<jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp"
-		flush="false"></jsp:include>
+	<jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp" flush="false"></jsp:include>
 </body>
 </html>

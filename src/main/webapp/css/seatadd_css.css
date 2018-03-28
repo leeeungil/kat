@@ -113,7 +113,6 @@
 	margin: 25px 15px;
 	font-size: 11px;
 	color: #000;
-	text-decoration: none;
 	font-family: verdana;
 	font-style: italic;
 }
@@ -259,7 +258,6 @@
 }
 
 #pagecenter a {
-	text-decoration: none;
 	color: black;
 }
 

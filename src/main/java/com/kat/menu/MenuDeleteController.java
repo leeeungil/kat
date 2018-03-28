@@ -48,7 +48,7 @@ public class MenuDeleteController {
 		// 삭제 소스 끝부분
 
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:/kat/menuForm/menuAdd.do");
+		modelAndView.setViewName("redirect:/kat/menuForm/productAdd.do");
 
 		return modelAndView;
 	}

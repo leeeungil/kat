@@ -15,16 +15,13 @@
 
 <!-- css 가져오기 -->
 
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/hader_main_css.css">
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">	
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/writeArticleForm_css.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/hader_main_css.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/home_main.css">	
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/writeArticleForm_css.css">
 </head>
 
 <body>
-	<jsp:include page="/WEB-INF/views/kat_main/katHader.jsp"
+	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp"
 		flush="false"></jsp:include>
 	<main>
 	<div class="totalView">
