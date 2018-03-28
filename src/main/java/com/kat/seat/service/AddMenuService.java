@@ -32,7 +32,7 @@ System.out.println("[AddMenuService addMenu] MAPPER(insertMenu) FINISH");
 
 	// PRODUCT 리스트 페이지
 	private static final int MESSAGE_COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
-	public MenuInfoListView getMenuList(String user_id, int pageNumber) {
+	/*public MenuInfoListView getMenuList(String user_id, int pageNumber) {
 System.out.println("[AddMenuService getMenuList] ACCESS SUCCESS");
 System.out.println("[AddMenuService getMenuList] user_id : " + user_id);
 System.out.println("[AddMenuService getMenuList] pageNumber : " + pageNumber);
@@ -59,6 +59,12 @@ System.out.println("[AddMenuService getMenuList] " + productList.toString());
 		menuListInfoview.setPageTotalCount(TotalCount);
 		menuListInfoview.setPageNumber(PageNumber);
 		return menuListInfoview;
+	}*/
+	
+	@Autowired
+	public void getUploadForm(MenuInfo menuInfo) {
+		dao = sqlSessionTemplate.getMapper(MenuDao.class);
+		dao.menuList(menuInfo);
 	}
 
 	// 업데이트 할 제품 데이터 가져오기
@@ -122,7 +128,7 @@ System.out.println("[AddMenuService addShopPhoto] shopPhoto.size() : "+ shopPhot
 		return shopPhotoListView;
 	}
 
-	public ShopPhotoListView getshopPhotoList2(String user_id) {
+/*	public ShopPhotoListView getshopPhotoList2(String user_id) {
 System.out.println("[AddMenuService getshopPhotoList2] SHOP_PHOTO_LIST ACCESS");
 System.out.println("[AddMenuService getshopPhotoList2] user_id : "+ user_id);
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
@@ -183,7 +189,7 @@ System.out.println("[AddMenuService getAddress2] "+ infoShopAddress.toString());
 
 		return view;
 	}
-
+*/
 	// 매장사진 리스트 페이지
 	private static final int COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
 	public ShopPhotoListView getshopPhotoDelete(String userid, int pageNumber) {
@@ -243,7 +249,7 @@ System.out.println("[AddMenuService getAddress2] "+ infoShopAddress.toString());
 		int firstRow = 0;
 
 		int TotalCount = dao.menuSelectCount(userid);
-		seatList = dao.menuList(userid, firstRow, TotalCount);
+		/*seatList = dao.menuList(userid, firstRow, TotalCount);*/
 
 		view.setMenuInfoList(seatList);
 		view.setPageTotalCount(TotalCount);

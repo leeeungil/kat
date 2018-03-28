@@ -18,11 +18,15 @@
 	</select>
 
 	<!--PRODUCT 리스트 담기 -->
-	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
-		SELECT PRODUCT_NO, PRODUCT_NAME, PH.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, PH.CREATE_DATE, DELETE_FLAG, BOARD_NO
-		FROM PHOTO PH, PRODUCT PR
-		WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
-	</select>
+	<!-- <select id="menuList" resultType="com.kat.seat.model.MenuInfo">
+		SELECT PRODUCT_NO, PRODUCT_NAME, PH.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, PH.CREATE_DATE, 0, BOARD_NO
+		FROM PRODUCT PR LEFT JOIN PHOTO PH
+		ON PR.PRODUCT_TYPE = PH.PRODUCT_TYPE WHERE PR.PRODUCT_NO = "1"
+	</select> -->
+	<insert id="menuList" parameterType="com.kat.seat.model.MenuInfo">
+	  INSERT INTO PRODUCT (product_name, product_type, cost, business_number, user_id, continent, city, create_date, delete_flag)
+	  VALUES (#{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{city}, #{create_date}, 0)
+	</insert>
 		
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
@@ -85,7 +89,7 @@
 		select category from member where user_id= #{param1};
 	</select>
 	
-	<select id="shopCount2" resultType="int">
+	<!-- <select id="shopCount2" resultType="int">
 		SELECT COUNT(*) 
 		FROM PHOTO PH, PRODUCT PR 
 		WHERE PH.PRODUCT_TYPE=PR.PRODUCT_TYPE AND PR.PRODUCT_TYPE = 1
@@ -98,7 +102,7 @@
 	</select>
 	
 	<select id="shopPhotoList2" resultType="com.kat.seat.model.ShopPhoto">
-		<!-- SELECT * FROM SHOP_PHOTOwhere user_id = #{param1} limit #{param2}, #{param3} -->
+		SELECT * FROM SHOP_PHOTOwhere user_id = #{param1} limit #{param2}, #{param3}
 		SELECT PHOTO_NO, USER_ID, FILE_SHOPPHOTO, CREATE_DATE
 		FROM SHOP_PHOTO
 	</select>
@@ -109,7 +113,7 @@
 	
 	<select id="menuList2" resultType="com.kat.seat.model.MenuInfo">
 		SELECT * FROM PRODUCT;
-	</select>
+	</select> -->
 	
 	
 	

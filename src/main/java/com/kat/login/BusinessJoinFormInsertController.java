@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.seat.model.JoinInfo;
 import com.kat.seat.model.JoinInfoBusiness;
 import com.kat.seat.service.LoginService;
 

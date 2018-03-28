@@ -20,31 +20,24 @@ function checkform() {
 </script>
 
 <div id="asideSize_menu">
-	<form action="<%=request.getContextPath()%>/kat/menuForm/menuAdd.do" 
-		method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
+	<form action="<%=request.getContextPath()%>/kat/menuForm/menuAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
 		<div id="Add" class="Tabs">
 			<div id="add_search_border_menu">
 				<div id="add_search_header"><img class="menu_png" src="<%=request.getContextPath()%>/uploadfile/icon/menu.png"> 상품정보 등록</div>
 				<ul>
 					<li id="add_seat">여행상품 이름</li>
-					<li class="textstyle"><input type="text" id="menuname"
-						name="product_name"></li>
+					<li class="textstyle"><input type="text" id="menuname" name="product_name"></li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 가격</li>
-					<li class="textstyle"><input type="number" id="menuprice"
-						name="cost" min="0" max="1000000" value="0"></li>
+					<li class="textstyle"><input type="number" id="menuprice" name="cost" min="0" max="1000000" value="0"></li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 종류</li>
-					<li><input type="radio" id="category" name="product_type"
-						value="1" class="default"> 투어 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type"
-						value="2" class="companybtn"> 티켓 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type"
-						value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
-					<li><input type="radio" id="category" name="product_type"
-						value="4" class="Universitybtn"> 기타 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type" value="1" class="default"> 투어 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type" value="2" class="companybtn"> 티켓 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type" value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
+					<li><input type="radio" id="category" name="product_type" value="4" class="Universitybtn"> 기타 &nbsp;</li>
 				</ul>
 				<ul>
 					<li id="add_seat">여행상품 대륙 선택</li>

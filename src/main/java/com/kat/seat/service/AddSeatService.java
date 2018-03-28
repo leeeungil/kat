@@ -1,6 +1,5 @@
 package com.kat.seat.service;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +11,6 @@ import com.kat.seat.model.Breakdown;
 import com.kat.seat.model.BreakdownListView;
 import com.kat.seat.model.ReservationBreakdown;
 import com.kat.seat.model.SeatInfo;
-import com.kat.seat.model.SeatInfoListView;
 import com.kat.seat.model.SeatPosition;
 import com.kat.seat.model.Shop_re_name_phone;
 import com.kat.seat.model.UserBreakdown;

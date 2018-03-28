@@ -34,18 +34,18 @@ System.out.println("[tourMainController tourListView] user_id : " + user_id);
 System.out.println("[tourMainController tourListView] " + search.toString());
     	ModelAndView modelAndView = new ModelAndView();
 		
-    	ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList2(user_id);
+    	/*ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList2(user_id);
 System.out.println("[tourMainController tourListView] " + shopPhotoListView.toString());
 		MenuInfoListView menuInfoListView = addMenuService.getMenuView2(pageNumber);
 System.out.println("[tourMainController tourListView] " + menuInfoListView.toString());
 		InfoShopAddress infoShopAddress = addMenuService.getAddress2(user_id, pageNumber);
-System.out.println("[tourMainController tourListView] " + infoShopAddress.toString());
+System.out.println("[tourMainController tourListView] " + infoShopAddress.toString());*/
 		
-		modelAndView.setViewName("tourView_main");
+		/*modelAndView.setViewName("tourView_main");
 		modelAndView.addObject("pageNumber", pageNumber);
 		modelAndView.addObject("ShopPhotoList", shopPhotoListView);
 		modelAndView.addObject("menuListInfo", menuInfoListView);
-		modelAndView.addObject("InfoShopAddress", infoShopAddress);
+		modelAndView.addObject("InfoShopAddress", infoShopAddress);*/
 System.out.println("=============================================================");
 		return modelAndView;
 		
