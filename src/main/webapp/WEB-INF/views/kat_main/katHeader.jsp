@@ -122,10 +122,10 @@
 			$("#userLogin").attr("class","loginFormLi");
 		})
 
-		$("#login_wrap").click(function(){
+		/* $("#login_wrap").click(function(){
 			var loginForm = document.getElementById("login_wrap");
 			loginForm.style.display = "none";
-		})
+		}) */
 	});
 	
 	$(document).ready(function() {

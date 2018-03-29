@@ -17,7 +17,7 @@
 	<!-- member, business login check -->
 	<select id="login_member" resultType="com.kat.seat.model.JoinInfoChk">
 		SELECT member_no, user_id, password
-		FROM MEMBER WHERE DELETE_FLAG = 0 AND USER_ID = #{user_id}
+		FROM MEMBER WHERE USER_ID = #{user_id} AND DELETE_FLAG = 0
 	</select>
 	
 	<select id="login_business" resultType="com.kat.seat.model.JoinInfoChk">
