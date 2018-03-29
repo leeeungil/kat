@@ -13,7 +13,7 @@ public interface MenuDao {
 	public int menuSelectCount(String user_id);
 
 	// PRODUCT 리스트 담기
-	public List<MenuInfo> menuList(String user_id, int firstRow, int endRow);
+	public List<MenuInfo> menuList(String user_id, int firstRow, int messageCountPerPage);
 
 	// 수정할 데이터 가져오기
 	public MenuInfo getMenuinfo(int product_no);

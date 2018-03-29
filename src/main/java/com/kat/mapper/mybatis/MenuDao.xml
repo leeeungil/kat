@@ -22,20 +22,22 @@
 	<select id="menuSelectCount" resultType="int">
 		SELECT COUNT(*) 
 		FROM PRODUCT 
-		WHERE USER_ID = #{USER_ID}
+		WHERE USER_ID = #{param1}
 	</select>
 
 	<!--PRODUCT 리스트 담기 -->
-	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
+	<!-- <select id="menuList" resultType="com.kat.seat.model.MenuInfo">
 		SELECT PRODUCT_NO, PRODUCT_NAME, PH.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, PH.CREATE_DATE, 0, BOARD_NO
 		FROM PRODUCT PR LEFT JOIN PHOTO PH
 		ON PR.PRODUCT_TYPE = PH.PRODUCT_TYPE WHERE PR.PRODUCT_NO = "1"
+	</select> -->
+	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
+	    SELECT *
+	    FROM PRODUCT
+	    WHERE user_id = #{param1}
+	    ORDER BY create_date DESC LIMIT #{param2}, #{param3}
 	</select>
-	<!-- <insert id="menuList">
-	  INSERT INTO PRODUCT (product_no, product_name, product_type, cost, business_number, user_id, continent, country, city, create_date, delete_flag)
-	  VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, now(), 0)
-	</insert> -->
-		
+			
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
 		SELECT product_no, product_name, cost, product_type, business_number, user_id, menu_photo_file, create_date, continent, country, city

@@ -80,9 +80,7 @@ function checkform() {
 	</form>
 	<div id="Add" class="Tabs">
 		<div id="seat_list">
-			<div id="add_search_header"> 등록된 여행상품 리스트
-				&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;  등록된 총 여행상품수 :
-				${MenuListInfo.pageTotalCount}</div>
+			<div id="add_search_header"> 등록된 여행상품 리스트&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;  등록된 총 여행상품수 :	${MenuListInfo.pageTotalCount}</div>
 			<table class="List_menu">
 				<tr>
 					<td>여행상품 이름</td>
@@ -95,21 +93,21 @@ function checkform() {
 					<tr class="listInfo" id="btnstyleSeat">
 						<td>${menu.product_name}</td>
 						<td>${menu.cost} 원</td>
-						<td><img alt="이미지 없음" id="seatSize"
-							src="<%=request.getContextPath()%>/uploadfile/menuphoto/${menu.menu_photo_file}"></td>
-						<td><input type="submit" name="ch" value="수정하기"
-							onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">&nbsp;&nbsp;<input
-							type="submit" name="de" value="삭제하기"
-							onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menuphoto}'"></td>
-					</tr>
+						<td><img alt="이미지 없음" id="seatSize" src="<%=request.getContextPath()%>/uploadfile/menuphoto/${menu.menu_photo_file}"></td>
+						<td>
+						    <%--<input type="submit" name="ch" value="수정하기" onclick="location.href='<%=request.getContextPath()--%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">&nbsp;&nbsp;
+						    <input type="submit" name="de" value="삭제하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menu_photo}'"> --%>
+						</td>
+				   </tr>
 				</c:forEach>
 
 				<!-- 페이징 -->
 				<tr>
-					<td colspan="6" id="pagecenter"><c:forEach var="i" begin="1"
-							end="${MenuListInfo.getPageNumber()}" step="1">
+					<td colspan="6" id="pagecenter">
+					   <c:forEach var="i" begin="1" end="${MenuListInfo.getPageNumber()}" step="1">
 							<a href="<c:url value="/kat/menuForm/productAdd.do?page=${i}"/>">[${i}]</a>
-						</c:forEach></td>
+						</c:forEach>
+					</td>
 				</tr>
 			</table>
 		</div>

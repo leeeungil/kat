@@ -177,17 +177,19 @@ System.out.println("[AddMenuService addShopPhoto] shopPhoto.size() : "+ shopPhot
 	}
 
 	// 매뉴 리스트 처음부터 끝까지 가져오기
-	public MenuInfoListView getMenuView(String userid) {
+	public MenuInfoListView getMenuView(String user_id) {
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
 
 		MenuInfoListView view = new MenuInfoListView();
-		List<MenuInfo> seatList = null;
-//		int firstRow = 0;
+		List<MenuInfo> productList = null;
+		int firstRow = 0;
 
-		int TotalCount = dao.menuSelectCount(userid);
-//		seatList = dao.menuList(userid, firstRow, TotalCount);
+		int TotalCount = dao.menuSelectCount(user_id);
+System.out.println("[AddMenuService getMenuView] ACCESS SUCCESS");
+System.out.println("[AddMenuService getMenuView] userid : " + user_id);		
+		productList = dao.menuList(user_id, firstRow, TotalCount);
 
-		view.setMenuInfoList(seatList);
+		view.setMenuInfoList(productList);
 		view.setPageTotalCount(TotalCount);
 
 		return view;

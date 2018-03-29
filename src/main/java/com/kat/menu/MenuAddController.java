@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +43,7 @@ System.out.println("============================================================
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView addProduct(MenuInfo menuInfo, MultipartHttpServletRequest request) throws IllegalStateException, IOException {
+	public ModelAndView addProduct(MenuInfo menuInfo, MultipartHttpServletRequest request,HttpServletRequest request2) throws IllegalStateException, IOException {
 System.out.println("[MenuAddController addProduct] MENU ADD ACCESS");
 System.out.println("[MenuAddController addProduct] " + menuInfo.toString());
 
@@ -64,7 +65,7 @@ System.out.println("[MenuAddController addProduct] getMultipart_product_file() :
 		} else {
 System.out.println("[MenuAddController addProduct] getMultipart_product_file() NOT NULL");
 		}
-		
+
 		addMenuService.addProduct(menuInfo);
 System.out.println("[MenuAddController addProduct] addMenuService.addMenu FINISH");
 		modelAndView.setViewName("redirect:/kat/menuForm/productAdd.do");
