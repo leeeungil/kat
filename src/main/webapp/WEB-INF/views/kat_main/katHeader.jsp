@@ -213,11 +213,11 @@
 				<div>
 					<ul class="login_form" id="company_in" style="display: none;"><li class="login_sty" id="id_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" class="login_form_input" name="user_id">
+						<input type="text" placeholder="ID" class="login_form_input" name="business_id">
 					</li> 
 					<li class="login_sty" id="pw_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
-						<input type="password" placeholder="PASSWORD" class="login_form_input" name="user_pass">
+						<input type="password" placeholder="PASSWORD" class="login_form_input" name="business_pass">
 					</li>
 					<li>
 						<input type="submit" class="btn_login" value="로그인" >

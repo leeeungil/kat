@@ -19,7 +19,7 @@ public class LoginBusinessController {
 	private LoginService loginService;
 
 	@RequestMapping("kat/login/loginbusiness.do")
-	public ModelAndView login(@RequestParam(name = "company_id") String user_id, @RequestParam(name = "company_pass") String user_pass,
+	public ModelAndView login(@RequestParam(name = "business_id") String user_id, @RequestParam(name = "business_pass") String user_pass,
 			HttpServletRequest req) throws IllegalStateException, IOException {
 System.out.println("[LoginBusinessController login] USER LEVEL 2 - BUSINESS ACCESS");
 System.out.println("[LoginBusinessController login] user_id : " + user_id);
