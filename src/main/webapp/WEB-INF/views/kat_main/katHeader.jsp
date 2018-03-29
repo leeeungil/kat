@@ -2,340 +2,132 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <style>
-#add_search_border li {
-	list-style: none;
+/* =============================================login.css===================================================== */
+.login_wrap {
+    text-align: center;
+    margin: auto;
+    width: 100vw;
+    height: 100%;
+    background: #00000069;
+    position: fixed;
+    z-index: 11;
 }
-
-span {
-	color: #858484;
-}
-
-/* 로그인 팝업창 부분 */
-#loginmodal {
-	border: 1px solid #16bab4;
-	width: 650px;
-	/*팝업창의 크기조절*/
-    margin-top: 5.5vh; 
-	/*팝업창 위아래 간격조절*/
+.login_top {
+	width: 440px;
 	background: #f3f6fa;
-	border-radius: 6px;
-	position: fixed;
-	text-align: center;
+	position: relative;
 	z-index: 99;
+	margin: auto;
+	top: 34vh;
 }
-
-/* 레이어 로그인 DIV 부분 */
-#lean_overlay {
-	position: fixed;
-	z-index: 100;
-	top: 0px;
-	left: 0px;
-	height: 100%;
-	width: 100%;
-	background: #000;
-	display: none;
-}
-
-#close_li {
-	width: 50px;
-}
-
-#close {
-	border: none;
-	outline: none;
-	background-color: #e7e7e7;
-	cursor: pointer;
-}
-
-#close_size {
-	font-size: 30px;
+.login_form {
+    padding: 10px 30px;
+    background-color: #f3f6fa;
 }
 
 /* 로그인 타이틀 부분 */
-#loginTitle {
-	width: 100%;
-	height: 80px;
-	font-size: 18px;
-	font-weight: 200;
-	background-color: #e7e7e7;
+.loginTitle {
+    width: 100%;
+    height: 40px;
+    background-color: #000000;
+    color: #ffffff;
+}
+.loginTitle li {
+    float: left;
+    line-height: 40px;
+ 	width: 220px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+}
+.loginFormLi_click{
+	background-color: #0084fe !important;
 }
 
-#logincenter {
-	text-align: center;
-	margin: auto;
-	width: 600px;
-}
 
-.flatbtn {
-	background-color: #FFFFFF;
-	border: none;
-	font-size: 12px;
-	outline: none;
-	cursor: pointer;
-}
+/* ===================================================================================================================== */
 
 /* ================회원 아이디 리스트================ */
-
 /* 회원 로그인 리스트 */
-#member_in {
-	padding: 30px 72px 27px 72px;
-	background-color: #f3f6fa;
-}
 
-#member_in input {
-	background-color: #f3f6fa;
-	cursor: auto;
-	vertical-align: middle;
-	padding: 10px;
-	width: 400px;
-}
 
-#btnstyle input:hover {
-	background-color: #00938e;
-}
-
-#id_auto input {
-	width: 20px;
-}
-
-#id_sty {
-	/*border: 1px solid black;*/
-	border-bottom: 1px solid #c5c5c5;
+.login_sty {
 	position: relative;
-	padding: 18px 30px 10px 70px;
-	height: 40px;
+    padding: 0px 0px 0px 70px;
 }
 
-#id {
-	padding: 3px 5px;
-	margin-top: 7px;
-	width: 100%;
-	max-width: 280px;
-	border: none;
-	color: #858484;
-	font-weight: 300;
-	box-sizing: border-box;
+.login_form_input {
+    padding: 3px 5px;
+    margin-top: 4px;
+    width: 100%;
+    border: none;
+    color: #858484;
+    font-weight: 300;
+    box-sizing: border-box;
+    height: 40px;
 }
 
 /* 회원 로그인 아이콘 이미지 */
-#id_ico img {
+.login_form_ico img {
 	display: inline-block;
 	position: absolute;
 	left: 20px;
-	top: 15px;
 	width: 40px;
 	height: 40px;
 	background: 0 0 no-repeat;
 	vertical-align: middle;
 	border: none;
-}
-
-/* 회원 패스워드 리스트 */
-#pw_sty {
-	/*border: 1px solid black;*/
-	border-bottom: 1px solid #c5c5c5;
-	position: relative;
-	padding: 18px 30px 10px 70px;
-	height: 40px;
-}
-
-#pw {
-	padding: 3px 5px;
-	margin-top: 7px;
-	width: 100%;
-	max-width: 280px;
-	border: none;
-	color: #858484;
-	font-weight: 300;
-	box-sizing: border-box;
-}
-
-/*회원 패스워드 아이콘*/
-#pw_ico img {
-	display: inline-block;
-	position: absolute;
-	left: 20px;
-	top: 15px;
-	width: 40px;
-	height: 40px;
-	background: 0 0 no-repeat;
-	vertical-align: middle;
-	border: none;
-}
-
-/* 회원 아이디 저장 여부 */
-#id_auto {
-	padding-top: 14px;
-	text-align: center;
-	color: #858484;
 }
 
 /* 회원 로그인 버튼 */
 .btn_login {
-	border-style: none;
-	margin-top: 15px;
-	height: 40px;
-	color: #f3f6fa;
-	font-weight: 500;
-	text-align: center;
+    border-style: none;
+    margin-top: 20px;
+    height: 40px;
+    color: #f3f6fa;
+    font-weight: 800;
+    text-align: center;
+    background-color: #0084fe;
+    width: 100%;
+    cursor: pointer;
 }
-
-/* 다른업체을 통한 로그인 */
-#join_login {
-	padding: 15px 0 4px 0;
-}
-
-#join_login div {
-	float: left;
-	width: 500px;
-	line-height: 37px;
-	display: block;
-	border: 1px solid #bfbfbf;
-	text-align: center;
-	vertical-align: middle;
-}
-
-#join_login a {
-	color: #858484;
-}
-
 /* 아이디 찾기 */
-#find_join {
-	display: block;
-	text-align: center;
-	font-size: 14px;
-	width: 600px;
+.join_login {
+	font-size: 13px;
+    line-height: 26px;
+    display: block;
+    margin-top: 2%;
 }
 
-#find_join a {
+.find_join a {
 	color: #858484;
 }
 
-/* ================사업자 로그인 리스트================ */
-#company_in {
-	padding: 30px 72px 27px 72px;
-	background-color: #f3f6fa;
-	height: 280px;
-}
-#company_in input {
-	background-color: #f3f6fa;
-	vertical-align: middle;
-}
-
-/* 사업자 아이디 리스트 */
-#id_sty_2 {
-	/*border: 1px solid black;*/
-	border-bottom: 1px solid #c5c5c5;
-	position: relative;
-	padding: 18px 30px 10px 70px;
-	height: 40px;
-}
-
-#id_2 {
-	padding: 3px 5px;
-	margin-top: 7px;
-	width: 100%;
-	max-width: 280px;
-	border: none;
-	color: #858484;
-	font-weight: 300;
-	box-sizing: border-box;
-}
-
-/* 사업자 로그인 아이콘 이미지 */
-#id_ico_2 img {
-	display: inline-block;
-	position: absolute;
-	left: 20px;
-	top: 15px;
-	width: 40px;
-	height: 40px;
-	background: 0 0 no-repeat;
-	vertical-align: middle;
-	border: none;
-}
-
-/* 사업자 패스워드 리스트 */
-#pw_sty_2 {
-	/*border: 1px solid black;*/
-	border-bottom: 1px solid #c5c5c5;
-	position: relative;
-	padding: 18px 30px 10px 70px;
-	height: 40px;
-}
-
-/* 사업자 패스워드 아이콘 이미지 */
-#pw_ico_2 img {
-	display: inline-block;
-	position: absolute;
-	left: 20px;
-	top: 15px;
-	width: 40px;
-	height: 40px;
-	background: 0 0 no-repeat;
-	vertical-align: middle;
-	border: none;
-}
-
-#pw_2 {
-	padding: 3px 5px;
-	margin-top: 7px;
-	width: 100%;
-	max-width: 280px;
-	border: none;
-	color: #858484;
-	font-weight: 300;
-	box-sizing: border-box;
-}
-
-/* 사업자 아이디 저장 여부 */
-#id_auto_2 {
-	padding-top: 14px;
-	text-align: center;
-	color: #858484;
-}
-
-/* 사업자 로그인 버튼 */
-.btn_login_2 {
-	border-style: none;
-	margin-top: 15px;
-	width: 400px;
-	height: 40px;
-	color: #f3f6fa;
-	font-weight: 500;
-	text-align: center;
-	cursor: pointer;
-}
-
-.btn_login_2:hover {
-	background-color: #00938e;
-}
-
-/* 사업자 아이디 찾기 */
-#find_join_2 {
-	display: block;
-	text-align: center;
-	font-size: 14px;
-}
-
-#find_join_2 a {
-	color: #858484;
-}
-
-#titleon:hover {
-	background-color: #BDBDBD;
-}
-
-#titleoff:hover {
-	background-color: #BDBDBD;
-}
-
-.loginFormLi {
-	margin-right: 0px!important;
-}
 </style>
-
+<script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
 <script>
+	$(document).ready(function() {
+		$(".loginFormLi").mouseenter(function(){
+			$(this).css("background-color","#71bafd");
+		}).mouseleave(function(){
+			$(this).css("background-color","#000000");
+		})
+		
+		$("#userLogin").click(function(){
+			$("#userLogin").attr("class","loginFormLi_click");
+			$("#businessLogin").attr("class","loginFormLi");
+		})
+		$("#businessLogin").click(function(){
+			$("#businessLogin").attr("class","loginFormLi_click");
+			$("#userLogin").attr("class","loginFormLi");
+		})
+
+		$("#login_wrap").click(function(){
+			var loginForm = document.getElementById("login_wrap");
+			loginForm.style.display = "none";
+		})
+	});
+	
 	$(document).ready(function() {
 		$("#gnb").mouseenter(function(){
 			$(".gnb-submenu-wrap").addClass("on");
@@ -345,7 +137,7 @@ span {
 		})
 	});
 
-	function titleOff_hide() {
+	function businessLogin_hide() {
 		var objDiv = document.getElementById("company_in");
 		var objDiv1 = document.getElementById("member_in");
 
@@ -357,7 +149,7 @@ span {
 		}
 	}
 
-	function titleOn_hide() {
+	function userLogin_hide() {
 		var objDiv = document.getElementById("member_in");
 		var objDiv1 = document.getElementById("company_in");
 
@@ -370,7 +162,7 @@ span {
 	}
 
 	function login() {
-		var loginForm = document.getElementById("loginmodal");
+		var loginForm = document.getElementById("login_wrap");
 
 		if (loginForm.style.display == "none") {
 			loginForm.style.display = "block";
@@ -380,211 +172,206 @@ span {
 	}
 </script>
 
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header.css">
-	<div class="header_wrap">
-		<div class="top_wrap"> 
-			<div class="content-wrap">
-				<!-- <span class="btn-fav" onclick="bookmarksite('엔아이건축', 'http://ni-housing.com/')">★즐겨찾기등록</span>
-				<a href="http://nihousing.cbio.co.kr/main/main.htm" target="_blank"><span class="btn-ebook">　▶전자책서비스 바로가기</span></a> -->
-				<div class="top_right">
-					<div class="search-box">검색폼</div>
-					<ul class="top-loginbox">
-					<c:if test="${user_id == null}">
-						<li><a onclick="login()">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a></li>
-					</c:if>
-					<c:if test="${user_id != null}">
-						<li style="color:#ffffff">${user_id} 님  [ ${user_category} ]
-							<c:if test="${user_id == 'Master'}">
-								<span style="color: red;"><strong>마스터 </strong></span>
-							</c:if> 
-						</li>
-						<c:if test="${user_id != 'Master'}">
-							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong></a>
-							</li>
-							<c:if test="${user_category == '사업자 회원'}">
-								<li id="categoryfont">
-									<a href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품관리</strong></a>
-								</li>
-							</c:if>
-						</c:if>
-						<c:if test="${user_id == 'Master'}">
-							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>페이지 관리</strong></a>
-							</li>
-						</c:if>
-						<c:if test="${user_category == '일반 회원'}">
-							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
-							</li>
-						</c:if>
-						<li>
-							<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
-						</li>
-					</c:if>
-					</ul>
-					<!-- <span class="btn-fullmenu"></span>			 -->													
-					<span class="btn-fullmenu" id="google_translate_element"></span>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-	        function googleTranslateElementInit() {
-	        	new google.translate.TranslateElement({pageLanguage: 'ko',
-	        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
-	        	multilanguagePage: true}, 'google_translate_element');
-	        }
-        </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-		<!--  -->
-		<header class="header sub">
-			<h1 class="logo-item">
-				<a href="<%=request.getContextPath()%>/kat_main.do">
-					<strong><img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform"></strong>
-				</a>
-			</h1>
-			<nav class="gnb pc-gnb" id="gnb">
-				<ul class="gnb-box blind-m"><li>
-					<a href="#" class="">유아플랫폼</a>
-				</li><li>
-					<a href="#">숙박
-						<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
-					</a>
-				</li><li>
-					<a>여행상품
-						<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
-					</a>
-				</li><li>
-					<a href="#">여행정보
-						<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
-					</a>
-				</li><li>
-					<a href="#">커뮤니티
-						<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
-					</a>
-				</li><li>
-					<a href="#">고객센터</a>
-				</li></ul>
-			</nav>
-		</header>
-		
-		<div class="gnb-submenu-wrap blind-m">
-			<div class="content-wrap">
-				<ul class="gnb-submenu"><li>
-					<ul><li>
-						<a href="#" class="submenu1">About Y·P</a>
-					</li><li>
-						<a href="#" class="submenu2">Y·P마인드</a>
-					</li></ul>
-				</li>
-				<li>
-					<ul><li>
-						<a href="#" class="submenu6">민박</a>
-					</li><li>
-						<a href="#" class="submenu7">호텔<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
-					</li><li>
-						<a href="#" class="submenu8">게스트하우스</a>
-					</li></ul>						
-				</li>
-				<li>
-					<ul><li>
-						<a href="#" class="submenu6">투어</a>
-					</li><li>
-						<a href="#" class="submenu7">셔틀<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
-					</li><li>
-						<a href="#" class="submenu8">티켓</a>
-					</li></ul>						
-				</li>
-				<li>
-					<ul><li>
-						<a href="#" class="submenu6">축제</a>
-					</li><li>
-						<a href="#" class="submenu7">문화<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
-					</li><li>
-						<a href="#" class="submenu8">레저</a>
-					</li></ul>						
-				</li>
-				<li>
-					<ul><li>
-						<a href="#" class="submenu6">민박후기</a>
-					</li><li>
-						<a href="#" class="submenu7">호텔후기<img src="http://ni-housing.com/layouts/eond_nihousing/img/home/ico-new.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
-					</li><li>
-						<a href="#" class="submenu8">게스트하우스<br>후기</a>
-					</li></ul>						
-				</li>
-				<li>
-					<ul><li>
-					</li></ul>						
-				</li></ul>
-			</div>
-		</div>
-	</div>
-
-	<div id="logincenter">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/login.css">
+<div class="header_wrap">
+	<!-- 로그인 폼 -->
+	<div class="login_wrap" id="login_wrap" style="display: none" >
 		<!-- 로그인 팝업 부분 -->
-		<div id="loginmodal" style="display: none;">
-			<div id="loginTitle" style="display: block;">
-				<ul><li class='loginFormLi' id="titleon" onclick="titleOn_hide()"> 회원 로그인</li>
-				<li class='loginFormLi' id="titleoff" onclick="titleOff_hide()"> 사업자 로그인</li>
-				<li class='loginFormLi' style="width: 80px;">
-					<button type="button" onclick="login();" id="close">
-						<span id="close_size">X</span>
-					</button>
+		<div class="login_top" id="login_top">
+			<div class="loginTitle" id="loginTitle" style="display: block;">
+				<ul><li class='loginFormLi_click' id="userLogin" onclick="userLogin_hide()"> 회원 로그인
+				</li><li class='loginFormLi' id="businessLogin" onclick="businessLogin_hide()"> 사업자 로그인
 				</li></ul>
 			</div>
-
+	
 			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginProcess.do" name="member">
 				<div>
-					<ul id="member_in"><li id="id_sty">
-						<span id="id_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" id="id" name="user_id">
+					<ul class="login_form" id="member_in"><li class="login_sty" id="id_sty">
+						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
+						<input type="text" placeholder="ID" class="login_form_input" name="user_id">
 					</li>
-					<li id="pw_sty">
-						<span id="pw_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
-						<input type="password" placeholder="PASSWORD" id="pw" name="user_pass">
-					</li>
-					<li id="id_auto">
-						<input type="checkbox"> <label>아이디저장</label>
-						<input type="checkbox"> <label>자동로그인</label>
+					<li class="login_sty" id="pw_sty">
+						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
+						<input type="password" placeholder="PASSWORD" class="login_form_input" name="user_pass">
 					</li>
 					<li>
-						<input type="submit" value="로그인" class="btn_login" style="background-color: #16bab4; cursor: pointer;">
+						<input type="submit" class="btn_login" value="로그인" >
 					</li>
-					<li id="join_login">
-						<div id="find_join">
+					<li class="join_login">
+						<div class="find_join">
 							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
 							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
-							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a> <span>|</span> 
-							<a href="#">레스토랑관리자</a>
+							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>
+						</div> 
+					</li></ul>
+				</div>
+			</form>
+	
+			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginbusiness.do" name="company_member.do">
+				<div>
+					<ul class="login_form" id="company_in" style="display: none;"><li class="login_sty" id="id_sty">
+						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
+						<input type="text" placeholder="ID" class="login_form_input" name="user_id">
+					</li> 
+					<li class="login_sty" id="pw_sty">
+						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
+						<input type="password" placeholder="PASSWORD" class="login_form_input" name="user_pass">
+					</li>
+					<li>
+						<input type="submit" class="btn_login" value="로그인" >
+					</li>
+					<li class="join_login">
+						<div class="find_join">
+							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
+							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
+							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>  
 						</div>
 					</li></ul>
 				</div>
 			</form>
-
-			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginbusiness.do" name="company_member.do">
-				<div>
-					<ul id="company_in" style="display: none;"><li>
-						<span style="color: #16bab4;">※ 사업자 로그인 ※</span>
-					</li>
-					<li id="id_sty_2">
-						<span id="id_ico_2"><img src="<%=request.getContextPath()%>/img/id.png"></span>
-						<input type="text" placeholder="ID" id="id_2" name="company_id">
-					</li>
-					<li id="pw_sty_2">
-						<span id="pw_ico_2"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span>
-						<input type="password" placeholder="PASSWORD" id="pw_2" name="company_pass">
-					</li>
-					<li id="id_auto_2">
-						<input type="checkbox"> <label>아이디저장</label>
-						<input type="checkbox"> <label>자동로그인</label>
-					</li>
-					<li>
-						<input type="submit" value="로그인" class="btn_login_2" style="background-color: #16bab4">
-					</li></ul>
-				</div>
-			</form>
 		</div>
 	</div>
+	
+	<div class="top_wrap"> 
+		<div class="content-wrap">
+			<!-- <span class="btn-fav" onclick="bookmarksite('엔아이건축', 'http://ni-housing.com/')">★즐겨찾기등록</span>
+			<a href="http://nihousing.cbio.co.kr/main/main.htm" target="_blank"><span class="btn-ebook">　▶전자책서비스 바로가기</span></a> -->
+			<div class="top_right">
+				<div class="search-box">검색폼</div>
+				<ul class="top-loginbox">
+				<c:if test="${user_id == null}">
+					<li><a onclick="login()">로그인</a></li>
+					<li><a href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a></li>
+				</c:if>
+				<c:if test="${user_id != null}">
+					<li style="color:#ffffff">${user_id} 님  [ ${user_category} ]
+						<c:if test="${user_id == 'Master'}">
+							<span style="color: red;"><strong>마스터 </strong></span>
+						</c:if> 
+					</li>
+					<c:if test="${user_id != 'Master'}">
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong></a>
+						</li>
+						<c:if test="${user_category == '사업자 회원'}">
+							<li id="categoryfont">
+								<a href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품관리</strong></a>
+							</li>
+						</c:if>
+					</c:if>
+					<c:if test="${user_id == 'Master'}">
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>페이지 관리</strong></a>
+						</li>
+					</c:if>
+					<c:if test="${user_category == '일반 회원'}">
+						<li id="categoryfont">
+							<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
+						</li>
+					</c:if>
+					<li>
+						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
+					</li>
+				</c:if>
+				</ul>
+				<!-- <span class="btn-fullmenu"></span>			 -->													
+				<span class="btn-fullmenu" id="google_translate_element"></span>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+        function googleTranslateElementInit() {
+        	new google.translate.TranslateElement({pageLanguage: 'ko',
+        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
+        	multilanguagePage: true}, 'google_translate_element');
+        }
+       </script>
+       <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+	<!--  -->
+	<header class="header sub">
+		<h1 class="logo-item">
+			<a href="<%=request.getContextPath()%>/kat_main.do">
+				<strong><img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform"></strong>
+			</a>
+		</h1>
+		<nav class="gnb pc-gnb" id="gnb">
+			<ul class="gnb-box blind-m"><li>
+				<a href="#" class="">유아플랫폼</a>
+			</li><li>
+				<a href="#">숙박
+					<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
+				</a>
+			</li><li>
+				<a>여행상품
+					<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
+				</a>
+			</li><li>
+				<a href="#">여행정보
+					<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
+				</a>
+			</li><li>
+				<a href="#">커뮤니티
+					<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
+				</a>
+			</li><li>
+				<a href="#">고객센터</a>
+			</li></ul>
+		</nav>
+	</header>
+	
+	<div class="gnb-submenu-wrap blind-m">
+		<div class="content-wrap">
+			<ul class="gnb-submenu"><li>
+				<ul><li>
+					<a href="#" class="submenu1">About Y·P</a>
+				</li><li>
+					<a href="#" class="submenu2">Y·P마인드</a>
+				</li></ul>
+			</li>
+			<li>
+				<ul><li>
+					<a href="#" class="submenu6">민박</a>
+				</li><li>
+					<a href="#" class="submenu7">호텔<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
+				</li><li>
+					<a href="#" class="submenu8">게스트하우스</a>
+				</li></ul>						
+			</li>
+			<li>
+				<ul><li>
+					<a href="#" class="submenu6">투어</a>
+				</li><li>
+					<a href="#" class="submenu7">셔틀<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
+				</li><li>
+					<a href="#" class="submenu8">티켓</a>
+				</li></ul>						
+			</li>
+			<li>
+				<ul><li>
+					<a href="#" class="submenu6">축제</a>
+				</li><li>
+					<a href="#" class="submenu7">문화<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
+				</li><li>
+					<a href="#" class="submenu8">레저</a>
+				</li></ul>						
+			</li>
+			<li>
+				<ul><li>
+					<a href="#" class="submenu6">민박후기</a>
+				</li><li>
+					<a href="#" class="submenu7">호텔후기<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new"></a>
+				</li><li>
+					<a href="#" class="submenu8">게스트하우스<br>후기</a>
+				</li></ul>						
+			</li>
+			<li>
+				<ul><li>
+				</li></ul>						
+			</li></ul>
+		</div>
+	</div>
+</div>
+

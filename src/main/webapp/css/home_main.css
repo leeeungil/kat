@@ -1,4 +1,20 @@
 @charset "UTF-8";
+/* 메인 슬라이드 쇼 */
+.main_slideshow {
+	text-align: center;
+	margin:auto;
+}
+.main_slideshow:hover {
+	opacity: 0.8;
+}
+
+
+
+
+
+
+
+
 
 .lSSlideWrapper {
 	max-width: 100%;
@@ -100,13 +116,6 @@
 	float: left;
 }
 
-/* 메인 css */
-* {
-	margin: 0px;
-	padding: 0px;
-    font-family: 'Nanum Gothic Coding', monospace;
-}
-
 /* 헤더 부분 */
 #header_logo {
 	display: inline-block;
@@ -136,14 +145,6 @@ img {
 	top: 5px;
 }
 
-/* 메인 슬라이드 쇼 */
-.main_slideshow {
-	text-align: center;
-	margin:auto;
-}
-.main_slideshow:hover {
-	opacity: 0.8;
-}
 
 .mainSlider {
     z-index: 10;

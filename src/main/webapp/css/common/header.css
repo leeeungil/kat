@@ -1,7 +1,5 @@
-/* common으로 이동 */
-a {
-    text-decoration: none;
-}
+@charset "UTF-8";
+
 /* header_sub */
 .header_wrap {
     position: relative;
@@ -20,7 +18,7 @@ a {
     box-shadow: #0000009c 0px 1px 4px 0px;
 }
 .content-wrap {
-    width: 1100px;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
 }
