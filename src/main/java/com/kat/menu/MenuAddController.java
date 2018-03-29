@@ -43,7 +43,7 @@ System.out.println("============================================================
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView addProduct(MenuInfo menuInfo, MultipartHttpServletRequest request,HttpServletRequest request2) throws IllegalStateException, IOException {
+	public ModelAndView addProduct(MenuInfo menuInfo, MultipartHttpServletRequest request, HttpServletRequest request2) throws IllegalStateException, IOException {
 System.out.println("[MenuAddController addProduct] MENU ADD ACCESS");
 System.out.println("[MenuAddController addProduct] " + menuInfo.toString());
 
@@ -55,13 +55,14 @@ System.out.println("[MenuAddController addProduct] " + menuInfo.toString());
 		//업로드 폴더 시스템 물리적 경로 찾기 
 		String uploadURI = "/uploadfile/menuphoto";
 		String dir = request.getSession().getServletContext().getRealPath(uploadURI);
+
 System.out.println("[MenuAddController addProduct] dir : " + dir);
 
 		// 업로드 파일의 물리적 저장
 		if (!menuInfo.getMultipart_product_file().isEmpty()) {
 System.out.println("[MenuAddController addProduct] getMultipart_product_file() : " + menuInfo.getMultipart_product_file().toString());
-			menuInfo.getMultipart_product_file().transferTo(new File(dir, user_id + "_menu_" + time));
-			menuInfo.setMenu_photo_file(dir+"/"+user_id + "_menu_" + time);
+			menuInfo.getMultipart_product_file().transferTo(new File(dir, user_id + "_menu_" + time+".png"));
+			menuInfo.setFile_menu_photo(dir+"/"+user_id + "_menu_" + time+".png");
 		} else {
 System.out.println("[MenuAddController addProduct] getMultipart_product_file() NOT NULL");
 		}
