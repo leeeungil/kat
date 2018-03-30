@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.kat.article.dao.Ask_toDao">
+  
+     <!-- 고객문의하기 작성 : 2018.03.30이은길 -->
+	<insert id="askInsert" parameterType="com.kat.article.model.Board">
+		INSERT INTO ASK_TO
+		VALUES ( 0, #{ask_title}, #{ask_content}, #{user_id}, #{writer_name}, #{password}, #{ask_reply}, now(), 0 )
+	</insert>
+  
+  </mapper>

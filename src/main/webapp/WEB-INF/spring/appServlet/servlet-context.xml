@@ -72,6 +72,7 @@
 	<beans:bean id="master" class="com.kat.master.model.Master" scope="prototype" />
 	<beans:bean id="review" class="com.kat.review.model.Review" scope="prototype" />
 	<beans:bean id="reviewInfoListView" class="com.kat.review.model.ReviewInfoListView" scope="prototype" />
+	<beans:bean id="ask_To" class="com.kat.article.model.Ask_to" scope="prototype" />
 
 	<!--서비스 등록 -->
 	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />
@@ -82,6 +83,7 @@
 	<beans:bean id="masterBoardListService" class="com.kat.master.service.MasterBoardListService" />
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
+	<beans:bean id="askToService" class="com.kat.article.service.AskToService" />
 
 	<!-- 정린이형 -->
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />

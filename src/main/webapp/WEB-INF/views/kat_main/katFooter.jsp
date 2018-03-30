@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <footer id="magintop">
-	<hr><br>
+	<%-- <hr><br>
 	<div id="footer_site">
 		<ul>
 			<li><a href="#" target="_blank">FAMILY SITE</a> |</li>
@@ -25,5 +25,5 @@
 		</c:if>
 	</div>
 	<div id="copyright">Copyright ⓒ kat All right reserved</div>
-	<br>
+	<br> --%>
 </footer>
