@@ -1,5 +1,19 @@
 @charset "UTF-8";
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	list-style: none;
+}
+
+header {
+	text-align: center;
+	margin: auto;
+}
+
 #logo {
 	display: inline-block;
 	margin-top: 20px;

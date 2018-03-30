@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
 #menu_btn {
 	cursor: pointer;
 }
@@ -8,18 +13,33 @@
 	display: none;
 }
 
+#menu_magin {
+	margin: 30px;
+}
+
+#menu_magin {
+	margin: 30px;
+}
+
+li {
+	list-style: none;
+}
+
 .menu #menu_btn {
-    text-align: center;
-    color: #fff;
-    cursor: pointer;
-    background-color: #002130;
-    font-size: 20px;
-    padding: 20px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+	width: 170px;
+	background-color: #002130;
+	font-size: 20px;
+	border: 1px solid #fff;
+	padding: 20px;
 }
 
 .hide li {
 	text-align: center;
 	border: 1px solid #fff;
+	width: 170px;
 	background-color: #e5e5e5;
 	padding: 20px;
 }

@@ -202,6 +202,10 @@
 	color: #006c69;
 }
 
+li {
+	list-style: none;
+}
+
 #btnstyle_reservation button {
 	padding: 5px;
 	margin: 5px;

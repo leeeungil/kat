@@ -37,7 +37,7 @@ public class MenuUpdateController {
 		// 업로드 파일의 물리적 저장
 		if (!menuInfo.getMultipart_product_file().isEmpty()) {
 			menuInfo.getMultipart_product_file().transferTo(new File(dir, userid + "_menu_" + time));
-			menuInfo.setFile_menu_photo(userid + "_menu_" + time);
+			menuInfo.setMenu_photo_file(userid + "_menu_" + time);
 		}
 
 		// 업데이트 (수정) 하기

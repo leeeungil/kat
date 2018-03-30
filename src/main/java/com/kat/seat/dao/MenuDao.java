@@ -104,8 +104,8 @@ public interface MenuDao {
 	
 	// 장준영 수정 완료
 	// 상품 데이터 등록
-	public void insertProduct(MenuInfo menuInfo);
-	public int getProductNo(MenuInfo menuInfo);
+	public int insertProduct(MenuInfo menuInfo);
+	
 	// 상품 이미지 등록
 	public void insertImage(MenuInfo menuInfo);
 }

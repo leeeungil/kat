@@ -21,19 +21,17 @@ public class AddMenuService {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private MenuDao dao;
 
-	// 상품 추가하기
+	// 좌석 집어넣기
 	public void addProduct(MenuInfo menuInfo) {
-System.out.println("[AddMenuService addProduct] ACCESS SUCCESS");
-System.out.println("[AddMenuService addProduct]  " +menuInfo.toString());
+System.out.println("[AddMenuService addMenu] ACCESS SUCCESS");
+System.out.println("[AddMenuService addMenu]  " +menuInfo.toString());
 		dao = sqlSessionTemplate.getMapper(MenuDao.class);
-		dao.insertProduct(menuInfo);
-System.out.println("[AddMenuService addProduct] MAPPER(insertProduct) FINISH");
-		int product_no = dao.getProductNo(menuInfo);
-System.out.println("[AddMenuService addProduct] MAPPER(getProductNo) RETURN");
-System.out.println("[AddMenuService addProduct] product_no : " + product_no);
+		int product_no = dao.insertProduct(menuInfo);
+System.out.println("[AddMenuService addMenu] MAPPER(insertProduct) RETURN");
+System.out.println("[AddMenuService addMenu] product_no : " + product_no);
 		menuInfo.setProduct_no(product_no);
 		dao.insertImage(menuInfo);
-System.out.println("[AddMenuService addProduct] MAPPER(insertImage) FINISH");
+System.out.println("[AddMenuService addMenu] MAPPER(insertImage) FINISH");
 	}
 
 	// PRODUCT 리스트 페이지

@@ -1,3 +1,12 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+li {
+	display: inline-block;
+}
+
 body {
 	font-family: arial;
 	margin: 0px;
