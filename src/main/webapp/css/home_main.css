@@ -466,12 +466,6 @@ img {
 	width: 1400px;
 	height: 150px;
 }
-footer {
-	text-align: center;
-	font-size: 14px;
-	color: #3a3a3a;
-	margin: auto;
-}
 
 footer ul {
 	text-align: center;
@@ -540,13 +534,6 @@ footer a {
 }
 
 /*전체 페이지(헤더제외)*/
-.totalView {
-	width: 1400px;
-	text-align: center;
-	margin: auto;
-}
-
-
 .totalView_search {
 	width: 1400px;
 	text-align: center;

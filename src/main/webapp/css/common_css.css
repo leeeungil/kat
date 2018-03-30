@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-* {
-	margin: 0px;
-	padding: 0px;
-}
-
-a {
-	text-decoration: none;
-}
-
 header {
 	text-align: center;
 	margin: auto;
@@ -160,14 +151,6 @@ img {
 	color: #16bab4;
 }
 
-/* 메인(전체규격) css*/
-.totalView {
-	width: 1000px;
-	text-align: center;
-	margin: auto;
-	height: 900px;
-}
-
 .totalView_Rfoot {
 	width: 1000px;
 	text-align: center;
@@ -301,12 +284,6 @@ img {
 	height: 40px;
 	border: 1px solid;
 	border-radius: 5px;
-}
-
-/*메인(사이드바) 블록*/
-#sideMenu {
-	float: left;
-	width: 275px;
 }
 
 textarea {

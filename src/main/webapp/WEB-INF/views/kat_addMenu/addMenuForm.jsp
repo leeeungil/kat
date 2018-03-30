@@ -93,7 +93,7 @@ function checkform() {
 					<tr class="listInfo" id="btnstyleSeat">
 						<td>${menu.product_name}</td>
 						<td>${menu.cost} 원</td>
-						<td><img alt="이미지 없음" id="seatSize" src="<%=request.getContextPath()%>/uploadfile/menuphoto/${menu.menu_photo_file}"></td>
+						<td><img alt="이미지 없음" id="seatSize" src="${menu.file_dir}"></td>
 						<td>
 						    <%--<input type="submit" name="ch" value="수정하기" onclick="location.href='<%=request.getContextPath()--%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">&nbsp;&nbsp;
 						    <input type="submit" name="de" value="삭제하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menu_photo}'"> --%>

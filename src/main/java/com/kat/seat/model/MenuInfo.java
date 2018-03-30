@@ -9,7 +9,7 @@ public class MenuInfo {
 	private int cost; // 상품 가격
 	private int business_number; // 사업자 번호
 	private String user_id; // 상품 등록 아이디
-	private String menu_photo_file; // db 저장용 상품 사진
+	private String file_menu_photo; // db 저장용 상품 사진
 	private MultipartFile multipart_product_file; // 서버 파일 저장용
 	private String continent; // 대륙구분
     private String country; // 나라구분
@@ -51,11 +51,11 @@ public class MenuInfo {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public String getMenu_photo_file() {
-		return menu_photo_file;
+	public String getFile_menu_photo() {
+		return file_menu_photo;
 	}
-	public void setMenu_photo_file(String menu_photo_file) {
-		this.menu_photo_file = menu_photo_file;
+	public void setFile_menu_photo(String file_menu_photo) {
+		this.file_menu_photo = file_menu_photo;
 	}
 	public MultipartFile getMultipart_product_file() {
 		return multipart_product_file;
@@ -86,7 +86,7 @@ public class MenuInfo {
 	public String toString() {
 		return "MenuInfo [product_no=" + product_no + ", product_name=" + product_name + ", product_type="
 				+ product_type + ", cost=" + cost + ", business_number=" + business_number + ", user_id=" + user_id
-				+ ", menu_photo_file=" + menu_photo_file + ", multipart_product_file=" + multipart_product_file
+				+ ", file_menu_photo=" + file_menu_photo + ", multipart_product_file=" + multipart_product_file
 				+ ", continent=" + continent + ", country=" + country + ", city=" + city + "]";
 	}
 	

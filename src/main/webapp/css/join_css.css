@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-li {
-	list-style: none;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
 #join_kat {
 	margin-top: 30px;
 	margin-left: 50px;

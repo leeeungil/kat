@@ -25,15 +25,6 @@
 }
 
 /*FAQ css*/
-* {
-	padding: 0;
-	margin: 0
-}
-
-ul {
-	list-style: none
-}
-
 .list-w {
 	width: 600px;
 	font-size: 12px;

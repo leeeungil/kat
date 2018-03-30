@@ -8,14 +8,14 @@
 	<insert id="insertProduct" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
 		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, now(), 0)
-		<selectKey resultType="int" order="AFTER">
-			SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
-		</selectKey>
 	</insert>
+	<select id="getProductNo" resultType="int">
+		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
+	</select>
 	<!-- 상품 이미지 등록 -->
 	<insert id="insertImage" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PHOTO
-		VALUES (0, #{product_type}, #{product_no} ,#{menu_photo_file}, #{user_id}, now())
+		VALUES (0, #{product_type}, #{product_no} ,#{file_menu_photo}, #{user_id}, now())
 	</insert>
 
 	<!-- 등록된 PRODUCT 갯수 -->
@@ -32,15 +32,16 @@
 		ON PR.PRODUCT_TYPE = PH.PRODUCT_TYPE WHERE PR.PRODUCT_NO = "1"
 	</select> -->
 	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
-	    SELECT *
-	    FROM PRODUCT
-	    WHERE user_id = #{param1}
-	    ORDER BY create_date DESC LIMIT #{param2}, #{param3}
+		SELECT * 
+		FROM PRODUCT PR LEFT JOIN PHOTO PH
+		ON PR.USER_ID=PH.APPLY_USER_ID AND PR.PRODUCT_NO=PH.BOARD_NO
+		WHERE USER_ID=#{param1} AND DELETE_FLAG=0
+	    ORDER BY PR.CREATE_DATE DESC LIMIT #{param2}, #{param3}
 	</select>
 			
 	<!-- 메뉴 수정할 데이터 가져오기 -->
 	<select id="getMenuinfo" resultType="com.kat.seat.model.MenuInfo">
-		SELECT product_no, product_name, cost, product_type, business_number, user_id, menu_photo_file, create_date, continent, country, city
+		SELECT product_no, product_name, cost, product_type, business_number, user_id, file_menu_photo, create_date, continent, country, city
 		FROM PRODUCT 
 		where product_no = #{product_no}
 	</select>
@@ -48,7 +49,7 @@
 	<!-- 수정하기 -->
 	<insert id="menuUpdate" parameterType="com.kat.seat.model.MenuInfo">
 		UPDATE PRODUCT
-		SET product_name = #{product_name}, cost = #{cost}, category = #{category} , menu_photo_file = #{menu_photo_file}
+		SET product_name = #{product_name}, cost = #{cost}, category = #{category} , file_menu_photo = #{file_menu_photo}
 		where product_no = #{product_no}
 	</insert>
 	
