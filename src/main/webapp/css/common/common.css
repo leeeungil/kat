@@ -14,13 +14,14 @@ a { text-decoration: none; }
     height: calc(100% - 135px);
 }
 footer {
-	position: relative;
+	position: absolute;
     text-align: center;
     font-size: 14px;
     margin: auto;
     bottom: 0;
     width: 100%;
     background-color: #cccccc;
+    max-height: 148px;
 }
 /*메인(사이드바) 블록*/
 .sideMenu {
