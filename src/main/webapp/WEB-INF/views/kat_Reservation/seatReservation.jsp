@@ -76,7 +76,6 @@ $(window).ready(function(){
 		        url:'<%=request.getContextPath()%>/kat/seat/AjaxreservationList.do',
 		        data: 'page=' + p,
 		        success:function(data){
-	           
 		    		$(".Tabs").html(data);
 		        
 		        }

@@ -29,14 +29,9 @@
 		flush="false"></jsp:include>
 	<main>
 	<div class="totalView">
-		<jsp:include page="/WEB-INF/views/kat_common/adminMenu.jsp"
-			flush="false"></jsp:include>
-		<jsp:include
-			page="/WEB-INF/views/kat_registerSeat/addSeatForm.jsp"
-			flush="false"></jsp:include>
+		<jsp:include page="/WEB-INF/views/kat_common/adminMenu.jsp" flush="false"></jsp:include>
 	</div>
 	</main>
-	<jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp"
-		flush="false"></jsp:include>
+	<jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp" flush="false"></jsp:include>
 </body>
 </html>

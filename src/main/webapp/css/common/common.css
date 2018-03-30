@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 * { padding: 0; margin: 0; 
-	font-family: 'Nanum Gothic Coding', monospace;}
-html, body { width: 100%; height: 100%; }
+	font-family: 'Nanum Gothic Coding', monospace;
+	font-size: 13px;}
+html, body { width: 100%;}
 li { list-style: none; }
 a { text-decoration: none; }
 /* 컨텐츠 전체 규격 ( Content total size ) */
@@ -23,6 +24,12 @@ footer {
     background-color: #cccccc;
     max-height: 148px;
 }
+
+
+
+
+
+
 /*메인(사이드바) 블록*/
 .sideMenu {
 	float: left;

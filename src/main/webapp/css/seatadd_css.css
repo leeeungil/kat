@@ -210,10 +210,6 @@
 	text-align: center;
 }
 
-.Tabs li {
-	display: inline-block;
-}
-
 #btnstyleSeat input {
 	padding: 5px;
 	margin: 5px;
@@ -274,21 +270,6 @@
 	top: 3px
 }
 
-#asideSize_menu {
-	margin-top: 5px;
-	height: 800px;
-	float: left;
-}
-
-#add_search_border_menu {
-	border: 1px solid #BDBDBD;
-	width: 683px;
-	text-align: left;
-	margin: auto;
-	margin-top: 23px;
-	padding: 7px;
-	font-size: 12px;
-}
 
 .menu_png {
 	width: 40px;

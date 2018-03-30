@@ -104,6 +104,7 @@
 }
 
 </style>
+<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
 <script>
 	$(document).ready(function() {

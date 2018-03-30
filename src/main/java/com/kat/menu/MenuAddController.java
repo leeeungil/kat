@@ -33,11 +33,11 @@ System.out.println("[MenuAddController getUploadForm] pageNumber : " + pageNumbe
 		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 
 System.out.println("[MenuAddController getUploadForm] user_id : "+ user_id);		
-		MenuInfoListView menuInfoListView = addMenuService.getMenuList(user_id, pageNumber); // 리스트 구현
-System.out.println("[MenuAddController getUploadForm] " + menuInfoListView.toString());
+//		MenuInfoListView menuInfoListView = addMenuService.getMenuList(user_id, pageNumber); // 리스트 구현
+//System.out.println("[MenuAddController getUploadForm] " + menuInfoListView.toString());
 
 		modelAndView.setViewName("addMenu_main");
-		modelAndView.addObject("MenuListInfo", menuInfoListView);
+//		modelAndView.addObject("MenuListInfo", menuInfoListView);
 System.out.println("=============================================================");
 		return modelAndView;
 	}

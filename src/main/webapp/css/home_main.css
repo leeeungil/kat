@@ -70,7 +70,7 @@
 	{
 	background-color: #428bca;
 }
-
+main_slideshow
 /* slider actions */
 .lSAction>a {
 	width: 32px;
@@ -131,9 +131,6 @@
 	font-weight: bold;
 }
 
-img {
-	max-width: 100%;
-}
 /* 헤더 메뉴 */
 #menus {
 	display: block;

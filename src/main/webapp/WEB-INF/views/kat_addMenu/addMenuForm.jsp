@@ -1,7 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/datapicker/jquery-ui.css">
+<script src="<%=request.getContextPath()%>/script/jquery/jquery-ui.js"></script>
 <script type="text/javascript">
+$(document).ready(function(){
+   var fileTarget = $('.filebox .upload-hidden');
+
+    fileTarget.on('change', function(){
+        if(window.FileReader){
+            // 파일명 추출
+            var filename = $(this)[0].files[0].name;
+        } 
+
+        else {
+            // Old IE 파일명 추출
+            var filename = $(this).val().split('/').pop().split('\\').pop();
+        };
+        $(this).siblings('.upload-name').val(filename);
+    });
+
+    //preview image 
+    var imgTarget = $('.preview-image .upload-hidden');
+
+    imgTarget.on('change', function(){
+        var parent = $(this).parent();
+        parent.children('.upload-display').remove();
+
+        if(window.FileReader){
+            //image 파일만
+            if (!$(this)[0].files[0].type.match(/image\//)) return;
+            
+            var reader = new FileReader();
+            reader.onload = function(e){
+                var src = e.target.result;
+                $(".img").css("background-image","url('"+src+"')");
+            }
+            reader.readAsDataURL($(this)[0].files[0]);
+        }
+
+        else {
+            $(this)[0].select();
+            $(this)[0].blur();
+            var imgSrc = document.selection.createRange().text;
+            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
+
+            var img = $(this).siblings('.upload-display').find('img');
+            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
+        }
+    });
+});
+
 function checkform() {
 	if ($("#product_name").val() == "") {
 		alert("상품을 입력해주세요.!");
@@ -12,116 +60,349 @@ function checkform() {
 	}
 	return true;
 }
+$( function() {
+    $( "#sell_start_date" ).datepicker();
+    $( "#sell_end_date" ).datepicker();
+});
+/* select box css */
+$(document).ready(function(){
+    var select = $("select#product_type");
+    select.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+});
 </script>
 
-<div id="asideSize_menu">
-	<form action="<%=request.getContextPath()%>/kat/menuForm/productAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
-		<div id="Add" class="Tabs">
-			<div id="add_search_border_menu">
-				<div id="add_search_header">
-					<img class="menu_png" src="<%=request.getContextPath()%>/uploadfile/icon/menu.png"> 상품정보 등록</div>
-				<ul><li id="add_seat">여행상품 이름
-				</li><li class="textstyle">
-					<input type="text" id="product_name" name="product_name">
-				</li></ul>
-				<ul><li id="add_seat">여행상품 가격
-				</li><li class="textstyle">
-					<input type="number" id="menuprice" name="cost" min="0" max="1000000" value="0">
-				</li></ul>
-				<ul>
-					<li id="add_seat">여행상품 종류</li>
-					<li><input type="radio" id="product_type" name="product_type" value="1" class="default"> 투어 &nbsp;</li>
-					<li><input type="radio" id="product_type" name="product_type" value="2" class="companybtn"> 티켓 &nbsp;</li>
-					<li><input type="radio" id="product_type" name="product_type" value="3" class="Universitybtn"> 셔틀 &nbsp;</li>
-					<li><input type="radio" id="product_type" name="product_type" value="4" class="Universitybtn"> 기타 &nbsp;</li>
-				</ul>
-				<ul>
-					<li id="add_seat">여행상품 대륙 선택</li>
-					<li><input type="radio" id="continent" name="continent" value="아시아" class="default"> 아시아 &nbsp;</li>
-					<li><input type="radio" id="continent" name="continent" value="유럽" class="companybtn"> 유럽 &nbsp;</li>
-					<li><input type="radio" id="continent" name="continent" value="남미" class="Universitybtn"> 남미 &nbsp;</li>
-					<li><input type="radio" id="continent" name="continent" value="북미" class="Universitybtn"> 북미 &nbsp;</li>
-				</ul>
-				<ul>
-					<li id="add_seat">여행상품 국가 선택</li>
-					<li><input type="radio" id="country" name="country" value="일본" class="companybtn"> 일본&nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="중국" class="Universitybtn"> 중국 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="말레이시아" class="Universitybtn"> 말레이시아 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="독일" class="default"> 독일 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="스페인" class="companybtn"> 스페인&nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="프랑스" class="Universitybtn"> 프랑스 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="체코" class="Universitybtn"> 체코 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="브라질" class="default">브라질 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="아르헨티나" class="companybtn"> 아르헨티나&nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="칠레" class="Universitybtn"> 칠레 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="온두라스" class="Universitybtn"> 온두라스 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="미국" class="default"> 미국 &nbsp;</li>
-					<li><input type="radio" id="country" name="country" value="캐나다" class="companybtn"> 캐나다&nbsp;</li>
-				</ul>
-				<ul>
-					<li id="add_seat">여행상품 도시 선택</li>
-					<li><input type="radio" id="city" name="city" value="1" class="default"> 한국(서울) &nbsp;</li>
-					<li><input type="radio" id="city" name="city" value="2" class="companybtn"> 한국(부산)&nbsp;</li>
-					<li><input type="radio" id="city" name="city" value="3" class="Universitybtn"> 한국(인천) &nbsp;</li>
-				</ul>
-				<ul>
-					<li id="add_seat">여행상품 사진등록</li>
-					<li class="filebox bs3-primary preview-image">
-					<input class="upload-name" value="파일을 선택해주세요!" disabled="disabled" style="width: 200px;"> <label for="input_file">파일 업로드</label> 
-						<input type="file" id="input_file" class="upload-hidden" name="multipart_product_file">
-					</li>
-				</ul>
-				<ul>
-					<li id="add_seat">상품 설명</li>
-					<li class="filebox bs3-primary preview-image">
-						<input type="text" id="product_content" name="product_content">
-					</li>
-				</ul>
-				<ul>
-					<li id="add_seat">상품 설명</li>
-					<li class="filebox bs3-primary preview-image">
-						<input type="text" id="product_content" name="product_content">
-					</li>
-				</ul>
-				<ul id="btnstyle">
-					<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
-					<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
-				</ul>
-			</div>
-	</div>
-	</form>
-	<div id="Add" class="Tabs">
-		<div id="seat_list">
-			<div id="add_search_header"> 등록된 여행상품 리스트&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;  등록된 총 여행상품수 :	${MenuListInfo.pageTotalCount}</div>
-			<table class="List_menu">
-				<tr>
-					<td>여행상품 이름</td>
-					<td>여행상품 금액</td>
-					<td>여행상품 사진</td>
-					<td></td>
-				</tr>
-				
-				<c:forEach var="menu" items="${MenuListInfo.getMenuInfoList()}">
-					<tr class="listInfo" id="btnstyleSeat">
-						<td>${menu.product_name}</td>
-						<td>${menu.cost} 원</td>
-						<td><img alt="이미지 없음" id="seatSize" src="<%=request.getContextPath()%>/${menu.file_menu_photo}"></td>
-						<td>
-						    <input type="submit" name="ch" value="수정하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">
-						    <input type="submit" name="de" value="삭제하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menu_photo}'">
-						</td>
-				   </tr>
-				</c:forEach>
+<style>
+.img{
+    position: relative;
+    background-image: url(/project/img/mainSlider/2.jpg);
+    height: 50vh;
+    background-size: 1100px 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.img-cover{
+   position: absolute;
+   height: 100%;
+   width: 100%;
+   z-index:1;
+}
+.img:hover {
+	opacity: 0.8;
+}
+.img .content{
+     position: absolute;
+     top:50%;
+     left:50%;
+     transform: translate(-50%, -50%);                                                                   
+     font-size:5rem;
+     color: white;
+     z-index: 2;
+     text-align: center;
+     width: 1100px;
+}
+.content > label {
+	font-size: 88px;
+}
 
-				<!-- 페이징 -->
-				<tr>
-					<td colspan="6" id="pagecenter">
-					   <c:forEach var="i" begin="1" end="${MenuListInfo.getPageNumber()}" step="1">
-							<a href="<c:url value="/kat/menuForm/productAdd.do?page=${i}"/>">[${i}]</a>
-						</c:forEach>
-					</td>
-				</tr>
-			</table>
-		</div>
-	</div>
-</div> 
+/* imaged preview */ 
+.filebox .upload-display { 
+	margin-bottom: 5px; 
+} 
+@media(min-width: 768px) { 
+	.filebox .upload-display { 
+		display: inline-block; 
+		margin-right: 5px; 
+		margin-bottom: 0; 
+	} 
+} 
+.filebox .upload-thumb-wrap { 
+	/* 추가될 이미지를 감싸는 요소 */ 
+	display: inline-block; 
+	width: 54px; 
+	padding: 2px; 
+	vertical-align: middle; 
+	border: 1px solid #ddd; 
+	border-radius: 5px; 
+	background-color: #fff; 
+} 
+.filebox .upload-display img { 
+	/* 추가될 이미지 */ 
+	display: block; 
+	max-width: 100%; 
+	width: 100% \9; 
+	height: auto; 
+}
+.form_basic_wrap {
+	width: 1100px;
+	margin: auto;
+	margin-top: 15px;
+}
+.add_search_border_menu {
+	border: 1px solid #BDBDBD;
+	width: 683px;
+	text-align: left;
+	margin: auto;
+	margin-top: 23px;
+	padding: 7px;
+	font-size: 12px;
+}
+
+label {
+	font-size: 13px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+.filebox {
+	margin-top: 10px;
+}
+
+/* select box css */
+.select_top {
+	position: relative;
+    width: 250px;
+    height: 40px;
+    background: url(select_arrow.png) 180px center no-repeat;
+    border: 1px solid #E9DDDD;
+    float: left;
+    margin: 7px 2% 0px 0px;
+}
+.select_top label {
+	position: absolute;
+    font-size: 14px;
+    color: #a97228;
+    top: 4px;
+    left: 25px;
+    letter-spacing: 1px;  	
+}
+.select_top > .select {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
+}
+.product_title {
+	width: 1047px;
+    padding-left: 25px;
+}
+.wrap {
+	float: left;
+    margin-right: 92px;
+}
+.product_content_textArea {
+	width: 1067px;
+	height: 50vh;
+}
+input:hover, .select:hover, .product_content_textArea:hover {
+	border: 1px solid #a97228;
+}
+.square {
+	width: 100px;
+	height: 100px;
+	background: red;
+}
+.product_image_upload label{
+	width: 80px;
+    height: 80px;
+    border: 0px solid;
+    background-image: url(/project/img/admin/product_photo.png);
+    background-size: contain;
+    background-color: #ffffff!important;
+    opacity: 0.5;
+}
+.product_image_upload label:hover {
+	opacity: 0.7;
+}
+.product_photo_table li {
+	float: left;
+}
+</style>
+<!-- 메인 부분 -->
+<div id="main">
+	<section>
+		<article id="article_main">
+			<form action="<%=request.getContextPath()%>/kat/menuForm/productAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
+
+				<!-- 메인 사진 올리기 START -->
+				<div class="img">
+			        <div class="content">
+			        	<label>대표 사진 올리기</label>
+			        	<div class="filebox preview-image">
+				        	<input class="upload-name" value="파일선택" disabled="disabled" >
+				        	<label for="main_input-file">업로드</label>
+				        	<input type="file" id="main_input-file" class="upload-hidden" name="multi_product_main">
+			        	</div>
+			        </div>
+			        <div class="img-cover"></div>
+			    </div>
+				<!-- 메인 사진 올리기 FINISH -->
+				<!-- 전체 폼 시작 START -->			    
+			    <div class="form_basic_wrap">
+				    <!-- 상품 종류, 대륙, 국가, 도시 등 카테고리 선택 START -->
+					<label>----- 주요 카테고리 선택 (상품 종류, 대륙, 국가, 도시) ------</label>
+					<div class="category" id="category">
+						<div class="select_top" id="product_type_top">
+						    <label for="product_type">상품 종류</label>
+						    <select class="select" id="product_type" name="product_type" title="상품 종류">
+						        <option value="0" selected="selected">상품 종류</option>
+						        <option value="11">투어</option>
+						        <option value="12">셔틀</option>
+						        <option value="13">티켓</option>
+						        <option value="14">스냅</option>
+						    </select>
+						</div>
+						<div class="select_top" id="continent_top">
+						    <label for="continent">대륙</label>
+						    <select class="select" id="continent" name="continent" title="대륙">
+						        <option value="0" selected="selected">대륙</option>
+						        <option value="한국">한국</option>
+						        <option value="아시아">아시아</option>
+						        <option value="미주">미주</option>
+						        <option value="유럽">유럽</option>
+						        <option value="대양주">대양주</option>
+						    </select>
+						</div> 
+						<div class="select_top" id="country_top">
+						    <label for="country">국가</label>
+						    <select class="select" id="country" name="country" title="국가">
+						    	<option value="0" selected="selected">국가</option>
+						        <option value="한국">한국</option>
+						        <option value="일본">일본</option>
+						        <option value="중국">중국</option>
+						        <option value="필리핀">필리핀</option>
+						        <option value="홍콩">홍콩</option>
+						        <option value="태국">태국</option>
+						        <option value="베트남">베트남</option>
+						        <option value="말레이시아">말레이시아</option>
+						        <option value="대만">대만</option>
+						    </select>
+						</div>
+						<div class="select_top" id="city_top">
+						    <label for="city">도시</label>
+						    <select class="select" id="city" name="city" title="도시">
+						        <option value="도시" selected="selected">도시</option>
+						        <option value="제주">제주</option>
+						        <option value="나고야">나고야</option>
+						        <option value="베이징">베이징</option>
+						    </select>
+						</div>
+					</div>
+					<!-- 상품 종류, 대륙, 국가, 도시 등 카테고리 선택 FINISH -->
+					<!-- 상품 타이틀  (메인 제목) START -->
+					<label>----- 상품 메인 제목 --------------------------------------</label>
+					<div class="product_total_content">
+						<input type="text" class="select_top product_title" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요.">
+					</div>
+					<label>----- 상품 상세 정보 --------------------------------------</label>
+					<div class="product_total_content">
+						<div class="wrap">
+							<label style="color: #a97228">상품 판매일 : </label><input type="text" class="datePick" name="sell_start" id="sell_start_date"> 
+						</div>
+						<div class="wrap">
+							<label style="color: #a97228">상품 마감일 : </label><input type="text" class="datePick" name="sell_end" id="sell_end_date">
+						</div>
+						<div class="wrap">
+							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="sell_end" id="datepicker">
+						</div>
+					</div>
+					
+					<table><thead><tr>
+						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
+					</tr></thead>
+					<tbody><tr>
+						<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
+					</tr></tbody></table>
+					
+					<table class="product_photo_table"><thead><tr>
+						<td> <label style="color: #a97228">여행 상품 사진 등록 (최대 10장) </label> </td>
+					</tr></thead>
+					<tbody><tr>
+						<td>
+							<ul>
+								<li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file1"></label> 
+									<input type="file" id="input_file1" class="upload-hidden" name="multipart_product_file"> 
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file2"></label> 
+									<input type="file" id="input_file2" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file3"></label> 
+									<input type="file" id="input_file3" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file4"></label> 
+									<input type="file" id="input_file4" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file5"></label> 
+									<input type="file" id="input_file5" class="upload-hidden" name="multipart_product_file">
+								</li>
+							</ul>
+							<ul>
+								<li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file6"></label> 
+									<input type="file" id="input_file6" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file7"></label> 
+									<input type="file" id="input_file7" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file8"></label> 
+									<input type="file" id="input_file8" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file9"></label> 
+									<input type="file" id="input_file9" class="upload-hidden" name="multipart_product_file">
+								</li><li class="product_image_upload filebox bs3-primary preview-image">
+									<label for="input_file10"></label> 
+									<input type="file" id="input_file10" class="upload-hidden" name="multipart_product_file">
+								</li>
+							</ul>
+						</td>
+					</tr></tbody></table>
+					
+					<table><thead><tr>
+						<td> <label style="color: #a97228">코스 상세 설정 </label> </td>
+					</tr></thead>
+					<tbody><tr>
+						<td>
+							<ul>
+								<li class="filebox bs3-primary preview-image">
+									<input class="upload-name" value="파일을 선택해주세요" disabled="disabled" style="width: 200px;"> 
+									<label for="input_file"></label> 
+									<input type="file" id="input_file" class="upload-hidden" name="multipart_product_file">
+								</li>
+							</ul>
+						</td>
+					</tr></tbody></table>
+					
+					<table><tbody><tr>
+						<td> <label style="color: #a97228">주의 사항 (필수사항) </label> </td>
+						<td> </td>
+						<td>
+							<input type="text" class="datePick" name="sell_start" id="sell_start_date"> 
+						</td>
+					</tr></tbody></table>
+					
+					<table style="width: 100%"><tbody style="float: right"><tr>
+						<td>
+							<ul id="btnstyle">
+								<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
+							</ul>
+						</td>
+						<td>
+							<ul id="btnstyle">
+								<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
+							</ul>
+						</td>
+					</tr></tbody></table>
+					<!-- 공백용 -->
+					<table style="height: 160px">
+					<tbody><tr><td></td></tr></tbody></table>
+				</div>
+			</form>
+		</article>
+	</section>
+</div>
