@@ -71,6 +71,18 @@ function checkform() {
 						<input type="file" id="input_file" class="upload-hidden" name="multipart_product_file">
 					</li>
 				</ul>
+				<ul>
+					<li id="add_seat">상품 설명</li>
+					<li class="filebox bs3-primary preview-image">
+						<input type="text" id="product_content" name="product_content">
+					</li>
+				</ul>
+				<ul>
+					<li id="add_seat">상품 설명</li>
+					<li class="filebox bs3-primary preview-image">
+						<input type="text" id="product_content" name="product_content">
+					</li>
+				</ul>
 				<ul id="btnstyle">
 					<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
 					<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
@@ -93,10 +105,10 @@ function checkform() {
 					<tr class="listInfo" id="btnstyleSeat">
 						<td>${menu.product_name}</td>
 						<td>${menu.cost} 원</td>
-						<td><img alt="이미지 없음" id="seatSize" src="${menu.file_dir}"></td>
+						<td><img alt="이미지 없음" id="seatSize" src="<%=request.getContextPath()%>/${menu.file_menu_photo}"></td>
 						<td>
-						    <%--<input type="submit" name="ch" value="수정하기" onclick="location.href='<%=request.getContextPath()--%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">&nbsp;&nbsp;
-						    <input type="submit" name="de" value="삭제하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menu_photo}'"> --%>
+						    <input type="submit" name="ch" value="수정하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/infoUpdate.do?no=${menu.product_no}'">
+						    <input type="submit" name="de" value="삭제하기" onclick="location.href='<%=request.getContextPath()%>/kat/menuForm/menuDelete.do?no=${menu.product_no}&menuphoto=${menu.file_menu_photo}'">
 						</td>
 				   </tr>
 				</c:forEach>

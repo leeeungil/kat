@@ -57,6 +57,7 @@ CREATE TABLE PRODUCT (
   `continent` varchar(45) NOT NULL,
   `country` varchar(45) NOT NULL,
   `city` varchar(45) NOT NULL,
+  `product_content` varchar(2000) NOT NULL,
   `create_date` datetime DEFAULT NULL,
   `DELETE_FLAG` INT(2),
   PRIMARY KEY (`product_no`)
@@ -74,7 +75,8 @@ CREATE TABLE PRODUCT_REVIEW (
   `review_point` int(11) NOT NULL,
   `create_date` datetime DEFAULT NULL,
   `DELETE_FLAG` INT(2),
-  PRIMARY KEY (`review_no`)
+  PRIMARY KEY (`review_no`),
+  FOREIGN KEY(`product_no`) REFERENCES PRODUCT(`product_no`) 
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 

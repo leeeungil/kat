@@ -14,7 +14,14 @@ public class MenuInfo {
 	private String continent; // 대륙구분
     private String country; // 나라구분
     private String city; // 도시구분
+    private String product_content;
     
+	public String getProduct_content() {
+		return product_content;
+	}
+	public void setProduct_content(String product_content) {
+		this.product_content = product_content;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}

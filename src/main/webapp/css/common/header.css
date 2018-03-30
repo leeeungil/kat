@@ -86,9 +86,8 @@
 .header > h1 > a {
 	color: #0084fe;
 }
-.header > h1 img {
-    vertical-align: middle;
-    max-height: 80px;
+.logo-item > a > img {
+	height: 20px
 }
 i {
     display: inline-block;

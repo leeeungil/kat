@@ -14,7 +14,7 @@ a { text-decoration: none; }
     height: calc(100% - 135px);
 }
 footer {
-	position: absolute;
+	position: relative;
     text-align: center;
     font-size: 14px;
     margin: auto;

@@ -7,7 +7,7 @@
 	<!-- 상품 데이터 등록 -->
 	<insert id="insertProduct" parameterType="com.kat.seat.model.MenuInfo">
 		INSERT INTO PRODUCT
-		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, now(), 0)
+		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, #{product_content}, now(), 0)
 	</insert>
 	<select id="getProductNo" resultType="int">
 		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
@@ -22,7 +22,7 @@
 	<select id="menuSelectCount" resultType="int">
 		SELECT COUNT(*) 
 		FROM PRODUCT 
-		WHERE USER_ID = #{param1}
+		WHERE USER_ID = #{param1} AND DELETE_FLAG=0
 	</select>
 
 	<!--PRODUCT 리스트 담기 -->
@@ -32,7 +32,8 @@
 		ON PR.PRODUCT_TYPE = PH.PRODUCT_TYPE WHERE PR.PRODUCT_NO = "1"
 	</select> -->
 	<select id="menuList" resultType="com.kat.seat.model.MenuInfo">
-		SELECT * 
+		SELECT PR.PRODUCT_NO, PRODUCT_NAME, PR.PRODUCT_TYPE, COST, BUSINESS_NUMBER, USER_ID, CONTINENT, COUNTRY, CITY, 
+				PR.CREATE_DATE, BOARD_NO, FILE_DIR AS file_menu_photo
 		FROM PRODUCT PR LEFT JOIN PHOTO PH
 		ON PR.USER_ID=PH.APPLY_USER_ID AND PR.PRODUCT_NO=PH.BOARD_NO
 		WHERE USER_ID=#{param1} AND DELETE_FLAG=0

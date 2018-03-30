@@ -236,8 +236,13 @@
 	
 	<div class="top_wrap"> 
 		<div class="content-wrap">
-			<!-- <span class="btn-fav" onclick="bookmarksite('엔아이건축', 'http://ni-housing.com/')">★즐겨찾기등록</span>
-			<a href="http://nihousing.cbio.co.kr/main/main.htm" target="_blank"><span class="btn-ebook">　▶전자책서비스 바로가기</span></a> -->
+			<span class="btn-fav" onclick="bookmarksite('엔아이건축', 'http://ni-housing.com/')">
+				<h1 class="logo-item">
+					<a href="<%=request.getContextPath()%>/kat_main.do">
+						<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform">
+					</a>
+				</h1>
+			</span>
 			<div class="top_right">
 				<div class="search-box">검색폼</div>
 				<ul class="top-loginbox">
@@ -292,11 +297,6 @@
 
 	<!--  -->
 	<header class="header sub">
-		<h1 class="logo-item">
-			<a href="<%=request.getContextPath()%>/kat_main.do">
-				<strong><img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform"></strong>
-			</a>
-		</h1>
 		<nav class="gnb pc-gnb" id="gnb">
 			<ul class="gnb-box blind-m"><li>
 				<a href="#" class="">유아플랫폼</a>
@@ -322,7 +322,7 @@
 		</nav>
 	</header>
 	
-	<div class="gnb-submenu-wrap blind-m">
+	<%-- <div class="gnb-submenu-wrap blind-m">
 		<div class="content-wrap">
 			<ul class="gnb-submenu"><li>
 				<ul><li>
@@ -372,6 +372,6 @@
 				</li></ul>						
 			</li></ul>
 		</div>
-	</div>
+	</div> --%>
 </div>
 
