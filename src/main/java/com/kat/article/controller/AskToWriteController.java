@@ -32,7 +32,8 @@ System.out.println("[AskToController askWriteSubmit] ASK_TO ADD ACCESS");
         ask_to.setCreate_date(new Date());
 		askToService.askWriteInsert(ask_to);
 System.out.println("[AskToController askWriteSubmit] ASK_TO ADD FINISH");		
-		return null;
+		
+        return "redirect:/kat/ask_to/asklist.do";
 	}
 
 }

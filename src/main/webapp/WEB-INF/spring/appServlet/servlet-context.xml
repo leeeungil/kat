@@ -63,7 +63,7 @@
 	<beans:bean id="seatReservationService" class="com.kat.seat.service.SeatReservationService" />
 	<beans:bean id="loginService" class="com.kat.seat.service.LoginService" />
 
-	<!-- 은길이형 -->
+	
 	<!--모델 등록 -->
 	<beans:bean id="board" class="com.kat.article.model.Board" scope="prototype" />
 	<beans:bean id="boardInfoListView" class="com.kat.article.model.BoardInfoListView" scope="prototype" />
@@ -73,7 +73,8 @@
 	<beans:bean id="review" class="com.kat.review.model.Review" scope="prototype" />
 	<beans:bean id="reviewInfoListView" class="com.kat.review.model.ReviewInfoListView" scope="prototype" />
 	<beans:bean id="ask_To" class="com.kat.article.model.Ask_to" scope="prototype" />
-
+    <beans:bean id="ask_ToInfoListView" class="com.kat.article.model.Ask_toInfoListView" scope="prototype" />
+    
 	<!--서비스 등록 -->
 	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />
 	<beans:bean id="boardListService" class="com.kat.article.service.BoardListService" />
@@ -84,8 +85,9 @@
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
 	<beans:bean id="askToService" class="com.kat.article.service.AskToService" />
+    <beans:bean id="askToListService" class="com.kat.article.service.AskToListService" />
 
-	<!-- 정린이형 -->
+
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
 
 	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->

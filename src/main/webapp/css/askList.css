@@ -1,0 +1,186 @@
+.totalView {
+	padding-top: 50px;
+	height: 600px;
+	width: 1000px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+#mainSize {
+	margin-left: 20px;
+	width: 600px;
+	height: 600px;
+	float: left;
+}
+
+#asideSize {
+	width: 300px;
+	float: left;
+	border: 1px solid gray;
+	margin-left: 50px;
+}
+
+#fontSize_no2 td{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#inquireListForm {
+	width: 400px;
+	height: 60px;
+	text-align: left;
+	font-size: 32px;
+	color: #006c69;
+	float: left;
+}
+
+#inquireListTable {
+	width: 600px;
+	text-align: center;
+}
+
+.line1 {
+	border-bottom: 1px solid gray;
+	width: 200px;
+	height: 50px;
+}
+
+.line2 {
+	border-bottom: 1px solid gray;
+	width: 700px;
+}
+
+#inquireWriteBtn {
+	width: 100px;
+	height: 40px;
+	border: 1px solid;
+	border-radius: 5px;
+}
+
+#centerInfo {
+	margin: 20px;
+	width: 240px;
+	height: 350px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	color: #006c69;
+}
+
+#centerInfo p {
+	margin-top: 10px;
+}
+
+#centerInfo>h4 {
+	width: 200px;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#noticeBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#noticeBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#inquireBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#inquireBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+#faqBtn {
+	color: #086A87;
+	border: 1px solid;
+	border-radius: 5px;
+	width: 200px;
+	height: 45px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+}
+
+#faqBtn a {
+	color: #086A87;
+	font-weight: 500;
+}
+
+textarea {
+	resize: none;
+}
+
+#inquireBtn_user {
+	background-color: #16bab4;
+	border: none;
+	cursor: pointer;
+	color: #fff;
+	width: 100px;
+	padding: 5px;
+	float: left;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	top: 5px;
+	margin-left: 90px;
+}
+
+#inquireBtn_user:hover {
+	background-color: #00938e;
+}
+
+#inquireBtn_user a {
+	color: #fff;
+}
+
+.centered2 {
+	width: 100px;
+}
+
+#inquireListTable td {
+	margin: 5px;
+	height: 45px;
+	border-bottom: 1px solid #16bab4; 
+	font-size: 15px;
+}
+
+.centered1 {
+	width: 15%;
+}
+
+.centered2 {
+	width: 40%;
+}
+
+.centered3 {
+	width: 20%;
+}
+
+.centered4 {
+	width: 25%;
+}

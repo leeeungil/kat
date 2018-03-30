@@ -6,9 +6,21 @@
   <mapper namespace="com.kat.article.dao.Ask_toDao">
   
      <!-- 고객문의하기 작성 : 2018.03.30이은길 -->
-	<insert id="askInsert" parameterType="com.kat.article.model.Board">
+	<insert id="askInsert" parameterType="com.kat.article.model.Ask_to">
 		INSERT INTO ASK_TO
 		VALUES ( 0, #{ask_title}, #{ask_content}, #{user_id}, #{writer_name}, #{password}, #{ask_reply}, now(), 0 )
 	</insert>
+	
+	<select id="ask_toSelectCount_id" resultType="int">
+	    SELECT COUNT(*)
+	    FROM ASK_TO
+	</select>
+	
+	<select id="ask_toList" resultType="com.kat.article.model.Ask_to">
+	    SELECT *
+	    FROM ASK_TO
+	    WHERE user_id = #{param1} 
+	    ORDER BY create_date DESC LIMIT #{param2}, #{param3}
+	</select>
   
   </mapper>
