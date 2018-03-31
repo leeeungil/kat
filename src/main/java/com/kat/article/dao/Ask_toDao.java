@@ -15,5 +15,14 @@ public interface Ask_toDao {
 	//아이디당 고객문의글 리스트
 	public List<Ask_to> ask_toList(String user_id, int firstRow, int messageCountPerPage);
 
+	//문의리스트의 해당 글번호의 상세내용 가져오기
+	public Ask_to detailInfo(int no);
+
+	//문의리스트의 해당 글번호의 수정할 내용 가져오기
+	public Ask_to getaskInfo(int no);
+
+	//문의하기 특정글의 수정할 데이터 입력
+	public void askUpdate(Ask_to ask_to);
+
 	
 }

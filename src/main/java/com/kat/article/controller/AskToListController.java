@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.kat.article.model.Ask_toInfoListView;
 import com.kat.article.service.AskToListService;
 
+/* 문의하기 글번호 클릭시 해당 내용 가져오는 컨트롤러*/
 @Controller
 public class AskToListController {
 	

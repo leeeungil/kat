@@ -10,9 +10,11 @@
 			<tr>
 			   <td id="serviceTitle">서비스</td>
 			   <td>
-				   <input type="radio" name="service" value="1" checked><label>민박</label>&nbsp;&nbsp;
-				   <input type="radio" name="service" value="2"><label>투어</label>&nbsp;&nbsp;
-				   <input type="radio" name="service" value="3"><label>기타</label>
+				   <input type="radio" name="serviceType" value="민박" checked><label>민박</label>&nbsp;&nbsp;
+				   <input type="radio" name="serviceType" value="투어"><label>투어</label>&nbsp;&nbsp;
+				   <input type="radio" name="serviceType" value="셔틀"><label>셔틀</label>&nbsp;&nbsp;
+				   <input type="radio" name="serviceType" value="예약/결제"><label>예약/결제</label>&nbsp;&nbsp;
+				   <input type="radio" name="serviceType" value="기타"><label>기타</label>
 			   </td>
 			</tr>
 				<tr>

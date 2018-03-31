@@ -24,4 +24,12 @@ System.out.println("[AskToService askWriteInsert] " + ask_to.toString());
 System.out.println("[AskToService askWriteInsert] MAPPER(askInsert) FINISH");		
 	}
 
+	//고개문의하기 특정글 업데이트 입력
+	public void askUpdate(Ask_to ask_to) {
+System.out.println("[AskToServicee askUpdate] ACCESS SUCCESS");		
+        dao = sqlSessionTemplate.getMapper(Ask_toDao.class);
+        dao.askUpdate(ask_to);
+		
+	}
+
 }

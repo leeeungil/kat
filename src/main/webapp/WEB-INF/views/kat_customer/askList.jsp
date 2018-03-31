@@ -28,8 +28,7 @@
 					<c:forEach var="ask_to" items="${ListInfoAskto.getAsktoList()}" varStatus="status">
 						<tr>
 							<td>${status.count}</td>
-							<%-- <td><a href="<c:url value="/customer/board/infolist.do?no=${ask_to.ask_no}"/>">${ask_to.ask_title}</a></td> --%>
-							<td>${ask_to.ask_title}</td>
+							<td><a href="<c:url value="/kat/askto/askinfolist.do?no=${ask_to.ask_no}"/>">${ask_to.ask_title}</a></td>
 							<td>${ask_to.user_id}</td>
 							<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${ask_to.create_date}" /></td>
 						</tr>

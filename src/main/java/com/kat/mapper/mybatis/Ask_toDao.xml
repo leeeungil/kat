@@ -5,18 +5,20 @@
   
   <mapper namespace="com.kat.article.dao.Ask_toDao">
   
-     <!-- 고객문의하기 작성 : 2018.03.30이은길 -->
+     <!-- 고객문의하기 작성 : 2018.03.30 이은길 -->
 	<insert id="askInsert" parameterType="com.kat.article.model.Ask_to">
 		INSERT INTO ASK_TO
 		VALUES ( 0, #{ask_title}, #{ask_content}, #{user_id}, #{writer_name}, #{password}, #{ask_reply}, now(), 0 )
 	</insert>
 	
+	<!-- 로그인 한 회원의 아이디로 고객문의하기 글갯수 가져오기 :2018.03.30 이은길 -->
 	<select id="ask_toSelectCount_id" resultType="int">
 	    SELECT COUNT(*)
 	    FROM ASK_TO
 	    WHERE user_id = #{param1}
 	</select>
 	
+	<!-- 로그인한 회원의 아이디로 고객문의하기 글의 리스트 가져오기 2018.03.30 이은길-->
 	<select id="ask_toList" resultType="com.kat.article.model.Ask_to">
 	    SELECT *
 	    FROM ASK_TO
@@ -24,4 +26,24 @@
 	    ORDER BY create_date DESC LIMIT #{param2}, #{param3}
 	</select>
   
+    <!-- 문의하기 글내용가져오기 2018.03.31 이은길-->
+    <select id="detailInfo" resultType="com.kat.article.model.Ask_to">
+        SELECT *
+        FROM ASK_TO
+        WHERE ask_no = #{param1}
+    </select>
+    
+    <!-- 문의하기 수정할 글 내용 가져오기 2018.03.31 이은길-->
+    <select id="getaskInfo" resultType="com.kat.article.model.Ask_to">
+        SELECT *
+        FROM ASK_TO
+        WHERE ask_no = #{param1}
+    </select>
+    
+    <!-- 문의하기 특정글 데이터 입력하기 2018.03.31 이은길 -->
+    <insert id="askUpdate" parameterType="com.kat.article.model.Ask_to">
+        UPDATE ASK_TO
+        SET ask_title = #{ask_title}, ask_content = #{ask_content}
+        WHERE ask_no = #{ask_no}
+    </insert>
   </mapper>

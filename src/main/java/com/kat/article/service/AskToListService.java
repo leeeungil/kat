@@ -47,4 +47,24 @@ System.out.println("============================================================
         return ask_toInfoListView;
 	}
 
+	//문의리스트의 해당글번호의 내용가져오기
+	public Ask_to getinfo(int no) {
+System.out.println("[AskToListService getinfo()] ACCESS");		
+		dao = sqlSessionTemplate.getMapper(Ask_toDao.class);
+		Ask_to info = dao.detailInfo(no);
+System.out.println("[AskToListService getinfo()] info : " + info);
+System.out.println("[AskToListService getinfo()] FINESH ");
+		return info;
+	}
+
+	//문의하기 수정할 데이터 가져오기
+	public Ask_to getaskInfoUpdate(int no) {
+System.out.println("[AskToListService getaskInfoUpdate()] ACCESS");
+        dao = sqlSessionTemplate.getMapper(Ask_toDao.class);
+        Ask_to info = dao.getaskInfo(no);
+System.out.println("[AskToListService getaskInfoUpdate()]" + info);
+System.out.println("[AskToListService getaskInfoUpdate()] FINESH");
+		return info;
+	}
+
 }

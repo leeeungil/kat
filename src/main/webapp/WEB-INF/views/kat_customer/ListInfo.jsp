@@ -9,29 +9,23 @@
 		<div id="detail">
 			<form method="post">
 				<table id="detailListTable">
-					<%-- <input type="hidden" name="board_no" readonly="readonly" value="${ListInfoBoard.board_no}"> --%>
+					<%-- <input type="hidden" name="ask_no" readonly="readonly" value="${ListInfoAsk_to.ask_no}"> --%>
 					<tr>
 						<td class="line1">제목</td>
-						<td class="line2"><input type="text" id="board_title"
-							name="board_title" readonly="readonly"
-							value="${ListInfoBoard.board_title}"></td>
+						<td class="line2"><input type="text" id="ask_title" name="ask_title" readonly="readonly" value="${ListInfoAsk_to.ask_title}"></td>
 					</tr>
 					<tr>
 						<td class="line1">작성자</td>
-						<td class="line2"><input type="text" id="user_id"
-							name="user_id" value="${ListInfoBoard.user_id}" readonly="readonly"></td>
+						<td class="line2"><input type="text" id="user_id" name="user_id" value="${ListInfoAsk_to.user_id}" readonly="readonly"></td>
 					</tr>
 					<tr>
 						<td class="line1" style="border: none;">내용</td>
-						<td><textarea cols="100" rows="20" id="board_content"
-								name="board_content" readonly="readonly">${ListInfoBoard.board_content}</textarea></td>
+						<td><textarea cols="100" rows="20" id="ask_content" name="ask_content" readonly="readonly">${ListInfoAsk_to.ask_content}</textarea></td>
 					</tr>
 					<tr>
-						<td colspan="2"><input type="button" id="btnupdate"
-							value="수정"
-							onclick="location.href='<%=request.getContextPath()%>/customer/board/infoUpdate.do?no=${ListInfoBoard.board_no}'">
-							<input type="button" id="btndelete" value="삭제"
-							onclick="location.href='<%=request.getContextPath()%>/customer/board/infoDelete.do?no=${ListInfoBoard.board_no}'">
+						<td colspan="2">
+						    <input type="button" id="btnupdate" value="수정" 	onclick="location.href='<%=request.getContextPath()%>/kat/ask/infoUpdate.do?no=${ListInfoAsk_to.ask_no}'">
+							<input type="button" id="btndelete" value="삭제" 	onclick="location.href='<%=request.getContextPath()%>/customer/board/infoDelete.do?no=${ListInfoAsk_to.ask_no}'">
 						</td>
 					</tr>
 				</table>
