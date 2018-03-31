@@ -318,7 +318,7 @@
 					<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 				</a>
 			</li><li>
-				<a href="<%=request.getContextPath()%>/kat/askWriteForm/askWrite.do">고객센터
+				<a href="<%=request.getContextPath()%>/kat/ask_to/asklist.do">고객센터
 				    <img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 				</a>
 			</li></ul>
