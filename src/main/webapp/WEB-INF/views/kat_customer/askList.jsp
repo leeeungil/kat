@@ -37,7 +37,8 @@
 
 					<!-- 페이징 -->
 					<tr>
-						<td colspan="4" id="pagecenter"><c:forEach var="i" begin="1" end="${ListInfoAskto.getPageNumber()}" step="1">
+						<td colspan="4" id="pagecenter">
+						    <c:forEach var="i" begin="1" end="${ListInfoAskto.getPageNumber()}" step="1">
 								<a href="<c:url value="/kat/ask_to/asklist.do?page=${i}"/>">[${i}]</a>
 							</c:forEach>
 						</td>

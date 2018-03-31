@@ -71,8 +71,4 @@ public class BoardListService {
 		dao = sqlSessionTemplate.getMapper(BoardDao.class);
 		dao.boarddelete(board);
 	}
-
-
-	
-
 }

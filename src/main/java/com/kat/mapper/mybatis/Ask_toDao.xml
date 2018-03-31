@@ -14,6 +14,7 @@
 	<select id="ask_toSelectCount_id" resultType="int">
 	    SELECT COUNT(*)
 	    FROM ASK_TO
+	    WHERE user_id = #{param1}
 	</select>
 	
 	<select id="ask_toList" resultType="com.kat.article.model.Ask_to">

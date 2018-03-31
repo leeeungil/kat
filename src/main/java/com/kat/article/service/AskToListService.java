@@ -22,16 +22,17 @@ System.out.println("[AskToListService getAskToList] ASK_TO_LIST ACCESS");
 		dao = sqlSessionTemplate.getMapper(Ask_toDao.class);
 		
 		Ask_toInfoListView ask_toInfoListView = new Ask_toInfoListView();
-		List<Ask_to> ask_toList = null;
+		List<Ask_to> asktoList = null;
 		int PageNumber;
 		int firstRow = 0;
 		
 		int TotalCount = dao.ask_toSelectCount_id(user_id);
+		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
 System.out.println("[AskToListService getAskToList()] user_id :" + user_id);		
 System.out.println("[AskToListService getAskToList()] TotalCount :" + TotalCount);		
 		
-        ask_toList = dao.ask_toList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
-System.out.println("[AskToListService getAskToList()] ask_toList :" + ask_toList);
+        asktoList = dao.ask_toList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
+System.out.println("[AskToListService getAskToList()] asktoList :" + asktoList);
 
         PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
 System.out.println("[AskToListService getAskToList()] PageNumber :" + PageNumber);        
@@ -39,7 +40,7 @@ System.out.println("[AskToListService getAskToList()] PageNumber :" + PageNumber
         	PageNumber += 1;
         }
 System.out.println("[AskToListService getAskToList()] ask_toInfoListView : " + ask_toInfoListView.toString());        
-        ask_toInfoListView.setAsktoList(ask_toList);
+        ask_toInfoListView.setAsktoList(asktoList);
         ask_toInfoListView.setPageTotalCount(TotalCount);
         ask_toInfoListView.setPageNumber(PageNumber);
 System.out.println("=============================================================");
