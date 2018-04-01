@@ -15,13 +15,13 @@ import com.kat.review.service.ReviewListService;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.MenuInfoListView;
 import com.kat.seat.model.ShopPhotoListView;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class ReservationLsitViewController {
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@Autowired
 	private ReviewListService reviewListService;
@@ -34,9 +34,9 @@ public class ReservationLsitViewController {
 
 		System.out.println("로그 ResrvationListView 컨트롤");
 
-		ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList(SearchName); // 매장 사진 가져오기
-		MenuInfoListView menuInfoListView = addMenuService.getMenuView(SearchName); // 리스트 구현
-		InfoShopAddress infoShopAddress = addMenuService.getAddress(SearchName);
+		ShopPhotoListView shopPhotoListView = addProductService.getshopPhotoList(SearchName); // 매장 사진 가져오기
+		MenuInfoListView menuInfoListView = addProductService.getMenuView(SearchName); // 리스트 구현
+		InfoShopAddress infoShopAddress = addProductService.getAddress(SearchName);
 
 		System.out.println("메뉴 리스트 사진 확인" + menuInfoListView);
 		System.out.println("매장 사진 여부" + shopPhotoListView);

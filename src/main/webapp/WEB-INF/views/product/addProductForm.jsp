@@ -4,51 +4,7 @@
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-ui.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-   var fileTarget = $('.filebox .upload-hidden');
-
-    fileTarget.on('change', function(){
-        if(window.FileReader){
-            // 파일명 추출
-            var filename = $(this)[0].files[0].name;
-        } 
-
-        else {
-            // Old IE 파일명 추출
-            var filename = $(this).val().split('/').pop().split('\\').pop();
-        };
-        $(this).siblings('.upload-name').val(filename);
-    });
-
-    //preview image 
-    var imgTarget = $('.preview-image .upload-hidden');
-
-    imgTarget.on('change', function(){
-        var parent = $(this).parent();
-        parent.children('.upload-display').remove();
-
-        if(window.FileReader){
-            //image 파일만
-            if (!$(this)[0].files[0].type.match(/image\//)) return;
-            
-            var reader = new FileReader();
-            reader.onload = function(e){
-                var src = e.target.result;
-                $(this).prev("label").css("background-image","url('"+src+"')");
-            }
-            reader.readAsDataURL($(this)[0].files[0]);
-        }
-
-        else {
-            $(this)[0].select();
-            $(this)[0].blur();
-            var imgSrc = document.selection.createRange().text;
-            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
-
-            var img = $(this).siblings('.upload-display').find('img');
-            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
-        }
-    });
-  //main image 
+	//main image 
     var imgTarget = $('.main-preview-image .main-upload-hidden');
 
     imgTarget.on('change', function(){
@@ -65,16 +21,6 @@ $(document).ready(function(){
                 $(".img").css("background-image","url('"+src+"')");
             }
             reader.readAsDataURL($(this)[0].files[0]);
-        }
-
-        else {
-            $(this)[0].select();
-            $(this)[0].blur();
-            var imgSrc = document.selection.createRange().text;
-            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
-
-            var img = $(this).siblings('.upload-display').find('img');
-            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
         }
     });
 });
@@ -101,7 +47,63 @@ $(document).ready(function(){
         var select_name = $(this).children("option:selected").text();
         $(this).siblings("label").text(select_name);
     });
+    var select_continent = $("select#continent");
+    select_continent.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+    var select_country = $("select#country");
+    select_country.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
+    var select_city = $("select#city");
+    select_city.change(function(){
+        var select_name = $(this).children("option:selected").text();
+        $(this).siblings("label").text(select_name);
+    });
 });
+
+/* 이미지 테스트 */
+$(function(){
+	var count = $("product_image_ul > input[type=file]").length;
+	
+	$('#add').on("click", function() {
+		if(count < 11) {
+			var str = "<li class='product_image_upload filebox bs3-primary preview-image'>"
+				str += "<label class='input_file"+count+"' for='input_file"+count+"'> ";
+				str += "<input type='file' id='input_file"+count+"' class='upload-hidden' name='file'>"
+				str += "</label></li>"
+			$('.product_image_ul').append(str);
+			count++;
+		}else {
+			alert('이미지 파일은 10개까지 등록 가능합니다.');
+		}
+	});
+	
+	$("#del").on("click", function() {
+		if(count > 0) {
+			$(".product_image_upload").children(":last").remove();
+			count--;
+		}
+	}); 
+	
+	function readURL(input, change_photo) {
+    	if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+	        reader.onload = function (e) {
+	        	$("."+change_photo).css("background-image","url("+e.target.result+")");
+	        }
+	        reader.readAsDataURL(input.files[0]);
+	    }
+	}
+
+	$(document).on("change", ".upload-hidden", function() {
+		change_photo = $(this).parents().attr("class")
+	    readURL(this, change_photo);
+	}); 
+});
+
 </script>
 
 <style>
@@ -245,11 +247,19 @@ input:hover, .select:hover, .product_content_textArea:hover {
     background-size: contain;
     background-color: #ffffff!important;
     opacity: 0.5;
+    background-repeat: no-repeat;
+    background-position: center
 }
 .product_image_upload label:hover {
 	opacity: 0.7;
 }
 .product_photo_table li {
+	float: left;
+}
+.product_btn {
+	width: 100px;
+}
+.product_image_upload > div{
 	float: left;
 }
 </style>
@@ -264,9 +274,8 @@ input:hover, .select:hover, .product_content_textArea:hover {
 			        <div class="content">
 			        	<label>대표 사진 올리기</label>
 			        	<div class="filebox main-preview-image">
-				        	<input class="upload-name" value="파일선택" disabled="disabled" >
 				        	<label for="main_input-file">업로드</label>
-				        	<input type="file" id="main_input-file" class="main-upload-hidden" name="file">
+				        	<input type="file" id="main_input-file" class="main-upload-hidden" name='file'>
 			        	</div>
 			        </div>
 			        <div class="img-cover"></div>
@@ -350,44 +359,36 @@ input:hover, .select:hover, .product_content_textArea:hover {
 					</tr></tbody></table>
 					
 					<table class="product_photo_table"><thead><tr>
-						<td> <label style="color: #a97228">여행 상품 사진 등록 (최대 10장) </label> </td>
+						<td> 
+							<label style="color: #a97228">여행 상품 사진 등록 (최대 10장) </label>
+							<input type="button" class="photo_btn" id="add" value="추가">
+							<input type="button" class="photo_btn" id="del" value="제거">
+						</td>
 					</tr></thead>
 					<tbody><tr>
 						<td>
-							<ul>
+							<ul class="product_image_ul">
 								<li class="product_image_upload filebox bs3-primary preview-image">
-									<label for="input_file1"></label> 
+									<!-- <label for="input_file1"></label> 
 									<input type="file" id="input_file1" class="upload-hidden" name="file"> 
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file2"></label> 
 									<input type="file" id="input_file2" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file3"></label> 
 									<input type="file" id="input_file3" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file4"></label> 
 									<input type="file" id="input_file4" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file5"></label> 
 									<input type="file" id="input_file5" class="upload-hidden" name="file">
-								</li>
-							</ul>
-							<ul>
-								<li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file6"></label> 
 									<input type="file" id="input_file6" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file7"></label> 
 									<input type="file" id="input_file7" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file8"></label> 
 									<input type="file" id="input_file8" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file9"></label> 
 									<input type="file" id="input_file9" class="upload-hidden" name="file">
-								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file10"></label> 
-									<input type="file" id="input_file10" class="upload-hidden" name="file">
+									<input type="file" id="input_file10" class="upload-hidden" name="file"> -->
 								</li>
 							</ul>
 						</td>

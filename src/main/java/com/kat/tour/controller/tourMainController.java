@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.seat.model.Search;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class tourMainController {
@@ -19,7 +19,7 @@ public class tourMainController {
 	public static Search searchinfo = new Search();
 	
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("kat/tourMain/tour.do")
 	public ModelAndView tourListView(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
@@ -31,11 +31,11 @@ System.out.println("[tourMainController tourListView] user_id : " + user_id);
 System.out.println("[tourMainController tourListView] " + search.toString());
     	ModelAndView modelAndView = new ModelAndView();
 		
-    	/*ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList2(user_id);
+    	/*ShopPhotoListView shopPhotoListView = addProductService.getshopPhotoList2(user_id);
 System.out.println("[tourMainController tourListView] " + shopPhotoListView.toString());
-		MenuInfoListView menuInfoListView = addMenuService.getMenuView2(pageNumber);
+		MenuInfoListView menuInfoListView = addProductService.getMenuView2(pageNumber);
 System.out.println("[tourMainController tourListView] " + menuInfoListView.toString());
-		InfoShopAddress infoShopAddress = addMenuService.getAddress2(user_id, pageNumber);
+		InfoShopAddress infoShopAddress = addProductService.getAddress2(user_id, pageNumber);
 System.out.println("[tourMainController tourListView] " + infoShopAddress.toString());*/
 		
 		/*modelAndView.setViewName("tourView_main");

@@ -11,13 +11,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.seat.model.MenuInfo;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class MenuUpdateController {
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("kat/menuForm/MenuUpdate.do")
 	public ModelAndView listSubmit(@RequestParam(name = "no") int product_no, MenuInfo menuInfo,
@@ -42,13 +42,13 @@ public class MenuUpdateController {
 
 		// 업데이트 (수정) 하기
 		menuInfo.setProduct_no(product_no);
-		addMenuService.menuUpdate(menuInfo);
+		addProductService.menuUpdate(menuInfo);
 
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("kat_sucess/menuUpdateSucess_main");
 
 		// 수정된 데이터 가져오기
-		MenuInfo menuInfoUpdate = addMenuService.getMenuUpdateInfo(product_no);
+		MenuInfo menuInfoUpdate = addProductService.getMenuUpdateInfo(product_no);
 		modelAndView.addObject("MenuUpdateSucess", menuInfoUpdate);
 
 		// 수정되어 기존 사진 삭제 소스

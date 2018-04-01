@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.seat.model.ShopPhotoListView;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 import com.kat.seat.service.AddSeatService;
 
 @Controller
@@ -21,7 +21,7 @@ public class ReservationController {
 	private AddSeatService addSeatService;
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("shopInfoSeat/seatRegister.do")
 	public ModelAndView RegisterChoose(@RequestParam(name = "shop") String shop, HttpServletRequest request)
@@ -31,11 +31,11 @@ public class ReservationController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		/*SeatInfoListView seatInfoListView = addSeatService.SeatListView(shop);*/ // 리스트 구현 //2018.03.28 이은길주석처리
-		ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList(shop); // 매장 사진 가져오기
+		ShopPhotoListView shopPhotoListView = addProductService.getshopPhotoList(shop); // 매장 사진 가져오기
 		shopPhotoListView.setUser_id(shop); // 매장 ajax 처리
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-		String category = addMenuService.getCategory(userid);
+		String category = addProductService.getCategory(userid);
 
 		if (category.equals("business")) {
 			

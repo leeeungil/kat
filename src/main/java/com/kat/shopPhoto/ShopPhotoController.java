@@ -15,14 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.seat.model.ShopPhoto;
 import com.kat.seat.model.ShopPhotoListView;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 @RequestMapping("kat/shopPhotoForm/shopPhotoAdd.do")
 public class ShopPhotoController {
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView getUploadForm(@RequestParam(name = "page", defaultValue = "1") int pageNumber,
@@ -34,9 +34,9 @@ public class ShopPhotoController {
 
 		String userid = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 
-		ShopPhotoListView shopPhotoListView = addMenuService.getshopPhotoList(userid); // 매장 사진 가져오기
+		ShopPhotoListView shopPhotoListView = addProductService.getshopPhotoList(userid); // 매장 사진 가져오기
 
-		ShopPhotoListView shopDeleteList = addMenuService.getshopPhotoDelete(userid , pageNumber); // 매장 리스트 출력
+		ShopPhotoListView shopDeleteList = addProductService.getshopPhotoDelete(userid , pageNumber); // 매장 리스트 출력
 
 		modelAndView.setViewName("shopPhoto_main");
 		modelAndView.addObject("ShopPhotoList", shopPhotoListView);
@@ -70,7 +70,7 @@ public class ShopPhotoController {
 			shopPhoto.setFile_shopphoto(userid + "_shop_" + time);
 		}
 
-		addMenuService.addShopPhoto(shopPhoto);
+		addProductService.addShopPhoto(shopPhoto);
 		modelAndView.setViewName("redirect:/kat/shopPhotoForm/shopPhotoAdd.do");
 
 		return modelAndView;

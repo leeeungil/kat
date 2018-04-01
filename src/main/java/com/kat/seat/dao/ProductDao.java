@@ -2,12 +2,13 @@ package com.kat.seat.dao;
 
 import java.util.List;
 
+import com.kat.product.model.ProductInfo;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
 import com.kat.seat.model.MenuInfo;
 import com.kat.seat.model.ShopPhoto;
 
-public interface MenuDao {
+public interface ProductDao {
 
 	// PRODUCT 리스트 수
 	public int menuSelectCount(String user_id);
@@ -104,8 +105,8 @@ public interface MenuDao {
 	
 	// 장준영 수정 완료
 	// 상품 데이터 등록
-	public void insertProduct(MenuInfo menuInfo);
-	public int getProductNo(MenuInfo menuInfo);
+	public void insertProduct(ProductInfo productInfo);
+	public int getProductNo(ProductInfo productInfo);
 	// 상품 이미지 등록
-	public void insertImage(MenuInfo menuInfo);
+	public void insertImage(ProductInfo productInfo);
 }

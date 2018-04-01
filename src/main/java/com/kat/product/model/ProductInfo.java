@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductInfo {
+	private int product_no;
 	private String product_main_photo;				// 메인 사진
 	private int product_type;
 	private String user_profile;
@@ -34,6 +35,13 @@ public class ProductInfo {
 
 	private List<MultipartFile> file;
 	
+	
+	public int getProduct_no() {
+		return product_no;
+	}
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
+	}
 	public String getUser_profile() {
 		return user_profile;
 	}

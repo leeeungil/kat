@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class ShopPhotoDeleteController {
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("kat/shopForm/shopDelete.do")
 	public ModelAndView deleteSubmit(@RequestParam(name = "no") int no,
@@ -27,7 +27,7 @@ public class ShopPhotoDeleteController {
 		System.out.println("로그 shopphotoDelete 컨트롤");
 		System.out.println(shopphoto);
 
-		addMenuService.shopPhotodelete(no);
+		addProductService.shopPhotodelete(no);
 
 		/* 업로드 폴더 시스템 물리적 경로 찾기 */
 		String uploadURI = "/uploadfile/shopphoto";

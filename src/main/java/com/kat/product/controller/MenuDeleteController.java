@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class MenuDeleteController {
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("kat/menuForm/menuDelete.do")
 	public ModelAndView deleteSubmit(@RequestParam(name = "no") int no,
@@ -27,7 +27,7 @@ public class MenuDeleteController {
 		System.out.println("로그 MenuDelete 컨트롤");
 		System.out.println(menuphoto);
 
-		addMenuService.menudelete(no);
+		addProductService.menudelete(no);
 
 		/* 업로드 폴더 시스템 물리적 경로 찾기 */
 		String uploadURI = "/uploadfile/menuphoto";

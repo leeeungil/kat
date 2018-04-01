@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.seat.model.InfoShopSearchListView;
 import com.kat.seat.model.Search;
-import com.kat.seat.service.AddMenuService;
+import com.kat.seat.service.AddProductService;
 
 @Controller
 public class SearchListController {
@@ -20,7 +20,7 @@ public class SearchListController {
 	public static Search searchinfo = new Search();
 
 	@Autowired
-	private AddMenuService addMenuService;
+	private AddProductService addProductService;
 
 	@RequestMapping("kat/SearchList/SearchInfo.do")
 	public ModelAndView SearchList(@RequestParam(name = "page", defaultValue = "1") int pageNumber, Search search,
@@ -29,7 +29,7 @@ System.out.println("[SearchListController SearchList] ACCESS ACCESS");
 System.out.println("[SearchListController SearchList] pageNumber : " + pageNumber);
 System.out.println("[SearchListController SearchList] " + search.toString());
 		ModelAndView modelAndView = new ModelAndView();
-		InfoShopSearchListView searchlist = addMenuService.getListInfo(searchinfo, pageNumber);
+		InfoShopSearchListView searchlist = addProductService.getListInfo(searchinfo, pageNumber);
 System.out.println("[SearchListController SearchList] " + searchlist.toString());		
 		modelAndView.setViewName("searchList_main");
 		modelAndView.addObject("Searchlist", searchlist);
