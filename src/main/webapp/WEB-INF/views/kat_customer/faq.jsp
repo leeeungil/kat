@@ -1,17 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<div class="totalView">
 <div class="imageBox">
 		<img class="mainSlider" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
 </div>
-<div class="totalView">
-     
     <ul id="asideSize">
 		<li id="noticeBtn">
 			<a href="<%=request.getContextPath()%>/master/board/list.do">공지사항</a>
 		</li>
 		<li id="inquireBtn">
-			<a href="<%=request.getContextPath()%>/kat/askForm/faq.do">문의하기</a>
+			<a href="<%=request.getContextPath()%>/kat/askForm/ask.do">문의하기</a>
 		</li>
 		<li id="faqBtn">
 			<a href="<%=request.getContextPath()%>/kat/faqForm/faq.do">자주묻는질문</a>

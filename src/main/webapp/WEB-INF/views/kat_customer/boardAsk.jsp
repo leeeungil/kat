@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<div class="totalView">
 <div class="imageBox">
 		<img class="mainSlider" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
 </div>
-<div class="totalView">
-     
     <ul id="asideSize">
 		<li id="noticeBtn">
 			<a href="<%=request.getContextPath()%>/master/board/list.do">공지사항</a>
@@ -21,11 +19,14 @@
 	<div id="faqlist">
 		<span id="title_font">1:1 문의</span>
 	</div>
-	
-		
+    <ul class="centerBox">
+       <li id="box1">고객센터 운영시간<br>10:00 - 17:00</li>
+       <li id="box2">고객센터 운영번호<br>1644 -1600</li>
+       <li id="box3">이메일 문의 <br>gee1018@naver.com</li>
+    </ul>
 </div>
 </div>
-
+</div>
 <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
 <script>
 	$('.list-w li a').click(

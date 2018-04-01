@@ -28,75 +28,9 @@
 	margin-left: 50px;
 	text-align:center;
 	padding-left:97px;
+	margin-top:30px;
 }
 
-#faqlist {
-	text-align:center;
-	margin-bottom: 20px;
-}
-
-/*FAQ css*/
-.list-w {
-	width: 900px;
-	font-size: 12px;
-}
-
-.list-w>ul>li:first-child {
-	border-top: 1px solid #d7d8da
-}
-
-.list-w>ul>li {
-	border-bottom: 1px solid #d7d8da;
-}
-
-.list-w>ul>li>a {
-	font-size: 16px;
-	color: #50b693;
-	letter-spacing: -0.06em;
-	padding: 20px;
-	padding-left: 16px;
-	display: block;
-	margin-right: 10px;
-	background-size: 24px;
-	font-weight: bold
-}
-
-.list-w li ul {
-	display: none
-}
-
-.list-w li li {
-	background: #5882FA
-}
-
-.list-w li li a {
-	color: #fff;
-	letter-spacing: -0.05em;
-	padding: 15px;
-	padding-left: 16px;
-	display: block;
-	line-height: 180%;
-}
-
-#centerInfo {
-	margin: 20px;
-	width: 240px;
-	height: 350px;
-	padding-left: 10px;
-	padding-right: 10px;
-	text-align: center;
-	color: #006c69;
-}
-
-#centerInfo p {
-	margin-top: 10px;
-}
-
-#centerInfo>h4 {
-	width: 200px;
-	padding-left: 10px;
-	padding-top: 10px;
-}
 
 #noticeBtn {
 	color: #086A87;
@@ -161,7 +95,51 @@
 	font-size:16px;
 }
 
+.centerBox{
+	list-style:square;
+	padding:30px;
+	margin-left:45px;
+}
+
+#box1{
+	border:1px solid #f2f2f2;
+	background-color:#FF0000;
+	width:240px;
+	height:80px;
+	float:left;
+	line-height: 40px;
+	font-size:18px;
+	color:#F8E0EC;
+	padding-left:5px;
+	border-radius:5px;
+}
+#box2{
+	border:1px solid #f2f2f2;
+	background-color:#FF0000;
+	width:240px;
+	height:80px;
+	float:left;
+	line-height: 40px;
+	font-size:18px;
+	color:#F8E0EC;
+	padding-left:5px;
+	border-radius:5px;
+}
+#box3{
+	border:1px solid #f2f2f2;
+	background-color:#FF0000;
+	width:240px;
+	height:80px;
+	float:left;
+	line-height: 40px;
+	font-size:18px;
+	color:#F8E0EC;
+	padding-left:5px;
+	border-radius:5px;
+}
+
 #title_font {
 	font-size: 32px;
 	color: #006c69;
+	
 }
