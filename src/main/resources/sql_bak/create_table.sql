@@ -159,6 +159,7 @@ DROP TABLE PRODUCT_CONTENT;
 CREATE TABLE PRODUCT_CONTENT (
   `product_content_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_no` int(20) NOT NULL,
+  `user_profile` varchar(2000) DEFAULT NULL,
   `product_content` varchar(4000) DEFAULT NULL,
   `product_info` varchar(2000) DEFAULT NULL,
   `delete_flag` INT(2),
@@ -169,7 +170,16 @@ CREATE TABLE PRODUCT_CONTENT (
 DROP TABLE PRODUCT_PHOTO;
 CREATE TABLE PRODUCT_PHOTO (
   `product_photo_no` int(20) NOT NULL AUTO_INCREMENT,
-  `photo_dir` varchar(400) NOT NULL,
+  `product_photo1` varchar(100) DEFAULT NULL,
+  `product_photo2` varchar(100) DEFAULT NULL,
+  `product_photo3` varchar(100) DEFAULT NULL,
+  `product_photo4` varchar(100) DEFAULT NULL,
+  `product_photo5` varchar(100) DEFAULT NULL,
+  `product_photo6` varchar(100) DEFAULT NULL,
+  `product_photo7` varchar(100) DEFAULT NULL,
+  `product_photo8` varchar(100) DEFAULT NULL,
+  `product_photo9` varchar(100) DEFAULT NULL,
+  `product_photo10` varchar(100) DEFAULT NULL,
   `product_content_no` int(20) NOT NULL,
   `delete_flag` INT(2),
   PRIMARY KEY (`product_photo_no`),

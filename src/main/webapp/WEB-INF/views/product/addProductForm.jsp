@@ -33,6 +33,35 @@ $(document).ready(function(){
             var reader = new FileReader();
             reader.onload = function(e){
                 var src = e.target.result;
+                $(this).prev("label").css("background-image","url('"+src+"')");
+            }
+            reader.readAsDataURL($(this)[0].files[0]);
+        }
+
+        else {
+            $(this)[0].select();
+            $(this)[0].blur();
+            var imgSrc = document.selection.createRange().text;
+            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
+
+            var img = $(this).siblings('.upload-display').find('img');
+            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
+        }
+    });
+  //main image 
+    var imgTarget = $('.main-preview-image .main-upload-hidden');
+
+    imgTarget.on('change', function(){
+        var parent = $(this).parent();
+        parent.children('.upload-display').remove();
+
+        if(window.FileReader){
+            //image 파일만
+            if (!$(this)[0].files[0].type.match(/image\//)) return;
+            
+            var reader = new FileReader();
+            reader.onload = function(e){
+                var src = e.target.result;
                 $(".img").css("background-image","url('"+src+"')");
             }
             reader.readAsDataURL($(this)[0].files[0]);
@@ -61,9 +90,10 @@ function checkform() {
 	return true;
 }
 $( function() {
-    $( "#sell_start_date" ).datepicker();
-    $( "#sell_end_date" ).datepicker();
+    $( "#sell_start" ).datepicker();
+    $( "#sell_end" ).datepicker();
 });
+
 /* select box css */
 $(document).ready(function(){
     var select = $("select#product_type");
@@ -208,8 +238,8 @@ input:hover, .select:hover, .product_content_textArea:hover {
 	background: red;
 }
 .product_image_upload label{
-	width: 80px;
-    height: 80px;
+	width: 180px;
+    height: 180px;
     border: 0px solid;
     background-image: url(/project/img/admin/product_photo.png);
     background-size: contain;
@@ -227,16 +257,16 @@ input:hover, .select:hover, .product_content_textArea:hover {
 <div id="main">
 	<section>
 		<article id="article_main">
-			<form action="<%=request.getContextPath()%>/kat/menuForm/productAdd.do" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
+			<form action="<%=request.getContextPath()%>/product/add" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
 
 				<!-- 메인 사진 올리기 START -->
 				<div class="img">
 			        <div class="content">
 			        	<label>대표 사진 올리기</label>
-			        	<div class="filebox preview-image">
+			        	<div class="filebox main-preview-image">
 				        	<input class="upload-name" value="파일선택" disabled="disabled" >
 				        	<label for="main_input-file">업로드</label>
-				        	<input type="file" id="main_input-file" class="upload-hidden" name="multi_product_main">
+				        	<input type="file" id="main_input-file" class="main-upload-hidden" name="file">
 			        	</div>
 			        </div>
 			        <div class="img-cover"></div>
@@ -302,21 +332,21 @@ input:hover, .select:hover, .product_content_textArea:hover {
 					<label>----- 상품 상세 정보 --------------------------------------</label>
 					<div class="product_total_content">
 						<div class="wrap">
-							<label style="color: #a97228">상품 판매일 : </label><input type="text" class="datePick" name="sell_start" id="sell_start_date"> 
+							<label style="color: #a97228">상품 판매일 : </label><input type="text" class="datePick" name="sell_start" id="sell_start"> 
 						</div>
 						<div class="wrap">
-							<label style="color: #a97228">상품 마감일 : </label><input type="text" class="datePick" name="sell_end" id="sell_end_date">
+							<label style="color: #a97228">상품 마감일 : </label><input type="text" class="datePick" name="sell_end" id="sell_end">
 						</div>
 						<div class="wrap">
-							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="sell_end" id="datepicker">
+							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="cost">
 						</div>
 					</div>
 					
 					<table><thead><tr>
-						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
+						<td> <label style="color: #a97228">프로필 </label> </td>
 					</tr></thead>
 					<tbody><tr>
-						<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
+						<td> <textarea name="user_profile" class="product_content_textArea"></textarea> </td>
 					</tr></tbody></table>
 					
 					<table class="product_photo_table"><thead><tr>
@@ -327,40 +357,47 @@ input:hover, .select:hover, .product_content_textArea:hover {
 							<ul>
 								<li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file1"></label> 
-									<input type="file" id="input_file1" class="upload-hidden" name="multipart_product_file"> 
+									<input type="file" id="input_file1" class="upload-hidden" name="file"> 
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file2"></label> 
-									<input type="file" id="input_file2" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file2" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file3"></label> 
-									<input type="file" id="input_file3" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file3" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file4"></label> 
-									<input type="file" id="input_file4" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file4" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file5"></label> 
-									<input type="file" id="input_file5" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file5" class="upload-hidden" name="file">
 								</li>
 							</ul>
 							<ul>
 								<li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file6"></label> 
-									<input type="file" id="input_file6" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file6" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file7"></label> 
-									<input type="file" id="input_file7" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file7" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file8"></label> 
-									<input type="file" id="input_file8" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file8" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file9"></label> 
-									<input type="file" id="input_file9" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file9" class="upload-hidden" name="file">
 								</li><li class="product_image_upload filebox bs3-primary preview-image">
 									<label for="input_file10"></label> 
-									<input type="file" id="input_file10" class="upload-hidden" name="multipart_product_file">
+									<input type="file" id="input_file10" class="upload-hidden" name="file">
 								</li>
 							</ul>
 						</td>
+					</tr></tbody></table>
+					
+					<table><thead><tr>
+						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
+					</tr></thead>
+					<tbody><tr>
+						<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
 					</tr></tbody></table>
 					
 					<table><thead><tr>
@@ -368,21 +405,16 @@ input:hover, .select:hover, .product_content_textArea:hover {
 					</tr></thead>
 					<tbody><tr>
 						<td>
-							<ul>
-								<li class="filebox bs3-primary preview-image">
-									<input class="upload-name" value="파일을 선택해주세요" disabled="disabled" style="width: 200px;"> 
-									<label for="input_file"></label> 
-									<input type="file" id="input_file" class="upload-hidden" name="multipart_product_file">
-								</li>
-							</ul>
+							<textarea name="course" class="product_content_textArea"></textarea>
 						</td>
 					</tr></tbody></table>
 					
-					<table><tbody><tr>
+					<table><thead><tr>
 						<td> <label style="color: #a97228">주의 사항 (필수사항) </label> </td>
-						<td> </td>
+					</tr></thead>
+					<tbody><tr>
 						<td>
-							<input type="text" class="datePick" name="sell_start" id="sell_start_date"> 
+							<textarea name="product_info" class="product_content_textArea"></textarea>
 						</td>
 					</tr></tbody></table>
 					

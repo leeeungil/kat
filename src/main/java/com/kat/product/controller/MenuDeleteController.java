@@ -1,4 +1,4 @@
-package com.kat.menu;
+package com.kat.product.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,7 @@ public class MenuDeleteController {
 		// 삭제 소스 끝부분
 
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("redirect:/kat/menuForm/productAdd.do");
+		modelAndView.setViewName("redirect:/kat/productForm/productAdd.do");
 
 		return modelAndView;
 	}

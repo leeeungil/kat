@@ -97,11 +97,11 @@ $(document).ready(function() {
 	                <font>여행 상품<br>등록/관리</font>
                 </li></ul>
 				<ul class="menu_sub product_sub">
-                    <li><a href="<%=request.getContextPath()%>/kat/menuForm/productAdd.do">
+                    <li><a href="<%=request.getContextPath()%>/kat/productForm/productAdd.do">
                     	<img src="<%=request.getContextPath()%>/img/admin/product_update.png">
                     	<font>상품 등록</font>
                    	</a></li>
-                    <li><a href="<%=request.getContextPath()%>/kat/menuForm/productAdd.do">
+                    <li><a href="<%=request.getContextPath()%>/kat/productForm/productAdd.do">
                     	<img src="<%=request.getContextPath()%>/img/admin/product_insert.png">
                     	<font>상품 관리</font>
                    	</a></li>

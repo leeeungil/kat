@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="asideSize">
-	<form action="<%=request.getContextPath()%>/kat/menuForm/productAdd.do"
+	<form action="<%=request.getContextPath()%>/kat/productForm/productAdd.do"
 		method="post" name="salesform">
 		<div id="Add" class="Tabs">
 			<div id="add_search_border">

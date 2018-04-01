@@ -1,4 +1,4 @@
-package com.kat.menu;
+package com.kat.product.controller;
 
 import java.io.IOException;
 

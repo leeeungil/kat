@@ -34,6 +34,9 @@
 	<!-- 컨트롤 패키지 등록 -->
 	<context:component-scan base-package="com.kat" />
 
+	<!-- 상품 모델 등록 -->
+	<beans:bean id="ProductInfo" class="com.kat.product.model.ProductInfo" scope="prototype" />
+	
 	<!-- 모델 등록 -->
 	<beans:bean id="seatinfo" class="com.kat.seat.model.SeatInfo" scope="prototype" />
 	<beans:bean id="SeatInfoListView" class="com.kat.seat.model.SeatInfoListView" scope="prototype" />
@@ -91,8 +94,7 @@
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
 
 	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
-	<beans:bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<beans:property name="defaultEncoding">
 			<beans:value>UTF-8</beans:value>
 		</beans:property>
