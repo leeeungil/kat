@@ -44,7 +44,6 @@ System.out.println("[AddProductController addProduct] " + productInfo.toString()
 				String Time = dayTime.format(new Date(System.currentTimeMillis()));
 				String user_id = (String) request.getSession(false).getAttribute("user_id");
 				productInfo.setUser_id(user_id);
-				System.out.println("user_id : "+user_id);
 				String file_full_name = productInfo.getFile().get(i).getOriginalFilename();
 				System.out.println("file_full_name" + file_full_name);
 				String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());

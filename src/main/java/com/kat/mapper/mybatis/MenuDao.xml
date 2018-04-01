@@ -5,7 +5,7 @@
 
 <mapper namespace="com.kat.seat.dao.MenuDao">
 	<!-- 상품 데이터 등록 -->
-	<insert id="insertProduct" parameterType="com.kat.seat.model.ProductInfo">
+	<insert id="insertProduct" parameterType="com.kat.product.model.ProductInfo">
 		INSERT INTO PRODUCT
 		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, #{product_content}, now(), 0)
 	</insert>
@@ -13,7 +13,7 @@
 		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
 	</select>
 	<!-- 상품 이미지 등록 -->
-	<insert id="insertImage" parameterType="com.kat.seat.model.ProductInfo">
+	<insert id="insertImage" parameterType="com.kat.product.model.ProductInfo">
 		INSERT INTO PHOTO
 		VALUES (0, #{product_type}, #{product_no} ,#{file_menu_photo}, #{user_id}, now())
 	</insert>
