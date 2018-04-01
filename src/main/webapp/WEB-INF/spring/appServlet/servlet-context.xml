@@ -87,8 +87,7 @@
 	<beans:bean id="masterBoardListService" class="com.kat.master.service.MasterBoardListService" />
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
-	<beans:bean id="askToService" class="com.kat.article.service.AskToService" />
-    <beans:bean id="askToListService" class="com.kat.article.service.AskToListService" />
+
 
 
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />

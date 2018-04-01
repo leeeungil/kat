@@ -5,31 +5,41 @@
 	height: 600px;
 }
 
+.imageBox {
+	z-index: 10;
+    width: 100%;
+    height: 55vh;
+    border:1px solid none;
+}
+
 #mainSize {
-	margin-left: 20px;
-	width: 600px;
+	margin-left: 100px;
+	width: 900px;
 	height: 600px;
-	float: left;
-	text-align: left;
+	float: center;
+	margin-top:100px;
+	text-align:center;
 }
 
 #asideSize {
-	width: 300px;
-	float: left;
-	border: 1px solid gray;
+	width: 850px;
+	float: center;
 	margin-left: 50px;
+	text-align:center;
+	padding-left:97px;
 }
+
 
 #articleNoticeListForm {
 	width: 300px;
 	height: 60px;
-	text-align: left;
+	text-align: center;
 	font-size: 32px;
 	color: #006c69;
 }
 
 #articleNoticeListTable {
-	width: 600px;
+	width: 900px;
 	text-align: center;
 	margin-top: 20px;
 }
@@ -44,19 +54,6 @@
 	height: 45px;
 	font-size: 15px;
 }
-
-.line1 {
-	border-bottom: 1px solid gray;
-	width: 100px;
-	height: 50px;
-}
-
-.line2 {
-	border-bottom: 1px solid gray;
-	width: 500px;
-	height: 50px;
-}
-
 #centerInfo {
 	margin: 20px;
 	width: 240px;
@@ -79,7 +76,8 @@
 
 #noticeBtn {
 	color: #086A87;
-	border: 1px solid;
+	border: 2px solid #F2F2F2;
+	background-color:#A9D0F5;
 	border-radius: 5px;
 	width: 200px;
 	height: 45px;
@@ -88,16 +86,19 @@
 	margin-left: 45px;
 	margin-bottom: 10px;
 	line-height: 45px;
+	float:left;
 }
 
 #noticeBtn a {
 	color: #086A87;
 	font-weight: 500;
+	font-size:16px;
 }
 
 #inquireBtn {
 	color: #086A87;
-	border: 1px solid;
+	border: 2px solid #F2F2F2;
+	background-color:#A9D0F5;
 	border-radius: 5px;
 	width: 200px;
 	height: 45px;
@@ -106,16 +107,19 @@
 	margin-left: 45px;
 	margin-bottom: 10px;
 	line-height: 45px;
+	float:left;
 }
 
 #inquireBtn a {
 	color: #086A87;
 	font-weight: 500;
+	font-size:16px;
 }
 
 #faqBtn {
 	color: #086A87;
-	border: 1px solid;
+    border: 2px solid #F2F2F2;
+    background-color:#A9D0F5;
 	border-radius: 5px;
 	width: 200px;
 	height: 45px;
@@ -124,9 +128,27 @@
 	margin-left: 45px;
 	margin-bottom: 10px;
 	line-height: 45px;
+	float:left;
 }
 
 #faqBtn a {
 	color: #086A87;
 	font-weight: 500;
+	font-size:16px;
+}
+
+.centered1 {
+	width:10%;
+}
+
+.centered2 {
+	width:30%;
+}
+
+.centered3 {
+	width:15%;
+}
+
+.centered4 {
+	width:10%;
 }
