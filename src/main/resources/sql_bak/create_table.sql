@@ -126,8 +126,9 @@ CREATE TABLE MENU_CITY (
  * 0. 공지사항 NOTICE
  * 
  * 1. 상품(투어) PRODUCT 
- * 2. 상품(티켓) PRODUCT 
- * 3. 상품(셔틀 등) PRODUCT 
+ * 2. 상품(셔틀) PRODUCT 
+ * 3. 상품(티켓) PRODUCT 
+ * 4. 상품(스냅) PRODUCT
  * 
  * 11. 후기(투어) PRODUCT_REVIEW
  * 12. 후기(티켓) PRODUCT_REVIEW

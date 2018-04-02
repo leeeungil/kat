@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 import com.kat.seat.model.MenuInfo;
 
 @Controller
 public class MenuInfoUpdateController {
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@RequestMapping("kat/menuForm/infoUpdate.do")
 	public ModelAndView menuUpdatSubmit(@RequestParam(name = "no") int no) throws IllegalStateException, IOException {

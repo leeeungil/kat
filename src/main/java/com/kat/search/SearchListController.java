@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 import com.kat.seat.model.InfoShopSearchListView;
 import com.kat.seat.model.Search;
 
@@ -20,7 +20,7 @@ public class SearchListController {
 	public static Search searchinfo = new Search();
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@RequestMapping("kat/SearchList/SearchInfo.do")
 	public ModelAndView SearchList(@RequestParam(name = "page", defaultValue = "1") int pageNumber, Search search,

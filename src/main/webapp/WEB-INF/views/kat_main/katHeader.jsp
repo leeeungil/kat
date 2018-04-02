@@ -137,7 +137,7 @@
 						<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 					</a>
 				</li><li>
-					<a href="<%=request.getContextPath()%>/product/findAllTravelProduct">여행상품
+					<a href="<%=request.getContextPath()%>/product/findAllTravelProduct" class='travelProductTop'>여행상품
 						<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 					</a>
 				</li><li>

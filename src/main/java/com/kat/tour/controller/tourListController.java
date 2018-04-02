@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 import com.kat.seat.model.ShopPhotoListView;
 
 @Controller
 public class tourListController {
 	
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 	
 	@RequestMapping("kat/tourlist/tourlist1.do")
 	public ModelAndView tourListSubmit(@RequestParam(name = "page", defaultValue = "1") int pageNumber, HttpServletRequest request, Model model)

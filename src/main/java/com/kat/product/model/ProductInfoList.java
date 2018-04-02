@@ -1,8 +1,10 @@
-package com.kat.seat.model;
+package com.kat.product.model;
 
 import java.util.List;
 
-public class MenuInfoListView {
+import com.kat.seat.model.MenuInfo;
+
+public class ProductInfoList {
 
 	private List<MenuInfo> MenuInfoList;
 	private int pageTotalCount;

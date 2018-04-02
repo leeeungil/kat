@@ -33,7 +33,31 @@
 	</insert>
 	<!-- 상품 데이터 등록 END-->
 
-
+	
+	<!-- 여행 상품 전체 가져오기 START -->
+	<!-- 전체 가져오기 -->
+	<select id="findAllTravelProduct" resultType="com.kat.product.model.ProductInfo">
+		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
+		FROM PRODUCT 
+	</select>
+	<!-- <select id="findAllTravelProduct" resultType="com.kat.product.model.ProductInfo">
+		SELECT *
+		FROM PRODUCT_PHOTO PPHO,
+			(SELECT P.PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END,
+						PRODUCT_CONTENT_NO, USER_PROFILE, PRODUCT_CONTENT, PRODUCT_INFO, COURSE_NO, COURSE, COURSE_PHOTO_DIR
+			FROM PRODUCT P, PRODUCT_CONTENT PCON, PRODUCT_COURSE PCOUR 
+			WHERE P.PRODUCT_NO=PCON.PRODUCT_NO AND PCON.PRODUCT_NO=PCOUR.PRODUCT_NO AND PCOUR.DELETE_FLAG=0 ) PTOTAL
+		WHERE PPHO.PRODUCT_CONTENT_NO=PTOTAL.PRODUCT_CONTENT_NO;
+	</select> -->
+	
+	
+	
+	
+	<!-- 여행 상품 전체 가져오기 END -->
+	
+	
+	
+	
 	<!-- 등록된 PRODUCT 갯수 -->
 	<select id="menuSelectCount" resultType="int">
 		SELECT COUNT(*) 

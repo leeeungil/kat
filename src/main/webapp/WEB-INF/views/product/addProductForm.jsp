@@ -291,10 +291,10 @@ input:hover, .select:hover, .product_content_textArea:hover {
 						    <label for="product_type">상품 종류</label>
 						    <select class="select" id="product_type" name="product_type" title="상품 종류">
 						        <option value="0" selected="selected">상품 종류</option>
-						        <option value="11">투어</option>
-						        <option value="12">셔틀</option>
-						        <option value="13">티켓</option>
-						        <option value="14">스냅</option>
+						        <option value="1">투어</option>
+						        <option value="2">셔틀</option>
+						        <option value="3">티켓</option>
+						        <option value="4">스냅</option>
 						    </select>
 						</div>
 						<div class="select_top" id="continent_top">

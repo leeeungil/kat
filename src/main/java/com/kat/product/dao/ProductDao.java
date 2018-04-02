@@ -104,7 +104,7 @@ public interface ProductDao {
 	
 	
 	// 장준영 수정 완료
-	// 상품 데이터 등록
+	// 상품 추가하기
 	public String findBusinessNumber(String user_id);
 	public void insertProduct(ProductInfo productInfo);
 	public int findProductNo(ProductInfo productInfo);
@@ -112,4 +112,8 @@ public interface ProductDao {
 	public int findProductContentNo(ProductInfo productInfo);
 	public void insertProductPhoto(ProductInfo productInfo);
 	public void insertProductCourse(ProductInfo productInfo);
+	
+	// 상품 전체 가져오기
+	public List<ProductInfo> findAllTravelProduct();
+	
 }

@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 
 @Controller
 public class MenuDeleteController {
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@RequestMapping("kat/menuForm/menuDelete.do")
 	public ModelAndView deleteSubmit(@RequestParam(name = "no") int no,

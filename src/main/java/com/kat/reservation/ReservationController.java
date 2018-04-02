@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 import com.kat.seat.model.ShopPhotoListView;
 import com.kat.seat.service.AddSeatService;
 
@@ -21,7 +21,7 @@ public class ReservationController {
 	private AddSeatService addSeatService;
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@RequestMapping("shopInfoSeat/seatRegister.do")
 	public ModelAndView RegisterChoose(@RequestParam(name = "shop") String shop, HttpServletRequest request)

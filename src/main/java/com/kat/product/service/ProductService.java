@@ -7,16 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kat.product.dao.ProductDao;
 import com.kat.product.model.ProductInfo;
+import com.kat.product.model.ProductInfoList;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
 import com.kat.seat.model.InfoShopSearchListView;
 import com.kat.seat.model.MenuInfo;
-import com.kat.seat.model.MenuInfoListView;
 import com.kat.seat.model.Search;
 import com.kat.seat.model.ShopPhoto;
 import com.kat.seat.model.ShopPhotoListView;
 
-public class AddProductService {
+public class ProductService {
 
 	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
@@ -46,36 +46,17 @@ System.out.println("[AddProductService addProduct] product_content_no : " + prod
 		dao.insertProductCourse(productInfo);
 System.out.println("[AddProductService addProduct] MAPPER(insertImage) FINISH");
 	}
-
-	// PRODUCT 리스트 페이지
-	private static final int MESSAGE_COUNT_PER_PAGE = 3; // 한 페이지에 출력할 데이터
-	public MenuInfoListView getMenuList(String user_id, int pageNumber) {
-System.out.println("[AddProductService getMenuList] ACCESS SUCCESS");
-System.out.println("[AddProductService getMenuList] user_id : " + user_id);
-System.out.println("[AddProductService getMenuList] pageNumber : " + pageNumber);
+	
+	// FIND ALL PRODUCT
+	public List<ProductInfo> findAllTravelProduct() {
+System.out.println("[AddProductService findAllTravelProduct] FIND ALL PRODUCT ACCESS");
         dao = sqlSessionTemplate.getMapper(ProductDao.class);
-		MenuInfoListView menuListInfoview = new MenuInfoListView();
-		List<MenuInfo> productList = null;
-		int PageNumber;
-		int firstRow = 0;
-		
-		int TotalCount = dao.menuSelectCount(user_id);
-System.out.println("[AddProductService getMenuList] MAPPER(menuSelectCount) RETURN");
-System.out.println("[AddProductService getMenuList] TotalCount : " + TotalCount);
-		
-		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
-		productList = dao.menuList(user_id, firstRow, MESSAGE_COUNT_PER_PAGE);
-System.out.println("[AddProductService getMenuList] productList : " + productList);
-System.out.println("[AddProductService getMenuList] MAPPER(menuList) RETURN");
-System.out.println("[AddProductService getMenuList] " + productList.toString());
-		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
-		if (TotalCount % MESSAGE_COUNT_PER_PAGE != 0) {
-			PageNumber += 1;
-		}
-		menuListInfoview.setMenuInfoList(productList);
-		menuListInfoview.setPageTotalCount(TotalCount);
-		menuListInfoview.setPageNumber(PageNumber);
-		return menuListInfoview;
+		List<ProductInfo> productAllInfoList = null;
+		productAllInfoList = dao.findAllTravelProduct();
+System.out.println("[AddProductService findAllTravelProduct] MAPPER(findAllTravelProduct) RETURN");
+System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoList.size());
+System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoList.get(0).toString());
+		return productAllInfoList;
 	}
 	
 	// 업데이트 할 제품 데이터 가져오기
@@ -190,10 +171,10 @@ System.out.println("[AddProductService addShopPhoto] shopPhoto.size() : "+ shopP
 	}
 
 	// 매뉴 리스트 처음부터 끝까지 가져오기
-	public MenuInfoListView getMenuView(String user_id) {
+	public ProductInfoList getMenuView(String user_id) {
 		dao = sqlSessionTemplate.getMapper(ProductDao.class);
 
-		MenuInfoListView view = new MenuInfoListView();
+		ProductInfoList view = new ProductInfoList();
 		List<MenuInfo> productList = null;
 		int firstRow = 0;
 

@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.model.ProductInfoList;
+import com.kat.product.service.ProductService;
 import com.kat.review.model.ReviewInfoListView;
 import com.kat.review.service.ReviewListService;
 import com.kat.seat.model.InfoShopAddress;
-import com.kat.seat.model.MenuInfoListView;
 import com.kat.seat.model.ShopPhotoListView;
 
 @Controller
 public class ReservationLsitViewController {
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@Autowired
 	private ReviewListService reviewListService;
@@ -35,7 +35,7 @@ public class ReservationLsitViewController {
 		System.out.println("로그 ResrvationListView 컨트롤");
 
 		ShopPhotoListView shopPhotoListView = addProductService.getshopPhotoList(SearchName); // 매장 사진 가져오기
-		MenuInfoListView menuInfoListView = addProductService.getMenuView(SearchName); // 리스트 구현
+		ProductInfoList menuInfoListView = addProductService.getMenuView(SearchName); // 리스트 구현
 		InfoShopAddress infoShopAddress = addProductService.getAddress(SearchName);
 
 		System.out.println("메뉴 리스트 사진 확인" + menuInfoListView);

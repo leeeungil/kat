@@ -41,7 +41,7 @@
 	<beans:bean id="seatinfo" class="com.kat.seat.model.SeatInfo" scope="prototype" />
 	<beans:bean id="SeatInfoListView" class="com.kat.seat.model.SeatInfoListView" scope="prototype" />
 	<beans:bean id="menuInfo" class="com.kat.seat.model.MenuInfo" scope="prototype" />
-	<beans:bean id="MenuInfoListView" class="com.kat.seat.model.MenuInfoListView" scope="prototype" />
+	<beans:bean id="MenuInfoListView" class="com.kat.product.model.ProductInfoList" scope="prototype" />
 	<beans:bean id="UpdateReservation" class="com.kat.seat.model.UpdateReservation" scope="prototype" />
 	<beans:bean id="ShopPhoto" class="com.kat.seat.model.ShopPhoto" scope="prototype" />
 	<beans:bean id="InfoShop" class="com.kat.seat.model.InfoShop" scope="prototype" />
@@ -62,7 +62,7 @@
 
 	<!-- 서비스 등록 -->
 	<beans:bean id="addSeatService" class="com.kat.seat.service.AddSeatService" />
-	<beans:bean id="addMenuService" class="com.kat.product.service.AddProductService" />
+	<beans:bean id="addMenuService" class="com.kat.product.service.ProductService" />
 	<beans:bean id="seatReservationService" class="com.kat.seat.service.SeatReservationService" />
 	<beans:bean id="loginService" class="com.kat.seat.service.LoginService" />
 

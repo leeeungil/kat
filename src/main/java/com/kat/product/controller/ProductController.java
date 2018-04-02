@@ -3,6 +3,7 @@ package com.kat.product.controller;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,26 +13,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.ProductInfo;
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 
 @Controller
 @RequestMapping("product")
 public class ProductController {
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 	
 	@RequestMapping("findAllTravelProduct")	
 	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
-		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
-System.out.println("[ProductController findAllTravelProduct] user_id : "+ user_id);		
-
+		List<ProductInfo> ProductList = null;
+		ProductList = addProductService.findAllTravelProduct();
+System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ ProductList.size());		
+		
+		modelAndView.addObject("ProductAllList",ProductList);
 		modelAndView.setViewName("layout/travelProductLayout");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
+	
+	
+	
 	
 	@RequestMapping("add")
 	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
@@ -60,12 +66,12 @@ System.out.println("[ProductController addProduct] " + productInfo.toString());
 				String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());
 				String imgName = user_id+"_"+productInfo.getProduct_type()+"_"+Time+"_"+i+"."+imgType;
 System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
-				String path = request.getSession().getServletContext().getRealPath("/") + "WEB-INF\\product_img\\"+imgName;
+				String path = request.getSession().getServletContext().getRealPath("/") + "uploadfile\\product_img\\"+imgName;
 System.out.println("[ProductController addProduct] imgName[<== save file path] : " + path);
 				File file = new File(path);
 				productInfo.getFile().get(i).transferTo(file);
 				
-				String db = "/WEB-INF/product_img/"+ imgName;
+				String db = "/uploadfile/product_img/"+ imgName;
 				switch (i) {
 					case 0: productInfo.setProduct_main_photo(db); break;
 					case 1: productInfo.setProduct_photo1(db);  break;

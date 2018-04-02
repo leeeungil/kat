@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kat.product.service.AddProductService;
+import com.kat.product.service.ProductService;
 import com.kat.seat.model.MenuInfo;
 
 @Controller
 public class MenuUpdateController {
 
 	@Autowired
-	private AddProductService addProductService;
+	private ProductService addProductService;
 
 	@RequestMapping("kat/menuForm/MenuUpdate.do")
 	public ModelAndView listSubmit(@RequestParam(name = "no") int product_no, MenuInfo menuInfo,
