@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div class="totalView">
 <div class="imageBox">
 		<img class="mainSlider" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
 </div>
+<div class="totalView">
     <ul id="asideSize">
 		<li id="noticeBtn">
 			<a href="<%=request.getContextPath()%>/master/board/list.do">공지사항</a>
@@ -48,6 +48,6 @@
 		</table>
 	</div>
 </div>
-</div>
+
 
 

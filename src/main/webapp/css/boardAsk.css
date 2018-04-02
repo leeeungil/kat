@@ -7,7 +7,6 @@
 }
 
 .imageBox {
-	z-index: 10;
     width: 100%;
     height: 55vh;
     border:1px solid none;
@@ -22,15 +21,24 @@
 	text-align:center;
 }
 
+.mainSlider{
+	text-align: center;
+	margin:auto;
+	height:90%;
+	width:100%;
+}
+.mainSlider:hover {
+	opacity: 0.8;
+}
+
 #asideSize {
 	width: 850px;
 	float: center;
 	margin-left: 50px;
 	text-align:center;
 	padding-left:97px;
-	margin-top:30px;
+	margin-top:20px;
 }
-
 
 #noticeBtn {
 	color: #086A87;
