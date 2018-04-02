@@ -5,8 +5,8 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.kat.product.dao.ProductDao;
 import com.kat.product.model.ProductInfo;
-import com.kat.seat.dao.ProductDao;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
 import com.kat.seat.model.InfoShopSearchListView;
@@ -27,13 +27,23 @@ public class AddProductService {
 System.out.println("[AddProductService addProduct] ACCESS SUCCESS");
 System.out.println("[AddProductService addProduct]  " +productInfo.toString());
 		dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		String businessNumber = dao.findBusinessNumber(productInfo.getUser_id());
+		productInfo.setBusiness_number(businessNumber);
+System.out.println("[AddProductService addProduct] MAPPER(findBusinessNumber) RETURN");
+System.out.println("[AddProductService addProduct] businessNumber : " + businessNumber);
 		dao.insertProduct(productInfo);
 System.out.println("[AddProductService addProduct] MAPPER(insertProduct) FINISH");
-		int product_no = dao.getProductNo(productInfo);
-System.out.println("[AddProductService addProduct] MAPPER(getProductNo) RETURN");
-System.out.println("[AddProductService addProduct] product_no : " + product_no);
+		int product_no = dao.findProductNo(productInfo);
 		productInfo.setProduct_no(product_no);
-		dao.insertImage(productInfo);
+System.out.println("[AddProductService addProduct] MAPPER(findProductNo) RETURN");
+System.out.println("[AddProductService addProduct] product_no : " + product_no);
+		dao.insertProductContent(productInfo);
+		int product_content_no = dao.findProductContentNo(productInfo);
+		productInfo.setProduct_content_no(product_content_no);
+System.out.println("[AddProductService addProduct] MAPPER(findProductContentNo) RETURN");
+System.out.println("[AddProductService addProduct] product_content_no : " + product_content_no);
+		dao.insertProductPhoto(productInfo);
+		dao.insertProductCourse(productInfo);
 System.out.println("[AddProductService addProduct] MAPPER(insertImage) FINISH");
 	}
 

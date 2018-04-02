@@ -50,12 +50,12 @@ System.out.println("[AddProductController addProduct] " + productInfo.toString()
 				System.out.println(imgType);
 				String imgName = user_id+"_"+productInfo.getProduct_type()+"_"+Time+"_"+i+"."+imgType;
 				System.out.println(imgName);
-				String path = request.getSession().getServletContext().getRealPath("/") + "uploadfile\\product\\"+imgName;
+				String path = request.getSession().getServletContext().getRealPath("/") + "WEB-INF\\product_img\\"+imgName;
 				System.out.println(path);
 				File file = new File(path);
 				productInfo.getFile().get(i).transferTo(file);
-			
-				String db = "/uploadfile/product/"+ imgName;
+				
+				String db = "/WEB-INF/product_img/"+ imgName;
 				System.out.println(db);
 				switch (i) {
 					case 0: productInfo.setProduct_main_photo(db); break;

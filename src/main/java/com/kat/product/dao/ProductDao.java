@@ -1,4 +1,4 @@
-package com.kat.seat.dao;
+package com.kat.product.dao;
 
 import java.util.List;
 
@@ -105,8 +105,11 @@ public interface ProductDao {
 	
 	// 장준영 수정 완료
 	// 상품 데이터 등록
+	public String findBusinessNumber(String user_id);
 	public void insertProduct(ProductInfo productInfo);
-	public int getProductNo(ProductInfo productInfo);
-	// 상품 이미지 등록
-	public void insertImage(ProductInfo productInfo);
+	public int findProductNo(ProductInfo productInfo);
+	public void insertProductContent(ProductInfo productInfo);
+	public int findProductContentNo(ProductInfo productInfo);
+	public void insertProductPhoto(ProductInfo productInfo);
+	public void insertProductCourse(ProductInfo productInfo);
 }

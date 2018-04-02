@@ -3,22 +3,35 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kat.seat.dao.MenuDao">
-	<!-- 상품 데이터 등록 -->
+<mapper namespace="com.kat.product.dao.ProductDao">
+	<!-- 상품 데이터 등록 START-->
+	<select id="findBusinessNumber" resultType="String">
+		SELECT BUSINESS_NUMBER FROM BUSINESS WHERE USER_ID=#{user_id}
+	</select>
 	<insert id="insertProduct" parameterType="com.kat.product.model.ProductInfo">
 		INSERT INTO PRODUCT
-		VALUES (0, #{product_name}, #{product_type}, #{cost}, #{business_number}, #{user_id}, #{continent}, #{country}, #{city}, #{product_content}, now(), 0)
+		VALUES (0, #{product_title}, #{product_type}, now(), #{cost}, #{continent}, #{country}, #{city}, #{user_id}, #{business_number}, #{product_main_photo}, #{sell_start}, #{sell_end}, 0)
 	</insert>
-	<select id="getProductNo" resultType="int">
-		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_NAME=#{product_name} AND USER_ID=#{user_id} AND DELETE_FLAG=0
+	<select id="findProductNo" resultType="int">
+		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_TITLE=#{product_title} AND USER_ID=#{user_id}
 	</select>
-	<!-- 상품 이미지 등록 -->
-	<insert id="insertImage" parameterType="com.kat.product.model.ProductInfo">
-		INSERT INTO PHOTO
-		VALUES (0, #{product_type}, #{product_no} ,#{file_menu_photo}, #{user_id}, now())
+  	<insert id="insertProductContent" parameterType="com.kat.product.model.ProductInfo">
+		INSERT INTO PRODUCT_CONTENT
+		VALUES (0, #{product_no}, #{user_profile}, #{product_content} ,#{product_info}, 0)
 	</insert>
-
-
+	<select id="findProductContentNo" resultType="int">
+		SELECT PRODUCT_CONTENT_NO FROM PRODUCT_CONTENT WHERE PRODUCT_NO=#{product_no} AND DELETE_FLAG=0
+	</select>
+	<insert id="insertProductPhoto" parameterType="com.kat.product.model.ProductInfo">
+		INSERT INTO PRODUCT_PHOTO
+		VALUES (0, #{product_photo1}, #{product_photo2} ,#{product_photo3}, #{product_photo4}, #{product_photo5}, #{product_photo6}, 
+			#{product_photo7}, #{product_photo8}, #{product_photo9}, #{product_photo10}, #{product_content_no}, 0)
+	</insert>
+	<insert id="insertProductCourse" parameterType="com.kat.product.model.ProductInfo">
+		INSERT INTO PRODUCT_COURSE
+		VALUES (#{product_no}, 0, #{course} ,#{course_photo_dir}, 0)
+	</insert>
+	<!-- 상품 데이터 등록 END-->
 
 
 	<!-- 등록된 PRODUCT 갯수 -->

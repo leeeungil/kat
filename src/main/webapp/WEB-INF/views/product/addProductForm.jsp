@@ -229,7 +229,7 @@ label {
 }
 .product_content_textArea {
 	width: 1067px;
-	height: 50vh;
+	height: 20vh;
 }
 input:hover, .select:hover, .product_content_textArea:hover {
 	border: 1px solid #a97228;

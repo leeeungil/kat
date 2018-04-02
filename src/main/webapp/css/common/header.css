@@ -70,13 +70,20 @@
 }
 
 /* header main */
-.header {
+.header_old {
     position: relative;
     z-index: 2;
     width: 1100px;
     height: 100px;
     margin: 0 auto;
     zoom: 1;
+}
+.header {
+    position: relative;
+    z-index: 2;
+    width: 1100px;
+    margin: 0 auto;
+    zoom: 1;	
 }
 .header > h1 {
 	float: left;
@@ -87,7 +94,7 @@
 	color: #0084fe;
 }
 .logo-item > a > img {
-	height: 20px
+	height: 32px
 }
 i {
     display: inline-block;
@@ -116,11 +123,18 @@ i {
     display: none !important;
 }
 
-.gnb {
+.gnb_old {
     float: right;
     position: relative;
     z-index: 1;
     max-width: 800px;
+    height: 100%;
+    font-size: 13px;
+}
+.gnb {
+    float: left;
+    position: absolute;
+    z-index: 1;
     height: 100%;
     font-size: 13px;
 }

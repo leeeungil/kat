@@ -17,6 +17,7 @@ public class ProductInfo {
 	private String sell_end;
 	private int cost;
 	private String product_content;
+	private int product_content_no;
 	private String product_photo1;
 	private String product_photo2;
 	private String product_photo3;
@@ -28,14 +29,33 @@ public class ProductInfo {
 	private String product_photo9;
 	private String product_photo10;
 	private String course;
+	private String course_photo_dir;
+	private String product_info;
 	private String user_id;
 	private String business_number;
 	private String delete_flag;
 	private String create_date;
-
 	private List<MultipartFile> file;
 	
 	
+	public String getCourse_photo_dir() {
+		return course_photo_dir;
+	}
+	public void setCourse_photo_dir(String course_photo_dir) {
+		this.course_photo_dir = course_photo_dir;
+	}
+	public String getProduct_info() {
+		return product_info;
+	}
+	public void setProduct_info(String product_info) {
+		this.product_info = product_info;
+	}
+	public int getProduct_content_no() {
+		return product_content_no;
+	}
+	public void setProduct_content_no(int product_content_no) {
+		this.product_content_no = product_content_no;
+	}
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -207,16 +227,18 @@ public class ProductInfo {
 	}
 	@Override
 	public String toString() {
-		return "ProductInfo [product_main_photo=" + product_main_photo + ", product_type=" + product_type
-				+ ", continent=" + continent + ", country=" + country + ", city=" + city + ", product_title="
-				+ product_title + ", sell_start=" + sell_start + ", sell_end=" + sell_end + ", cost=" + cost
-				+ ", product_content=" + product_content + ", product_photo1=" + product_photo1 + ", product_photo2="
-				+ product_photo2 + ", product_photo3=" + product_photo3 + ", product_photo4=" + product_photo4
-				+ ", product_photo5=" + product_photo5 + ", product_photo6=" + product_photo6 + ", product_photo7="
-				+ product_photo7 + ", product_photo8=" + product_photo8 + ", product_photo9=" + product_photo9
-				+ ", product_photo10=" + product_photo10 + ", course=" + course + ", user_id=" + user_id
-				+ ", business_number=" + business_number + ", delete_flag=" + delete_flag + ", create_date="
-				+ create_date + ", file=" + file + "]";
+		return "ProductInfo [product_no=" + product_no + ", product_main_photo=" + product_main_photo
+				+ ", product_type=" + product_type + ", user_profile=" + user_profile + ", continent=" + continent
+				+ ", country=" + country + ", city=" + city + ", product_title=" + product_title + ", sell_start="
+				+ sell_start + ", sell_end=" + sell_end + ", cost=" + cost + ", product_content=" + product_content
+				+ ", product_content_no=" + product_content_no + ", product_photo1=" + product_photo1
+				+ ", product_photo2=" + product_photo2 + ", product_photo3=" + product_photo3 + ", product_photo4="
+				+ product_photo4 + ", product_photo5=" + product_photo5 + ", product_photo6=" + product_photo6
+				+ ", product_photo7=" + product_photo7 + ", product_photo8=" + product_photo8 + ", product_photo9="
+				+ product_photo9 + ", product_photo10=" + product_photo10 + ", course=" + course + ", course_photo_dir="
+				+ course_photo_dir + ", product_info=" + product_info + ", user_id=" + user_id + ", business_number="
+				+ business_number + ", delete_flag=" + delete_flag + ", create_date=" + create_date + ", file=" + file
+				+ "]";
 	}
 	
 	
