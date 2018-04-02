@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kat.product.service.AddProductService;
 import com.kat.seat.model.InfoShopSearchListView;
 import com.kat.seat.model.Search;
-import com.kat.seat.service.AddProductService;
 
 @Controller
 public class SearchListController {

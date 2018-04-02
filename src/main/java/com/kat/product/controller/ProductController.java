@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.ProductInfo;
-import com.kat.seat.service.AddProductService;
+import com.kat.product.service.AddProductService;
 
 @Controller
 @RequestMapping("product")
@@ -23,7 +23,7 @@ public class ProductController {
 	
 	@RequestMapping("findAllTravelProduct")	
 	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
-System.out.println("[ProductController findAllTravelProduct] INSERT PRODUCT FORM CALL ACCESS");
+System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
 		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
 System.out.println("[ProductController findAllTravelProduct] user_id : "+ user_id);		

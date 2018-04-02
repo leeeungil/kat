@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kat.product.service.AddProductService;
 import com.kat.seat.model.MenuInfo;
-import com.kat.seat.service.AddProductService;
 
 @Controller
 public class MenuUpdateController {
