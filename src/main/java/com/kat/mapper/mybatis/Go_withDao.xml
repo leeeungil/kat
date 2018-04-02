@@ -11,4 +11,15 @@
      VALUES (#{go_with_no}, #{go_with_content}, #{go_with_title}, #{user_id}, now(), #{read_count}, 0)
   </insert>
   
+  <select id="goWithSelectCount" resultType="int">
+     SELECT COUNT(*)
+     FROM go_with
+  </select>
+  
+  <select id="goWithList" resultType="com.kat.article.model.Go_with">
+     SELECT *
+     FROM go_with 
+     LIMIT #{param1}, #{param2}
+  </select>
+  
   </mapper>
