@@ -21,6 +21,18 @@ public class ProductController {
 	@Autowired
 	private AddProductService addProductService;
 	
+	@RequestMapping("findAllTravelProduct")	
+	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
+System.out.println("[ProductController findAllTravelProduct] INSERT PRODUCT FORM CALL ACCESS");
+		ModelAndView modelAndView = new ModelAndView();
+		String user_id = (String) request.getSession(false).getAttribute("user_id"); // 로그인한 아이디 집어넣기
+System.out.println("[ProductController findAllTravelProduct] user_id : "+ user_id);		
+
+		modelAndView.setViewName("layout/travelProductLayout");
+System.out.println("=============================================================");
+		return modelAndView;
+	}
+	
 	@RequestMapping("add")
 	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController addProduct] PRODUCT ADD ACCESS");
@@ -49,12 +61,11 @@ System.out.println("[ProductController addProduct] " + productInfo.toString());
 				String imgName = user_id+"_"+productInfo.getProduct_type()+"_"+Time+"_"+i+"."+imgType;
 System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
 				String path = request.getSession().getServletContext().getRealPath("/") + "WEB-INF\\product_img\\"+imgName;
-System.out.println("[ProductController addProduct] imgName[<== save file path] : " + imgName);
+System.out.println("[ProductController addProduct] imgName[<== save file path] : " + path);
 				File file = new File(path);
 				productInfo.getFile().get(i).transferTo(file);
 				
 				String db = "/WEB-INF/product_img/"+ imgName;
-				System.out.println(db);
 				switch (i) {
 					case 0: productInfo.setProduct_main_photo(db); break;
 					case 1: productInfo.setProduct_photo1(db);  break;
