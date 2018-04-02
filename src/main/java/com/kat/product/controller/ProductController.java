@@ -23,8 +23,8 @@ public class ProductController {
 	
 	@RequestMapping("add")
 	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
-System.out.println("[AddProductController addProduct] PRODUCT ADD ACCESS");
-System.out.println("[AddProductController addProduct] " + productInfo.toString());
+System.out.println("[ProductController addProduct] PRODUCT ADD ACCESS");
+System.out.println("[ProductController addProduct] " + productInfo.toString());
 		
 		if(productInfo.getFile()!=null){
 			productInfo.setProduct_main_photo("null");
@@ -45,13 +45,11 @@ System.out.println("[AddProductController addProduct] " + productInfo.toString()
 				String user_id = (String) request.getSession(false).getAttribute("user_id");
 				productInfo.setUser_id(user_id);
 				String file_full_name = productInfo.getFile().get(i).getOriginalFilename();
-				System.out.println("file_full_name" + file_full_name);
 				String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());
-				System.out.println(imgType);
 				String imgName = user_id+"_"+productInfo.getProduct_type()+"_"+Time+"_"+i+"."+imgType;
-				System.out.println(imgName);
+System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
 				String path = request.getSession().getServletContext().getRealPath("/") + "WEB-INF\\product_img\\"+imgName;
-				System.out.println(path);
+System.out.println("[ProductController addProduct] imgName[<== save file path] : " + imgName);
 				File file = new File(path);
 				productInfo.getFile().get(i).transferTo(file);
 				
@@ -88,8 +86,8 @@ System.out.println("[AddProductController addProduct] " + productInfo.toString()
 		ModelAndView modelAndView = new ModelAndView();
 
 		addProductService.addProduct(productInfo);
-System.out.println("[AddProductController addProduct] addProductService.addMenu FINISH");
-		modelAndView.setViewName("redirect:/kat/productForm/productAdd.do");
+System.out.println("[ProductController addProduct] addProductService.addProduct FINISH");
+		modelAndView.setViewName("redirect:/kat/seatForm/seatAdd.do");
 System.out.println("=============================================================");
 		return modelAndView;
 	}

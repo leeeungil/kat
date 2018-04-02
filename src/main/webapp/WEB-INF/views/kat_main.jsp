@@ -12,7 +12,6 @@
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/login_css.css">
 
 <!-- 스크립트 가져오기 -->
-<script src="<%=request.getContextPath()%>/script/login_script.js"></script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>

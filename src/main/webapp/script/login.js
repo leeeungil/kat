@@ -1,44 +1,65 @@
-function titleOff_hide() {
+$(document).ready(function() {
+	$(document).on("mouseenter",".loginFormLi",function(){
+		$(this).css("background-color","#71bafd");
+	})
+	$(document).on("mouseleave",".loginFormLi",function(){
+		$(this).css("background-color","#000000");
+	})
+	
+	$("#userLogin").click(function(){
+		$("#userLogin").attr("class","loginFormLi_click");
+		$("#businessLogin").attr("class","loginFormLi");
+	})
+	$("#businessLogin").click(function(){
+		$("#businessLogin").attr("class","loginFormLi_click");
+		$("#userLogin").attr("class","loginFormLi");
+	})
+});
+
+$(document).ready(function() {
+	$("#gnb").mouseenter(function(){
+		$(".gnb-submenu-wrap").addClass("on");
+	})
+	$(".gnb-submenu-wrap").mouseleave(function(){
+		$(".gnb-submenu-wrap").removeClass("on");
+	})
+});
+
+function businessLogin_hide() {
 	var objDiv = document.getElementById("company_in");
 	var objDiv1 = document.getElementById("member_in");
 
 	objDiv1.style.display = "none";
 
 	if (objDiv.style.display == "block") {
-
 	} else {
 		objDiv.style.display = "block";
 	}
 }
 
-function titleOn_hide() {
+function userLogin_hide() {
 	var objDiv = document.getElementById("member_in");
 	var objDiv1 = document.getElementById("company_in");
 
 	objDiv1.style.display = "none";
 
 	if (objDiv.style.display == "block") {
-
 	} else {
 		objDiv.style.display = "block";
 	}
 }
 
 function login() {
-	var loginForm = document.getElementById("loginmodal");
+	var loginForm = document.getElementById("login_wrap");
 
 	if (loginForm.style.display == "none") {
-
 		loginForm.style.display = "block";
-
 	} else if (loginForm.style.display == "block") {
-
 		loginForm.style.display = "none";
 	}
-
 }
 
-$(function(){
+$(document).ready(function(){
     var $move_width = parseInt($('.content').css('width'));
     var $content_box = $('.content_box');
      
