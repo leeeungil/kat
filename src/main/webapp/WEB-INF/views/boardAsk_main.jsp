@@ -8,7 +8,6 @@
 <title>FAQ</title>
 
 <!-- css 가져오기 -->
-<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/hader_menu_css.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/home_main.css">	
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/boardAsk.css">
 	
@@ -17,10 +16,8 @@
 <script src="https://code.jquery.com/jquery-1.11.2.js"></script>
 <script src="<%=request.getContextPath()%>/script/faq.js"></script>	
 
-
 </head>
 <body>
-
      <jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>
 	 <jsp:include page="/WEB-INF/views/kat_customer/boardAsk.jsp" flush="false"></jsp:include>
      <jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp" flush="false"></jsp:include>

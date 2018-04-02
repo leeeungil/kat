@@ -1,13 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="imageBox">
-		<img class="mainSlider" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
+		<img class="ask_main_photo" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
 </div>	
 <div class="totalView">
     <ul id="asideSize">
 		<li id="noticeBtn">
 			<a href="<%=request.getContextPath()%>/master/board/list.do">공지사항</a>
-		</li>
+		</li> 
 		<li id="inquireBtn">
 			<a href="<%=request.getContextPath()%>/kat/askForm/ask.do">문의하기</a>
 		</li>
@@ -24,7 +23,6 @@
        <li id="box2">고객센터 운영번호<br>1644 -1600</li>
        <li id="box3">이메일 문의 <br>gee1018@naver.com</li>
     </ul>
-</div>
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
