@@ -14,8 +14,6 @@
 	href="<%=request.getContextPath()%>/css/home_main.css">
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/seatadd_css.css">
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/common_css.css">
 
 <!-- 스크립트 가져오기 -->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
