@@ -1,4 +1,4 @@
-package com.kat.seat.service;
+package com.kat.product.service;
 
 import java.util.List;
 

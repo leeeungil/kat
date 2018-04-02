@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kat.product.service.AddProductService;
 import com.kat.seat.model.ShopPhoto;
 import com.kat.seat.model.ShopPhotoListView;
-import com.kat.seat.service.AddProductService;
 
 @Controller
 @RequestMapping("kat/shopPhotoForm/shopPhotoAdd.do")

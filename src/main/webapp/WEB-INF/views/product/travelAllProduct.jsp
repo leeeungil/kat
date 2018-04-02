@@ -264,8 +264,19 @@ input:hover, .select:hover, .product_content_textArea:hover {
 }
 </style>
 <!-- 메인 부분 -->
-<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/seatadd_css.css">
 <div id="main">
+투어
+셔틀
+티켓
+스탭
+	<div class="area tour_area_wrap">
+	</div>
+	<div class="area shuttle_area_wrap">
+	</div>
+	<div class="area ticket_area_wrap">
+	</div>
+	<div class="area snap_area_wrap">
+	</div>
 	<section>
 		<article id="article_main">
 			<form action="<%=request.getContextPath()%>/product/add" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
