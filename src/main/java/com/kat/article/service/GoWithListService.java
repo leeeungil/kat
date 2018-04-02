@@ -18,9 +18,9 @@ public class GoWithListService {
 	private static final int MESSAGE_COUNT_PER_PAGE = 10;
 		
 	public Go_withInfoListView findGoWithList(String user_id, int pageNumber) {
-System.out.println("[Go_withInfoListView findGoWithList()] ACCESS");
-System.out.println("[Go_withInfoListView findGoWithList()] user_id : " + user_id);
-System.out.println("[Go_withInfoListView findGoWithList()] pageNumber : " + pageNumber);
+System.out.println("[GoWithListService findGoWithList()] ACCESS");
+System.out.println("[GoWithListService findGoWithList()] user_id : " + user_id);
+System.out.println("[GoWithListService findGoWithList()] pageNumber : " + pageNumber);
 		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
 		
 		Go_withInfoListView view = new Go_withInfoListView();
@@ -30,13 +30,13 @@ System.out.println("[Go_withInfoListView findGoWithList()] pageNumber : " + page
 		int firstRow = 0;
 		
 		int TotalCount = dao.goWithSelectCount();
-System.out.println("[Go_withInfoListView findGoWithList()] TotalCount : " + TotalCount);		
+System.out.println("[GoWithListService findGoWithList()] TotalCount : " + TotalCount);		
 		firstRow = (pageNumber -1) * MESSAGE_COUNT_PER_PAGE;
 		
 		goWithList = dao.goWithList(firstRow,MESSAGE_COUNT_PER_PAGE);
-System.out.println("[Go_withInfoListView findGoWithList()] goWithList : " + goWithList);		
+System.out.println("[GoWithListService findGoWithList()] goWithList : " + goWithList);		
 		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
-System.out.println("[Go_withInfoListView findGoWithList()] view : " + view.toString());		
+System.out.println("[GoWithListService findGoWithList()] view : " + view.toString());		
 		if(TotalCount % MESSAGE_COUNT_PER_PAGE != 0) {
 			PageNumber += 1;
 		}
@@ -44,7 +44,7 @@ System.out.println("[Go_withInfoListView findGoWithList()] view : " + view.toStr
 		view.setGoWithList(goWithList);
 		view.setPageTotalCount(TotalCount);
 		view.setPageNumber(PageNumber);
-System.out.println("[Go_withInfoListView findGoWithList()] FINESH");			
+System.out.println("[GoWithListService findGoWithList()] FINESH");			
 		return view;
 	}
 
