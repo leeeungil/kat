@@ -12,13 +12,13 @@ public class Ask_to {
 	private String password;
 	private String ask_reply;
 	private Date create_date;
-	private int delete_flat;
+	private int delete_flag;
 	public Ask_to() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Ask_to(int ask_no, String ask_title, String ask_content, String user_id, String writer_name, String password,
-			String ask_reply, Date create_date, int delete_flat) {
+			String ask_reply, Date create_date, int delete_flag) {
 		super();
 		this.ask_no = ask_no;
 		this.ask_title = ask_title;
@@ -28,7 +28,7 @@ public class Ask_to {
 		this.password = password;
 		this.ask_reply = ask_reply;
 		this.create_date = create_date;
-		this.delete_flat = delete_flat;
+		this.delete_flag = delete_flag;
 	}
 	public int getAsk_no() {
 		return ask_no;
@@ -78,17 +78,17 @@ public class Ask_to {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	public int getDelete_flat() {
-		return delete_flat;
+	public int getDelete_flag() {
+		return delete_flag;
 	}
-	public void setDelete_flat(int delete_flat) {
-		this.delete_flat = delete_flat;
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
 	}
 	@Override
 	public String toString() {
 		return "Ask_to [ask_no=" + ask_no + ", ask_title=" + ask_title + ", ask_content=" + ask_content + ", user_id="
 				+ user_id + ", writer_name=" + writer_name + ", password=" + password + ", ask_reply=" + ask_reply
-				+ ", create_date=" + create_date + ", delete_flat=" + delete_flat + "]";
+				+ ", create_date=" + create_date + ", delete_flag=" + delete_flag + "]";
 	}
 	
 	

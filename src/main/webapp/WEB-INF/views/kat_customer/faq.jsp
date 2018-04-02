@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="imageBox">
-		<img class="mainSlider" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
+		<img class="ask_main_photo" src="<%=request.getContextPath()%>/img/blogger-336371_1280.jpg"> 
 </div>	
 <div class="totalView">
     <ul id="asideSize">
@@ -15,10 +15,8 @@
 			<a href="<%=request.getContextPath()%>/kat/faqForm/faq.do">자주묻는질문</a>
 		</li>
 	</ul>
-<div id="mainSize">
-	<div id="faqlist">
-		<span id="title_font">자주묻는질문</span>
-	</div>
+<div id="mainSize"><br><br><br><br>
+	<p class="faqTitle">자주문는질문</p>
 	<form>
 		<div class="list-w">
 			<ul>

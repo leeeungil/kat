@@ -17,9 +17,8 @@
 			<a href="<%=request.getContextPath()%>/kat/faqForm/faq.do">자주묻는질문</a>
 		</li>
 	</ul>
-
-	<div id="mainSize">
-			<span id="articleNoticeListForm">공지사항</span> <br>
+	<div id="mainSize"><br><br><br><br>
+	    <p class="noticleTitle">공지사항</p>
 		<table id="articleNoticeListTable">
 			<tr id="fontsize_no">
 				<td class="centered1">번호</td>

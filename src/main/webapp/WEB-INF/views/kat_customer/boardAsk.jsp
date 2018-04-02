@@ -14,10 +14,8 @@
 			<a href="<%=request.getContextPath()%>/kat/faqForm/faq.do">자주묻는질문</a>
 		</li>
 	</ul>
-<div id="mainSize">
-	<div id="faqlist">
-		<span id="title_font">1:1 문의</span>
-	</div>
+<div id="mainSize"><br><br><br><br>
+    <p class="boardAskTitle">1:1 문의</p>    
     <ul class="centerBox">
        <li id="box1">고객센터 운영시간<br>10:00 - 17:00</li>
        <li id="box2">고객센터 운영번호<br>1644 -1600</li>
