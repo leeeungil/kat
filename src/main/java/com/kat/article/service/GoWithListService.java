@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.kat.article.dao.Go_withDao;
 import com.kat.article.model.Go_with;
 import com.kat.article.model.Go_withInfoListView;
 
+@Service
 public class GoWithListService {
 
 	@Autowired
