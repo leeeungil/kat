@@ -7,7 +7,7 @@
 
 <div class="totalView">
   <div class="board_list">
-     <h1>Free Board</h1>
+     <h1>동행 구하기</h1>
      <table summary="Summary Here">
      <thead>
           <tr>
@@ -29,6 +29,16 @@
             </tr>
             </c:forEach>  
      </tbody>
+      <!-- 페이징 -->
+     <tbody>
+     <tr>
+        <th colspan="4" class="pagecenter">
+            <c:forEach var="i" begin="1" end="${ListInfoGowith.getPageNumber()}" step="1">
+            <a href="<c:url value="/kat/gowith/gowith_write_list.do?page=${i}"/>">[${i}]</a>
+            </c:forEach>
+        </th>
+     </tr>
+     </tbody>
      </table>
-  </div>
+   </div>
 </div>
