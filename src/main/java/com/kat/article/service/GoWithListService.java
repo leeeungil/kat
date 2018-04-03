@@ -50,5 +50,12 @@ System.out.println("[GoWithListService findGoWithList()] FINESH");
 		return view;
 	}
 
+	//동행글 내용가져오기 
+	public Go_with findInfo(int no) {
+		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
+		Go_with info = dao.gowithInfo(no);
+		return info;
+	}
+
 	
 }

@@ -8,7 +8,7 @@
   
   <insert id="go_withInsert" parameterType="com.kat.article.model.Go_with">
      INSERT INTO go_with
-     VALUES (#{go_with_no}, #{go_with_content}, #{go_with_title}, #{user_id}, now(), #{read_count}, 0)
+     VALUES (#{go_with_no}, #{go_with_title}, #{go_with_content}, #{user_id}, now(), #{read_count}, 0)
   </insert>
   
   <select id="goWithSelectCount" resultType="int">
@@ -20,6 +20,12 @@
      SELECT *
      FROM go_with 
      LIMIT #{param1}, #{param2}
+  </select>
+  
+  <select id="gowithInfo" resultType="com.kat.article.model.Go_with">
+     SELECT go_with_no, go_with_title,go_with_content, user_id,create_date, read_count, delete_flag
+     FROM go_with
+     WHERE go_with_no = #{no1}
   </select>
   
   </mapper>

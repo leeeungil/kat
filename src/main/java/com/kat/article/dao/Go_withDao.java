@@ -15,4 +15,7 @@ public interface Go_withDao {
 	//전체 동행글 리스트
 	public List<Go_with> goWithList(int firstRow, int messageCountPerPage);
 
+	//특정번호의 동행글 가져오기
+	public Go_with gowithInfo(int no);
+
 }
