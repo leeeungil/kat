@@ -219,7 +219,7 @@ label {
     opacity: 0;
     filter: alpha(opacity=0); /* IE 8 */
 }
-.product_title {
+.product_title_add_form {
 	width: 1047px;
     padding-left: 25px;
 }
@@ -337,7 +337,7 @@ input:hover, .select:hover, .product_content_textArea:hover {
 					<!-- 상품 타이틀  (메인 제목) START -->
 					<label>----- 상품 메인 제목 --------------------------------------</label>
 					<div class="product_total_content">
-						<input type="text" class="select_top product_title" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요.">
+						<input type="text" class="select_top product_title_add_form" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요.">
 					</div>
 					<label>----- 상품 상세 정보 --------------------------------------</label>
 					<div class="product_total_content">

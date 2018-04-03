@@ -112,10 +112,6 @@ label {
     opacity: 0;
     filter: alpha(opacity=0); /* IE 8 */
 }
-.product_title {
-	width: 1047px;
-    padding-left: 25px;
-}
 .wrap {
 	float: left;
     margin-right: 92px;

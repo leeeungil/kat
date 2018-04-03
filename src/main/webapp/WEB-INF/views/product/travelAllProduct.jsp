@@ -30,11 +30,13 @@ $(document).ready(function(){
 				dataType: 'json',
 				data:{ "productNo": productNo },
 				success: function(data){
+					var people = $("#people_number").val();
+					var product_cost = $("#product_cost").attr("class");
 					$(".product_wrap").remove();
-					var htmlCode = "<div class='product_main_photo_zone'>"
+					var htmlBefore = "<div class='product_main_photo_zone'>"
 								 + "	<img src='<%=request.getContextPath()%>" + data.product_main_photo + "'>"
-								 + "</div>"
-								 + "<div class='form_basic_wrap'>"
+								 + "</div>";
+				    var htmlAfter= "<div class='form_basic_wrap'>"
 								 + "					<div class='category' id='category'>"
 								 + "						<div class='category_text_wrap'>"
 								 + "							<font>"+data.country+" > "+data.city+"</font>"
@@ -77,17 +79,12 @@ $(document).ready(function(){
 								 + "							</tr>"
 								 + "							<tr>"
 								 + "								<td colspan='3' class='calc_result'>"
-								 + "									<div>"
-								 + "									</div>"
-								 + "									<div>"
-								 + "									</div>"
-								 + "									<div>"
-								 + "									</div>"
 								 + "								</td>"
 								 + "							</tr></tbody>"
 								 + "						</table>"
 								 + "					</div>";
-					$(".area").html(htmlCode);
+					$(".area").before(htmlBefore);
+					$(".area").html(htmlAfter);
 				}
 			})
 		}, 300);
@@ -98,8 +95,13 @@ $(document).ready(function(){
 	});
 	
 	$(document).on("click","#calc_cost",function(){
+		$(".calc_result").show();
 		var people = $("#people_number").val();
 		var product_cost = $("#product_cost").attr("class");
+		var htmlCostResult = "<div><font>경비 계산 결과</font></div>"
+							 + "<div><font>"+people+" X "+product_cost+"</font><font class='second_line_font'>₩"+(people * product_cost)+"</font></div>"
+							 + "<div class='non_border reserve_btn_wrap'><button class='calc_cost reserve_btn'>예약하기</button></div>";
+	 	$(".calc_result").html(htmlCostResult)
 		alert(people * product_cost);
 	})
 })
@@ -111,12 +113,14 @@ $(document).ready(function(){
 	margin: 0 auto;
 }
 .product_main_photo_zone {
-    height: 50vh;
-    width: 100%;
+    height: 70vh;
+    width: 94%;
+    margin: auto;
+    text-align: center;
 }
 .product_main_photo_zone > img{
-	width: 100%;
 	height: 100%;
+    min-width: 1100px;
 }
 .category_text_wrap > font{
     font-weight: 800;
@@ -162,9 +166,10 @@ $(document).ready(function(){
     padding-left: 15px;
     position: relative;
     text-align: left;
-    width: 350px;
+    width: 330px;
     -webkit-text-fill-color: #343a40;
     -webkit-opacity: 1;
+    margin-right: 19px;
 } 
 .calc_cost {
     border-radius: 2px;
@@ -186,16 +191,39 @@ $(document).ready(function(){
     height: 120px;
     margin: auto;
     width: 100%;
-}
-.calc_result_wrap {
-
+    display: none;
 }
 .calc_result > div {
 	height: 40px;
     border-bottom: 1px solid #e9ecef;
-    /* width: 50px; */
     width: 94%;
     margin: 0px 29px;
+}
+.calc_result > div > font {
+	line-height: 4;
+}
+.non_border {
+	border: 0px solid!important
+}
+.reserve_btn_wrap {
+    background-color: #dddddd;
+    width: 100%!important;
+    margin-left: 0px!important;
+    height: 50px!important;
+}
+.reserve_btn {
+    float: right;
+    width: 200px;
+    height: 40px;
+    margin: 5px 40px;
+}
+.second_line_font {
+    float: right;
+    color: #ff8e00;
+    font-size: 20px;
+    line-height: 2!important;
+    font-weight: 900;
+    font-family: '';
 }
 </style>
 <!-- 메인 부분 -->
@@ -210,7 +238,7 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="area area_wrap">
-					<!-- <table><thead><tr>
+					<table><thead><tr>
 						<td> <label style="color: #a97228">프로필 </label> </td>
 					</tr></thead>
 					<tbody><tr>
@@ -270,11 +298,9 @@ $(document).ready(function(){
 							</ul>
 						</td>
 					</tr></tbody></table>
-					공백용
 					<table style="height: 160px">
 					<tbody><tr><td></td></tr></tbody></table>
-				</div> -->
-		<c:forEach var="product" items="${ProductAllList}">
+ 		<c:forEach var="product" items="${ProductAllList}">
 			<div class="product_wrap product_${product.product_type}  cl-effect-12">
 				<input type="hidden" class="product_no" name="product_no" value="${product.product_no}">
 				<div class="main_photo_zone" style='background-image: url(<%=request.getContextPath()%>${product.product_main_photo})'></div>
