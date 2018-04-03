@@ -149,7 +149,7 @@
 						<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 					</a>
 				</li><li>
-					<a href="<%=request.getContextPath()%>/kat/goWith/gowithwriteForm.do">커뮤니티
+					<a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do.do">커뮤니티
 						<img src="<%=request.getContextPath()%>/img/new_ico.png" alt="new" title="new" style="margin-left:2px;" class="addon_menu_new">
 					</a>
 				</li><li>
