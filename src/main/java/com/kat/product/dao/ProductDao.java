@@ -113,7 +113,10 @@ public interface ProductDao {
 	public void insertProductPhoto(ProductInfo productInfo);
 	public void insertProductCourse(ProductInfo productInfo);
 	
-	// 상품 전체 가져오기
+	// 상품 전체 가져오기 ( 여행 상품 메인 )
 	public List<ProductInfo> findAllTravelProduct();
+	
+	//product_no로 상품 정보 가져오기
+	public ProductInfo findProductDetailInfo(int product_no);
 	
 }

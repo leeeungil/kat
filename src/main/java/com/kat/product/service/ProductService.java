@@ -59,6 +59,19 @@ System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoL
 		return productAllInfoList;
 	}
 	
+	// FIND DETAIL PRODUCT INFO
+	public ProductInfo findProductDetailInfo(int product_no) {
+System.out.println("[AddProductService findProductDetailInfo] FIND PRODUCT DETAIL INFO ACCESS");
+System.out.println("[AddProductService findProductDetailInfo] product_no : " + product_no);
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		ProductInfo productInfo = null;
+		productInfo = dao.findProductDetailInfo(product_no);
+System.out.println("[AddProductService findProductDetailInfo] MAPPER(findProductDetailInfo) RETURN");
+System.out.println("[AddProductService findProductDetailInfo] " + productInfo.toString());
+		return productInfo;
+	}
+	
+	
 	// 업데이트 할 제품 데이터 가져오기
 	public MenuInfo getMenuUpdateInfo(int product_no) {
 System.out.println("[AddProductService getMenuUpdateInfo] ACCESS SUCCESS");

@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.ProductInfo;
@@ -22,6 +24,7 @@ public class ProductController {
 	@Autowired
 	private ProductService addProductService;
 	
+	/* 전체 검색 */
 	@RequestMapping("findAllTravelProduct")	
 	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT ACCESS");
@@ -36,9 +39,34 @@ System.out.println("============================================================
 		return modelAndView;
 	}
 	
+	/* type 별로 검색 < 미완성 >  */
+	@RequestMapping("findTravelProductOfType")	
+	public ModelAndView findTravelProductOfType(HttpServletRequest request) throws Exception {
+System.out.println("[ProductController findTravelProductOfType] FIND ALL PRODUCT ACCESS");
+		ModelAndView modelAndView = new ModelAndView();
+		List<ProductInfo> ProductList = null;
+		ProductList = addProductService.findAllTravelProduct();
+System.out.println("[ProductController findTravelProductOfType] ProductList.size() : "+ ProductList.size());		
+		
+		modelAndView.addObject("ProductAllList",ProductList);
+System.out.println("=============================================================");
+		return modelAndView;
+	}
+	
+	/* 해당 product_no의 내용 가져오기 */
+	@RequestMapping("findProductDetailInfo")
+	@ResponseBody
+	public ProductInfo findProductDetailInfo(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController findProductDetailInfo] FIND PRODUCT DETAIL INFO ACCESS");
+System.out.println("[ProductController findProductDetailInfo] product_no : " + product_no);
+		ProductInfo productInfo = addProductService.findProductDetailInfo(product_no);
+System.out.println("[ProductController findProductDetailInfo] "+ productInfo.toString());	
+System.out.println("=============================================================");
+		return productInfo;
+	}
 	
 	
-	
+	/* 상풍 추가하기 */
 	@RequestMapping("add")
 	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController addProduct] PRODUCT ADD ACCESS");

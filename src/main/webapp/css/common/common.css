@@ -1,7 +1,17 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'NanumBarunGothic';
+    src: url('src/main/webapp/font/NanumBarunGothic.eot');
+         url('src/main/webapp/font/NanumBarunGothic.woff') format('woff'),
+         url('src/main/webapp/font/NanumBarunGothic.ttf') format('truetype'),
+    font-weight: normal;
+    font-style: normal;
+}
+
 * { padding: 0; margin: 0; 
-	font-family: 'Nanum Gothic Coding', monospace;
+	font-family: 'Nanum Gothic Coding', serif; 
+	/* font-family: 'NanumBarunGothic', serif; */
 	font-size: 13px;}
 html, body { width: 100%;}
 li { list-style: none; }
