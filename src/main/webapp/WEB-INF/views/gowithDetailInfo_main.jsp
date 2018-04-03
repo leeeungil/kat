@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- css 가져오기 -->
-<%-- <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/gowithList.css">	 --%>
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/gowithInfo.css">
 
 <body>
    <jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>

@@ -1,7 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Date"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ include file="../kat_login/inquire_sessionCheck.jsp"%>
+<div class="imageBox">
+		<img class="gowith_info__main_photo" src="<%=request.getContextPath()%>/img/nature-3042751_1920.jpg"> 
+</div>
 <div class="totalView">
-<div class="gowith_main_title"><span>내용보기</span></div>
-<div class="mainSize"></div>
+<div class="mainSize">
+   <table class="board_view">
+      <colgroup>
+          <col width="15%" />
+          <col width="35%" />
+          <col width="15%" />
+          <col width="35%" />
+      </colgroup>   
+      <caption style="background-color:#ccc; height:50px;">게시글 상세</caption>
+      <tbody>
+          <tr>
+             <th>글 번호</th>
+             <td>${ListInfoGowith.go_with_no}</td>
+             <th>조회수</th>
+             <td>${ListInfoGowith.read_count}</td>
+          </tr>
+          <tr>
+             <th>작성자</th>
+             <td>${ListInfoGowith.user_id}</td>
+             <th>작성일자</th>
+             <td>${go_with.create_date}</td>
+          </tr>
+          <tr>
+             <th>제목</th>
+             <td colspan="3">${ListInfoGowith.go_with_title}</td>
+          </tr>
+          <tr>
+             <td colspan="4" style="border:1px solid #ccc; height:100px;">${ListInfoGowith.go_with_content}</td>
+          </tr>
+      </tbody>
+   </table>
+   
+   
+</div>
 </div>
 

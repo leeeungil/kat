@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<div class="imageBox">
+		<img class="gowith_write__main_photo" src="<%=request.getContextPath()%>/img/nature-3042751_1920.jpg"> 
+</div>    
 <div class="totalView">
 <div class="gowith_main_title"><span>동행 게시판 글작성</span></div>
 <div class="mainSize">
