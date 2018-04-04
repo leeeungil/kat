@@ -71,6 +71,10 @@ System.out.println("============================================================
 	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController addProduct] PRODUCT ADD ACCESS");
 System.out.println("[ProductController addProduct] " + productInfo.toString());
+		productInfo.setUser_profile(productInfo.getUser_profile().replaceAll("\r\n", "<br>"));
+		productInfo.setProduct_content(productInfo.getProduct_content().replaceAll("\r\n", "<br>"));
+		productInfo.setCourse(productInfo.getCourse().replaceAll("\r\n", "<br>"));
+		productInfo.setProduct_info(productInfo.getProduct_info().replaceAll("\r\n", "<br>"));
 		
 		if(productInfo.getFile()!=null){
 			productInfo.setProduct_main_photo("null");

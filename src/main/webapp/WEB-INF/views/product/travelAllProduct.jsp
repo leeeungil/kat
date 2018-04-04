@@ -82,7 +82,106 @@ $(document).ready(function(){
 								 + "								</td>"
 								 + "							</tr></tbody>"
 								 + "						</table>"
-								 + "					</div>";
+								 + "					</div>"
+								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "						<td> <label style='color: #a97228'>프로필 </label> </td>"
+								 + "					</tr></thead>"
+								 + "					<tbody><tr> "
+								 + "						<td>  <p class='product_relate_text_p'>"+data.user_profile+"</p>  </td> "
+								 + "					</tr></tbody></table>";
+					 if(data.product_photo1 != "null") {
+						 htmlAfter += "					<table class='product_relate_table product_relate_photo_table_wrap'><thead><tr>"
+								 + "						<td> "
+								 + "							<label style='color: #a97228'>여행 사진</label>"
+								 + "						</td>"
+								 + "					</tr></thead>"
+								 + "					<tbody><tr>"
+								 + "						<td>"
+								 + "							<table class='product_relate_photo_table'>"
+								 + "								<thead><tr><td colspan='5'>"
+								 + "									<img src='<%=request.getContextPath()%>"+data.product_photo1+"'>"
+								 + "								</td></tr></thead>"
+								 + "								<tbody>"
+								 + "									<tr>";
+								 if(data.product_photo1 == "null") {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+								 } else {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo1+"'></td>"											
+								 }
+								 if(data.product_photo2 == "null") {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+								 } else {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo2+"'></td>"											
+								 }
+								 if(data.product_photo3 == "null") {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+								 } else {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo3+"'></td>"											
+								 }
+								 if(data.product_photo4 == "null") {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+								 } else {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo4+"'></td>"											
+								 }
+								 if(data.product_photo5 == "null") {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+								 } else {
+									htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo5+"'></td>"											
+								 }
+						 htmlAfter += "</tr>";
+						if(data.product_photo6 != "null") {
+							htmlAfter += "								<tr>";
+							if(data.product_photo6 == "null") {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+							} else {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo6+"'></td>"											
+							}
+							if(data.product_photo7 == "null") {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+							} else {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo7+"'></td>"											
+							}
+							if(data.product_photo8 == "null") {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+							} else {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo8+"'></td>"											
+							}
+							if(data.product_photo9 == "null") {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+							} else {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo9+"'></td>"											
+							}
+							if(data.product_photo10 == "null") {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>/uploadfile/product_img/no_image.png' class='blank_image'></td>"
+							} else {
+								htmlAfter += "<td><img src='<%=request.getContextPath()%>"+data.product_photo10+"'></td>"											
+							}
+							htmlAfter += "</tr>";
+						}
+						htmlAfter += "								</tbody>"
+								 + "							</table>"
+								 + "						</td>"
+								 + "					</tr></tbody></table>"
+					 }
+					 	htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+								 + "						<td> <label style='color: #a97228'>상품 상세 설명 </label> </td>"
+								 + "					</tr></thead>"
+								 + "					<tbody><tr>"
+								 + "						<td> <p class='product_relate_text_p'>"+data.product_content+"</p> </td>"
+								 + "					</tr></tbody></table>"
+								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "						<td> <label style='color: #a97228'>코스 상세 설정 </label> </td>"
+								 + "					</tr></thead>"
+								 + "					<tbody><tr>"
+								 + "						<td> <p class='product_relate_text_p'>"+data.course+"</p> </td>"
+								 + "					</tr></tbody></table>"
+								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "						<td> <label style='color: #a97228'>주의 사항 (필수사항) </label> </td>"
+								 + "					</tr></thead>"
+								 + "					<tbody><tr>"
+								 + "						<td> <p class='product_relate_text_p'>"+data.product_info+"</p> </td>"
+								 + "					</tr></tbody></table>";
+								 
 					$(".area").before(htmlBefore);
 					$(".area").html(htmlAfter);
 				}
@@ -93,7 +192,15 @@ $(document).ready(function(){
 	$(document).on("click", "#select_date", function(){
 	    $(this).datepicker();
 	});
-	
+	$(document).on("click", ".product_relate_photo_table > tbody img", function(){
+		var select_img_src = $(this).attr("src");
+		if($(this).attr("class")=='blank_image') {
+			alert('없는 이미지 입니다.')
+		} else { 
+			$(".product_relate_photo_table > thead img").attr("src", select_img_src)		
+		}
+	})
+
 	$(document).on("click","#calc_cost",function(){
 		$(".calc_result").show();
 		var people = $("#people_number").val();
@@ -102,7 +209,6 @@ $(document).ready(function(){
 							 + "<div><font>"+people+" X "+product_cost+"</font><font class='second_line_font'>₩"+(people * product_cost)+"</font></div>"
 							 + "<div class='non_border reserve_btn_wrap'><button class='calc_cost reserve_btn'>예약하기</button></div>";
 	 	$(".calc_result").html(htmlCostResult)
-		alert(people * product_cost);
 	})
 })
 </script>
@@ -113,14 +219,13 @@ $(document).ready(function(){
 	margin: 0 auto;
 }
 .product_main_photo_zone {
-    height: 70vh;
-    width: 94%;
+	height: 600px;
     margin: auto;
     text-align: center;
 }
 .product_main_photo_zone > img{
 	height: 100%;
-    min-width: 1100px;
+    width: 100%;
 }
 .category_text_wrap > font{
     font-weight: 800;
@@ -225,6 +330,44 @@ $(document).ready(function(){
     font-weight: 900;
     font-family: '';
 }
+.product_relate_table {
+	width: 96%;
+    margin: 2%;
+	border-top: 4px dotted #a97228;
+}
+.product_relate_text_p {
+	font-size: 15px;
+    line-height: 28px;
+    word-break: break-all;
+}
+.product_relate_table label {
+    font-size: 16px;
+    line-height: 4;
+    border-bottom: 1px solid #a97228;
+    padding-bottom: 5px;
+}
+.product_relate_photo_table > thead img {
+	width: 100%; 
+	height: 600px;
+}
+.product_relate_photo_table > tbody > tr > td {
+	width: 20%
+}
+.product_relate_photo_table > tbody img {
+	width: 100%;
+    height: 130px;
+    cursor: pointer
+}
+.product_relate_photo_table > tbody img:hover {
+	opacity: 0.8;
+}
+.blank_image {
+	height: 100px!important;
+    width: 100px!important;
+    margin: 0px 54px;
+    opacity: 0.15;
+    background-color: #d8d8d8;
+}
 </style>
 <!-- 메인 부분 -->
 <div class="product_top_wrap">
@@ -238,68 +381,6 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="area area_wrap">
-					<table><thead><tr>
-						<td> <label style="color: #a97228">프로필 </label> </td>
-					</tr></thead>
-					<tbody><tr>
-						<td> <textarea name="user_profile" class="product_content_textArea"></textarea> </td>
-					</tr></tbody></table>
-					
-					<table class="product_photo_table"><thead><tr>
-						<td> 
-							<label style="color: #a97228">여행 상품 사진 등록 (최대 10장) </label>
-							<input type="button" class="photo_btn" id="add" value="추가">
-							<input type="button" class="photo_btn" id="del" value="제거">
-						</td>
-					</tr></thead>
-					<tbody><tr>
-						<td>
-							<ul class="product_image_ul">
-								<li class="product_image_upload filebox bs3-primary preview-image">
-								</li>
-							</ul>
-						</td>
-					</tr></tbody></table>
-					
-					<table><thead><tr>
-						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
-					</tr></thead>
-					<tbody><tr>
-						<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
-					</tr></tbody></table>
-					
-					<table><thead><tr>
-						<td> <label style="color: #a97228">코스 상세 설정 </label> </td>
-					</tr></thead>
-					<tbody><tr>
-						<td>
-							<textarea name="course" class="product_content_textArea"></textarea>
-						</td>
-					</tr></tbody></table>
-					
-					<table><thead><tr>
-						<td> <label style="color: #a97228">주의 사항 (필수사항) </label> </td>
-					</tr></thead>
-					<tbody><tr>
-						<td>
-							<textarea name="product_info" class="product_content_textArea"></textarea>
-						</td>
-					</tr></tbody></table>
-					
-					<table style="width: 100%"><tbody style="float: right"><tr>
-						<td>
-							<ul id="btnstyle">
-								<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
-							</ul>
-						</td>
-						<td>
-							<ul id="btnstyle">
-								<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
-							</ul>
-						</td>
-					</tr></tbody></table>
-					<table style="height: 160px">
-					<tbody><tr><td></td></tr></tbody></table>
  		<c:forEach var="product" items="${ProductAllList}">
 			<div class="product_wrap product_${product.product_type}  cl-effect-12">
 				<input type="hidden" class="product_no" name="product_no" value="${product.product_no}">
