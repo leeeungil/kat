@@ -78,6 +78,7 @@
 	<beans:bean id="ask_To" class="com.kat.article.model.Ask_to" scope="prototype" />
     <beans:bean id="ask_ToInfoListView" class="com.kat.article.model.Ask_toInfoListView" scope="prototype" />
     <beans:bean id="go_with" class="com.kat.article.model.Go_with" scope="prototype" />
+    <beans:bean id="comment" class="com.kat.article.model.Comment" scope="prototype" />
     
 	<!--서비스 등록 -->
 	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />
@@ -89,7 +90,7 @@
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
     <beans:bean id="goWithService" class="com.kat.article.service.GoWithService" />
-
+ 
 
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
 

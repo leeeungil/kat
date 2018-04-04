@@ -16,21 +16,19 @@
 .totalView {
 	padding-top: 5px;
 	width:1000px;
-	height:700px;
 	text-align:center;
 	margin:0 auto;
 }
 
 .mainSize {
 	width:900px;
-	height:700px;
 	float:left;
 	text-align:center;
 }
 
 table,thead,tr {
 	border-style:solid;
-	border-color:gray;
+	border-color:#F2F2F2;
 	border-width:3px;
 	width:900px;
 	height:50px;
@@ -39,7 +37,7 @@ table,thead,tr {
 
 th{
 	border-style:solid;
-	border-color:gray;
+	border-color:#F2F2F2;
 }
 table {
 	margin-left:100px;
@@ -51,20 +49,33 @@ h1 {
     font-size: 32px;
 }
 
-.gowith_write_btn {
-	border:1px solid gray;
-	background-color:#8181F7;
-	border-radius:10px;
-	width:200px;
-	height:40px;
-    margin-left:780px;
+span {
+	text-decoration: none;
+	color:black;
+	font-size:10px;
+}
+.gowith_info_btn {
+	text-align:center;
+	width:600px;
+	float:center;
+	margin-left:80px;
+}
+.gowith_go {
+	float:left;
+	padding-left:20px;
+	width:30px;
 }
 
-.gowith_write_btn span {
-	color:white;
-	line-height: 42px;
+.commentbox {
+	width:900px;
+	text-align:center;
+	margin-left:100px;
 }
-
+.commentbox>textarea {
+	margin-top:20px;
+	width:900px;
+	resize: none;
+}
 
 
 
