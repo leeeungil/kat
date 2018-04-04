@@ -191,7 +191,7 @@ DROP TABLE PRODUCT_COURSE;
 CREATE TABLE PRODUCT_COURSE (
   `product_no` int(20) NOT NULL,
   `course_no` varchar(400) NOT NULL,
-  `course` varchar(400) DEFAULT NULL,
+  `course` varchar(4000) DEFAULT NULL,
   `course_photo_dir` varchar(30) DEFAULT NULL,
   `delete_flag` INT(2),
   FOREIGN KEY(`product_no`) REFERENCES PRODUCT(`product_no`) 
