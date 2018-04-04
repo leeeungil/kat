@@ -24,8 +24,21 @@ $(document).ready(function(){
 		$(".product_3").css("transform", "scale(0.0)");
 		$(".product_4").css("transform", "scale(0.0)");
 		setTimeout(function() {
-			location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
-		}, 200);
+			$.ajax({
+				url:'<%=request.getContextPath()%>/product/findProductDetailInfo',
+				type: 'post',
+				dataType: 'json',
+				data:{ "productNo": productNo },
+				success: function(data){
+					var people = $("#people_number").val();
+					var product_cost = $("#product_cost").attr("class");
+					$(".product_wrap").remove();
+								 
+					$(".area").before(htmlBefore);
+					$(".area").html(htmlAfter);
+				}
+			})
+		}, 300);
 	})
 	
 	$(document).on("click", "#select_date", function(){
@@ -210,52 +223,8 @@ $(document).ready(function(){
 </style>
 <!-- 메인 부분 -->
 <div class="product_top_wrap">
-	<div class="product_choice_wrap">
-		<div class="product_choice_btn">
-			<div id="0" class="total_btn">전체</div>
-			<div id="1" class="tour_btn">투어</div>
-			<div id="2" class="shuttle_btn">셔틀</div>
-			<div id="3" class="ticket_btn">티켓</div>
-			<div id="4" class="snap_btn">스냅</div>
-		</div>
-	</div>
+	${htmlBefore}
 	<div class="area area_wrap">
- 		<c:forEach var="product" items="${ProductAllList}">
-			<div class="product_wrap product_${product.product_type}  cl-effect-12">
-				<input type="hidden" class="product_no" name="product_no" value="${product.product_no}">
-				<div class="main_photo_zone" style='background-image: url(<%=request.getContextPath()%>${product.product_main_photo})'></div>
-				<table class="product_title">
-					<thead><tr>
-						<td>
-							<c:choose>
-								<c:when test="${product.product_type eq '1' }">
-									<font class="tour_color">${product.country} > ${product.city}</font>
-								</c:when>
-								<c:when test="${product.product_type eq '2' }">
-									<font class="shuttle_color">${product.country} > ${product.city}</font>
-								</c:when>
-								<c:when test="${product.product_type eq '3' }">
-									<font class="ticket_color">${product.country} > ${product.city}</font>
-								</c:when>
-								<c:when test="${product.product_type eq '4' }">
-									<font class="snap_color">${product.country} > ${product.city}</font>
-								</c:when>
-							</c:choose>
-						</td>
-					</tr></thead>
-					<tbody><tr>
-						<td>
-							<font>${product.product_title}</font>
-						</td>
-					</tr></tbody>
-				</table>
-				<div class="blank">
-				
-				</div>
-				<div class="product_cost">
-					${product.cost} / 1인
-				</div>
-			</div>
-		</c:forEach>
+	${htmlAfter}
 	</div>
 </div>

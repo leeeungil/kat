@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.ProductInfo;
@@ -55,16 +54,174 @@ System.out.println("============================================================
 	
 	/* 해당 product_no의 내용 가져오기 */
 	@RequestMapping("findProductDetailInfo")
-	@ResponseBody
-	public ProductInfo findProductDetailInfo(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
+	public ModelAndView findProductDetailInfo(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findProductDetailInfo] FIND PRODUCT DETAIL INFO ACCESS");
 System.out.println("[ProductController findProductDetailInfo] product_no : " + product_no);
 		ProductInfo productInfo = addProductService.findProductDetailInfo(product_no);
+		String htmlBefore = "<div class='product_main_photo_zone'>"
+						+ "	<img src='"+request.getContextPath()+productInfo.getProduct_main_photo() + "'>"
+						+ "</div>";
+		String htmlAfter= "<div class='form_basic_wrap'>"
+						+ "					<div class='category' id='category'>"
+						+ "						<div class='category_text_wrap'>"
+						+ "							<font>"+productInfo.getCountry()+" > "+productInfo.getCity()+"</font>"
+						+ "						</div>"
+						+ "					</div>"
+						+ "					<div class='product_total_content'>"
+						+ "						<div class='main_title_text_wrap'>"
+						+ "							<font>"+productInfo.getProduct_title()+"</font>"
+						+ "						</div>"
+						+ "					</div>"
+						+ "					<div class='product_total_content'>"
+						+ "						<div class='cost_text_wrap'>"
+						+ "							<font id='product_cost' class='"+productInfo.getCost()+"'> ￦"+productInfo.getCost()+"</font>/ 1인"
+						+ "						</div>"
+						+ "					</div>"
+						+ "					<div class='product_total_content date_wrap'>"
+						+ "						<table>"
+						+ "							<thead><tr>"
+						+ "								<td colspan='3'>날짜와 인원을 선택해주세요.</td>"
+						+ "							</tr></thead>"
+						+ "							<tbody><tr>"
+						+ "								<td>"
+						+ "									<input type='text' class='datePick' name='select_date' id='select_date' placeholder='날짜 선택'>"
+						+ "								</td>"
+						+ "								<td>"
+						+ "									<select class='select' id='people_number' name='people_number' title='인원 선택'>"
+						+ "								        <option value='0' selected='selected'>인원 선택</option>"
+						+ "								        <option value='1'>1명</option>"
+						+ "								        <option value='2'>2명</option>"
+						+ "								        <option value='3'>3명</option>"
+						+ "								        <option value='4'>4명</option>"
+						+ "								        <option value='5'>5명</option>"
+						+ "								        <option value='6'>6명</option>"
+						+ "								        <option disabled>그 외 문의요청</option>"
+						+ "								    </select>"
+						+ "								</td>"
+						+ "								<td>"
+						+ "									<button class='calc_cost' id='calc_cost' name='calc_cost' value='calc_cost'>경비 계산기</button>"
+						+ "								</td>"
+						+ "							</tr>"
+						+ "							<tr>"
+						+ "								<td colspan='3' class='calc_result'>"
+						+ "								</td>"
+						+ "							</tr></tbody>"
+						+ "						</table>"
+						+ "					</div>";
+		if(!productInfo.getUser_profile().equals("null")) {
+			htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+					+ "						<td> <label style='color: #a97228'>프로필 </label> </td>"
+					+ "					</tr></thead>"
+					+ "					<tbody><tr> "
+					+ "						<td>  <p class='product_relate_text_p'>"+productInfo.getUser_profile()+"</p>  </td> "
+					+ "					</tr></tbody></table>";
+		}
+		if(!productInfo.getProduct_photo1().equals("null")) {
+			htmlAfter += "					<table class='product_relate_table product_relate_photo_table_wrap'><thead><tr>"
+					+ "						<td> "
+					+ "							<label style='color: #a97228'>여행 사진</label>"
+					+ "						</td>"
+					+ "					</tr></thead>"
+					+ "					<tbody><tr>"
+					+ "						<td>"
+					+ "							<table class='product_relate_photo_table'>"
+					+ "								<thead><tr><td colspan='5'>"
+					+ "									<img src='"+request.getContextPath()+productInfo.getProduct_photo1()+"'>"
+					+ "								</td></tr></thead>"
+					+ "								<tbody>"
+					+ "									<tr>";
+			if(productInfo.getProduct_photo1().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo1()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo2().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo2()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo3().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo3()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo4().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo4()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo5().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo5()+"'></td>";											
+			}
+			htmlAfter += "</tr>";
+		}
+		if(!productInfo.getProduct_photo6().equals("null")) {
+			htmlAfter += "								<tr>";
+			if(productInfo.getProduct_photo6().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo6()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo7().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo7()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo8().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo8()+"'></td>";											
+			}
+			if(productInfo.getProduct_photo9().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo9()+"'></td>";								
+			}
+			if(productInfo.getProduct_photo10().equals("null")) {
+				htmlAfter += "<td><img src='"+request.getContextPath()+"/uploadfile/product_img/no_image.png' class='blank_image'></td>";
+			} else {
+				htmlAfter += "<td><img src='"+request.getContextPath()+productInfo.getProduct_photo10()+"'></td>"	;										
+			}
+			htmlAfter += "</tr>";
+		}
+		htmlAfter += "								</tbody>"
+				+ "							</table>"
+				+ "						</td>"
+				+ "					</tr></tbody></table>";
+		if(!productInfo.getProduct_content().equals("null")) {
+			htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+					+ "						<td> <label style='color: #a97228'>상품 상세 설명 </label> </td>"
+					+ "					</tr></thead>"
+					+ "					<tbody><tr>"
+					+ "						<td> <p class='product_relate_text_p'>"+productInfo.getProduct_content()+"</p> </td>"
+					+ "					</tr></tbody></table>";
+		}
+		if(!productInfo.getCourse().equals("null")) {
+			htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+					+ "						<td> <label style='color: #a97228'>코스 상세 설정 </label> </td>"
+					+ "					</tr></thead>"
+					+ "					<tbody><tr>"
+					+ "						<td> <p class='product_relate_text_p'>"+productInfo.getCourse()+"</p> </td>"
+					+ "					</tr></tbody></table>";
+		}
+		if(!productInfo.getProduct_info().equals("null")) {
+			htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+					+ "						<td> <label style='color: #a97228'>주의 사항 (필수사항) </label> </td>"
+					+ "					</tr></thead>"
+					+ "					<tbody><tr>"
+					+ "						<td> <p class='product_relate_text_p'>"+productInfo.getProduct_info()+"</p> </td>"
+					+ "					</tr></tbody></table>";
+		}
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("htmlBefore", htmlBefore);
+		modelAndView.addObject("htmlAfter", htmlAfter);
+		modelAndView.setViewName("layout/productDetaillInfoLayout");
 System.out.println("[ProductController findProductDetailInfo] "+ productInfo.toString());	
 System.out.println("=============================================================");
-		return productInfo;
+		return modelAndView;
 	}
-	
 	
 	/* 상풍 추가하기 */
 	@RequestMapping("add")
