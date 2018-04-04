@@ -64,6 +64,9 @@
 	width: 1100px;
 	margin: auto;
 	margin-top: 15px;
+    border-right: 1px solid #a97228;
+    border-left: 1px solid #a97228;
+    border-bottom: 1px solid #a97228;
 }
 .add_search_border_menu {
 	border: 1px solid #BDBDBD;
