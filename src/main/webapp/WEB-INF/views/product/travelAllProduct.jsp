@@ -82,13 +82,15 @@ $(document).ready(function(){
 								 + "								</td>"
 								 + "							</tr></tbody>"
 								 + "						</table>"
-								 + "					</div>"
-								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "					</div>";
+					 if(data.user_profile != "null") {
+						 htmlAfter += "					<table class='product_relate_table'><thead><tr>"
 								 + "						<td> <label style='color: #a97228'>프로필 </label> </td>"
 								 + "					</tr></thead>"
 								 + "					<tbody><tr> "
 								 + "						<td>  <p class='product_relate_text_p'>"+data.user_profile+"</p>  </td> "
 								 + "					</tr></tbody></table>";
+					 }
 					 if(data.product_photo1 != "null") {
 						 htmlAfter += "					<table class='product_relate_table product_relate_photo_table_wrap'><thead><tr>"
 								 + "						<td> "
@@ -163,24 +165,30 @@ $(document).ready(function(){
 								 + "						</td>"
 								 + "					</tr></tbody></table>"
 					 }
-					 	htmlAfter += "					<table class='product_relate_table'><thead><tr>"
+				 if(data.product_content != "null") {
+					 htmlAfter += "					<table class='product_relate_table'><thead><tr>"
 								 + "						<td> <label style='color: #a97228'>상품 상세 설명 </label> </td>"
 								 + "					</tr></thead>"
 								 + "					<tbody><tr>"
 								 + "						<td> <p class='product_relate_text_p'>"+data.product_content+"</p> </td>"
-								 + "					</tr></tbody></table>"
-								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "					</tr></tbody></table>";
+				 }
+				 if(data.course != "null") {
+					 htmlAfter += "					<table class='product_relate_table'><thead><tr>"
 								 + "						<td> <label style='color: #a97228'>코스 상세 설정 </label> </td>"
 								 + "					</tr></thead>"
 								 + "					<tbody><tr>"
 								 + "						<td> <p class='product_relate_text_p'>"+data.course+"</p> </td>"
-								 + "					</tr></tbody></table>"
-								 + "					<table class='product_relate_table'><thead><tr>"
+								 + "					</tr></tbody></table>";
+				 }
+				 if(data.product_info != "null") {
+					 htmlAfter += "					<table class='product_relate_table'><thead><tr>"
 								 + "						<td> <label style='color: #a97228'>주의 사항 (필수사항) </label> </td>"
 								 + "					</tr></thead>"
 								 + "					<tbody><tr>"
 								 + "						<td> <p class='product_relate_text_p'>"+data.product_info+"</p> </td>"
 								 + "					</tr></tbody></table>";
+				 }
 								 
 					$(".area").before(htmlBefore);
 					$(".area").html(htmlAfter);
