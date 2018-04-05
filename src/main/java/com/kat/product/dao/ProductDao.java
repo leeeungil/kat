@@ -115,6 +115,8 @@ public interface ProductDao {
 	
 	// 상품 전체 가져오기 ( 여행 상품 메인 )
 	public List<ProductInfo> findAllTravelProduct();
+	public List<ProductInfo> findTypeTravelProduct(int product_type);
+	public List<ProductInfo> findWordTravelProduct(String search_word);
 	
 	//product_no로 상품 정보 가져오기
 	public ProductInfo findProductDetailInfo(int product_no);

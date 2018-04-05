@@ -40,6 +40,16 @@
 		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
 		FROM PRODUCT WHERE DELETE_FLAG=0
 	</select>
+	<!-- product_type 별로 가져오기 -->
+	<select id="findTypeTravelProduct" resultType="com.kat.product.model.ProductInfo">
+		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
+		FROM PRODUCT WHERE PRODUCT_TYPE=#{product_type} AND DELETE_FLAG=0
+	</select>
+	<!-- search_word 검색 후 가져오기 (메인 제목, 대륙, 도시, 국가) -->
+	<select id="findWordTravelProduct" resultType="com.kat.product.model.ProductInfo">
+		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
+		FROM PRODUCT WHERE (PRODUCT_TITLE LIKE #{search_word} OR CONTINENT LIKE #{search_word} OR COUNTRY LIKE #{search_word} OR CITY LIKE #{search_word} ) AND DELETE_FLAG=0
+	</select>
 	<!-- 여행 상품 상세 정보 가져오기 -->
 	<select id="findProductDetailInfo" resultType="com.kat.product.model.ProductInfo">
 		SELECT *

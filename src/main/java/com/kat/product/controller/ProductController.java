@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.ProductInfo;
@@ -38,18 +39,115 @@ System.out.println("============================================================
 		return modelAndView;
 	}
 	
-	/* type 별로 검색 < 미완성 >  */
-	@RequestMapping("findTravelProductOfType")	
-	public ModelAndView findTravelProductOfType(HttpServletRequest request) throws Exception {
+	@RequestMapping(value ="findTravelProductOfType", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String findTravelProductOfType(@RequestParam(value="productType") int product_type, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findTravelProductOfType] FIND ALL PRODUCT ACCESS");
-		ModelAndView modelAndView = new ModelAndView();
-		List<ProductInfo> ProductList = null;
-		ProductList = addProductService.findAllTravelProduct();
-System.out.println("[ProductController findTravelProductOfType] ProductList.size() : "+ ProductList.size());		
-		
-		modelAndView.addObject("ProductAllList",ProductList);
+System.out.println("[ProductController findTravelProductOfType] product_type : " + product_type);
+		List<ProductInfo> productList = null;
+		if(product_type==0) {
+			productList = addProductService.findAllTravelProduct();
+		} else {
+			productList = addProductService.findTypeTravelProduct(product_type);
+		}
+		String htmlCode = "";
+		if(productList.size()!=0) {
+			for(int i =0; i<productList.size(); i++) {
+				htmlCode += "<div class='product_wrap product_"+productList.get(i).getProduct_type()+" cl-effect-12'>"+
+						"	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"+
+						"	<div class='main_photo_zone' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'></div>"+
+						"	<table class='product_title'>"+
+						"		<thead><tr>"+
+						"			<td>";
+				if(productList.get(i).getProduct_type()==1) {
+					htmlCode += "<font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==2) {
+					htmlCode += "<font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==3) {
+					htmlCode += "<font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==4) {
+					htmlCode += "<font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				htmlCode +=	"			</td>                                                                                                                      "+
+						"		</tr></thead>                                                                                                                  "+
+						"		<tbody><tr>                                                                                                                    "+
+						"			<td>                                                                                                                       "+
+						"				<font>"+productList.get(i).getProduct_title()+"</font>                                                                                  "+
+						"			</td>                                                                                                                      "+
+						"		</tr></tbody>                                                                                                                  "+
+						"	</table>                                                                                                                           "+
+						"	<div class='blank'>                                                                                                                "+
+						"	                                                                                                                                   "+
+						"	</div>                                                                                                                             "+
+						"	<div class='product_cost'>                                                                                                         "+
+						"		"+productList.get(i).getCost()+" / 1인 																										   "+
+						"	</div>                                                                                                                             "+
+						"</div>                                                                                                                                ";
+				
+			}
+		}
 System.out.println("=============================================================");
-		return modelAndView;
+		return htmlCode;
+	}
+	
+	@RequestMapping(value ="findTravelProductOfWord", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String findTravelProductOfWord(@RequestParam(value="search_word") String search_word, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController findTravelProductOfWord] FIND WORD PRODUCT ACCESS");
+System.out.println("[ProductController findTravelProductOfWord] search_word : " + search_word);
+		List<ProductInfo> productList = null;
+		if(search_word.trim().equals("")){
+			productList = addProductService.findAllTravelProduct();
+		} else {
+			productList = addProductService.findWordTravelProduct(search_word);
+		}
+		String htmlCode = "";
+		if(productList.size()==0) {
+			htmlCode = "<div class='product_wrap'>등록된 상품이 없습니다.</div>";
+		} else {
+			
+			for(int i =0; i<productList.size(); i++) {
+				htmlCode += "<div class='product_wrap product_"+productList.get(i).getProduct_type()+" cl-effect-12'>"+
+						"	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"+
+						"	<div class='main_photo_zone' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'></div>"+
+						"	<table class='product_title'>"+
+						"		<thead><tr>"+
+						"			<td>";
+				if(productList.get(i).getProduct_type()==1) {
+					htmlCode += "<font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==2) {
+					htmlCode += "<font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==3) {
+					htmlCode += "<font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				if(productList.get(i).getProduct_type()==4) {
+					htmlCode += "<font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+				}
+				htmlCode +=	"			</td>                                                                                                                      "+
+						"		</tr></thead>                                                                                                                  "+
+						"		<tbody><tr>                                                                                                                    "+
+						"			<td>                                                                                                                       "+
+						"				<font>"+productList.get(i).getProduct_title()+"</font>                                                                                  "+
+						"			</td>                                                                                                                      "+
+						"		</tr></tbody>                                                                                                                  "+
+						"	</table>                                                                                                                           "+
+						"	<div class='blank'>                                                                                                                "+
+						"	                                                                                                                                   "+
+						"	</div>                                                                                                                             "+
+						"	<div class='product_cost'>                                                                                                         "+
+						"		"+productList.get(i).getCost()+" / 1인 																										   "+
+						"	</div>                                                                                                                             "+
+						"</div>                                                                                                                                ";
+				
+			}
+		}
+System.out.println("=============================================================");
+		return htmlCode;
 	}
 	
 	/* 해당 product_no의 내용 가져오기 */

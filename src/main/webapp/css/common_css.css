@@ -49,13 +49,6 @@ img {
 	top: 30px;
 }
 
-#content_menu {
-	text-align: center;
-	width: 1000px;
-	margin: auto;
-	margin-top: 30px;
-}
-
 .btn1 {
 	border: 0px solid;
 	width: 300px;
@@ -88,10 +81,6 @@ img {
 	background-color: dimgray;
 	border: 1px solid dimgray;
 	color: white;
-}
-
-#content_menu a {
-	text-decoration: underline;
 }
 
 .mainImg {

@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+.product_top_wrap {
+	width: 100%;
+	height: 1030px;
+}
+.area {
+    width: 1100px;
+    height: calc(100% - 40px);
+    margin: auto;
+}
+.product_wrap {
+	width: 23%;
+    margin: 11px 11px;
+    background-color: white;
+    height: 308px;
+    float: left;
+    box-shadow: #e9ecef 0px 0px 1px 1px;
+    border-bottom-right-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+}
+.product_wrap:hover {
+	box-shadow: #0e0e0e 0px 0px 10px 1px;
+}
+.main_photo_zone {
+	height: 60%;
+    width: 100%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.main_photo_zone > img {
+	width: 100%;
+    height: 100%;
+}
+.product_title {
+    width: 240px;
+    margin: 3px auto;
+    height: 60px;
+}
+.product_title > thead font{
+    font-size: 11px;
+    padding: 3px 3px 3px 3px;
+}
+.tour_color {
+    color: #ffffff;
+    background: #0084fe;
+}
+.shuttle_color {
+    color: #ffffff;
+    background: #ffa500;
+}
+.ticket_color {
+    color: #ffffff;
+    background: #29a600;
+}
+.snap_color {
+    color: #ffffff;
+    background: #ff0000;
+}
+.product_title > tbody font{
+	font-weight: 800;
+    font-size: 16px;
+    letter-spacing: -1px;
+}
+.blank {
+	height: calc(100% - 272px);
+}
+.product_cost{
+    width: 240px;
+    margin: 0px auto;
+    text-align: right;
+    margin-right: 13px;
+    font-size: 12px;
+    color: #6c6c6c;
+}
+
+/* 선택지 */
+.travelProductTop{
+    color: #2d99fd!important;
+    border-color: #0084fe!important;
+}
+.cl-effect-12 {
+	position: relative;
+}
+.cl-effect-12::before, .cl-effect-12::after {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 78px;
+    height: 78px;
+    border: 2px solid rgba(0, 0, 0, 0.71);
+    border-radius: 50%;
+    content: '';
+    opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+    transition: transform 0.3s, opacity 0.3s;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.2);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.2);
+    transform: translateX(-50%) translateY(-50%) scale(0.2);
+}
+.cl-effect-12::after {
+	width: 85px;
+    height: 85px;
+    border-width: 6px;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(0.8);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(0.8);
+    transform: translateX(-50%) translateY(-50%) scale(0.8);
+}
+.cl-effect-12:hover::before, .cl-effect-12:hover::after, .cl-effect-12:focus::before, .cl-effect-12:focus::after {
+    opacity: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1.5);
+    -moz-transform: translateX(-50%) translateY(-50%) scale(1.5);
+    transform: translateX(-50%) translateY(-50%) scale(1.5);
+    z-index: 10;
+}
+

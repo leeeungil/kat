@@ -18,55 +18,52 @@
 					<input type="text" value="상품" class="main_select select_product" id="product_select" onclick="main_choice_menu(4) " name="select_product" readonly>
 					<!-- <input type="search" placeholder=" KEYWORD" class="menu_keyword" onclick="key_hide()" name="select_key" style="font-size: 26px;"> -->
 					<input type="submit" value="검색" class='main_select search_data' id="search_data">
-					
-					<!-- <input type="reset" value="초기화" id="searchreset"> -->
+				</div>
+				<!-- 메뉴 선택 컨텐츠 -->
+				<div id="continent" style="display: none">
+					<ul id="menu_step2">
+						<li id="B" onclick="continent_select('셔틀')">셔틀</li>
+						<li id="W" onclick="continent_select('투어')">투어</li>
+						<li id="K" onclick="continent_select('가이드')">가이드</li>
+						<li id="E" onclick="continent_select('기타')">기타</li>
+					</ul>
+				</div>
+				<!-- 메뉴 선택 컨텐츠 -->
+				<div id="country" style="display: none">
+					<ul id="menu_step2">
+						<li id="B" onclick="country_select('셔틀')">셔틀</li>
+						<li id="W" onclick="country_select('투어')">투어</li>
+						<li id="K" onclick="country_select('가이드')">가이드</li>
+						<li id="E" onclick="country_select('기타')">기타</li>
+					</ul>
+				</div>
+				<!-- 지역선택 컨텐츠 -->
+				<div id="city" style="display: none">
+					<ul id="area_step2">
+						<li id="seoul" onclick="city_select('서울')">서울</li>
+						<li id="gyeonggi" onclick="city_select('경기')">경기도</li>
+						<li id="jeju" onclick="city_select('제주')">제주</li>
+						<li id="busan" onclick="city_select('부산')">부산</li>
+						<li id="chungnam" onclick="city_select('충남')">충청남도</li>
+						<li id="chungbuk" onclick="city_select('충북')">충청북도</li>
+						<li id="jeonnam" onclick="city_select('전남')">전라남도</li>
+						<li id="gyeongbuk" onclick="city_select('경북')">경상북도</li>
+						<li id="gyeongnam" onclick="city_select('경남')">경상남도</li>
+						<li id="jeonbuk" onclick="city_select('전북')">전라북도</li>
+						<li id="ulsan" onclick="city_select('울산')">울산</li>
+						<li id="daejeon" onclick="city_select('대전')">대전</li>
+						<li id="daegu" onclick="city_select('대구')">대구</li>
+					</ul>
+				</div>
 
-					<!-- 메뉴 선택 컨텐츠 -->
-					<div id="continent" style="display: none">
-						<ul id="menu_step2">
-							<li id="B" onclick="continent_select('셔틀')">셔틀</li>
-							<li id="W" onclick="continent_select('투어')">투어</li>
-							<li id="K" onclick="continent_select('가이드')">가이드</li>
-							<li id="E" onclick="continent_select('기타')">기타</li>
-						</ul>
-					</div>
-					<!-- 메뉴 선택 컨텐츠 -->
-					<div id="country" style="display: none">
-						<ul id="menu_step2">
-							<li id="B" onclick="country_select('셔틀')">셔틀</li>
-							<li id="W" onclick="country_select('투어')">투어</li>
-							<li id="K" onclick="country_select('가이드')">가이드</li>
-							<li id="E" onclick="country_select('기타')">기타</li>
-						</ul>
-					</div>
-					<!-- 지역선택 컨텐츠 -->
-					<div id="city" style="display: none">
-						<ul id="area_step2">
-							<li id="seoul" onclick="city_select('서울')">서울</li>
-							<li id="gyeonggi" onclick="city_select('경기')">경기도</li>
-							<li id="jeju" onclick="city_select('제주')">제주</li>
-							<li id="busan" onclick="city_select('부산')">부산</li>
-							<li id="chungnam" onclick="city_select('충남')">충청남도</li>
-							<li id="chungbuk" onclick="city_select('충북')">충청북도</li>
-							<li id="jeonnam" onclick="city_select('전남')">전라남도</li>
-							<li id="gyeongbuk" onclick="city_select('경북')">경상북도</li>
-							<li id="gyeongnam" onclick="city_select('경남')">경상남도</li>
-							<li id="jeonbuk" onclick="city_select('전북')">전라북도</li>
-							<li id="ulsan" onclick="city_select('울산')">울산</li>
-							<li id="daejeon" onclick="city_select('대전')">대전</li>
-							<li id="daegu" onclick="city_select('대구')">대구</li>
-						</ul>
-					</div>
-
-					<!-- 메뉴 선택 컨텐츠 -->
-					<div id="product" style="display: none">
-						<ul id="menu_step2">
-							<li id="B" onclick="product_select('셔틀')">셔틀</li>
-							<li id="W" onclick="product_select('투어')">투어</li>
-							<li id="K" onclick="product_select('가이드')">가이드</li>
-							<li id="E" onclick="product_select('기타')">기타</li>
-						</ul>
-					</div>
+				<!-- 메뉴 선택 컨텐츠 -->
+				<div id="product" style="display: none">
+					<ul id="menu_step2">
+						<li id="B" onclick="product_select('셔틀')">셔틀</li>
+						<li id="W" onclick="product_select('투어')">투어</li>
+						<li id="K" onclick="product_select('가이드')">가이드</li>
+						<li id="E" onclick="product_select('기타')">기타</li>
+					</ul>
 				</div>
 			</form>
 			

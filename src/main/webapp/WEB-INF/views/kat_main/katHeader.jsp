@@ -84,7 +84,7 @@
 					<li><a href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${user_id != null}">
-					<li style="color:#ffffff">${user_id} 님  [ ${user_category} ]
+					<li style="color:#000000">${user_id} 님  [ ${user_category} ]
 						<c:if test="${user_id == 'Master'}">
 							<span style="color: red;"><strong>마스터 </strong></span>
 						</c:if> 

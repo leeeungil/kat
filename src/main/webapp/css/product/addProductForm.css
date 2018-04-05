@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 .img{
     position: relative;
     background-image: url(/project/img/mainSlider/2.jpg);
@@ -64,9 +63,6 @@
 	width: 1100px;
 	margin: auto;
 	margin-top: 15px;
-    border-right: 1px solid #a97228;
-    border-left: 1px solid #a97228;
-    border-bottom: 1px solid #a97228;
 }
 .add_search_border_menu {
 	border: 1px solid #BDBDBD;
@@ -114,6 +110,10 @@ label {
     padding: 0 10px;
     opacity: 0;
     filter: alpha(opacity=0); /* IE 8 */
+}
+.product_title_add_form {
+	width: 1047px;
+    padding-left: 25px;
 }
 .wrap {
 	float: left;

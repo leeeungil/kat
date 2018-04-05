@@ -58,7 +58,27 @@ System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoL
 System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoList.get(0).toString());
 		return productAllInfoList;
 	}
-	
+	// FIND PRODUCT_TYPE PRODUCT
+	public List<ProductInfo> findTypeTravelProduct(int product_type) {
+System.out.println("[AddProductService findTypeTravelProduct] FIND TYPE PRODUCT ACCESS");
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		List<ProductInfo> productAllInfoList = null;
+		productAllInfoList = dao.findTypeTravelProduct(product_type);
+System.out.println("[AddProductService findTypeTravelProduct] MAPPER(findAllTravelProduct) RETURN");
+System.out.println("[AddProductService findTypeTravelProduct] " + productAllInfoList.size());
+		return productAllInfoList;
+	}
+	// FIND WORD PRODUCT
+		public List<ProductInfo> findWordTravelProduct(String search_word) {
+	System.out.println("[AddProductService findWordTravelProduct] FIND WORD PRODUCT ACCESS");
+	        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+			List<ProductInfo> productAllInfoList = null;
+			productAllInfoList = dao.findWordTravelProduct("%"+search_word+"%");
+	System.out.println("[AddProductService findWordTravelProduct] MAPPER(findWordTravelProduct) RETURN");
+	System.out.println("[AddProductService findWordTravelProduct] " + productAllInfoList.size());
+			return productAllInfoList;
+		}
+		
 	// FIND DETAIL PRODUCT INFO
 	public ProductInfo findProductDetailInfo(int product_no) {
 System.out.println("[AddProductService findProductDetailInfo] FIND PRODUCT DETAIL INFO ACCESS");

@@ -68,15 +68,6 @@ img {
 	}
 }
 
-컨텐츠 메뉴
-#content_menu {
-	text-align: center;
-	margin: auto;
-	width: 1400px;
-	margin-top: -250px;
-	z-index: 12;
-}
-
 대륙선택
 .select_area1 {
 	border: 0px solid;
