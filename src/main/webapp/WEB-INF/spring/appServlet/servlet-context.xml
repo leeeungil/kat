@@ -90,7 +90,7 @@
 	<beans:bean id="reviewService" class="com.kat.review.service.ReviewService" />
 	<beans:bean id="reviewListService" class="com.kat.review.service.ReviewListService" />
     <beans:bean id="goWithService" class="com.kat.article.service.GoWithService" />
- 
+    <beans:bean id="commentService" class="com.kat.article.service.CommentService" />
 
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
 

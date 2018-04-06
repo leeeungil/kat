@@ -224,3 +224,34 @@ CREATE TABLE PHOTO (
   `create_date` datetime NOT NULL,
   PRIMARY KEY (`photo_no`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
+/* 동행, 댓글 */
+DROP TABLE GO_WITH;
+CREATE TABLE `GO_WITH` (
+  `go_with_no` int(11) NOT NULL AUTO_INCREMENT,
+  `go_with_title` varchar(200) NOT NULL,
+  `go_with_content` varchar(2000) NOT NULL,
+  `user_id` varchar(200) NOT NULL,
+  `create_date` datetime NOT NULL,
+  `read_count` int(11) DEFAULT NULL,
+  `delete_flag` int(2) DEFAULT NULL,
+  PRIMARY KEY (`go_with_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+/* 댓글 테이블 */
+DROP TABLE COMMENT;
+CREATE TABLE COMMENT (
+  `cmt_no` int(11) NOT NULL AUTO_INCREMENT, /*댓글번호*/
+  `cmt_content` varchar(200) NOT NULL, /*댓글 내용*/
+  `cmt_user_id` varchar(45) NOT NULL, /*댓글 작성자*/
+  `cmt_password` varchar(45) NOT NULL, /*댓글 비밀번호*/
+  `cmt_create_date` datetime NOT NULL, /*댓글 작성일*/
+  `cmt_ip` int(11) NOT NULL, /*댓글 등록한 아이피*/
+  `cmt_del` int(11) DEFAULT NULL, /*댓글 삭제여부 삭제:1 존재:0*/ 
+  `cmt_parent` int(11) NOT NULL, /*부모글*/
+  `delete_flag` INT(2),
+  PRIMARY KEY (`cmt_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

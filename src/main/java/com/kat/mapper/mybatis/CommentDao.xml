@@ -6,7 +6,7 @@
 <mapper namespace="com.kat.article.dao.CommentDao">
 
    <insert id="commentInsert" parameterType="com.kat.article.model.Comment">
-      
+      INSERT INTO COMMENT
+      VALUES (0, #{cmt_parent}, #{cmt_content}, #{cmt_user_id}, #{cmt_password}, now(), 0)
    </insert>
-
 </mapper>

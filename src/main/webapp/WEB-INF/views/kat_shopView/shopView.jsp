@@ -151,9 +151,8 @@
 		href="<%=request.getContextPath()%>/customer/board/writelist.do">문의하기</a>
 	<!-- 로그인한 사용자만 글쓰기 버튼을 활성화 -->
 <c:if test="${sessionScope.user_id != null}">
-		<div id="reviewWriteBtn">
-		<a id="review_btn"
-				href="<c:url value="/kat/reviewWriteForm/write.do?SearchName=${SearchName}"/>">리뷰쓰기</a>
+        <div id="reviewWriteBtn">
+		<a id="review_btn" href="<c:url value="/kat/reviewWriteForm/write.do?SearchName=${SearchName}"/>">리뷰쓰기</a>
 		</div>
 	</c:if>
 	<c:if test="${sessionScope.user_id == null}">

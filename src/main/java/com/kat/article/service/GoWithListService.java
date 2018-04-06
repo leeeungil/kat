@@ -57,5 +57,14 @@ System.out.println("[GoWithListService findGoWithList()] FINESH");
 		return info;
 	}
 
+	//수정할 내용 가져오기
+	public Go_with sendgowithInfoUpdate(int no) {
+		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
+		Go_with info = dao.sendgowithUpdateInfo(no);
+		return info;
+	}
+
+	
+
 	
 }

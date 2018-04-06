@@ -28,4 +28,10 @@
      WHERE go_with_no = #{no1}
   </select>
   
+  <select id="sendgowithUpdateInfo" resultType="com.kat.article.model.Go_with">
+     SELECT *
+     FROM go_with
+     WHERE go_with_no = #{no1}
+  </select>
+  
   </mapper>

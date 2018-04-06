@@ -11,6 +11,7 @@ public class GoWithService {
 	@Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 	private Go_withDao dao;
+
 	
 	//동행 글 작성하기
 	public void gowithInsert(Go_with go_with) {
@@ -19,5 +20,5 @@ System.out.println("[GoWithService gowithInsert()] ACCESS SUCESS");
         dao.go_withInsert(go_with);
 System.out.println("[GoWithService gowithInsert()] go_with :" + go_with.toString());	
 	}
-
+	
 }

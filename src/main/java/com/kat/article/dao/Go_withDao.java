@@ -18,4 +18,7 @@ public interface Go_withDao {
 	//특정번호의 동행글 가져오기
 	public Go_with gowithInfo(int no);
 
+	//특정번호의 수정할 내용 가져오기
+	public Go_with sendgowithUpdateInfo(int no);
+
 }
