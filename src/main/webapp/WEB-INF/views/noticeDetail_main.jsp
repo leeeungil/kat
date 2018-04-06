@@ -26,9 +26,9 @@
 <body>
 	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp"
 		flush="false"></jsp:include>
-	<main> <jsp:include
+	<jsp:include
 		page="/WEB-INF/views/kat_customer/NoticeListInfo.jsp"
-		flush="false"></jsp:include> </main>
+		flush="false"></jsp:include>
 
 	<jsp:include page="/WEB-INF/views/kat_main/katFooter.jsp"
 		flush="false"></jsp:include>
