@@ -42,13 +42,13 @@
 
    <div class="gowith_info_btn">
    <div class="gowith_go">
-   <a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do"><img class="return_list_Image" src="<%=request.getContextPath()%>/img/009.png" alt="동행게시판"><br><span>게시판</span><br></a>
+   <input type="button" value="동행게시판" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do'">
    </div>
     <div class="gowith_go">
-   <input type="button" id="btnupdate" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?no=${ListInfoGowith.go_with_no}'">
+   <input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?no=${ListInfoGowith.go_with_no}'">
    </div>
    <div class="gowith_go">
-   <a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do"><img class="return_list_Image" src="<%=request.getContextPath()%>/img/024.png" alt="삭제"><br><span>삭제</span><br></a>
+    <input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/deleteInfo.do?no=${ListInfoGowith.go_with_no}'">
    </div>
    </div>
 </form>   

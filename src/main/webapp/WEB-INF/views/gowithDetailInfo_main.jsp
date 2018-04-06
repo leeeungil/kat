@@ -7,6 +7,7 @@
 
 <!-- css 가져오기 -->
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/gowithInfo.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/commentWrite.css">
 
 <body>
    <jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>

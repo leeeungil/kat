@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+.totalView {
+	padding-top: 5px;
+	width:1000px;
+	text-align:center;
+	margin:0 auto;
+}
+
+.mainSize {
+	width:900px;
+	float:left;
+	text-align:center;
+}
+
+
+.commentbox {
+	width:900px;
+	text-align:center;
+	margin-left:121px;
+	padding-top:10px;
+}
+textarea  {
+	margin-top:18px;
+	width:650px;
+	resize: none;
+}
+
+.commentbox input[type="text"] {
+	margin-top:18px;
+	width:100px;
+	height:58px;
+}
+
+.commentSend {
+    float:right;
+    width:120px;
+    height:30px;
+}
+
+

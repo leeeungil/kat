@@ -71,6 +71,13 @@ System.out.println("[GoWithListService sendgowithInfoUpdate()] info :" + info.to
 		return info;
 	}
 
+	//특정글 삭제하기
+	public void infoDelete(Go_with go_with) {
+		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
+		dao.go_withDelete(go_with);
+		
+	}
+
 	
 
 	

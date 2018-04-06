@@ -24,4 +24,7 @@ public interface Go_withDao {
 	//특정번호의 수정글 작성하기
 	public void gowithUpdate(Go_with go_with);
 
+	//특정번호의 글 삭제하기
+	public void go_withDelete(Go_with go_with);
+
 }

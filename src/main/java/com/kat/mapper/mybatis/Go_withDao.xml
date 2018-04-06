@@ -40,4 +40,9 @@
      WHERE go_with_no = #{go_with_no}
   </select>
   
+  <select id="go_withDelete">
+     DELETE FROM go_with
+     WHERE go_with_no = #{go_with_no}
+  </select>
+  
   </mapper>
