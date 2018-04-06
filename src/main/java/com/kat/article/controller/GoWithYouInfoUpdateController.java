@@ -17,16 +17,18 @@ public class GoWithYouInfoUpdateController {
 	@Autowired
 	private GoWithListService gowithListService;
 	
-	@RequestMapping("kat/gowith/updateInfo")
+	@RequestMapping("kat/gowith/updateInfo.do")
 	public ModelAndView gowithUpdateSubmit(@RequestParam(name = "no")int no) throws IllegalStateException, IOException {
-		
+System.out.println("[GOWithYouInfoUpdateController gowithUpdateSubmit] ACCESS SUCCEE");	
+System.out.println("[GOWithYouInfoUpdateController gowithUpdateSubmit] no :" + no);
 		Go_with go_withListView = gowithListService.sendgowithInfoUpdate(no);
-		
+System.out.println("[GOWithYouInfoUpdateController gowithUpdateSubmit] go_withListView :" + go_withListView.toString());		
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.setViewName("gowithUpdateInfo_main");
 		modelAndView.addObject("ListInfoUpdateGo_with", go_withListView);
-		
+System.out.println("========================================================");
+
 		return modelAndView;
 		
 	}

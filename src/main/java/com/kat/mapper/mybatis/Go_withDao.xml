@@ -34,4 +34,10 @@
      WHERE go_with_no = #{no1}
   </select>
   
+  <select id="gowithUpdate" parameterType="com.kat.article.model.Go_with">
+     UPDATE go_with
+     SET go_with_title = #{go_with_title}, go_with_content = #{go_with_content}
+     WHERE go_with_no = #{go_with_no}
+  </select>
+  
   </mapper>

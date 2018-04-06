@@ -20,5 +20,11 @@ System.out.println("[GoWithService gowithInsert()] ACCESS SUCESS");
         dao.go_withInsert(go_with);
 System.out.println("[GoWithService gowithInsert()] go_with :" + go_with.toString());	
 	}
+
+    //수정할 내용 작성하기
+	public void gowithUpdate(Go_with go_with) {
+		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
+		dao.gowithUpdate(go_with);
+	}
 	
 }
