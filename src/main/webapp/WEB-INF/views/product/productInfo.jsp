@@ -24,18 +24,6 @@ $(document).ready(function(){
 			}
 		})
 	})
-	
-	/* product_no를 가지고 상품 detail가져오기 */
-	$(document).on("click",".area > .product_wrap", function(){
-		var productNo = $(this).children("input").val();
-		$(".product_1").css("transform", "scale(0.0)");
-		$(".product_2").css("transform", "scale(0.0)");
-		$(".product_3").css("transform", "scale(0.0)");
-		$(".product_4").css("transform", "scale(0.0)");
-		setTimeout(function() {
-			location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
-		}, 200);
-	})
 })
 
 $(document).ready(function(){

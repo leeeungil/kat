@@ -26,10 +26,12 @@ $(document).ready(function(){
 			location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
 		}, 200);
 	}) --%>
-	$(document).on("click",".area > .product_wrap", function(e){
+	$(document).on("click",".area > .product_wrap > figure", function(e){
 		var productNo = $(this).children("input").val();
 		if(e.target.className === "fa fa-fw fa-star-o"){
-			if('<%=request.getSession(false).getAttribute("user_id") %>' != null) {
+			if('<%=request.getSession(false).getAttribute("user_id") %>' == 'null') {
+				alert("Please login")
+			} else {
 				$.ajax({
 					url:'<%=request.getContextPath()%>/product/addfavoriteProduct?productNo='+productNo,
 					type: 'get',
@@ -38,11 +40,9 @@ $(document).ready(function(){
 						$(e.target).removeClass("fa-star-o").addClass("fa-star")
 					}
 				})
-			} else {
-				alert("Please login")
 			}
 		} else if(e.target.className === "fa fa-fw fa-star"){
-			if('<%=request.getSession(false).getAttribute("user_id") %>' != null) {
+			if('<%=request.getSession(false).getAttribute("user_id") %>' != 'null') {
 				$.ajax({
 					url:'<%=request.getContextPath()%>/product/delfavoriteProduct?productNo='+productNo,
 					type: 'get',
@@ -56,7 +56,7 @@ $(document).ready(function(){
 			}
 		} else if(e.target.className == "fa fa-fw fa-envelope-o") {
 			alert('문의하기 서비스 예정')
-		} else {
+		} else if(e.target.className == "product_fig") {
 			$(".product_wrap").css("transform", "scale(0.0)");
 			setTimeout(function() {
 				location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
@@ -82,10 +82,10 @@ $(document).ready(function(){
 	<div class='area area_wrap'>
 		<div class='product_wrap'>
  		<c:forEach var='product' items='${ProductAllList}'>
- 			<input type='hidden' class='product_no' name='product_no' value='${product.product_no}'>
 			<figure class='effect-winston'>
+ 			<input type='hidden' class='product_no' name='product_no' value='${product.product_no}'>
 				<img src='<%=request.getContextPath()%>${product.product_main_photo}'/>
-				<figcaption id='product_fig'>
+				<figcaption class='product_fig'>
 					<c:choose>
 						<c:when test="${product.product_type eq '1' }">
 							<h2><font class='tour_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>

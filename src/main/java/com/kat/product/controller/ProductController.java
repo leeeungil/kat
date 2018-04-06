@@ -55,9 +55,9 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 		if(productList.size()!=0) {
 			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode += "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
-						+"	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
-						+"		<figcaption>";
+				htmlCode +="	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+						+ "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
+						+"		<figcaption class='product_fig'>";
 				if(productList.get(i).getProduct_type()==1) {
 					htmlCode += "<h2><font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
@@ -105,9 +105,9 @@ System.out.println("[ProductController findTravelProductOfWord] search_word : " 
 		} else {
 			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode += "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
-						+"	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
-						+"		<figcaption>";
+				htmlCode +="	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+						+ "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
+						+"		<figcaption class='product_fig'>";
 				if(productList.get(i).getProduct_type()==1) {
 					htmlCode += "<h2><font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
