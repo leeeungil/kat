@@ -33,9 +33,7 @@
 		<!-- 로그인 팝업 부분 -->
 		<div class="login_top" id="login_top">
 			<div class="loginTitle" id="loginTitle" style="display: block;">
-				<ul><li class='loginFormLi_click' id="userLogin" onclick="userLogin_hide()"> 회원 로그인
-				</li><li class='loginFormLi' id="businessLogin" onclick="businessLogin_hide()"> 사업자 로그인
-				</li></ul>
+				<ul><li class='loginFormLi_click' id="userLogin"> TOTAL LOGIN </li></ul>
 			</div>
 	
 			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginProcess.do" name="member">
@@ -47,29 +45,6 @@
 					<li class="login_sty" id="pw_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
 						<input type="password" placeholder="PASSWORD" class="login_form_input" name="user_pass">
-					</li>
-					<li>
-						<input type="submit" class="btn_login" value="로그인" >
-					</li>
-					<li class="join_login">
-						<div class="find_join">
-							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
-							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
-							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>
-						</div> 
-					</li></ul>
-				</div>
-			</form>
-			
-			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginbusiness.do" name="company_member.do">
-				<div>
-					<ul class="login_form" id="company_in" style="display: none;"><li class="login_sty" id="id_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" class="login_form_input" name="business_id">
-					</li>
-					<li class="login_sty" id="pw_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
-						<input type="password" placeholder="PASSWORD" class="login_form_input" name="business_pass">
 					</li>
 					<li>
 						<input type="submit" class="btn_login" value="로그인" >
@@ -106,7 +81,7 @@
 							<li id="categoryfont">
 								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong></a>
 							</li>
-							<c:if test="${user_category == '사업자 회원'}">
+							<c:if test="${member_type == '4'}">
 								<li id="categoryfont">
 									<a href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품관리</strong></a>
 								</li>
@@ -117,7 +92,7 @@
 								<a href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>페이지 관리</strong></a>
 							</li>
 						</c:if>
-						<c:if test="${user_category == '일반 회원'}">
+						<c:if test="${member_type == '3'}">
 							<li id="categoryfont">
 								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
 							</li>
