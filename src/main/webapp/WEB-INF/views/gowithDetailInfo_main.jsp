@@ -12,5 +12,6 @@
 <body>
    <jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp" flush="false"></jsp:include>
    <jsp:include page="/WEB-INF/views/kat_customer/goWithInfo.jsp" flush="false"></jsp:include>
+   <jsp:include page="/WEB-INF/views/kat_customer/commentList.jsp" flush="false"></jsp:include>
    <jsp:include page="/WEB-INF/views/kat_customer/commentWrite.jsp" flush="false"></jsp:include>
 </body>

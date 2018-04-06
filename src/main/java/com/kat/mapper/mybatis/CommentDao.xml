@@ -9,4 +9,17 @@
       INSERT INTO COMMENT
       VALUES (0, #{cmt_parent}, #{cmt_content}, #{cmt_user_id}, #{cmt_password}, now(), 0)
    </insert>
+   
+   <select id="commentList" resultType="com.kat.article.model.Comment">
+      SELECT *
+      FROM comment
+      WHERE cmt_parent = #{param1} 
+      ORDER BY cmt_create_date DESC LIMIT #{param2}, #{param3}
+   </select>
+   
+   <select id="commentSelectCount" resultType="int">
+      SELECT count(*)
+      FROM comment
+      WHERE cmt_parent = #{no1}
+   </select>
 </mapper>

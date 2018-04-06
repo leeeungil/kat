@@ -9,7 +9,7 @@
 </script>
 <div class="commentbox">
 <!-- 댓글작성부분 -->
-<form method="post" action="<%=request.getContextPath()%>/kat/cmt/cmtform.do">
+<form method="post" action="<%=request.getContextPath()%>/kat/cmt/cmtlist.do?no=${ListInfoComment.cmt_parent}">
 <table>
 <tr>
 <td>
