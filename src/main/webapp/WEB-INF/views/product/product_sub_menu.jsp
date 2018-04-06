@@ -11,7 +11,7 @@ $(document).ready(function(){
 			$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
 		}, 200)
 		var productType = $(this).attr("id");
-		$(".product_choice_btn > div").css("background-color","#000000");
+		$(".product_choice_btn > div").css("background-color","#196cf8");
 		if(productType == 0) {
 			$(this).css("background-color","#3f3f3f!important");
 		} else if(productType == 1) {
@@ -42,9 +42,14 @@ $(document).ready(function(){
 	})
 	
 	$(".product_search_btn > img").on("click", function() {
+		var text_result = $("#search_product_sub").val().trim();
 		$("#search_product_sub").show();
 		setTimeout(function() {
-			$("#search_product_sub").css("width","222px")
+			$("#search_product_sub").css("width","222px");
+			if(text_result!='') {
+				$(".total_btn").trigger("click");
+				$("#search_product_sub").val("");
+			}
 			$("#search_product_sub").focus();
 		}, 50);
 	})
@@ -55,35 +60,39 @@ $(document).ready(function(){
 		setTimeout(function() {
 			$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
 		}, 400)
-		$.ajax({
-			url:'<%=request.getContextPath()%>/product/findTravelProductOfWord',
-			type: 'post',
-			dataType: 'text',
-			data:{ "search_word": search_word },
-			success: function(htmlCode){
-				$(".product_wrap").css("transform", "scale(0.0)");
-				setTimeout(function() {
-					$(".area").html(htmlCode);
-				}, 1000)
-			}
-		})
+		if(search_word.trim()=='') {
+			$(".total_btn").trigger("click");
+			$(this).val("");
+		} else {
+			$.ajax({
+				url:'<%=request.getContextPath()%>/product/findTravelProductOfWord',
+				type: 'post',
+				dataType: 'text',
+				data:{ "search_word": search_word },
+				success: function(htmlCode){
+					$(".product_wrap").css("transform", "scale(0.0)");
+					setTimeout(function() {
+						$(".area").html(htmlCode);
+					}, 1000)
+				}
+			})
+		}
 	});
 })
 </script>
 <style>
 .product_choice_wrap {
     height: 40px;
-    background: #000000;
-    opacity: 0.7;
+    background: #196cf8;
 }
 .product_choice_btn{
-	width: 1100px;
+	width: 1200px;
 	height: 100%;
 	margin: auto;
 }
 .product_choice_btn > div{
 	width: 75px;
-    height: 16px;
+    height: 40px;
     float: left;
     text-align: center;
     color: #ffffff;
@@ -102,10 +111,9 @@ $(document).ready(function(){
     width: 272px;
 	padding: 4px;
     height: 78%;
-    background-color: rgb(0, 0, 0);
 }
 .product_search_btn > img { 
-	height: 20px;
+	height: 33px;
     padding: 7px 3px;
 	cursor: pointer;
 	float: right;

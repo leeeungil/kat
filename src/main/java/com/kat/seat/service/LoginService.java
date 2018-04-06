@@ -48,7 +48,8 @@ else System.out.println("[LoginService login_member] joinInfoChk NULL");
 		
 		if(joinInfoChk==null) result = 1;
 		else if (!joinInfoChk.getPassword().equals(user_pass)) result = 2; // 비밀번호 불일치
-		else result = 3; // 사업자회원
+		else if (joinInfoChk.getMember_type()==1) result = 3; // 일반회원
+		else if (joinInfoChk.getMember_type()==2) result = 4; // 사업자회원
 System.out.println("[LoginService loginidchk] loginResult : " + result);
 		return result;
 	}

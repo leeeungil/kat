@@ -22,7 +22,8 @@
 	<resources mapping="/script/**" location="/script/" />
 	<resources mapping="/img/**" location="/img/" />
 	<resources mapping="/uploadfile/**" location="/uploadfile/" />
-
+	<resources mapping="/font/**" location="/font/" />
+	<resources mapping="/fonts/**" location="/fonts/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean
@@ -36,6 +37,7 @@
 
 	<!-- 상품 모델 등록 -->
 	<beans:bean id="ProductInfo" class="com.kat.product.model.ProductInfo" scope="prototype" />
+	<beans:bean id="FavoriteProduct" class="com.kat.product.model.FavoriteProduct" scope="prototype" />
 	
 	<!-- 모델 등록 -->
 	<beans:bean id="seatinfo" class="com.kat.seat.model.SeatInfo" scope="prototype" />

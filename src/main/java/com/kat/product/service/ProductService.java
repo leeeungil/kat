@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kat.product.dao.ProductDao;
+import com.kat.product.model.FavoriteProduct;
 import com.kat.product.model.ProductInfo;
 import com.kat.product.model.ProductInfoList;
 import com.kat.seat.model.InfoShopAddress;
@@ -89,6 +90,22 @@ System.out.println("[AddProductService findProductDetailInfo] product_no : " + p
 System.out.println("[AddProductService findProductDetailInfo] MAPPER(findProductDetailInfo) RETURN");
 System.out.println("[AddProductService findProductDetailInfo] " + productInfo.toString());
 		return productInfo;
+	}
+	
+	// ADD FAVORITE PRODUCT
+	public void addfavoriteProduct(FavoriteProduct favoriteProduct) {
+System.out.println("[AddProductService addfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
+System.out.println("[AddProductService addfavoriteProduct] " + favoriteProduct.toString());
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		dao.addfavoriteProduct(favoriteProduct);
+System.out.println("[AddProductService addfavoriteProduct] MAPPER(findProductDetailInfo) FINISH");
+	}
+	public void delfavoriteProduct(FavoriteProduct favoriteProduct) {
+System.out.println("[AddProductService delfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
+System.out.println("[AddProductService delfavoriteProduct] " + favoriteProduct.toString());
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		dao.delfavoriteProduct(favoriteProduct);
+System.out.println("[AddProductService delfavoriteProduct] MAPPER(findProductDetailInfo) FINISH");
 	}
 	
 	

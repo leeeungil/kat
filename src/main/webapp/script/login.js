@@ -25,7 +25,7 @@ $(document).ready(function() {
 	})
 });
 
-function businessLogin_hide() {
+/*function businessLogin_hide() {
 	var objDiv = document.getElementById("company_in");
 	var objDiv1 = document.getElementById("member_in");
 
@@ -47,7 +47,7 @@ function userLogin_hide() {
 	} else {
 		objDiv.style.display = "block";
 	}
-}
+}*/
 
 function login() {
 	var loginForm = document.getElementById("login_wrap");

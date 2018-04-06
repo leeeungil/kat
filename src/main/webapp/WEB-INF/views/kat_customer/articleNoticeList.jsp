@@ -31,7 +31,7 @@
 				varStatus="status">
 				<tr>
 					<td style="height: 30px;">${status.count}</td>
-					<td><a href="<c:url value="/notice/board/infolist.do?no=${notice.notice_no}"/>">${notice.notice_title}</a></td>
+					<td><a href="<c:url value='/notice/board/infolist.do?no=${notice.notice_no}'/>">${notice.notice_title}</a></td>
 					<td>${notice.user_id}</td>
 					<td><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.regdate}" /></td>
 				</tr>

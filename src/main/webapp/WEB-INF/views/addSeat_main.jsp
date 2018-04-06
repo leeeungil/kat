@@ -23,7 +23,7 @@
 
 </head>
 <body>
-	<jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp"
+	<jsp:include page="/WEB-INF/views/kat_main/katHeader2.jsp"
 		flush="false"></jsp:include>
 	<main>
 	<div class="totalView">

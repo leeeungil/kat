@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kat.product.model.FavoriteProduct;
 import com.kat.product.model.ProductInfo;
 import com.kat.product.service.ProductService;
 
@@ -52,42 +53,36 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 		}
 		String htmlCode = "";
 		if(productList.size()!=0) {
+			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode += "<div class='product_wrap product_"+productList.get(i).getProduct_type()+" cl-effect-12'>"+
-						"	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"+
-						"	<div class='main_photo_zone' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'></div>"+
-						"	<table class='product_title'>"+
-						"		<thead><tr>"+
-						"			<td>";
+				htmlCode += "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
+						+"	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+						+"		<figcaption>";
 				if(productList.get(i).getProduct_type()==1) {
-					htmlCode += "<font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==2) {
-					htmlCode += "<font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==3) {
-					htmlCode += "<font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==4) {
-					htmlCode += "<font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
-				htmlCode +=	"			</td>                                                                                                                      "+
-						"		</tr></thead>                                                                                                                  "+
-						"		<tbody><tr>                                                                                                                    "+
-						"			<td>                                                                                                                       "+
-						"				<font>"+productList.get(i).getProduct_title()+"</font>                                                                                  "+
-						"			</td>                                                                                                                      "+
-						"		</tr></tbody>                                                                                                                  "+
-						"	</table>                                                                                                                           "+
-						"	<div class='blank'>                                                                                                                "+
-						"	                                                                                                                                   "+
-						"	</div>                                                                                                                             "+
-						"	<div class='product_cost'>                                                                                                         "+
-						"		"+productList.get(i).getCost()+" / 1인 																										   "+
-						"	</div>                                                                                                                             "+
-						"</div>                                                                                                                                ";
-				
+				htmlCode += "<p>"
+						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
+						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
+						+"	</p>"	
+						+"</figcaption>" 
+						+"</figure>";
 			}
+			htmlCode +="</div>";
 		}
 System.out.println("=============================================================");
 		return htmlCode;
@@ -108,43 +103,36 @@ System.out.println("[ProductController findTravelProductOfWord] search_word : " 
 		if(productList.size()==0) {
 			htmlCode = "<div class='product_wrap'>등록된 상품이 없습니다.</div>";
 		} else {
-			
+			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode += "<div class='product_wrap product_"+productList.get(i).getProduct_type()+" cl-effect-12'>"+
-						"	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"+
-						"	<div class='main_photo_zone' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'></div>"+
-						"	<table class='product_title'>"+
-						"		<thead><tr>"+
-						"			<td>";
+				htmlCode += "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
+						+"	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+						+"		<figcaption>";
 				if(productList.get(i).getProduct_type()==1) {
-					htmlCode += "<font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==2) {
-					htmlCode += "<font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==3) {
-					htmlCode += "<font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				if(productList.get(i).getProduct_type()==4) {
-					htmlCode += "<font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"</font>";
+					htmlCode += "<h2><font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
+							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
-				htmlCode +=	"			</td>                                                                                                                      "+
-						"		</tr></thead>                                                                                                                  "+
-						"		<tbody><tr>                                                                                                                    "+
-						"			<td>                                                                                                                       "+
-						"				<font>"+productList.get(i).getProduct_title()+"</font>                                                                                  "+
-						"			</td>                                                                                                                      "+
-						"		</tr></tbody>                                                                                                                  "+
-						"	</table>                                                                                                                           "+
-						"	<div class='blank'>                                                                                                                "+
-						"	                                                                                                                                   "+
-						"	</div>                                                                                                                             "+
-						"	<div class='product_cost'>                                                                                                         "+
-						"		"+productList.get(i).getCost()+" / 1인 																										   "+
-						"	</div>                                                                                                                             "+
-						"</div>                                                                                                                                ";
-				
+				htmlCode += "<p>"
+						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
+						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
+						+"	</p>"	
+						+"</figcaption>" 
+						+"</figure>";
 			}
+			htmlCode +="</div>";
 		}
 System.out.println("=============================================================");
 		return htmlCode;
@@ -394,5 +382,34 @@ System.out.println("[ProductController addProduct] addProductService.addProduct 
 		modelAndView.setViewName("redirect:/kat/seatForm/seatAdd.do");
 System.out.println("=============================================================");
 		return modelAndView;
+	}
+	/* 상품 즐겨찾기 */
+	@RequestMapping(value ="addfavoriteProduct", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public void addfavoriteProduct(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController addfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
+System.out.println("[ProductController addfavoriteProduct] product_no : " + product_no);
+		FavoriteProduct favoriteProduct = new FavoriteProduct();
+		favoriteProduct.setProduct_no(product_no);
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+System.out.println("[ProductController addfavoriteProduct] user_id : " + user_id);
+		favoriteProduct.setUser_id(user_id);
+		
+		addProductService.addfavoriteProduct(favoriteProduct);
+System.out.println("=============================================================");
+	}
+	
+	@RequestMapping(value ="delfavoriteProduct", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public void delfavoriteProduct(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController delfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
+System.out.println("[ProductController delfavoriteProduct] product_no : " + product_no);
+		FavoriteProduct favoriteProduct = new FavoriteProduct();
+		favoriteProduct.setProduct_no(product_no);
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+System.out.println("[ProductController delfavoriteProduct] user_id : " + user_id);
+		favoriteProduct.setUser_id(user_id);
+		addProductService.delfavoriteProduct(favoriteProduct);
+System.out.println("=============================================================");
 	}
 }

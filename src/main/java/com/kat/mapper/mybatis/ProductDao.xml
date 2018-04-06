@@ -35,6 +35,7 @@
 
 	
 	<!-- 여행 상품 전체 가져오기 START -->
+	
 	<!-- 전체 가져오기(여행상품 메뉴 선택시) -->
 	<select id="findAllTravelProduct" resultType="com.kat.product.model.ProductInfo">
 		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
@@ -62,9 +63,20 @@
 	</select>
 	
 	
-	
-	
 	<!-- 여행 상품 전체 가져오기 END -->
+	
+	<!-- 원하는 상품 즐겨찾기 하기 START -->
+	<insert id="addfavoriteProduct" parameterType="com.kat.product.model.FavoriteProduct">
+		INSERT INTO FAVORITE_PRODUCT
+		VALUES (0, #{product_no}, (SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id}), now(), 0)
+	</insert>
+	<select id="delfavoriteProduct" parameterType="com.kat.product.model.FavoriteProduct">
+		UPDATE FAVORITE_PRODUCT SET DELETE_FLAG = 1 where product_no = #{product_no} 
+		AND member_no = (SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id})
+	</select>
+	<!-- 원하는 상품 즐겨찾기 하기 END -->
+	
+	
 	
 	
 	

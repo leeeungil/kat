@@ -29,9 +29,9 @@ System.out.println("[LoginMemberController login] MAPPER(loginidchk) RETURN");
 System.out.println("[LoginMemberController login] idchk : " + idchk);
 	
 		ModelAndView modelAndView = new ModelAndView();
-		if (idchk == 3) {
+		if (idchk == 3 || idchk == 4) {
 			req.getSession(false).setAttribute("user_id", user_id);
-			req.getSession(false).setAttribute("user_category", "일반 회원");
+			req.getSession(false).setAttribute("member_type", idchk);
 			modelAndView.setViewName("kat_main");
 System.out.println("[LoginMemberController login] MEMBER LOGIN SUCCESS");			
 		} else {

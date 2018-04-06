@@ -2,6 +2,7 @@ package com.kat.product.dao;
 
 import java.util.List;
 
+import com.kat.product.model.FavoriteProduct;
 import com.kat.product.model.ProductInfo;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
@@ -121,4 +122,7 @@ public interface ProductDao {
 	//product_no로 상품 정보 가져오기
 	public ProductInfo findProductDetailInfo(int product_no);
 	
+	// 즐겨찾기 등록
+	public void addfavoriteProduct(FavoriteProduct favoriteProduct);
+	public void delfavoriteProduct(FavoriteProduct favoriteProduct);
 }

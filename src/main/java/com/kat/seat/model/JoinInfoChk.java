@@ -5,7 +5,14 @@ public class JoinInfoChk {
 	private int member_no; // 회원 번호
 	private String user_id; // 회원 아이디
 	private String password; // 회원 비밀번호
+	private int member_type;
 	
+	public int getMember_type() {
+		return member_type;
+	}
+	public void setMember_type(int member_type) {
+		this.member_type = member_type;
+	}
 	public int getMember_no() {
 		return member_no;
 	}
@@ -32,6 +39,7 @@ public class JoinInfoChk {
 	
 	@Override
 	public String toString() {
-		return "JoinInfoChk [member_no=" + member_no + ", user_id=" + user_id + ", password=" + password + "]";
+		return "JoinInfoChk [member_no=" + member_no + ", user_id=" + user_id + ", password=" + password
+				+ ", member_type=" + member_type + "]";
 	}
 }
