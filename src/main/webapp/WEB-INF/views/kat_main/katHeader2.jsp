@@ -4,7 +4,6 @@
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/login.js"></script>
-<script src="<%=request.getContextPath()%>/script/lightslider.js"></script>
 <script>
  $(document).ready(function() {
 	 $(".tabs-style-iconbox nav ul li a").on("mouseenter", function() {
@@ -83,7 +82,7 @@
 							</li>
 							<c:if test="${member_type == '4'}">
 								<li id="categoryfont">
-									<a href="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"><strong>상품관리</strong></a>
+									<a href="<%=request.getContextPath()%>/kat/business/managePage.do" target="_blank"><strong>상품관리</strong></a>
 								</li>
 							</c:if>
 						</c:if>

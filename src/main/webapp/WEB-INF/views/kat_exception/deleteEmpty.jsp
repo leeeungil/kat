@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	alert('현재 예약된 상태입니다. 삭제 하실 수 없습니다.');
-	location.href = "<%=request.getContextPath()%>/kat/seatForm/seatAdd.do";
+	location.href = "<%=request.getContextPath()%>/kat/business/managePage.do";
 </script>
 
 </head>

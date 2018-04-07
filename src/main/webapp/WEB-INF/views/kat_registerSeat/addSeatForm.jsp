@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div id="asideSize_add">
-	<form action="<%=request.getContextPath()%>/kat/seatForm/seatAdd.do"
+	<form action="<%=request.getContextPath()%>/kat/business/managePage.do"
 		method="post" name="addform" enctype="multipart/form-data">
 		<div id="Add" class="Tabs">
 			<div id="add_search_border">
@@ -67,7 +67,7 @@
 				<tr>
 					<td colspan="5" id="pagecenter"><c:forEach var="i" begin="1"
 							end="${SeatListInfo.getPageNumber()}" step="1">
-							<a href="<c:url value="/kat/seatForm/seatAdd.do?page=${i}"/>">[${i}]</a>
+							<a href="<c:url value="/kat/business/managePage.do?page=${i}"/>">[${i}]</a>
 						</c:forEach></td>
 				</tr>
 			</table>

@@ -1,4 +1,12 @@
 DROP TABLE MASTER;
+DROP TABLE ASK_TO;
+DROP TABLE RESERVATION;
+DROP TABLE NOTICE;
+DROP TABLE MEMBER;
+DROP TABLE MENU_CONTINENT;
+DROP TABLE MENU_COUNTRY;
+DROP TABLE MENU_CITY;
+
 CREATE TABLE MASTER (
   `master_no` int(11) NOT NULL AUTO_INCREMENT,
   `master_id` varchar(45) NOT NULL,
@@ -8,7 +16,6 @@ CREATE TABLE MASTER (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /* 문의하기 테이블 */
-DROP TABLE ASK_TO;
 CREATE TABLE ASK_TO (
   `ask_no` int(11) NOT NULL AUTO_INCREMENT,
   `ask_title` varchar(200) DEFAULT NULL,
@@ -23,7 +30,6 @@ CREATE TABLE ASK_TO (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /* 예약하기 테이블 */
-DROP TABLE RESERVATION;
 CREATE TABLE RESERVATION (
   `reserv_no` int(11) NOT NULL AUTO_INCREMENT,
   `reserv_id` varchar(100) NOT NULL,
@@ -35,7 +41,6 @@ CREATE TABLE RESERVATION (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /* 홈페이지 공지사항 테이블 */
-DROP TABLE NOTICE;
 CREATE TABLE NOTICE (
   `notice_no` int(11) NOT NULL AUTO_INCREMENT,
   `notice_title` varchar(200) NOT NULL,
@@ -46,28 +51,7 @@ CREATE TABLE NOTICE (
   PRIMARY KEY (`notice_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-/*
-DROP TABLE BUSINESS;
-CREATE TABLE BUSINESS (
-  `business_no` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` varchar(100) DEFAULT NULL,
-  `name` varchar(100) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
-  `phone` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `create_date` datetime DEFAULT NULL,
-  `company` varchar(100) DEFAULT NULL,
-  `zip_code` varchar(100) DEFAULT NULL,
-  `address1` varchar(100) DEFAULT NULL,
-  `address2` varchar(100) DEFAULT NULL,
-  `business_phone` varchar(100) DEFAULT NULL,
-  `business_number` varchar(100) DEFAULT NULL,
-  `delete_flag` int(11) DEFAULT NULL,
-  PRIMARY KEY (`business_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8; 
-*/
 
-DROP TABLE MEMBER;
 CREATE TABLE MEMBER (
   `member_no` int(11) NOT NULL AUTO_INCREMENT,
   `member_type` int(2) NOT NULL,
@@ -88,7 +72,6 @@ CREATE TABLE MEMBER (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /* 대륙 - 국가 - 도시 */
-DROP TABLE MENU_CONTINENT;
 CREATE TABLE MENU_CONTINENT (
   `CONTINENT_NO` int(11) NOT NULL AUTO_INCREMENT,
   `CONTINENT` varchar(50) NOT NULL,
@@ -96,24 +79,20 @@ CREATE TABLE MENU_CONTINENT (
   PRIMARY KEY (`CONTINENT_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE MENU_COUNTRY;
 CREATE TABLE MENU_COUNTRY (
   `COUNTRY_NO` int(11) NOT NULL AUTO_INCREMENT,
   `COUNTRY` varchar(50) NOT NULL,
   `CONTINET_NO` INT(11) NOT NULL,
   `delete_flag` INT(2),
-  PRIMARY KEY (`COUNTRY_NO`),
-  FOREIGN KEY(`CONTINET_NO`) REFERENCES MENU_CONTINENT(`CONTINENT_NO`) 
+  PRIMARY KEY (`COUNTRY_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE MENU_CITY;
 CREATE TABLE MENU_CITY (
   `CITY_NO` int(11) NOT NULL AUTO_INCREMENT,
   `CITY` varchar(50) NOT NULL,
   `COUNTRY_NO` INT(11) NOT NULL,
   `delete_flag` INT(2),
-  PRIMARY KEY (`CITY_NO`),
-  FOREIGN KEY(`COUNTRY_NO`) REFERENCES MENU_COUNTRY(`COUNTRY_NO`) 
+  PRIMARY KEY (`CITY_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
@@ -124,6 +103,14 @@ CREATE TABLE MENU_CITY (
 
 
 
+DROP TABLE PRODUCT;
+DROP TABLE PRODUCT_SUB;
+DROP TABLE PRODUCT_TYPE;
+DROP TABLE PRODUCT_CONTENT;
+DROP TABLE PRODUCT_PHOTO;
+DROP TABLE PRODUCT_COURSE;
+DROP TABLE PRODUCT_REVIEW;
+DROP TABLE FAVORITE_PRODUCT;
 
 /*
  * 0. 공지사항 NOTICE
@@ -133,33 +120,45 @@ CREATE TABLE MENU_CITY (
  * 3. 상품(티켓) PRODUCT 
  * 4. 상품(스냅) PRODUCT
  * 
- * 11. 후기(투어) PRODUCT_REVIEW
- * 12. 후기(티켓) PRODUCT_REVIEW
- * 13. 후기(셔틀 등) PRODUCT_REVIEW
+ * 101. 후기(투어) PRODUCT_REVIEW
+ * 102. 후기(티켓) PRODUCT_REVIEW
+ * 103. 후기(셔틀 등) PRODUCT_REVIEW
  * 
- * 20. 숙박  %%예정
- * */
-
-DROP TABLE PRODUCT;
+ * 200. 숙박  %%예정
+ * */;
 CREATE TABLE PRODUCT (
   `product_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_title` varchar(200) NOT NULL,
-  `product_type` int(20) NOT NULL,
+  `product_type_no` int(20) NOT NULL,
   `create_date` datetime DEFAULT NULL,
-  `cost` int(20) NOT NULL,
   `continent` varchar(45) NOT NULL,
   `country` varchar(45) NOT NULL,
   `city` varchar(45) NOT NULL,
-  `user_id` varchar(100) DEFAULT NULL,
+  `member_no` varchar(100) DEFAULT NULL,
   `business_number` int(11) NOT NULL,
   `product_main_photo` varchar(200) NOT NULL,
-  `sell_start` varchar(100) NOT NULL,
-  `sell_end` varchar(100) DEFAULT NULL,
+  `use_flag` INT(2) NOT NULL,
   `delete_flag` INT(2) NOT NULL,
   PRIMARY KEY (`product_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE PRODUCT_CONTENT;
+CREATE TABLE PRODUCT_SUB (
+  `product_sub_no` int(20) NOT NULL AUTO_INCREMENT,
+  `product_no` int(20) NOT NULL,
+  `product_name` varchar(50) NOT NULL,
+  `cost` int(50) NOT NULL,
+  `max_people` int(20) NOT NULL,
+  `delete_flag` INT(2) NOT NULL,
+  PRIMARY KEY (`product_sub_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+CREATE TABLE PRODUCT_TYPE (
+  `product_type_no` int(20) NOT NULL AUTO_INCREMENT,
+  `product_type_name` varchar(200) NOT NULL,
+  `delete_flag` INT(2) NOT NULL,
+  PRIMARY KEY (`product_type_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
 CREATE TABLE PRODUCT_CONTENT (
   `product_content_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_no` int(20) NOT NULL,
@@ -167,11 +166,9 @@ CREATE TABLE PRODUCT_CONTENT (
   `product_content` varchar(4000) DEFAULT NULL,
   `product_info` varchar(2000) DEFAULT NULL,
   `delete_flag` INT(2),
-  PRIMARY KEY (`product_content_no`),
-  FOREIGN KEY(`product_no`) REFERENCES PRODUCT(`product_no`) 
+  PRIMARY KEY (`product_content_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE PRODUCT_PHOTO;
 CREATE TABLE PRODUCT_PHOTO (
   `product_photo_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_photo1` varchar(100) DEFAULT NULL,
@@ -184,23 +181,19 @@ CREATE TABLE PRODUCT_PHOTO (
   `product_photo8` varchar(100) DEFAULT NULL,
   `product_photo9` varchar(100) DEFAULT NULL,
   `product_photo10` varchar(100) DEFAULT NULL,
-  `product_content_no` int(20) NOT NULL,
+  `product_no` int(20) NOT NULL,
   `delete_flag` INT(2),
-  PRIMARY KEY (`product_photo_no`),
-  FOREIGN KEY(`product_content_no`) REFERENCES PRODUCT_CONTENT(`product_content_no`) 
+  PRIMARY KEY (`product_photo_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE PRODUCT_COURSE;
 CREATE TABLE PRODUCT_COURSE (
   `product_no` int(20) NOT NULL,
   `course_no` varchar(400) NOT NULL,
   `course` varchar(4000) DEFAULT NULL,
   `course_photo_dir` varchar(30) DEFAULT NULL,
-  `delete_flag` INT(2),
-  FOREIGN KEY(`product_no`) REFERENCES PRODUCT(`product_no`) 
+  `delete_flag` INT(2)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE PRODUCT_REVIEW;
 CREATE TABLE PRODUCT_REVIEW (
   `review_no` int(11) NOT NULL AUTO_INCREMENT,
   `review_title` varchar(200) DEFAULT NULL,
@@ -212,20 +205,16 @@ CREATE TABLE PRODUCT_REVIEW (
   `review_point` int(11) NOT NULL,
   `create_date` datetime DEFAULT NULL,
   `delete_flag` INT(2),
-  PRIMARY KEY (`review_no`),
-  FOREIGN KEY(`product_no`) REFERENCES PRODUCT(`product_no`) 
+  PRIMARY KEY (`review_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE FAVORITE_PRODUCT;
 CREATE TABLE FAVORITE_PRODUCT (
 	`FAVORITE_NO` INT(11) NOT NULL AUTO_INCREMENT,
 	`PRODUCT_NO` INT(20) NOT NULL,
 	`MEMBER_NO` INT(11) NOT NULL,
 	`CREATE_DATE` DATE NOT NULL,
 	`DELETE_FLAG` INT(2) NOT NULL,
-	PRIMARY KEY (`FAVORITE_NO`),
-	FOREIGN KEY(`MEMBER_NO`) REFERENCES MEMBER(`MEMBER_NO`),
-	FOREIGN KEY(`PRODUCT_NO`) REFERENCES PRODUCT(`PRODUCT_NO`)
+	PRIMARY KEY (`FAVORITE_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
@@ -248,8 +237,11 @@ CREATE TABLE PHOTO (
 
 
 
-/* 동행, 댓글 */
 DROP TABLE GO_WITH;
+DROP TABLE COMMENT;
+
+
+/* 동행, 댓글 */
 CREATE TABLE `GO_WITH` (
   `go_with_no` int(11) NOT NULL AUTO_INCREMENT,
   `go_with_title` varchar(200) NOT NULL,
@@ -262,7 +254,6 @@ CREATE TABLE `GO_WITH` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /* 댓글 테이블 */
-DROP TABLE COMMENT;
 CREATE TABLE COMMENT (
   `cmt_no` int(11) NOT NULL AUTO_INCREMENT, /*댓글번호*/
   `cmt_content` varchar(200) NOT NULL, /*댓글 내용*/

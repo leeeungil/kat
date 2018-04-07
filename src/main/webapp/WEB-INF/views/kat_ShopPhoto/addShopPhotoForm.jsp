@@ -21,7 +21,7 @@
 					<li><input type="submit" id="Registration" name="seatbtn"
 						value="등록"></li>
 					<li><input type="reset" id="reset" name="resetbtn"
-						onclick="location.href='<%=request.getContextPath()%>/kat/seatForm/seatAdd.do'"
+						onclick="location.href='<%=request.getContextPath()%>/kat/business/managePage.do'"
 						value="취소"></li>
 				</ul>
 			</div>

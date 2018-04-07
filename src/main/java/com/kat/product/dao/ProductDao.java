@@ -63,20 +63,8 @@ public interface ProductDao {
 	
 	// 장준영 수정 중
 	// country search
-	public int productCount_1(String country);
+	public int productCount_(String country);
 	public List<InfoShopSearch> productSearch_1(String country, int firstRow, int searchPerPage);
-	
-	// country, city search
-	public int productCount_12(String country, String city);
-	public List<InfoShopSearch> productSearch_12(String country, String city, int firstRow, int searchPerPage);
-
-	// country, product search
-	public int productCount_13(String country, String product);
-	public List<InfoShopSearch> productSearch_13(String country, String product, int firstRow, int searchPerPage);
-
-	// country, city, product search
-	public int productCount_123(String country, String product, String city);
-	public List<InfoShopSearch> productSearch_123(String country, String product, String city, int firstRow, int searchPerPage);
 	
 	
 	// 장준영 수정 완료

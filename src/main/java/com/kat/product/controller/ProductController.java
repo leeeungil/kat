@@ -380,7 +380,7 @@ System.out.println("[ProductController addProduct] imgName[<== save file path] :
 
 		addProductService.addProduct(productInfo);
 System.out.println("[ProductController addProduct] addProductService.addProduct FINISH");
-		modelAndView.setViewName("redirect:/kat/seatForm/seatAdd.do");
+		modelAndView.setViewName("redirect:/kat/business/managePage.do");
 System.out.println("=============================================================");
 		return modelAndView;
 	}

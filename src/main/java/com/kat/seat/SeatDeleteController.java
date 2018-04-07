@@ -33,7 +33,7 @@ public class SeatDeleteController {
 		if (seatEmpty.equals("비어있음")) {
 			
 			addSeatService.seatdelete(no);
-			modelAndView.setViewName("redirect:/kat/seatForm/seatAdd.do");
+			modelAndView.setViewName("redirect:/kat/business/managePage.do");
 
 		} else {
 			

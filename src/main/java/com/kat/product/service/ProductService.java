@@ -271,7 +271,6 @@ System.out.println("[AddProductService getListInfo] pageNumber : " + pageNumber)
 		
 		if (!country.equals("국가") && city.equals("도시") && product.equals("상품")) {
 System.out.println("[AddProductService getListInfo] TYPE : SEARCH VALUE continent & country");
-			TotalCount = dao.productCount_1(country); // 검색된 리스트 수
 System.out.println("[AddProductService getListInfo] MAPPER(shopCountList) RETURN");
 System.out.println("[AddProductService getListInfo] TotalCount : " + TotalCount);			
 			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
@@ -288,113 +287,6 @@ System.out.println("[AddProductService getListInfo] " + infoShopSearch.toString(
 			view.setPageNumber(pageNumber);
 			view.setResultCode(resultCode);
 		}
-//		 else if (area.equals("대륙선택")&& keyword.equals("")) {
-//			System.out.println("메뉴만 선택 했을때");
-//
-//			TotalCount = dao.shopCountList2(menu); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch2(menu, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//
-//		} else if (menu.equals("메뉴선택") && keyword.equals("")) {
-//			System.out.println("대륙만 선택 했을때");
-//			
-//			TotalCount = dao.shopCountList3(area); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch3(area, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//			
-//
-//		} else if (menu.equals("메뉴선택")) {
-//			System.out.println("지역 / 키워드 입력 ");
-//			
-//			TotalCount = dao.shopCountList4(area , keyword); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch4(area, keyword, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//
-//		} else if (area.equals("지역선택")) {
-//			System.out.println("메뉴 / 키워드 입력 ");
-//			
-//			TotalCount = dao.shopCountList5(menu , keyword); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch5(menu, keyword, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//			
-//
-//		} else if (keyword.equals("")) {
-//			System.out.println("지역 / 메뉴 입력 ");
-//			
-//			TotalCount = dao.shopCountList6(area , menu); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch6(area, menu, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//			
-//
-//		} else {
-//			System.out.println("전체 입력 했을때");
-//			
-//			TotalCount = dao.shopCountList7(area , menu , keyword ); // 검색된 리스트 수
-//
-//			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-//			infoShopSearch = dao.shopSearch7(area, menu, keyword, firstRow, SEARCH_PER_PAGE);
-//			pageNumber = TotalCount / SEARCH_PER_PAGE;
-//			if (TotalCount % SEARCH_PER_PAGE != 0) {
-//				pageNumber += 1;
-//			}
-//
-//			view.setShopInfoList(infoShopSearch);
-//			view.setPageTotalCount(TotalCount);
-//			view.setPageNumber(pageNumber);
-//			view.setResultCode(resultCode);
-//			
-//		}
-
 		return view;
 	}
 

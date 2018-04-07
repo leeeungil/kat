@@ -20,7 +20,6 @@
 <script
 	src="<%=request.getContextPath()%>/script/seatPosition_script.js"></script>
 <script src="<%=request.getContextPath()%>/script/redips-drag-min.js"></script>
-<script src="<%=request.getContextPath()%>/script/admin_script.js"></script>
 <script src="<%=request.getContextPath()%>/script/sidebar.js"></script>
 
 </head>

@@ -18,7 +18,6 @@
 <!-- 스크립트 가져오기 -->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/addSeat_script.js"></script>
-<script src="<%=request.getContextPath()%>/script/admin_script.js"></script>
 <script src="<%=request.getContextPath()%>/script/sidebar.js"></script>
 
 </head>
