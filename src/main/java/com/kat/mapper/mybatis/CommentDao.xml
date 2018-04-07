@@ -13,13 +13,13 @@
    <select id="commentList" resultType="com.kat.article.model.Comment">
       SELECT *
       FROM comment
-      WHERE cmt_parent = #{param1} 
+      WHERE cmt_parent = #{param1} AND delete_flag = 0
       ORDER BY cmt_create_date DESC LIMIT #{param2}, #{param3}
    </select>
    
    <select id="commentSelectCount" resultType="int">
       SELECT count(*)
       FROM comment
-      WHERE cmt_parent = #{no1}
+      WHERE cmt_parent = #{no1} AND delete_flag = 0
    </select>
 </mapper>

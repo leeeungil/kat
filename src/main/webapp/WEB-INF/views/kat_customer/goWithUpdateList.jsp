@@ -5,7 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../kat_login/inquire_sessionCheck.jsp"%>
 <div class="imageBox">
-		<img class="gowith_list__main_photo" src="<%=request.getContextPath()%>/img/nature-3042751_1920.jpg"> 
+		<div class="gowith_list_main_photo" style="background-image:url(<%=request.getContextPath()%>/img/nature-3042751_1920.jpg)"></div> 
 </div>
 <div class="totalView">
       <div class="gowith_write_btn">

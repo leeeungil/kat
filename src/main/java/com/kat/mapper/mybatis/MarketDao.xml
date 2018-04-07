@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.kat.article.dao.MarketDao">
+   
+   <insert id="marketInsert" parameterType="com.kat.article.model.Market">
+      INSERT INTO market
+      VALUES (0, #{market_title},#{market_type}, #{market_content},#{user_id}, now(),#{read_count},0,#{photo_no})
+   </insert>
+  
+  </mapper>

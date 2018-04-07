@@ -10,17 +10,20 @@ a:visited {
 }
 
 .imageBox {
-    width: 100%;
-    height: 55vh;
+	width: 100%;
+    height: 46vh;
     border:1px solid none;
 }
 
-.gowith_list__main_photo {
+.gowith_list_main_photo {
 	z-index: 10;
     width: 100%;
-    height: 77vh;
+    height: 60vh;
     position: absolute;
-    margin-top: -22vh;
+    margin-top: -125px;
+    background-position: center!important;
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
 }
 .totalView {
 	padding-top: 5px;
@@ -73,13 +76,12 @@ h1 {
 	width:200px;
 	height:40px;
     margin-left:780px;
+    text-align:center;
 }
 
 .gowith_write_btn span {
 	color:white;
 	line-height: 42px;
 }
-
-
 
 

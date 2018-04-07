@@ -17,7 +17,7 @@
 .commentbox {
 	width:900px;
 	text-align:center;
-	margin-left:121px;
+	margin-left:80px;
 	padding-top:10px;
 }
 textarea  {
@@ -38,4 +38,6 @@ textarea  {
     height:30px;
 }
 
-
+.comment_list {
+	margin-left:80px;
+}

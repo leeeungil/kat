@@ -5,9 +5,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../kat_login/inquire_sessionCheck.jsp"%>
 <div class="imageBox">
-		<img class="gowith_list__main_photo" src="<%=request.getContextPath()%>/img/nature-3042751_1920.jpg"> 
+		<div class="gowith_list_main_photo" style="background-image:url(<%=request.getContextPath()%>/img/nature-3042751_1920.jpg)"></div> 
 </div>
 <div class="totalView">
+<div class="commuity_to_go">
+    <a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do">동행 찾기</a>
+    <a href="<%=request.getContextPath()%>/kat/market/write.do">장터</a></div>
+</div>	
       <div class="gowith_write_btn">
        <a href="<%=request.getContextPath()%>/kat/goWith/gowithwriteForm.do"><span>동행 작성</span></a>
      </div>
