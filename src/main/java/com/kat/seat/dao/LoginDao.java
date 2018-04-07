@@ -38,13 +38,10 @@ public interface LoginDao {
 	// 정리한 메소드들
 	// 로그인 체크
 	public JoinInfoChk login_member(String user_id);
-	public JoinInfoChk login_business(String user_id);
 
 	// ajax : id duplicate chk
 	public int chkMemberId(String user_id);
-	public int chkBusinessId(String user_id);
 	
 	// ajax : email duplicate chk
 	public int chkMemberEmail(String email);
-	public int chkBusinessEmail(String email);
 }

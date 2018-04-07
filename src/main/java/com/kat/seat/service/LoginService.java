@@ -54,25 +54,6 @@ System.out.println("[LoginService loginidchk] loginResult : " + result);
 		return result;
 	}
 	
-	// 사업자 회원 아이디 비밀번호 일치 여부 확인
-	public int login_business(String user_id, String user_pass) {
-System.out.println("[LoginService login_business] PASSWORD CHECK ACCESS");
-System.out.println("[LoginService login_business] user_id : " + user_id);
-System.out.println("[LoginService login_business] user_pass : " + user_pass);
-		int result = 0;
-		dao = sqlSessionTemplate.getMapper(LoginDao.class);
-		JoinInfoChk joinInfoChk = dao.login_business(user_id);
-System.out.println("[LoginService login_business] MAPPER(login_business) RETURN");
-if(joinInfoChk!=null) System.out.println("[LoginService login_business] " + joinInfoChk.toString());
-else System.out.println("[LoginService login_business] joinInfoChk NULL");
-		
-		if(joinInfoChk==null) result = 1;
-		else if (!joinInfoChk.getPassword().equals(user_pass)) result = 2; // 비밀번호 불일치
-		else result = 4; // 사업자회원
-System.out.println("[LoginService login_business] loginResult : " + result);
-		return result;
-	}
-
 	// 아이디 정보 값 가져오기
 	public JoinInfo userInfo(String user_id) {
 System.out.println("[LoginService userInfo] GET PERSONAL INFOMATION ACCESS");
@@ -123,11 +104,6 @@ System.out.println("[LoginService ajaxchk_id] user_id : " + user_id);
 		int infoChkId = dao.chkMemberId(user_id);
 System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId) RETURN");
 System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkId);
-		if(infoChkId==0) {
-			infoChkId = dao.chkBusinessId(user_id);
-System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId2) RETURN");
-System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkId);
-		}
 		return infoChkId;
 	}
 
@@ -139,11 +115,6 @@ System.out.println("[LoginService ajaxchk_email] email : " + email);
 		int infoChkEmail = dao.chkMemberEmail(email);
 System.out.println("[LoginService ajaxchk_email] MAPPER(checkAjaxEmail) RETURN");
 System.out.println("[LoginService ajaxchk_email] infoChkEmail : " + infoChkEmail);
-		if(infoChkEmail==0) {
-			infoChkEmail = dao.chkBusinessEmail(email);
-System.out.println("[LoginService ajaxchk_id] MAPPER(checkAjaxId2) RETURN");
-System.out.println("[LoginService ajaxchk_id] infoChkId : " + infoChkEmail);
-		}
 		return infoChkEmail;
 	}
 

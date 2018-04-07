@@ -3,18 +3,10 @@ package com.kat.seat.model;
 public class Search {
 
 	// 검색 정보 담기
-	private String select_continent; // 검색 대륙
 	private String select_country; // 검색 국가
 	private String select_city; // 검색 메뉴
 	private String select_product; // 검색키워드
 	
-	public String getSelect_continent() {
-		return select_continent;
-	}
-	
-	public void setSelect_continent(String select_continent) {
-		this.select_continent = select_continent;
-	}
 	public String getSelect_country() {
 		return select_country;
 	}
@@ -35,7 +27,7 @@ public class Search {
 	}
 	@Override
 	public String toString() {
-		return "Search [select_continent=" + select_continent + ", select_country=" + select_country + ", select_city="
-				+ select_city + ", select_product=" + select_product + "]";
+		return "Search [select_country=" + select_country + ", select_city=" + select_city + ", select_product="
+				+ select_product + "]";
 	}
 }

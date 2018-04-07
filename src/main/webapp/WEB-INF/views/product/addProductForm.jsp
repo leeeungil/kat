@@ -27,11 +27,28 @@ $(document).ready(function(){
 });
 
 function checkform() {
-	if ($("#product_name").val() == "") {
-		alert("상품을 입력해주세요.!");
+	if ($("#main_input-file").val() == "") {
+		alert(" (필수) 대표 사진을 등록해주세요.");
 		return false;
-	} else if ($("#menuprice").val() == "") {
-		alert("가격을 입력해주세요.!");
+	} else if ($("#product_type").val() == "0") {
+		alert(" (필수) 상품 종류를 선택해주세요.");
+		return false;
+	} else if ($("#continent").val() == "0") {
+		alert(" (필수) 대륙을 선택해주세요.");
+		return false;
+	} else if ($("#country").val() == "0") {
+		alert(" (필수) 국가를 선택해주세요.");
+		return false;
+	} else if ($("#city").val() == "0") {
+		alert(" (필수) 도시를 선택해주세요.");
+		return false;
+	} else if ($("input[name=sell_start]").val() == "") {
+		alert(" (필수) 상품 판매 시작 일자를 선택해주세요.");
+	} else if ($("input[name=sell_start]").val() == "") {
+		alert(" (필수) 상품 판매 종료 일자를 선택해주세요");
+		return false;
+	} else if ($("input[name=cost]").val() == "") {
+		alert(" (필수) 상품 가격을 입력해주세요.");
 		return false;
 	}
 	return true;
@@ -181,7 +198,7 @@ $(function(){
 					<!-- 상품 타이틀  (메인 제목) START -->
 					<label>----- 상품 메인 제목 --------------------------------------</label>
 					<div class="product_total_content">
-						<input type="text" class="select_top product_title_add_form" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요.">
+						<input type="text" class="select_top product_title_add_form" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요." value=''>
 					</div>
 					<label>----- 상품 상세 정보 --------------------------------------</label>
 					<div class="product_total_content">
@@ -192,7 +209,7 @@ $(function(){
 							<label style="color: #a97228">상품 마감일 : </label><input type="text" class="datePick" name="sell_end" id="sell_end">
 						</div>
 						<div class="wrap">
-							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="cost">
+							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="cost" value=''>
 						</div>
 					</div>
 					
@@ -200,7 +217,7 @@ $(function(){
 						<td> <label style="color: #a97228">프로필 </label> </td>
 					</tr></thead>
 					<tbody><tr>
-						<td> <textarea name="user_profile" class="product_content_textArea"></textarea> </td>
+						<td> <textarea name="user_profile" class="product_content_textArea"><p></p></textarea> </td>
 					</tr></tbody></table>
 					
 					<table class="product_photo_table"><thead><tr>
@@ -214,26 +231,6 @@ $(function(){
 						<td>
 							<ul class="product_image_ul">
 								<li class="product_image_upload filebox bs3-primary preview-image">
-									<!-- <label for="input_file1"></label> 
-									<input type="file" id="input_file1" class="upload-hidden" name="file"> 
-									<label for="input_file2"></label> 
-									<input type="file" id="input_file2" class="upload-hidden" name="file">
-									<label for="input_file3"></label> 
-									<input type="file" id="input_file3" class="upload-hidden" name="file">
-									<label for="input_file4"></label> 
-									<input type="file" id="input_file4" class="upload-hidden" name="file">
-									<label for="input_file5"></label> 
-									<input type="file" id="input_file5" class="upload-hidden" name="file">
-									<label for="input_file6"></label> 
-									<input type="file" id="input_file6" class="upload-hidden" name="file">
-									<label for="input_file7"></label> 
-									<input type="file" id="input_file7" class="upload-hidden" name="file">
-									<label for="input_file8"></label> 
-									<input type="file" id="input_file8" class="upload-hidden" name="file">
-									<label for="input_file9"></label> 
-									<input type="file" id="input_file9" class="upload-hidden" name="file">
-									<label for="input_file10"></label> 
-									<input type="file" id="input_file10" class="upload-hidden" name="file"> -->
 								</li>
 							</ul>
 						</td>
@@ -243,7 +240,7 @@ $(function(){
 						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
 					</tr></thead>
 					<tbody><tr>
-						<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
+						<td> <textarea name="product_content" class="product_content_textArea"><p></p></textarea> </td>
 					</tr></tbody></table>
 					
 					<table><thead><tr>
@@ -260,7 +257,7 @@ $(function(){
 					</tr></thead>
 					<tbody><tr>
 						<td>
-							<textarea name="product_info" class="product_content_textArea"></textarea>
+							<textarea name="product_info" class="product_content_textArea"><p></p></textarea>
 						</td>
 					</tr></tbody></table>
 					

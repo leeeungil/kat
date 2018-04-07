@@ -53,7 +53,7 @@
 						<div class="find_join">
 							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
 							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
-							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>
+							<a  href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a>
 						</div> 
 					</li></ul>
 				</div>
@@ -69,7 +69,7 @@
 					<ul class="top-loginbox">
 					<c:if test="${user_id == null}">
 						<li><a onclick="login()">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a></li>
+						<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a></li>
 					</c:if>
 					<c:if test="${user_id != null}">
 						<li style="color:#000000"><font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님

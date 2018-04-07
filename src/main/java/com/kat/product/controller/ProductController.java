@@ -2,6 +2,7 @@ package com.kat.product.controller;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -411,5 +412,17 @@ System.out.println("[ProductController delfavoriteProduct] user_id : " + user_id
 		favoriteProduct.setUser_id(user_id);
 		addProductService.delfavoriteProduct(favoriteProduct);
 System.out.println("=============================================================");
+	}
+	
+	@RequestMapping(value ="chkFavoriteProduct", produces = "application/json; charset=utf8")
+	@ResponseBody
+	public List<String> chkFavoriteProduct(HttpServletRequest request) throws Exception {
+System.out.println("[ProductController chkFavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+System.out.println("[ProductController chkFavoriteProduct] user_id : " + user_id);
+		List<String> favoriteList = new ArrayList<String>();
+		favoriteList = addProductService.chkFavoriteProduct(user_id);
+System.out.println("=============================================================");
+		return favoriteList;
 	}
 }

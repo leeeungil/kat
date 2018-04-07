@@ -1,5 +1,6 @@
 package com.kat.product.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -106,6 +107,16 @@ System.out.println("[AddProductService delfavoriteProduct] " + favoriteProduct.t
         dao = sqlSessionTemplate.getMapper(ProductDao.class);
 		dao.delfavoriteProduct(favoriteProduct);
 System.out.println("[AddProductService delfavoriteProduct] MAPPER(findProductDetailInfo) FINISH");
+	}
+	// chk favorite Product
+	public List<String> chkFavoriteProduct(String user_id) {
+System.out.println("[AddProductService chkFavoriteProduct] CHK FAVORITE PRODUCT ACCESS");
+System.out.println("[AddProductService chkFavoriteProduct] user_id : " + user_id);
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+        List<String> favoriteList = new ArrayList<String>();
+        favoriteList = dao.chkFavoriteProduct(user_id);
+System.out.println("[AddProductService delfavoriteProduct] MAPPER(findProductDetailInfo) FINISH");
+		return favoriteList;
 	}
 	
 	
@@ -254,22 +265,17 @@ System.out.println("[AddProductService getListInfo] pageNumber : " + pageNumber)
 		int TotalCount = 0;
 		int resultCode = 0;
 		
-		String continent = search.getSelect_continent();
 		String country = search.getSelect_country();
 		String city = search.getSelect_city();
 		String product = search.getSelect_product();
 		
-		if (continent.equals("대륙") && country.equals("국가") && city.equals("도시") && product.equals("상품")) {
-System.out.println("[AddProductService getListInfo] TYPE : SEARCH VALUE EMPTY");
-			resultCode = 1; // 알람 설정
-			view.setResultCode(resultCode);
-		} else if (!continent.equals("대륙") && !country.equals("국가") && city.equals("도시") && product.equals("상품")) {
+		if (!country.equals("국가") && city.equals("도시") && product.equals("상품")) {
 System.out.println("[AddProductService getListInfo] TYPE : SEARCH VALUE continent & country");
-			TotalCount = dao.productCount_12(continent, country); // 검색된 리스트 수
+			TotalCount = dao.productCount_1(country); // 검색된 리스트 수
 System.out.println("[AddProductService getListInfo] MAPPER(shopCountList) RETURN");
 System.out.println("[AddProductService getListInfo] TotalCount : " + TotalCount);			
 			firstRow = (pageNumber - 1) * SEARCH_PER_PAGE;
-			infoShopSearch = dao.productSearch_12(continent, country, firstRow, SEARCH_PER_PAGE); // 키워드로 검색했을때 리스트
+			infoShopSearch = dao.productSearch_1(country, firstRow, SEARCH_PER_PAGE); // 키워드로 검색했을때 리스트
 System.out.println("[AddProductService getListInfo] MAPPER(shopSearch) RETURN");
 System.out.println("[AddProductService getListInfo] " + infoShopSearch.toString());				
 			pageNumber = TotalCount / SEARCH_PER_PAGE;

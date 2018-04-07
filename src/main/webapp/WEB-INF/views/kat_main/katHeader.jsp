@@ -14,7 +14,73 @@
  		 	$(this).children("span").css("color","#74777b");
 		 }
 	 })
+	 
  })
+/* 메인 통합 검색 */
+/* 국가 선택 */
+function country_select(country) {
+	var objDiv1 = country;
+	var area_style1 = document.getElementById("country");
+	
+	document.getElementById("country").value = objDiv1;
+	area_style1.style.color = "#fff";
+    area_style1.style.backgroundColor = "#16bab4";
+}
+/* 도시 선택 */
+function city_select(city) {
+	var objDiv1 = city;
+	var area_style1 = document.getElementById("city");
+	
+	document.getElementById("city").value = objDiv1;
+	area_style1.style.color = "#fff";
+    area_style1.style.backgroundColor = "#16bab4";
+}
+/* 상품 선택 */
+function product_select(product) {
+	var objDiv1 = product;
+	var area_style1 = document.getElementById("product");
+	
+	document.getElementById("product").value = objDiv1;
+	area_style1.style.color = "#fff";
+    area_style1.style.backgroundColor = "#16bab4";
+}
+
+ /* 메뉴 / 지역 / 키워드 히든처리 */
+function main_choice_menu(select_type) {
+	var type = select_type;
+	var countryDiv = document.getElementById("country");
+	var cityDiv = document.getElementById("city");
+	var productDiv = document.getElementById("product");
+	
+	if(type==1){
+		cityDiv.style.display = "none";
+		productDiv.style.display = "none";
+		
+		if(countryDiv.style.display == "block"){
+			countryDiv.style.display = "none";
+		} else {
+			countryDiv.style.display = "block";
+		}
+	} else if(type==2){
+		countryDiv.style.display = "none";
+		productDiv.style.display = "none";
+		
+		if(cityDiv.style.display == "block"){
+			cityDiv.style.display = "none";
+		} else {
+			cityDiv.style.display = "block";
+		}
+	} else if(type==3){
+		countryDiv.style.display = "none";
+		cityDiv.style.display = "none";
+		
+		if(productDiv.style.display == "block"){
+			productDiv.style.display = "none";
+		} else {
+			productDiv.style.display = "block";
+		}
+	}
+}
 </script>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
@@ -30,9 +96,6 @@
 		<div class="login_top" id="login_top">
 			<div class="loginTitle" id="loginTitle" style="display: block;">
 				<ul><li class='loginFormLi_click' id="userLogin"> TOTAL LOGIN </li></ul>
-				<!-- <ul><li class='loginFormLi_click' id="userLogin" onclick="userLogin_hide()"> 회원 로그인
-				</li><li class='loginFormLi' id="businessLogin" onclick="businessLogin_hide()"> 사업자 로그인
-				</li></ul> -->
 			</div>
 	
 			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginProcess.do" name="member">
@@ -52,53 +115,23 @@
 						<div class="find_join">
 							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
 							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
-							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>
+							<a  href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a>
 						</div> 
 					</li></ul>
 				</div>
 			</form>
-			
-			<%-- <form method="post" action="<%=request.getContextPath()%>/kat/login/loginbusiness.do" name="company_member.do">
-				<div>
-					<ul class="login_form" id="company_in" style="display: none;"><li class="login_sty" id="id_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" class="login_form_input" name="business_id">
-					</li>
-					<li class="login_sty" id="pw_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
-						<input type="password" placeholder="PASSWORD" class="login_form_input" name="business_pass">
-					</li>
-					<li>
-						<input type="submit" class="btn_login" value="로그인" >
-					</li>
-					<li class="join_login">
-						<div class="find_join">
-							<a href="<%=request.getContextPath()%>/kat/login/idfind.do">아이디 찾기</a> <span>|</span> 
-							<a href="<%=request.getContextPath()%>/kat/login/pwfind.do">비밀번호 찾기</a> <span>|</span> 
-							<a  href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a>
-						</div> 
-					</li></ul>
-				</div>
-			</form> --%>
 		</div>
 	</div>
 	<!-- 메인 슬라이드 쇼 -->
 	<div class="main_slideshow">
 		<div class="top_wrap"> 
 			<div class="content-wrap">
-				<%-- <span class="btn-fav">
-					<h1 class="logo-item">
-						<a href="<%=request.getContextPath()%>/kat_main.do">
-							<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform">
-						</a>
-					</h1> 
-				</span> --%>
 				<div class="top_right">
 					<div class="search-box">검색폼</div>
 					<ul class="top-loginbox">
 					<c:if test="${user_id == null}">
 						<li><a onclick="login()">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/kat/join/agreechk.do">회원가입</a></li>
+						<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a></li>
 					</c:if>
 					<c:if test="${user_id != null}">
 						<li style="color:#000000"><font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님
@@ -131,7 +164,6 @@
 						</li>
 					</c:if>
 					</ul>
-					<!-- <span class="btn-fullmenu"></span>			 -->													
 					<span class="btn-fullmenu" id="google_translate_element"></span>
 				</div>
 			</div>
@@ -155,21 +187,10 @@
 	<!-- 컨텐츠 메뉴 ( 대륙, 국가, 도시, 상품, 검색, 초기화 ) -->
 	<form class='content_form' id="content_form" action="<%=request.getContextPath()%>/kat/SearchList/SearchInfo.do" method="post">
 		<div class='content_menu' id="content_menu"> 
-			<input type="text" value="대륙" class="main_select select_continent" id="continent_select" onclick="main_choice_menu(1)" name="select_continent" readonly>
-			<input type="text" value="국가" class="main_select select_country" id="country_select" onclick="main_choice_menu(2)" name="select_country" readonly>
-			<input type="text" value="도시" class="main_select select_city" id="city_select" onclick="main_choice_menu(3) " name="select_city" readonly>
-			<input type="text" value="상품" class="main_select select_product" id="product_select" onclick="main_choice_menu(4) " name="select_product" readonly>
-			<!-- <input type="search" placeholder=" KEYWORD" class="menu_keyword" onclick="key_hide()" name="select_key" style="font-size: 26px;"> -->
+			<input type="text" value="국가" class="main_select select_country" id="country_select" onclick="main_choice_menu(1)" name="select_country" readonly>
+			<input type="text" value="도시" class="main_select select_city" id="city_select" onclick="main_choice_menu(2) " name="select_city" readonly>
+			<input type="text" value="상품" class="main_select select_product" id="product_select" onclick="main_choice_menu(3) " name="select_product" readonly>
 			<input type="submit" value="검색" class='main_select search_data' id="search_data">
-		</div>
-		<!-- 메뉴 선택 컨텐츠 -->
-		<div id="continent" style="display: none">
-			<ul class="menu_step2" id="menu_step2">
-				<li id="B" onclick="continent_select('셔틀')">셔틀</li>
-				<li id="W" onclick="continent_select('투어')">투어</li>
-				<li id="K" onclick="continent_select('가이드')">가이드</li>
-				<li id="E" onclick="continent_select('기타')">기타</li>
-			</ul>
 		</div>
 		<!-- 메뉴 선택 컨텐츠 -->
 		<div id="country" style="display: none">

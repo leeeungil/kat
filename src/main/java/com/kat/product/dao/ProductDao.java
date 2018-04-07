@@ -62,46 +62,21 @@ public interface ProductDao {
 
 	
 	// 장준영 수정 중
-	// continent, country count
-	public int productCount_12(String continent, String country);
-	// continent, country search
-	public List<InfoShopSearch> productSearch_12(String continent, String country, int firstRow, int searchPerPage);
+	// country search
+	public int productCount_1(String country);
+	public List<InfoShopSearch> productSearch_1(String country, int firstRow, int searchPerPage);
 	
-	// 메뉴로 검색한 리스트 수
-	public int shopCountList2(String menu);
+	// country, city search
+	public int productCount_12(String country, String city);
+	public List<InfoShopSearch> productSearch_12(String country, String city, int firstRow, int searchPerPage);
 
-	// 메뉴로 검색한 리스트 담기
-	public List<InfoShopSearch> shopSearch2(String menu, int firstRow, int searchPerPage);
+	// country, product search
+	public int productCount_13(String country, String product);
+	public List<InfoShopSearch> productSearch_13(String country, String product, int firstRow, int searchPerPage);
 
-	// 지역으로 검색한 리스트 수
-	public int shopCountList3(String area);
-
-	// 지역으로 검색한 리스트 담기
-	public List<InfoShopSearch> shopSearch3(String area, int firstRow, int searchPerPage);
-
-	// 지역 / 키워드 입력 리스트 수
-	public int shopCountList4(String area, String keyword);
-
-	// 지역 / 키워드 입력 리스트 담기
-	public List<InfoShopSearch> shopSearch4(String area, String keyword, int firstRow, int searchPerPage);
-
-	// 메뉴 / 키워드 입력 리스트 수
-	public int shopCountList5(String menu, String keyword);
-
-	// 메뉴 / 키워드 입력 리스트 담기
-	public List<InfoShopSearch> shopSearch5(String menu, String keyword, int firstRow, int searchPerPage);
-
-	// 지역 / 메뉴종류 리스트 수
-	public int shopCountList6(String area, String menu);
-
-	// 지역 / 메뉴종류 리스트 담기
-	public List<InfoShopSearch> shopSearch6(String area, String menu, int firstRow, int searchPerPage);
-
-	// 지역 / 메뉴종류 / 키워드 리스트 수
-	public int shopCountList7(String area, String menu, String keyword);
-	
-	
-	
+	// country, city, product search
+	public int productCount_123(String country, String product, String city);
+	public List<InfoShopSearch> productSearch_123(String country, String product, String city, int firstRow, int searchPerPage);
 	
 	
 	// 장준영 수정 완료
@@ -125,4 +100,5 @@ public interface ProductDao {
 	// 즐겨찾기 등록
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct);
 	public void delfavoriteProduct(FavoriteProduct favoriteProduct);
+	public List<String> chkFavoriteProduct(String user_id);
 }

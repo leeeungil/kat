@@ -9,20 +9,10 @@
     height: calc(100% - 40px);
     margin: auto;
 }
-/* .product_wrap {
-    width: 380px;
-    margin: 11px 13px;
-    background-color: white;
-    height: 308px;
-    float: left;
-    box-shadow: #e9ecef 0px 0px 1px 1px;
-    border-bottom-right-radius: 16px;
-    cursor: pointer;
-    transition: all 0.2s ease-out;
+.form_basic_wrap {
+	width: 900px;
+    margin: auto;
 }
-.product_wrap:hover {
-	box-shadow: #0e0e0e 0px 0px 10px 1px;
-} */
 .main_photo_zone {
 	height: 100%;
     width: 100%;
@@ -60,7 +50,6 @@
     font-size: 12px;
     color: #6c6c6c;
 }
-
 /* 선택지 */
 .travelProductTop{
     color: #2d99fd!important;

@@ -40,7 +40,7 @@
   </filter-mapping>
   <filter>
     <filter-name>LoginCheck</filter-name>
-    <filter-class>com.kat.login.LoginCheckFilter</filter-class>
+    <filter-class>com.kat.login.controller.LoginCheckFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>LoginCheck</filter-name>

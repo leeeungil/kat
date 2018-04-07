@@ -15,17 +15,31 @@ $(document).ready(function(){
 			$(".product_wrap").show();
 		}, 1000)
 	})
-/* 	$(document).on("click", ".fa-star-o", function() {
-		$(this).removeClass("fa-star-o").addClass("fa-star")
-	}) */
-	/* product_no를 가지고 상품 detail가져오기 */
-<%-- 	$(document).on("click",".area > .product_wrap", function(){
+	
+	<%-- $(document).on("mouseenter", "figure", function(e) {
 		var productNo = $(this).children("input").val();
-		$(".product_wrap").css("transform", "scale(0.0)");
-		setTimeout(function() {
-			location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
-		}, 200);
+		$.ajax({
+			url:'<%=request.getContextPath()%>/product/chkFavoriteProduct',
+			type: 'post',
+			dataType: 'json',
+			success: function(data){
+				$.each(data, function(index, i) {
+					if(productNo==i) {
+						$(this).attr("class")
+					} else {
+						alert("dd")
+					}
+				});
+				
+				/* if(data=='0') {
+					$(this).children("figcaption").children("p").children("a").children(".fa-star-o").removeClass("fa-star-o").addClass("fa-star")
+				} else {
+					alert("ddss")
+				} */
+			}
+		})
 	}) --%>
+	
 	$(document).on("click",".area > .product_wrap > figure", function(e){
 		var productNo = $(this).children("input").val();
 		if(e.target.className === "fa fa-fw fa-star-o"){
@@ -67,7 +81,6 @@ $(document).ready(function(){
 	$(".fa-gift").parents("li").css("background","#196cf8")
 	$(".fa-gift").css("color","#ffffff")
 	$(".fa-gift").children("span").css("color","#ffffff")
-
 	
 })
 </script>
