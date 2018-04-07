@@ -29,16 +29,16 @@ public class UpdateController {
 		// 사업자, 일반 구분 데이터 가져오기
 		JoinInfo info = updateService.getMyPageUpdateInfo1(userid);
 		
-		String level = info.getLevel();
+		int level = info.getMember_type();
 
 		System.out.println("구분 가져오기" + level);
 
-		if (level.equals("2")) {
+		if (level==2) {
 			System.out.println("사업자용");
 			updateService.businessUpdate(joinInfo);
 			modelAndView.addObject("MypageUpdateSucess", joinInfo);
 			modelAndView.addObject("category", level);
-		} else if (level.equals("1")) {
+		} else if (level==1) {
 			System.out.println("일반회원용");
 			updateService.memberUpdate(joinInfo);
 			modelAndView.addObject("MypageUpdateSucess", joinInfo);

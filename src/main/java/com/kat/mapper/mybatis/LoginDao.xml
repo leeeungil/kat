@@ -5,7 +5,7 @@
 	<!-- 일반 회원 정보 등록 -->
 	<insert id="insertMember" parameterType="com.kat.seat.model.JoinInfo">
 		INSERT INTO MEMBER
-		VALUES (0, 1, #{user_id}, #{name}, #{password}, #{phone}, #{email}, now(), '', '', '', '', '', '', 0)
+		VALUES (0, 1, #{name}, #{email}, #{password}, #{phone}, now(), 0, #{email})
 	</insert>
 
 	<!-- 사업자 정보 등록 -->

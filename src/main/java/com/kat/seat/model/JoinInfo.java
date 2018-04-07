@@ -1,40 +1,23 @@
 package com.kat.seat.model;
 
+import java.util.Date;
+
 public class JoinInfo {
 	private int member_no; // 회원 번호
-	private String user_id; // 회원 아이디
+	private int member_type; //회원 타입
 	private String name; // 회원 이름
-	private String password; // 회원 비밀번호
-	private String phone; // 회원 전화번호
-	private String email; // 회원 이메일
-	private String create_date; // 가입 일자 
-	private int delete_flag; // 회원 구분
+	private String email; //이메일
+	private String password; //비밀번호
+	private String phone; //전화번호
+	private Date create_date; //가입일자
+	private int delete_flag;
+	private String user_id;
 	
-	private String level;
-	
-	public String getLevel() {
-		return level;
-	}
-	public void setLevel(String level) {
-		this.level = level;
-	}
-	public int getMember_no() {
-		return member_no;
-	}
-	public void setMember_no(int member_no) {
-		this.member_no = member_no;
-	}
 	public String getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
 	}
 	public String getPassword() {
 		return password;
@@ -42,11 +25,23 @@ public class JoinInfo {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getPhone() {
-		return phone;
+	public int getMember_no() {
+		return member_no;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setMember_no(int member_no) {
+		this.member_no = member_no;
+	}
+	public int getMember_type() {
+		return member_type;
+	}
+	public void setMember_type(int member_type) {
+		this.member_type = member_type;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getEmail() {
 		return email;
@@ -54,10 +49,16 @@ public class JoinInfo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCreate_date() {
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public Date getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(String create_date) {
+	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
 	public int getDelete_flag() {
@@ -68,8 +69,11 @@ public class JoinInfo {
 	}
 	@Override
 	public String toString() {
-		return "JoinInfo [member_no=" + member_no + ", user_id=" + user_id + ", name=" + name + ", password=" + password
-				+ ", phone=" + phone + ", email=" + email + ", create_date=" + create_date + ", delete_flag="
-				+ delete_flag + ", level=" + level + "]";
+		return "JoinInfo [member_no=" + member_no + ", member_type=" + member_type + ", name=" + name + ", email="
+				+ email + ", password=" + password + ", phone=" + phone + ", create_date=" + create_date
+				+ ", delete_flag=" + delete_flag + ", user_id=" + user_id + "]";
 	}
+	
+	
+	
 }
