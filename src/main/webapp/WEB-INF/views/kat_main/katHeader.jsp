@@ -120,6 +120,10 @@
 		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/3.jpg)"></div>
 		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/4.jpg)"></div>
 		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/5.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/6.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/7.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/8.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/9.jpg)"></div>
 	<!-- 컨텐츠 메뉴 통합 검색 -->
 	</div>
 	<form class='content_form' method="post" id="content_form" action="<%=request.getContextPath()%>/kat/SearchList/SearchInfo.do">

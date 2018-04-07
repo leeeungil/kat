@@ -23,6 +23,13 @@ $(document).ready(function() {
 		</a>
     </li>
   </ul>
+   <ul>
+    <li>
+    	<a href="<%=request.getContextPath()%>/kat/productForm/productAdd.do">
+			<font>상품 등록</font>
+		</a>
+    </li>
+  </ul>
 </div>
 <style>
 #sidebar{
