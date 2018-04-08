@@ -53,19 +53,18 @@ CREATE TABLE NOTICE (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE MEMBER (
+CREATE TABLE `member` (
   `member_no` int(11) NOT NULL AUTO_INCREMENT,
   `member_type` int(2) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password1` varchar(100) NOT NULL,
-  `password2` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `email_confirm` int(11) NOT NULL,
   `create_date` date NOT NULL,
   `delete_flag` int(11) NOT NULL,
+  `user_id` varchar(45) NOT NULL,
   PRIMARY KEY (`member_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE BUSINESS (
   `business_no` int(11) NOT NULL AUTO_INCREMENT, 
