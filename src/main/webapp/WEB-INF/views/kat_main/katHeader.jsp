@@ -41,7 +41,7 @@
 				<div>
 					<ul class="login_form" id="member_in"><li class="login_sty" id="id_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" class="login_form_input" name="user_id">
+						<input type="text" placeholder="EMAIL" class="login_form_input" name="user_id">
 					</li>
 					<li class="login_sty" id="pw_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
@@ -96,6 +96,9 @@
 						<c:if test="${member_type == '3'}">
 							<li id="categoryfont">
 								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
+							</li>
+							<li>
+								<a href="<%=request.getContextPath()%>/kat/parter/parterInsert.do"><strong>파트너 등록</strong></a>
 							</li>
 						</c:if>
 						<li>

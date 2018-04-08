@@ -88,7 +88,6 @@
 						checkAjaxEmail : test
 					},
 					success : function(data) {
-						emailspan
 						if (data == 0) {
 							$("#emailspan").text("사용가능한 이메일입니다.").css('color','black');
 							$("#ajaxemail_1").val('Y');

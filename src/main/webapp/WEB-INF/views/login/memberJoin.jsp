@@ -1,6 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
+//ajax 이메일 인증 시작 ==========================
+$(document).ready(function() {
+	$("#emailcertification").click(function() {
+		var emailpass = $("#ajaxemail_1").val();
+		var test = $("#email").val().trim();
+		if (test != null && test != '') {
+			if (emailpass == 'Y') {
+				$.ajax({
+					url : '<%=request.getContextPath()%>/emailver.do',
+					type : 'post',
+					dataType : 'text',
+					data : {
+						emailver : test
+					},
+					success : function(data) {
+						alert("인증코드 전송완료");
+						$("#email_sendcode_1").val(data);
+					}
+				});
+				$("#kk_emailver").attr("disabled", true);
+				$("#kk_emailver").val("전송 완료");
+			} else {
+				alert("이메일 중복확인 후 이용해주세요.");
+			}
+		 }
+	});
+	/* ajax email 중복체크  */
+	$(document).ready(function() {
+		$("#ajaxemail").click(function() {
+			var test = $("#email").val().trim();
+			if (test != null && test != '') 
+				$.ajax({
+					url : '<%=request.getContextPath()%>/ajaxemailchk.do',
+					type : 'post',
+					dataType : 'text',
+					data : {
+						checkAjaxEmail : test
+					},
+					success : function(data) {
+						alert(data)
+						if (data == 0) {
+							$("#emailspan").text("사용가능한 이메일입니다.").css('color','black');
+							$("#ajaxemail_1").val('Y');
+						} else {
+							$("#emailspan").text("중복된 이메일 이메일입니다.").css('color','red');
+							$("#ajaxemail_1").val('N');
+						}
+					}
+				});
+			});
+		});
+});
+
+function okok(){
+	var sendcode= document.getElementById("email_sendcode_1").value;
+	var usercode = document.getElementById("user_sendcode").value;
+	if(sendcode==usercode){
+		alert("인증이 성공하였습니다.");
+		$("#email_sendcode_2").val("y");
+	}else{
+		alert("인증에 실패하셨습니다.");
+	}
+}
+
+function emailfocus(){
+	$("#email_sendcode_2").val("n");
+}
+
+
+
 /*checkbox 약관 전체동의*/
 $(document).ready(function(){
 	$('.check-all').click(function(){
@@ -58,8 +128,35 @@ function joinFormBlankChk() {
 				   <tr>
 				      <td>이름<br><input type="text" name="name" value=""></td>
 				   </tr>
+				    <tr>
+				      <td><br>
+				      <ul>
+						<li id="add_search_li_border">이메일</li>
+						<li class="textstyle">
+							<input type="email" id="email" name="email" onfocus="emailfocus()">
+						</li>
+						<li class="textstyle">
+							<input type="button" value="이메일 확인" id="ajaxemail">
+							<input type="hidden" id="ajaxemail_1" value="N">
+						</li>
+						<li class="textstyle">
+							<input type="button" value="이메일인증" id="emailcertification">
+							<input type="hidden" id="email_sendcode_1" value="jr3110">
+							<input type="hidden" id="email_sendcode_2" value="n">
+						</li>
+					</ul>
+					</td>
+				   </tr>
 				   <tr>
-				      <td>이메일<br><input type="text" name="email" value=""></td>
+				   <td><br>
+				      <ul>
+						<li id="add_search_li_border">인증코드확인</li>
+						<li class="textstyle">
+							<input type="text" id="user_sendcode">
+							<input type="button" value="확인" onclick="okok()">
+						</li>
+					</ul>
+				   </td>
 				   </tr>
 				   <tr>
 				      <td>비밀번호<br><input type="text" name="password" value=""></td>

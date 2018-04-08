@@ -29,7 +29,7 @@ System.out.println("[BusinessJoinFormInsertController] " + joinInfoBusiness.toSt
 
     ModelAndView modelAndView =  new ModelAndView();
     try {
-    	loginService.joinInsertBusiness(joinInfoBusiness);
+    	/*loginService.joinInsertBusiness(joinInfoBusiness);*/ //4/8 주석처리
 System.out.println("[BusinessJoinFormInsertController] BusinessJoinInfo : " + joinInfoBusiness);      	
     	modelAndView.addObject("joinName", joinInfoBusiness);
     	modelAndView.setViewName("joinSucess_main");

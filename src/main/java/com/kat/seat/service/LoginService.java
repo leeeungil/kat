@@ -25,7 +25,7 @@ System.out.println("[LoginService joinInsert] MAPPER(insertMember) FINISH");
 	}
 
 	// 사업자 회원
-	public void joinInsertBusiness(JoinInfoBusiness joinInfoBusiness) {
+	public void parterJoinInsert(JoinInfoBusiness joinInfoBusiness) {
 System.out.println("[LoginService joinInsertBusiness] BUSINESS MEMBER REGISTRATION ACCESS");
 System.out.println("[LoginService joinInsertBusiness] " + joinInfoBusiness.toString());
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
@@ -147,4 +147,6 @@ System.out.println("[LoginService ajaxchk_email] infoChkEmail : " + infoChkEmail
 
 		return infoidfind1;
 	}
+
+	
 }
