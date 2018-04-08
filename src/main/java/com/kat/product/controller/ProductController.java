@@ -37,10 +37,10 @@ System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT AC
 		ModelAndView modelAndView = new ModelAndView();
 		List<ProductInfo> ProductList = null;
 		ProductList = addProductService.findAllTravelProduct();
-System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ ProductList.size());		
-		
+System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ ProductList.size());
 		modelAndView.addObject("ProductAllList",ProductList);
 		modelAndView.setViewName("layout/travelProductLayout");
+System.out.println("[ProductController findAllTravelProduct] go =======>  layout/travelProductLayout");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
@@ -60,7 +60,7 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 		if(productList.size()!=0) {
 			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode +="	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+				htmlCode +="	<figure class='effect-winston' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'>"
 						+ "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
 						+"		<figcaption class='product_fig'>";
 				if(productList.get(i).getProduct_type()==1) {
@@ -80,7 +80,7 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				htmlCode += "<p>"
-//						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
 						+"	</p>"	
@@ -110,7 +110,7 @@ System.out.println("[ProductController findTravelProductOfWord] search_word : " 
 		} else {
 			htmlCode += "<div class='product_wrap'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode +="	<figure class='effect-winston'><img src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'/>"
+				htmlCode +="	<figure class='effect-winston' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'>"
 						+ "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
 						+"		<figcaption class='product_fig'>";
 				if(productList.get(i).getProduct_type()==1) {
@@ -130,7 +130,7 @@ System.out.println("[ProductController findTravelProductOfWord] search_word : " 
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				htmlCode += "<p>"
-//						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
 						+"	</p>"	
@@ -165,7 +165,7 @@ System.out.println("[ProductController findProductDetailInfo] product_no : " + p
 						+ "					</div>"
 						+ "					<div class='product_total_content'>"
 						+ "						<div class='cost_text_wrap'>"
-//						+ "							<font id='product_cost' class='"+productInfo.getCost()+"'> ￦"+productInfo.getCost()+"</font>/ 1인"
+						+ "							<font id='product_cost' class='"+productInfo.getCost()+"'> ￦"+productInfo.getCost()+"</font>/ 1인"
 						+ "						</div>"
 						+ "					</div>"
 						+ "					<div class='product_total_content date_wrap'>"
@@ -330,7 +330,7 @@ System.out.println("[ProductController addProduct] " + productModel.toString());
 			productModel.setUser_id(user_id);
 			String file_full_name = productModel.getFile().getOriginalFilename();
 			String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());
-			String imgName = user_id+"_"+productModel.getProduct_type_no()+"_"+Time+"_main."+imgType;
+			String imgName = user_id+"_"+productModel.getProduct_type()+"_"+Time+"_main."+imgType;
 System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
 			String path = request.getSession().getServletContext().getRealPath("/") + "uploadfile\\product_img\\"+imgName;
 System.out.println("[ProductController addProduct] imgName[<== save file path] : " + path);

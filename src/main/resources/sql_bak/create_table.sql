@@ -138,7 +138,7 @@ DROP TABLE FAVORITE_PRODUCT;
 CREATE TABLE PRODUCT (
   `product_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_title` varchar(200) NOT NULL,
-  `product_type_no` int(20) NOT NULL,
+  `product_type` int(20) NOT NULL,
   `create_date` datetime DEFAULT NULL,
   `continent` varchar(45) NOT NULL,
   `country` varchar(45) NOT NULL,
@@ -163,10 +163,10 @@ CREATE TABLE PRODUCT_SUB (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE PRODUCT_TYPE (
-  `product_type_no` int(20) NOT NULL AUTO_INCREMENT,
+  `product_type` int(20) NOT NULL,
   `product_type_name` varchar(200) NOT NULL,
   `delete_flag` INT(2) NOT NULL,
-  PRIMARY KEY (`product_type_no`)
+  PRIMARY KEY (`product_type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE PRODUCT_CONTENT (

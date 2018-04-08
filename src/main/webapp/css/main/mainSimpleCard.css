@@ -15,18 +15,18 @@
 
 /* Common style */
 .product_wrap figure {
-	position: relative;
-	float: left;
-	overflow: hidden;
-	margin: 10px 1%;
-	min-width: 320px;
-	max-width: 480px;
-	max-height: 270px;
-	width: 31.3%;
-	height: 270px;
-	background: #3085a3;
-	text-align: center;
-	cursor: pointer;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    margin: 8px 0.5%;
+    min-width: 190px;
+    max-width: 320px;
+    max-height: 270px;
+    width: 15%;
+    height: 270px;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
 }
 
 .product_wrap figure img {
@@ -175,6 +175,7 @@ figure.effect-winston {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 figure.effect-winston img {
 	-webkit-transition: opacity 0.45s;
 	transition: opacity 0.45s;
@@ -182,7 +183,7 @@ figure.effect-winston img {
 	backface-visibility: hidden;
 }
 
-figure.effect-winston figcaption::before {
+/* figure.effect-winston figcaption::before {
     position: absolute;
 	top: -4px;
     left: -10px;
@@ -197,7 +198,7 @@ figure.effect-winston figcaption::before {
 	transform: rotate3d(0,0,1,45deg);
 	-webkit-transform-origin: 0 100%;
 	transform-origin: 0 100%;
-}
+} */
 
 figure.effect-winston h2 {
 	-webkit-transition: -webkit-transform 0.35s;
@@ -269,7 +270,19 @@ figure.effect-winston:hover p a:first-child i {
 }
 
 /* Media queries */
-@media screen and (max-width: 50em) {
+@media screen and (max-width: 1300px) {
+	.content {
+		padding: 0 10px;
+		text-align: center;
+	}
+	.product_wrap figure {
+		display: inline-block;
+		margin: 8px 0.5vw;
+		width: 100%;
+	}
+}
+
+/* @media screen and (max-width: 50em) {
 	.content {
 		padding: 0 10px;
 		text-align: center;
@@ -277,7 +290,7 @@ figure.effect-winston:hover p a:first-child i {
 	.product_wrap figure {
 		display: inline-block;
 		float: none;
-		margin: 10px auto;
+		margin: 8px auto;
 		width: 100%;
 	}
-}
+} */

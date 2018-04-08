@@ -1,39 +1,42 @@
 package com.kat.project;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.kat.product.model.ProductInfo;
+import com.kat.product.service.ProductService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
+	
+	@Autowired
+	private ProductService addProductService;
+	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		String formattedDate = dateFormat.format(date);
-		model.addAttribute("serverTime", formattedDate);
+	public String home(String why) {
+System.out.println("first?");
 		return "home";
 	}
 
 	@RequestMapping(value ="/kat_main.do", method = RequestMethod.GET)
-	public String home() {  
-		return "kat_main";
+	public ModelAndView home() throws Exception{
+		ModelAndView modelAndView = new ModelAndView();
+		List<ProductInfo> ProductList = null;
+		ProductList = addProductService.findAllTravelProduct();
+System.out.println("[HomeController home] ProductList.size() : "+ ProductList.size());		
+		modelAndView.addObject("ProductAllList",ProductList);
+		modelAndView.setViewName("kat_main");
+System.out.println("[HomeController home] go =======>  kat_main");
+System.out.println("=============================================================");
+		return modelAndView;
 	}
 	
 }

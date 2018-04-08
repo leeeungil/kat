@@ -6,10 +6,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$(".product_choice_btn > div").on("click",function(){
-		$(".product_wrap").css("transform", "scale(0.0)");
-		setTimeout(function() {
-			$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
-		}, 200)
 		var productType = $(this).attr("id");
 		$(".product_choice_btn > div").css("background-color","#196cf8");
 		if(productType == 0) {
@@ -29,13 +25,12 @@ $(document).ready(function(){
 			type: 'post',
 			dataType: 'text',
 			data:{ "productType": productType },
+			beforeSend: function() {
+				$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+			},
 			success: function(htmlCode){
 				setTimeout(function() {
 					$(".area").html(htmlCode);
-					$(".product_wrap").css("transform", "scale(0.0)");
-					setTimeout(function() {
-						$(".product_wrap").css("transform", "scale(1.0)");
-					}, 100);
 				}, 1000);
 			}
 		})
@@ -54,12 +49,8 @@ $(document).ready(function(){
 		}, 50);
 	})
 	
-	$("#search_product_sub").on("change paste keyup", function() {
+	$("#search_product_sub").on("paste keyup", function() {
 		var search_word = $(this).val();
-		$(".product_wrap").css("transform", "scale(0.0)");
-		setTimeout(function() {
-			$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
-		}, 400)
 		if(search_word.trim()=='') {
 			$(".total_btn").trigger("click");
 			$(this).val("");
@@ -69,8 +60,10 @@ $(document).ready(function(){
 				type: 'post',
 				dataType: 'text',
 				data:{ "search_word": search_word },
+				beforeSend: function() {
+					$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+				},
 				success: function(htmlCode){
-					$(".product_wrap").css("transform", "scale(0.0)");
 					setTimeout(function() {
 						$(".area").html(htmlCode);
 					}, 1000)

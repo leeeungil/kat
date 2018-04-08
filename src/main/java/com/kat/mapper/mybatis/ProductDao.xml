@@ -6,7 +6,7 @@
 <mapper namespace="com.kat.product.dao.ProductDao">
 	<!-- 카테고리 가져오기 Start -->
 	<select id="selectProductType" resultType="com.kat.product.model.ProductTypeModel">
-		SELECT PRODUCT_TYPE_NO, PRODUCT_TYPE_NAME, DELETE_FLAG FROM PRODUCT_TYPE WHERE DELETE_FLAG = 0;
+		SELECT PRODUCT_TYPE, PRODUCT_TYPE_NAME, DELETE_FLAG FROM PRODUCT_TYPE WHERE DELETE_FLAG = 0;
 	</select>
 	<select id="selectContinent" resultType="com.kat.product.model.ContinentModel">
 		SELECT CONTINENT_NO, CONTINENT, DELETE_FLAG FROM MENU_CONTINENT WHERE DELETE_FLAG = 0;
@@ -30,7 +30,7 @@
 	</select>
 	<insert id="insertProduct" parameterType="com.kat.product.model.ProductModel">
 		INSERT INTO PRODUCT
-		VALUES (#{product_no}, #{product_title}, #{product_type_no}, now(), #{continent}, #{country}, #{city},
+		VALUES (#{product_no}, #{product_title}, #{PRODUCT_TYPE}, now(), #{continent}, #{country}, #{city},
 				(SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id}), #{user_profile}, #{business_number}, 
 				#{product_main_photo}, 0, 0)
 	</insert>
@@ -66,18 +66,34 @@
 	
 	<!-- 전체 가져오기(여행상품 메뉴 선택시) -->
 	<select id="findAllTravelProduct" resultType="com.kat.product.model.ProductInfo">
-		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
-		FROM PRODUCT WHERE DELETE_FLAG=0
+		SELECT PMM.PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, COUNTRY, CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO, COST
+		FROM 
+			(SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, MCOUN.COUNTRY, MCI.CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO 
+				FROM PRODUCT P, MENU_COUNTRY MCOUN, MENU_CITY MCI
+				WHERE P.COUNTRY=MCOUN.COUNTRY_NO AND P.CITY=MCI.CITY_NO AND P.DELETE_FLAG=0) PMM
+		LEFT JOIN PRODUCT_SUB PS  ON PMM.PRODUCT_NO=PS.PRODUCT_NO
+		<!-- LIMIT 1, 12 -->
 	</select>
 	<!-- product_type 별로 가져오기 -->
 	<select id="findTypeTravelProduct" resultType="com.kat.product.model.ProductInfo">
-		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
-		FROM PRODUCT WHERE PRODUCT_TYPE=#{product_type} AND DELETE_FLAG=0
+		SELECT PMM.PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, COUNTRY, CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO, COST
+		FROM 
+			(SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, MCOUN.COUNTRY, MCI.CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO 
+				FROM PRODUCT P, MENU_COUNTRY MCOUN, MENU_CITY MCI
+				WHERE P.COUNTRY=MCOUN.COUNTRY_NO AND P.CITY=MCI.CITY_NO AND P.DELETE_FLAG=0 AND PRODUCT_TYPE=#{product_type}) PMM
+		LEFT JOIN PRODUCT_SUB PS  ON PMM.PRODUCT_NO=PS.PRODUCT_NO
+		<!-- LIMIT 1, 12 -->
 	</select>
 	<!-- search_word 검색 후 가져오기 (메인 제목, 대륙, 도시, 국가) -->
 	<select id="findWordTravelProduct" resultType="com.kat.product.model.ProductInfo">
-		SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, CREATE_DATE, COST, CONTINENT, COUNTRY, CITY, USER_ID, BUSINESS_NUMBER, PRODUCT_MAIN_PHOTO, SELL_START, SELL_END
-		FROM PRODUCT WHERE (PRODUCT_TITLE LIKE #{search_word} OR CONTINENT LIKE #{search_word} OR COUNTRY LIKE #{search_word} OR CITY LIKE #{search_word} ) AND DELETE_FLAG=0
+		SELECT PMMM.PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, COUNTRY, CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO, COST
+			FROM 
+				(SELECT PRODUCT_NO, PRODUCT_TITLE, PRODUCT_TYPE, MCONTI.CONTINENT, MCOUN.COUNTRY, MCI.CITY, MEMBER_NO, PRODUCT_MAIN_PHOTO 
+					FROM PRODUCT P, MENU_COUNTRY MCOUN, MENU_CITY MCI, MENU_CONTINENT MCONTI
+					WHERE P.COUNTRY=MCOUN.COUNTRY_NO AND P.CITY=MCI.CITY_NO AND P.CONTINENT=MCONTI.CONTINENT_NO AND P.DELETE_FLAG=0 
+					AND (PRODUCT_TITLE LIKE #{search_word} OR MCONTI.CONTINENT LIKE #{search_word} OR MCOUN.COUNTRY LIKE #{search_word} OR MCI.CITY LIKE #{search_word} )) PMMM
+			LEFT JOIN PRODUCT_SUB PS ON PMMM.PRODUCT_NO=PS.PRODUCT_NO
+			<!-- LIMIT 1, 12 -->
 	</select>
 	<!-- 여행 상품 상세 정보 가져오기 -->
 	<select id="findProductDetailInfo" resultType="com.kat.product.model.ProductInfo">

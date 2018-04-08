@@ -1,15 +1,15 @@
 package com.kat.product.model;
 
 public class ProductTypeModel {
-	private int product_type_no;
+	private int product_type;
 	private String product_type_name;
 	private int delete_flag;
 	
-	public int getProduct_type_no() {
-		return product_type_no;
+	public int getProduct_type() {
+		return product_type;
 	}
-	public void setProduct_type_no(int product_type_no) {
-		this.product_type_no = product_type_no;
+	public void setProduct_type(int product_type) {
+		this.product_type = product_type;
 	}
 	public String getProduct_type_name() {
 		return product_type_name;
@@ -26,7 +26,7 @@ public class ProductTypeModel {
 
 	@Override
 	public String toString() {
-		return "ProductTypeModel [product_type_no=" + product_type_no + ", product_type_name=" + product_type_name
+		return "ProductTypeModel [product_type=" + product_type + ", product_type_name=" + product_type_name
 				+ ", delete_flag=" + delete_flag + "]";
 	}
 }

@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class ProductModel {
 	private int product_no;
 	private String product_title;
-	private int product_type_no;
+	private int product_type;
 	private String create_date;
 	private String continent;
 	private String country;
@@ -39,11 +39,11 @@ public class ProductModel {
 	public void setProduct_title(String product_title) {
 		this.product_title = product_title;
 	}
-	public int getProduct_type_no() {
-		return product_type_no;
+	public int getProduct_type() {
+		return product_type;
 	}
-	public void setProduct_type_no(int product_type_no) {
-		this.product_type_no = product_type_no;
+	public void setProduct_type(int product_type) {
+		this.product_type = product_type;
 	}
 	public String getCreate_date() {
 		return create_date;
@@ -114,8 +114,8 @@ public class ProductModel {
 
 	@Override
 	public String toString() {
-		return "ProductInfo [product_no=" + product_no + ", product_title=" + product_title + ", product_type_no="
-				+ product_type_no + ", create_date=" + create_date + ", continent=" + continent + ", country=" + country
+		return "ProductModel [product_no=" + product_no + ", product_title=" + product_title + ", product_type="
+				+ product_type + ", create_date=" + create_date + ", continent=" + continent + ", country=" + country
 				+ ", city=" + city + ", member_no=" + member_no + ", user_profile=" + user_profile
 				+ ", business_number=" + business_number + ", product_main_photo=" + product_main_photo + ", file="
 				+ file + ", use_flag=" + use_flag + ", delete_flag=" + delete_flag + ", user_id=" + user_id + "]";

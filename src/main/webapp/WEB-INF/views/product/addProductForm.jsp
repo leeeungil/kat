@@ -241,10 +241,10 @@ $(function(){
 					<div class="category" id="category">
 						<div class="select_top" id="product_type_top">
 						    <label for="product_type">Product Type</label>
-						    <select class="select" id="product_type" name="product_type_no" title="Product Type">
+						    <select class="select" id="product_type" name="product_type" title="Product Type">
 						    	<option value="0" selected="selected">Product Type</option>
 						    	<c:forEach var="productType" items="${productType}" varStatus="status1">
-							        <option value="${productType.product_type_no}">${productType.product_type_name}</option>
+							        <option value="${productType.product_type}">${productType.product_type_name}</option>
 								</c:forEach>
 						    </select>
 						</div>

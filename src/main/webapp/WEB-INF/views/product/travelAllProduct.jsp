@@ -16,30 +16,6 @@ $(document).ready(function(){
 		}, 1000)
 	})
 	
-	<%-- $(document).on("mouseenter", "figure", function(e) {
-		var productNo = $(this).children("input").val();
-		$.ajax({
-			url:'<%=request.getContextPath()%>/product/chkFavoriteProduct',
-			type: 'post',
-			dataType: 'json',
-			success: function(data){
-				$.each(data, function(index, i) {
-					if(productNo==i) {
-						$(this).attr("class")
-					} else {
-						alert("dd")
-					}
-				});
-				
-				/* if(data=='0') {
-					$(this).children("figcaption").children("p").children("a").children(".fa-star-o").removeClass("fa-star-o").addClass("fa-star")
-				} else {
-					alert("ddss")
-				} */
-			}
-		})
-	}) --%>
-	
 	$(document).on("click",".area > .product_wrap > figure", function(e){
 		var productNo = $(this).children("input").val();
 		if(e.target.className === "fa fa-fw fa-star-o"){
@@ -95,9 +71,8 @@ $(document).ready(function(){
 	<div class='area area_wrap'>
 		<div class='product_wrap'>
  		<c:forEach var='product' items='${ProductAllList}'>
-			<figure class='effect-winston'>
+			<figure class='effect-winston' style='background-image: url(<%=request.getContextPath()%>${product.product_main_photo})'>
  			<input type='hidden' class='product_no' name='product_no' value='${product.product_no}'>
-				<img src='<%=request.getContextPath()%>${product.product_main_photo}'/>
 				<figcaption class='product_fig'>
 					<c:choose>
 						<c:when test="${product.product_type eq '1' }">

@@ -1,9 +1,5 @@
 package com.kat.product.model;
 
-import java.util.List;
-
-import org.springframework.web.multipart.MultipartFile;
-
 public class ProductInfo {
 	private int product_no;
 	private String product_main_photo;				// 메인 사진
@@ -32,9 +28,14 @@ public class ProductInfo {
 	private String business_number;
 	private String delete_flag;
 	private String create_date;
-	private List<MultipartFile> file;
+	private String cost;
 	
-	
+	public String getCost() {
+		return cost;
+	}
+	public void setCost(String cost) {
+		this.cost = cost;
+	}
 	public String getCourse_photo_dir() {
 		return course_photo_dir;
 	}
@@ -198,12 +199,6 @@ public class ProductInfo {
 		this.course = course;
 	}
 	
-	public List<MultipartFile> getFile() {
-		return file;
-	}
-	public void setFile(List<MultipartFile> file) {
-		this.file = file;
-	}
 	@Override
 	public String toString() {
 		return "ProductInfo [product_no=" + product_no + ", product_main_photo=" + product_main_photo
@@ -215,7 +210,7 @@ public class ProductInfo {
 				+ ", product_photo7=" + product_photo7 + ", product_photo8=" + product_photo8 + ", product_photo9="
 				+ product_photo9 + ", product_photo10=" + product_photo10 + ", course=" + course + ", course_photo_dir="
 				+ course_photo_dir + ", product_info=" + product_info + ", user_id=" + user_id + ", business_number="
-				+ business_number + ", delete_flag=" + delete_flag + ", create_date=" + create_date + ", file=" + file
+				+ business_number + ", delete_flag=" + delete_flag + ", create_date=" + create_date + ", cost=" + cost
 				+ "]";
 	}
 	

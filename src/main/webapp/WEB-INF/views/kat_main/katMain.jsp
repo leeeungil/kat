@@ -1,94 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-
-<!-- 메인 부분 -->
-<div id="main">
-	<section>
-		<article id="article_main">
-			<div class="service">
-				<div class="wrap_div">
-					<ul class="total_Ul">
-						<li class="total_Li">
-							<div><font></font></div>
-						</li>
-					</ul>
-					<ul class="siteTotal">
-						<li class="sitem1">
-							<div class="wrap">
-								<a href="<%=request.getContextPath()%>/kat_main.do">
-									<img class="siteImage" src="<%=request.getContextPath()%>/img/hotelroom-2205447_640.jpg">
-			                    </a>
-							</div>
-						</li>
-						<li class="sitem1">
-							<a href="<%=request.getContextPath()%>/kat_main.do">
-								<img class="siteImage" src="<%=request.getContextPath()%>/img/costa-rica-shuttle-service-1619362_640.jpg">
-							</a>
-						</li>
-						<li class="sitem1">
-							<a href="<%=request.getContextPath()%>/kat/tourMain/tour.do">
-								<img class="siteImage" src="<%=request.getContextPath()%>/img/city-3142651_640.jpg">
-							</a>
-						</li>
-						<li class="sitem1">
-							<a href="<%=request.getContextPath()%>/kat_main.do">
-								<img class="siteImage" src="<%=request.getContextPath()%>/img/admission-2974645_640.jpg">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-           
-			<!-- Traveler Review -->
-			<div class="ReviewBox"	>
-				<ul class="review1" id="review1"><li>후기</li></ul>
-				<ul id="content-slider3" class="content-slider3">
-					<li style="text-align:center; margin-left:51px;">
-						<c:forEach var="review" items="${ListInfoReview.getMainreviewList()}" varStatus="status">
-						<div class="a1">
-							<span>${review.review_title}</span>
-							<div class="map_i">
-							</div>
-							<div class="review_i">
-								<table>
-									<tbody><tr>
-										<td style="font-size: 12px; text-align: right;"><fmt:formatDate pattern="yyyy-MM-dd" value="${review.regdate}"/></td>
-									</tr>
-									<tr>
-										<td style="font-size: 14px; text-align: left;">${review.user_id}</td>
-										<td style="font-size: 14px; text-align: left;">${review.review_point}</td>
-									</tr>
-									<tr>
-										<td style="font-size: 12px; text-align: left;">${review.review_content}</td>
-									</tr></tbody>
-								</table>
-							</div>
-						</div>
-						</c:forEach>
-					</li>
-				</ul>
-			</div>
-		</article>
-	</section>
-</div>
-
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/main/mainSimpleCard.css">
 <script type="text/javascript">
-	var myIndex = 0;
-	carousel();
-
-	function carousel() {
-		var i;
-		var x = document.getElementsByClassName("mainSlider");
-		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";
-		}
-		myIndex++;
-		if (myIndex > x.length) {
-			myIndex = 1
-		}
-		x[myIndex - 1].style.display = "block";
-		setTimeout(carousel, 4000);
-	}
-</script> 
+</script>
+<!-- 메인 부분 -->
+<div class="product_top_wrap">
+	<div class='area area_wrap'>
+		<div class='product_wrap'>
+ 		<c:forEach var='product' begin='0' end='7' items='${ProductAllList}'>
+			<figure class='effect-winston' style='background-image: url(<%=request.getContextPath()%>${product.product_main_photo})'>
+ 			<input type='hidden' class='product_no' name='product_no' value='${product.product_no}'>
+				<%-- <img src='<%=request.getContextPath()%>${product.product_main_photo}'/> --%>
+				<figcaption class='product_fig'>
+					<c:choose>
+						<c:when test="${product.product_type eq '1' }">
+							<h2><font class='tour_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>
+						</c:when>
+						<c:when test="${product.product_type eq '2' }">
+							<h2><font class='shuttle_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>
+						</c:when>
+						<c:when test="${product.product_type eq '3' }">
+							<h2><font class='ticket_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>
+						</c:when>
+						<c:when test="${product.product_type eq '4' }">
+							<h2><font class='snap_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>
+						</c:when>
+					</c:choose>
+					<p>
+						<a href="#"></a>
+						<a href="#"><i class='fa fa-fw fa-envelope-o'></i></a>
+						<a href="#"><i class='fa fa-fw fa-star-o'></i></a>
+					</p>
+				</figcaption>			
+			</figure>
+		</c:forEach>
+		</div>
+	</div>
+</div>
