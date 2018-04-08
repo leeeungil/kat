@@ -68,7 +68,7 @@ CREATE TABLE MEMBER (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE BUSINESS (
-  `business_no` int(11) NOT NULL AUTO_INCREMENT,
+  `business_no` int(11) NOT NULL AUTO_INCREMENT, 
   `member_no` int(11) NOT NULL,
   `business_name` varchar(100) NOT NULL,
   `business_tel` varchar(100) DEFAULT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE BUSINESS (
   `business_photo` varchar(100) NOT NULL,
   `delete_flag` int(11) NOT NULL,
   PRIMARY KEY (`business_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;  
 
 /* 대륙 - 국가 - 도시 */
 CREATE TABLE MENU_CONTINENT (
