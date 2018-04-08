@@ -6,6 +6,7 @@ DROP TABLE MEMBER;
 DROP TABLE MENU_CONTINENT;
 DROP TABLE MENU_COUNTRY;
 DROP TABLE MENU_CITY;
+DROP TABLE BUSINESS;
 
 CREATE TABLE MASTER (
   `master_no` int(11) NOT NULL AUTO_INCREMENT,
@@ -65,6 +66,19 @@ CREATE TABLE MEMBER (
   `delete_flag` int(11) NOT NULL,
   PRIMARY KEY (`member_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE BUSINESS (
+  `business_no` int(11) NOT NULL AUTO_INCREMENT,
+  `member_no` int(11) NOT NULL,
+  `business_name` varchar(100) NOT NULL,
+  `business_tel` varchar(100) DEFAULT NULL,
+  `business_phone` varchar(100) NOT NULL,
+  `business_address` varchar(100) NOT NULL,
+  `registration_number` int(11) DEFAULT NULL,
+  `business_photo` varchar(100) NOT NULL,
+  `delete_flag` int(11) NOT NULL,
+  PRIMARY KEY (`business_no`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /* 대륙 - 국가 - 도시 */
 CREATE TABLE MENU_CONTINENT (
