@@ -1,0 +1,93 @@
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/1.jpg', '/uploadfile/product_img/2.jpg', '/uploadfile/product_img/3.jpg', '/uploadfile/product_img/4.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '1', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/2.jpg', '/uploadfile/product_img/5.jpg', '/uploadfile/product_img/6.jpg', '/uploadfile/product_img/7.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '2', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/3.jpg', '/uploadfile/product_img/8.jpg', '/uploadfile/product_img/7.jpg', '/uploadfile/product_img/8.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '3', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/4.jpg', '/uploadfile/product_img/9.jpg', '/uploadfile/product_img/8.jpg', '/uploadfile/product_img/9.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '4', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/5.jpg', '/uploadfile/product_img/10.jpg', '/uploadfile/product_img/9.jpg', '/uploadfile/product_img/10.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '5', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/6.jpg', '/uploadfile/product_img/11.jpg', '/uploadfile/product_img/10.jpg', '/uploadfile/product_img/11.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '6', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/7.jpg', '/uploadfile/product_img/12.jpg', '/uploadfile/product_img/16.jpg', '/uploadfile/product_img/12.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '7', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/8.jpg', '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/13.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '8', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/9.jpg', '/uploadfile/product_img/14.jpg', '/uploadfile/product_img/18.jpg', '/uploadfile/product_img/14.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '9', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/10.jpg', '/uploadfile/product_img/15.jpg', '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/15.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '10', '0');
+
+
+
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/11.jpg', '/uploadfile/product_img/22.jpg', '/uploadfile/product_img/43.jpg', '/uploadfile/product_img/54.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '11', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/12.jpg', '/uploadfile/product_img/25.jpg', '/uploadfile/product_img/46.jpg', '/uploadfile/product_img/57.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '12', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/28.jpg', '/uploadfile/product_img/47.jpg', '/uploadfile/product_img/58.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '13', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/14.jpg', '/uploadfile/product_img/29.jpg', '/uploadfile/product_img/48.jpg', '/uploadfile/product_img/59.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '14', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/15.jpg', '/uploadfile/product_img/30.jpg', '/uploadfile/product_img/49.jpg', '/uploadfile/product_img/50.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '15', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/16.jpg', '/uploadfile/product_img/31.jpg', '/uploadfile/product_img/40.jpg', '/uploadfile/product_img/51.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '16', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/32.jpg', '/uploadfile/product_img/46.jpg', '/uploadfile/product_img/52.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '17', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/18.jpg', '/uploadfile/product_img/33.jpg', '/uploadfile/product_img/47.jpg', '/uploadfile/product_img/53.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '18', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/14.jpg', '/uploadfile/product_img/48.jpg', '/uploadfile/product_img/54.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '19', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/20.jpg', '/uploadfile/product_img/35.jpg', '/uploadfile/product_img/49.jpg', '/uploadfile/product_img/55.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '20', '0');
+
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/21.jpg', '/uploadfile/product_img/32.jpg', '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/14.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '21', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/22.jpg', '/uploadfile/product_img/35.jpg', '/uploadfile/product_img/26.jpg', '/uploadfile/product_img/17.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '22', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/23.jpg', '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/18.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '23', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/24.jpg', '/uploadfile/product_img/39.jpg', '/uploadfile/product_img/28.jpg', '/uploadfile/product_img/19.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '24', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/25.jpg', '/uploadfile/product_img/40.jpg', '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/10.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '25', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/26.jpg', '/uploadfile/product_img/41.jpg', '/uploadfile/product_img/20.jpg', '/uploadfile/product_img/11.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '26', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/27.jpg', '/uploadfile/product_img/42.jpg', '/uploadfile/product_img/36.jpg', '/uploadfile/product_img/12.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '27', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/28.jpg', '/uploadfile/product_img/43.jpg', '/uploadfile/product_img/47.jpg', '/uploadfile/product_img/13.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '28', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/29.jpg', '/uploadfile/product_img/44.jpg', '/uploadfile/product_img/58.jpg', '/uploadfile/product_img/14.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '29', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/30.jpg', '/uploadfile/product_img/45.jpg', '/uploadfile/product_img/69.jpg', '/uploadfile/product_img/15.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '30', '0');
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/31.jpg', '/uploadfile/product_img/42.jpg', '/uploadfile/product_img/73.jpg', '/uploadfile/product_img/24.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '31', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/32.jpg', '/uploadfile/product_img/45.jpg', '/uploadfile/product_img/76.jpg', '/uploadfile/product_img/27.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '32', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/33.jpg', '/uploadfile/product_img/48.jpg', '/uploadfile/product_img/77.jpg', '/uploadfile/product_img/28.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '33', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/34.jpg', '/uploadfile/product_img/49.jpg', '/uploadfile/product_img/78.jpg', '/uploadfile/product_img/29.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '34', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/35.jpg', '/uploadfile/product_img/50.jpg', '/uploadfile/product_img/79.jpg', '/uploadfile/product_img/20.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '35', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/36.jpg', '/uploadfile/product_img/51.jpg', '/uploadfile/product_img/80.jpg', '/uploadfile/product_img/21.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '36', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/37.jpg', '/uploadfile/product_img/52.jpg', '/uploadfile/product_img/66.jpg', '/uploadfile/product_img/22.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '37', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/53.jpg', '/uploadfile/product_img/67.jpg', '/uploadfile/product_img/23.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '38', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/39.jpg', '/uploadfile/product_img/64.jpg', '/uploadfile/product_img/58.jpg', '/uploadfile/product_img/24.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '39', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/40.jpg', '/uploadfile/product_img/55.jpg', '/uploadfile/product_img/69.jpg', '/uploadfile/product_img/25.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '40', '0');
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/41.jpg', '/uploadfile/product_img/62.jpg', '/uploadfile/product_img/63.jpg', '/uploadfile/product_img/34.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '41', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/42.jpg', '/uploadfile/product_img/65.jpg', '/uploadfile/product_img/66.jpg', '/uploadfile/product_img/37.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '42', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/43.jpg', '/uploadfile/product_img/68.jpg', '/uploadfile/product_img/67.jpg', '/uploadfile/product_img/38.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '43', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/44.jpg', '/uploadfile/product_img/69.jpg', '/uploadfile/product_img/68.jpg', '/uploadfile/product_img/39.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '44', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/45.jpg', '/uploadfile/product_img/60.jpg', '/uploadfile/product_img/69.jpg', '/uploadfile/product_img/30.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '45', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/46.jpg', '/uploadfile/product_img/61.jpg', '/uploadfile/product_img/50.jpg', '/uploadfile/product_img/31.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '46', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/47.jpg', '/uploadfile/product_img/62.jpg', '/uploadfile/product_img/46.jpg', '/uploadfile/product_img/32.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '47', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/48.jpg', '/uploadfile/product_img/63.jpg', '/uploadfile/product_img/47.jpg', '/uploadfile/product_img/33.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '48', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/49.jpg', '/uploadfile/product_img/64.jpg', '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/34.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '49', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/50.jpg', '/uploadfile/product_img/65.jpg', '/uploadfile/product_img/39.jpg', '/uploadfile/product_img/35.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '50', '0');
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/51.jpg', '/uploadfile/product_img/72.jpg', '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/44.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '51', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/52.jpg', '/uploadfile/product_img/75.jpg', '/uploadfile/product_img/62.jpg', '/uploadfile/product_img/47.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '52', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/53.jpg', '/uploadfile/product_img/78.jpg', '/uploadfile/product_img/37.jpg', '/uploadfile/product_img/48.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '53', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/54.jpg', '/uploadfile/product_img/79.jpg', '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/49.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '54', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/55.jpg', '/uploadfile/product_img/70.jpg', '/uploadfile/product_img/29.jpg', '/uploadfile/product_img/40.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '55', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/56.jpg', '/uploadfile/product_img/71.jpg', '/uploadfile/product_img/40.jpg', '/uploadfile/product_img/41.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '56', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/57.jpg', '/uploadfile/product_img/72.jpg', '/uploadfile/product_img/16.jpg', '/uploadfile/product_img/42.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '57', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/58.jpg', '/uploadfile/product_img/73.jpg', '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/43.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '58', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/59.jpg', '/uploadfile/product_img/74.jpg', '/uploadfile/product_img/18.jpg', '/uploadfile/product_img/44.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '59', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/60.jpg', '/uploadfile/product_img/75.jpg', '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/45.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '60', '0');
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/61.jpg', '/uploadfile/product_img/12.jpg', '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/54.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '61', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/62.jpg', '/uploadfile/product_img/25.jpg', '/uploadfile/product_img/16.jpg', '/uploadfile/product_img/57.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '62', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/63.jpg', '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/58.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '63', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/64.jpg', '/uploadfile/product_img/49.jpg', '/uploadfile/product_img/18.jpg', '/uploadfile/product_img/59.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '64', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/65.jpg', '/uploadfile/product_img/50.jpg', '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/50.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '65', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/66.jpg', '/uploadfile/product_img/61.jpg', '/uploadfile/product_img/20.jpg', '/uploadfile/product_img/51.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '66', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/67.jpg', '/uploadfile/product_img/72.jpg', '/uploadfile/product_img/76.jpg', '/uploadfile/product_img/52.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '67', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/68.jpg', '/uploadfile/product_img/73.jpg', '/uploadfile/product_img/77.jpg', '/uploadfile/product_img/53.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '68', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/69.jpg', '/uploadfile/product_img/64.jpg', '/uploadfile/product_img/78.jpg', '/uploadfile/product_img/64.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '69', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/70.jpg', '/uploadfile/product_img/55.jpg', '/uploadfile/product_img/79.jpg', '/uploadfile/product_img/75.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '70', '0');
+
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/71.jpg', '/uploadfile/product_img/42.jpg', '/uploadfile/product_img/3.jpg', '/uploadfile/product_img/64.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '71', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/72.jpg', '/uploadfile/product_img/55.jpg', '/uploadfile/product_img/6.jpg', '/uploadfile/product_img/75.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '72', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/73.jpg', '/uploadfile/product_img/38.jpg', '/uploadfile/product_img/7.jpg', '/uploadfile/product_img/58.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '73', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/74.jpg', '/uploadfile/product_img/29.jpg', '/uploadfile/product_img/8.jpg', '/uploadfile/product_img/49.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '74', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/75.jpg', '/uploadfile/product_img/30.jpg', '/uploadfile/product_img/9.jpg', '/uploadfile/product_img/30.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '75', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/76.jpg', '/uploadfile/product_img/21.jpg', '/uploadfile/product_img/10.jpg', '/uploadfile/product_img/21.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '76', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/77.jpg', '/uploadfile/product_img/32.jpg', '/uploadfile/product_img/16.jpg', '/uploadfile/product_img/12.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '77', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/78.jpg', '/uploadfile/product_img/13.jpg', '/uploadfile/product_img/17.jpg', '/uploadfile/product_img/23.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '78', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/79.jpg', '/uploadfile/product_img/44.jpg', '/uploadfile/product_img/18.jpg', '/uploadfile/product_img/34.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '79', '0');
+INSERT INTO PRODUCT_PHOTO VALUES (0, '/uploadfile/product_img/80.jpg', '/uploadfile/product_img/55.jpg', '/uploadfile/product_img/19.jpg', '/uploadfile/product_img/15.jpg', 'null', 'null', 'null', 'null', 'null', 'null', '80', '0');
+
+

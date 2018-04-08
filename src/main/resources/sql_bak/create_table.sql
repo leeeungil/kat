@@ -144,6 +144,7 @@ CREATE TABLE PRODUCT (
   `country` varchar(45) NOT NULL,
   `city` varchar(45) NOT NULL,
   `member_no` varchar(100) DEFAULT NULL,
+  `user_profile` varchar(2000) DEFAULT NULL,
   `business_number` int(11) NOT NULL,
   `product_main_photo` varchar(200) NOT NULL,
   `use_flag` INT(2) NOT NULL,
@@ -171,7 +172,6 @@ CREATE TABLE PRODUCT_TYPE (
 CREATE TABLE PRODUCT_CONTENT (
   `product_content_no` int(20) NOT NULL AUTO_INCREMENT,
   `product_no` int(20) NOT NULL,
-  `user_profile` varchar(2000) DEFAULT NULL,
   `product_content` varchar(4000) DEFAULT NULL,
   `product_info` varchar(2000) DEFAULT NULL,
   `delete_flag` INT(2),
