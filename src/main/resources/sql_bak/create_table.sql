@@ -74,7 +74,7 @@ CREATE TABLE BUSINESS (
   `business_tel` varchar(100) DEFAULT NULL,
   `business_phone` varchar(100) NOT NULL,
   `business_address` varchar(100) NOT NULL,
-  `registration_number` int(11) DEFAULT NULL,
+  `business_number` int(11) DEFAULT NULL,
   `business_photo` varchar(100) NOT NULL,
   `delete_flag` int(11) NOT NULL,
   PRIMARY KEY (`business_no`)

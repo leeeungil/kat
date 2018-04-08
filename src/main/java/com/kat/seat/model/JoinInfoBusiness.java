@@ -8,15 +8,9 @@ public class JoinInfoBusiness {
 	private String business_tel;  //사업자 전화번호
 	private String business_phone; //사업자 핸드폰번호
 	private String business_address; //사업자 주소
-	private int registration_number; //사업자 등록번호
+	private int business_number; //사업자 등록번호
 	private String business_photo; //사업자(프로필사진)
 	private int delete_flag;
-	public int getDelete_flag() {
-		return delete_flag;
-	}
-	public void setDelete_flag(int delete_flag) {
-		this.delete_flag = delete_flag;
-	}
 	public int getBusiness_no() {
 		return business_no;
 	}
@@ -53,11 +47,11 @@ public class JoinInfoBusiness {
 	public void setBusiness_address(String business_address) {
 		this.business_address = business_address;
 	}
-	public int getRegistration_number() {
-		return registration_number;
+	public int getBusiness_number() {
+		return business_number;
 	}
-	public void setRegistration_number(int registration_number) {
-		this.registration_number = registration_number;
+	public void setBusiness_number(int business_number) {
+		this.business_number = business_number;
 	}
 	public String getBusiness_photo() {
 		return business_photo;
@@ -65,11 +59,17 @@ public class JoinInfoBusiness {
 	public void setBusiness_photo(String business_photo) {
 		this.business_photo = business_photo;
 	}
+	public int getDelete_flag() {
+		return delete_flag;
+	}
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
+	}
 	@Override
 	public String toString() {
 		return "JoinInfoBusiness [business_no=" + business_no + ", member_no=" + member_no + ", business_name="
 				+ business_name + ", business_tel=" + business_tel + ", business_phone=" + business_phone
-				+ ", business_address=" + business_address + ", registration_number=" + registration_number
+				+ ", business_address=" + business_address + ", business_number=" + business_number
 				+ ", business_photo=" + business_photo + ", delete_flag=" + delete_flag + "]";
 	}
 	
