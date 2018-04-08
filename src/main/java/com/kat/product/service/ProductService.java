@@ -1,15 +1,25 @@
 package com.kat.product.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kat.product.dao.ProductDao;
+import com.kat.product.model.CityModel;
+import com.kat.product.model.ContinentModel;
+import com.kat.product.model.CountryModel;
 import com.kat.product.model.FavoriteProduct;
+import com.kat.product.model.PhotoContentModel;
+import com.kat.product.model.ProductCourseModel;
 import com.kat.product.model.ProductInfo;
 import com.kat.product.model.ProductInfoList;
+import com.kat.product.model.ProductModel;
+import com.kat.product.model.ProductSubModel;
+import com.kat.product.model.ProductTypeModel;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
 import com.kat.seat.model.InfoShopSearchListView;
@@ -24,30 +34,73 @@ public class ProductService {
 	private SqlSessionTemplate sqlSessionTemplate;
 	private ProductDao dao;
 
-	// 상품 추가하기
-	public void addProduct(ProductInfo productInfo) {
-System.out.println("[AddProductService addProduct] ACCESS SUCCESS");
-System.out.println("[AddProductService addProduct]  " +productInfo.toString());
+	// 카테고리 가져오기
+	public Map<String, Object> selectCategory() {
+System.out.println("[AddProductService selectCategory] SELECT CATEGORY SUCCESS");
 		dao = sqlSessionTemplate.getMapper(ProductDao.class);
-		String businessNumber = dao.findBusinessNumber(productInfo.getUser_id());
-		productInfo.setBusiness_number(businessNumber);
+		List<ProductTypeModel> productType = dao.selectProductType();
+		List<ContinentModel> continentModel = dao.selectContinent();
+		List<CountryModel> countryModel = dao.selectCountry();
+		List<CityModel> cityModel = dao.selectCiy();
+System.out.println("[AddProductService addProduct] MAPPER(selectProductType, selectContinent, selectCountry, selectCiy) RETURN");
+System.out.println("[AddProductService addProduct] " + productType.toString());
+System.out.println("[AddProductService addProduct] " + continentModel.toString());
+System.out.println("[AddProductService addProduct] " + countryModel.toString());
+System.out.println("[AddProductService addProduct] " + cityModel.toString());
+		Map<String, Object> categoryMap = new HashMap<String, Object>();
+		categoryMap.put("productType", productType);
+		categoryMap.put("continentModel", continentModel);
+		categoryMap.put("countryModel", countryModel);
+		categoryMap.put("cityModel", cityModel);
+		
+		return categoryMap;
+	}
+	
+	// 상품 추가하기
+	public void addProduct(ProductModel productModel) {
+System.out.println("[AddProductService addProduct] PRODUCT ADD ACCESS");
+System.out.println("[AddProductService addProduct]  " +productModel.toString());
+		dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		String businessNumber = dao.findBusinessNumber(productModel.getUser_id());
+		productModel.setBusiness_number(businessNumber);
 System.out.println("[AddProductService addProduct] MAPPER(findBusinessNumber) RETURN");
 System.out.println("[AddProductService addProduct] businessNumber : " + businessNumber);
-		dao.insertProduct(productInfo);
+		int product_no = dao.findProductNo();
+		productModel.setProduct_no(product_no);
+System.out.println("[AddProductService addProduct] MAPPER(findBusinessNumber) RETURN");
+System.out.println("[AddProductService addProduct] product_no : " + businessNumber);
+		dao.insertProduct(productModel);
 System.out.println("[AddProductService addProduct] MAPPER(insertProduct) FINISH");
-		int product_no = dao.findProductNo(productInfo);
-		productInfo.setProduct_no(product_no);
-System.out.println("[AddProductService addProduct] MAPPER(findProductNo) RETURN");
-System.out.println("[AddProductService addProduct] product_no : " + product_no);
-		dao.insertProductContent(productInfo);
-		int product_content_no = dao.findProductContentNo(productInfo);
-		productInfo.setProduct_content_no(product_content_no);
-System.out.println("[AddProductService addProduct] MAPPER(findProductContentNo) RETURN");
-System.out.println("[AddProductService addProduct] product_content_no : " + product_content_no);
-		dao.insertProductPhoto(productInfo);
-		dao.insertProductCourse(productInfo);
-System.out.println("[AddProductService addProduct] MAPPER(insertImage) FINISH");
 	}
+	
+	
+	public void addProductPhotoAndContent(PhotoContentModel photoContentModel) {
+System.out.println("[AddProductService addProductPhotoAndContent] CONTENT AND PHOTO ADD ACCESS");
+System.out.println("[AddProductService addProductPhotoAndContent]  " +photoContentModel.toString());
+		int product_content_no = dao.findProductContentNo();
+System.out.println("[AddProductService addProductPhotoAndContent] product_content_no : "+ product_content_no);
+		photoContentModel.setProduct_content_no(product_content_no);
+		dao.insertProductContent(photoContentModel);
+System.out.println("[AddProductService addProductPhotoAndContent] MAPPER(findProductContentNo) RETURN");
+		dao.insertProductPhoto(photoContentModel);
+System.out.println("[AddProductService addProductPhotoAndContent] MAPPER(insertImage) FINISH");
+	}
+	
+	
+	public void addCourse(ProductCourseModel ProductCourseModel) {
+System.out.println("[AddProductService addCourse] CONTENT AND PHOTO ADD ACCESS");
+System.out.println("[AddProductService addCourse]  " +ProductCourseModel.toString());
+		dao.insertProductCourse(ProductCourseModel);
+System.out.println("[AddProductService addCourse] MAPPER(insertProductCourse) FINISH");
+	}
+	
+	public void addSub(ProductSubModel productSubModel) {
+System.out.println("[AddProductService addCourse] CONTENT AND PHOTO ADD ACCESS");
+System.out.println("[AddProductService addCourse]  " +productSubModel.toString());
+		dao.insertProductSub(productSubModel);
+System.out.println("[AddProductService addCourse] MAPPER(insertProductCourse) FINISH");
+	}
+	
 	
 	// FIND ALL PRODUCT
 	public List<ProductInfo> findAllTravelProduct() {

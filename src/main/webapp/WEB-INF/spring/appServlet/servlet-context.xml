@@ -36,7 +36,7 @@
 	<context:component-scan base-package="com.kat" />
 
 	<!-- 상품 모델 등록 -->
-	<beans:bean id="ProductInfo" class="com.kat.product.model.ProductInfo" scope="prototype" />
+	<beans:bean id="ProductInfo" class="com.kat.product.model.ProductModel" scope="prototype" />
 	<beans:bean id="FavoriteProduct" class="com.kat.product.model.FavoriteProduct" scope="prototype" />
 	
 	<!-- 모델 등록 -->
@@ -82,6 +82,15 @@
     <beans:bean id="go_with" class="com.kat.article.model.Go_with" scope="prototype" />
     <beans:bean id="comment" class="com.kat.article.model.Comment" scope="prototype" />
     <beans:bean id="market" class="com.kat.article.model.Market" scope="prototype" />
+    <beans:bean id="productTypeModel" class="com.kat.product.model.ProductTypeModel" scope="prototype" />
+    <beans:bean id="continentModel" class="com.kat.product.model.ContinentModel" scope="prototype" />
+    <beans:bean id="countryModel" class="com.kat.product.model.CountryModel" scope="prototype" />
+    <beans:bean id="cityModel" class="com.kat.product.model.CityModel" scope="prototype" />
+    <beans:bean id="productModel" class="com.kat.product.model.ProductModel" scope="prototype" />
+    <beans:bean id="photoContentModel" class="com.kat.product.model.PhotoContentModel" scope="prototype" />
+    <beans:bean id="productCouseModel" class="com.kat.product.model.ProductCourseModel" scope="prototype" />
+    <beans:bean id="productSubModel" class="com.kat.product.model.ProductSubModel" scope="prototype" />
+    
     
 	<!--서비스 등록 -->
 	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />

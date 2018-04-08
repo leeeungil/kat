@@ -25,7 +25,7 @@
 		flush="false"></jsp:include>
 	<main>
 	<div class="totalView_seatsucess">
-		<jsp:include page="/WEB-INF/views/kat_common/adminMenu.jsp"
+		<jsp:include page="/WEB-INF/views/admin/adminMenu.jsp"
 			flush="false"></jsp:include>
 		<jsp:include page="/WEB-INF/views/kat_update/updateMenuSucess.jsp"
 			flush="false"></jsp:include>

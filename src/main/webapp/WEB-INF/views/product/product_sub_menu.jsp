@@ -127,16 +127,6 @@ $(document).ready(function(){
     display: none;
     padding-left: 11px;
 }
-.loading_wrap {
-    padding: 32vh 44%;
-    width: 100px;
-    height: 100px;
-    border: 0px solid;
-    box-shadow: white 0 0 0 0;
-}
-.loading_wrap > img {
-	width: 100px;
-}
 </style>
 <!-- 메인 부분 -->
 <div class="product_choice_wrap">

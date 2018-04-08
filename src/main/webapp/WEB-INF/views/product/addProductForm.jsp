@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/datapicker/jquery-ui.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/product/addProductForm.css">
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-ui.js"></script>
+ <script src="http://malsup.github.com/jquery.form.js"></script> 
 <script type="text/javascript">
 $(document).ready(function(){
 	//main image 
@@ -26,37 +27,106 @@ $(document).ready(function(){
     });
 });
 
-function checkform() {
+function checkform1() {
 	if ($("#main_input-file").val() == "") {
-		alert(" (필수) 대표 사진을 등록해주세요.");
+		alert(" (필수) 대표 사진을 NEXT해주세요.");
 		return false;
 	} else if ($("#product_type").val() == "0") {
-		alert(" (필수) 상품 종류를 선택해주세요.");
+		alert(" (필수) Product Type를 Selection해주세요.");
 		return false;
 	} else if ($("#continent").val() == "0") {
-		alert(" (필수) 대륙을 선택해주세요.");
+		alert(" (필수) Continent을 Selection해주세요.");
 		return false;
 	} else if ($("#country").val() == "0") {
-		alert(" (필수) 국가를 선택해주세요.");
+		alert(" (필수) Country를 Selection해주세요.");
 		return false;
 	} else if ($("#city").val() == "0") {
-		alert(" (필수) 도시를 선택해주세요.");
+		alert(" (필수) City를 Selection해주세요.");
 		return false;
-	} else if ($("input[name=sell_start]").val() == "") {
-		alert(" (필수) 상품 판매 시작 일자를 선택해주세요.");
-	} else if ($("input[name=sell_start]").val() == "") {
-		alert(" (필수) 상품 판매 종료 일자를 선택해주세요");
+	} else if ($("#product_title").val() == "") {
+		alert(" (필수) Product Representative Title을 입력해주세요.");
 		return false;
-	} else if ($("input[name=cost]").val() == "") {
-		alert(" (필수) 상품 가격을 입력해주세요.");
+	} else if ($("#product_title").val() == "") {
+		alert(" (필수) Product Representative Title을 입력해주세요.");
 		return false;
-	}
+	} 
 	return true;
 }
-$( function() {
-    $( "#sell_start" ).datepicker();
-    $( "#sell_end" ).datepicker();
-});
+
+function checkform2() {
+}
+
+$(document).ready(function() {
+	$("#article_main").prepend("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+	$("form").hide();
+	setTimeout(function() {
+		$(".loading_wrap").remove();
+		$("#oneStageForm").show();
+	}, 2000)
+	
+	$("#oneStageBtn").on("click", function() {
+		$('#oneStageForm').ajaxForm({
+			success: function(result){
+			}
+		});
+		$("#oneStageForm").submit();
+		$(".main-preview-image").remove();
+		$("#one_stage").removeClass('stage_select_div');
+		$("#two_stage").addClass('stage_select_div');
+		$("#oneStageWrap").remove();
+		$("#oneStageForm").after("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+		setTimeout(function() {
+			$(".loading_wrap").remove();
+			$("#twoStageForm").show();
+		}, 2000)
+	})
+	
+	$("#twoStageBtn").on("click", function() {
+		$('#twoStageForm').ajaxForm({
+			success: function(result){
+			}
+		});
+		$("#twoStageForm").submit();
+
+		$("#two_stage").removeClass('stage_select_div');
+		$("#three_stage").addClass('stage_select_div');
+		$("#twoStageWrap").remove();
+		$("#threeStageWrap").before("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+		setTimeout(function() {
+			$(".loading_wrap").remove();
+			$("#threeStageForm").show();
+		}, 2000)
+	})
+	
+	
+	$("#threeStageBtn").on("click", function() {
+		$('#threeStageForm').ajaxForm({
+			success: function(result){
+			}
+		});
+		$("#threeStageForm").submit();
+
+		$("#three_stage").removeClass('stage_select_div');
+		$("#four_stage").addClass('stage_select_div');
+		$("#threeStageWrap").remove();
+		$("#fourStageWrap").before("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+		setTimeout(function() {
+			$(".loading_wrap").remove();
+			$("#fourStageForm").show();
+		}, 2000)
+	})
+	
+	$("#fourStageBtn").on("click", function() {
+		$('#fourStageForm').ajaxForm({
+			success: function(result){
+				$("#fourStageWrap").before("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+				alert("상품 신청 완료")
+				location.href='<%=request.getContextPath() %>/kat/business/managePage.do'
+			}
+		});
+		$("#fourStageForm").submit();
+	})
+})
 
 /* select box css */
 $(document).ready(function(){
@@ -84,28 +154,6 @@ $(document).ready(function(){
 
 /* 이미지 테스트 */
 $(function(){
-	var count = $("product_image_ul > input[type=file]").length;
-	
-	$('#add').on("click", function() {
-		if(count < 11) {
-			var str = "<li class='product_image_upload filebox bs3-primary preview-image'>"
-				str += "<label class='input_file"+count+"' for='input_file"+count+"'> ";
-				str += "<input type='file' id='input_file"+count+"' class='upload-hidden' name='file'>"
-				str += "</label></li>"
-			$('.product_image_ul').append(str);
-			count++;
-		}else {
-			alert('이미지 파일은 10개까지 등록 가능합니다.');
-		}
-	});
-	
-	$("#del").on("click", function() {
-		if(count > 0) {
-			$(".product_image_upload").children(":last").remove();
-			count--;
-		}
-	}); 
-	
 	function readURL(input, change_photo) {
     	if (input.files && input.files[0]) {
 	        var reader = new FileReader();
@@ -123,14 +171,47 @@ $(function(){
 });
 
 </script>
-
+<style>
+.stage_wrap {
+    width: 900px;
+    height: 70px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.stage_wrap > tbody > tr > td > div {
+	border: 3px solid #196cf8;
+    width: 132px;
+    border-radius: 31px;
+    padding: 14px;
+    margin: auto;
+    font-size: 16px;
+    font-weight: 800;
+    color: black;
+    height: 53px;
+}
+.stage_select_div {
+	border: 0px solid #196cf8;
+	background-color: #196cf8;
+	padding: 18px;
+    color: white;
+    font-size: 21px;
+    height: 60px;
+}
+.common_btn {
+	padding: 8px 31px;
+    border: 0px;
+    background-color: #151719;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+}
+</style>
 <!-- 메인 부분 -->
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/seatadd_css.css">
 <div id="main">
 	<section>
 		<article id="article_main">
-			<form action="<%=request.getContextPath()%>/product/add" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform();">
-
+			<form action="<%=request.getContextPath()%>/product/add1" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform1();" id="oneStageForm">
 				<!-- 메인 사진 올리기 START -->
 				<div class="img">
 			        <div class="content">
@@ -145,104 +226,186 @@ $(function(){
 				<!-- 메인 사진 올리기 FINISH -->
 				<!-- 전체 폼 시작 START -->			    
 			    <div class="form_basic_wrap">
-				    <!-- 상품 종류, 대륙, 국가, 도시 등 카테고리 선택 START -->
-					<label>----- 주요 카테고리 선택 (상품 종류, 대륙, 국가, 도시) ------</label>
+			    	<label>[ 상품 NEXT 순서 ]</label>
+			    	<p></p><label> - 다음 버튼 클릭 후 약 5~10초 후 이전  단계 정보 자동 저장 (상품 수정 메뉴에서 추가 수정 가능)</label>
+			    	<table class='stage_wrap'><tbody><tr>
+			    		<td><div id="one_stage" class='stage_select_div'>1 Level</div></td>
+			    		<td><div id="two_stage" >2 Level</div></td>
+			    		<td><div id="three_stage" >3 Level</div></td>
+			    		<td><div id="four_stage" >4 Level</div></td>
+			    	</tr></tbody></table>
+		    	</div>
+		    	<div class="form_basic_wrap" id="oneStageWrap">
+				    <!-- Product Type, Continent, Country, City 등 Category Selection START -->
+					<label>  <font style="font-size: 20px"> [ 1 Level ]</font> Main Category Selection, Product Representative Title, 사업자 Profile <font style="color: red">(필수) </font>----------------------------------------------------------------------</label>
 					<div class="category" id="category">
 						<div class="select_top" id="product_type_top">
-						    <label for="product_type">상품 종류</label>
-						    <select class="select" id="product_type" name="product_type" title="상품 종류">
-						        <option value="0" selected="selected">상품 종류</option>
-						        <option value="1">투어</option>
-						        <option value="2">셔틀</option>
-						        <option value="3">티켓</option>
-						        <option value="4">스냅</option>
+						    <label for="product_type">Product Type</label>
+						    <select class="select" id="product_type" name="product_type_no" title="Product Type">
+						    	<option value="0" selected="selected">Product Type</option>
+						    	<c:forEach var="productType" items="${productType}" varStatus="status1">
+							        <option value="${productType.product_type_no}">${productType.product_type_name}</option>
+								</c:forEach>
 						    </select>
 						</div>
 						<div class="select_top" id="continent_top">
-						    <label for="continent">대륙</label>
-						    <select class="select" id="continent" name="continent" title="대륙">
-						        <option value="0" selected="selected">대륙</option>
-						        <option value="한국">한국</option>
-						        <option value="아시아">아시아</option>
-						        <option value="미주">미주</option>
-						        <option value="유럽">유럽</option>
-						        <option value="대양주">대양주</option>
+						    <label for="continent">Continent</label>
+						    <select class="select" id="continent" name="continent" title="Continent">
+						        <option value="0" selected="selected">Continent</option>
+						        <c:forEach var="continentModel" items="${continent}" varStatus="status2">
+							        <option value="${continentModel.continent_no}">${continentModel.continent}</option>
+								</c:forEach>
 						    </select>
 						</div> 
 						<div class="select_top" id="country_top">
-						    <label for="country">국가</label>
-						    <select class="select" id="country" name="country" title="국가">
-						    	<option value="0" selected="selected">국가</option>
-						        <option value="한국">한국</option>
-						        <option value="일본">일본</option>
-						        <option value="중국">중국</option>
-						        <option value="필리핀">필리핀</option>
-						        <option value="홍콩">홍콩</option>
-						        <option value="태국">태국</option>
-						        <option value="베트남">베트남</option>
-						        <option value="말레이시아">말레이시아</option>
-						        <option value="대만">대만</option>
+						    <label for="country">Country</label>
+						    <select class="select" id="country" name="country" title="Country">
+						    	<option value="0" selected="selected">Country</option>
+						    	<c:forEach var="countryModel" items="${country}" varStatus="status3">
+							        <option value="${countryModel.country_no}">${countryModel.country}</option>
+								</c:forEach>
 						    </select>
 						</div>
-						<div class="select_top" id="city_top">
-						    <label for="city">도시</label>
-						    <select class="select" id="city" name="city" title="도시">
-						        <option value="도시" selected="selected">도시</option>
-						        <option value="제주">제주</option>
-						        <option value="나고야">나고야</option>
-						        <option value="베이징">베이징</option>
+						<div class="select_top" id="city_top" style='margin-right: 0px;'>
+						    <label for="city">City</label>
+						    <select class="select" id="city" name="city" title="City">
+						        <option value="City" selected="selected">City</option>
+						        <c:forEach var="cityModel" items="${city}" varStatus="status4">
+							        <option value="${cityModel.city_no}">${cityModel.city }</option>
+								</c:forEach>
 						    </select>
 						</div>
 					</div>
-					<!-- 상품 종류, 대륙, 국가, 도시 등 카테고리 선택 FINISH -->
+					<!-- Product Type, Continent, Country, City 등 Category Selection FINISH -->
 					<!-- 상품 타이틀  (메인 제목) START -->
-					<label>----- 상품 메인 제목 --------------------------------------</label>
+					<label style="color: #a97228">Product Representative Title </label>
 					<div class="product_total_content">
-						<input type="text" class="select_top product_title_add_form" id="product_title" name="product_title" placeholder="상품 메인 제목을 입력해주세요." value=''>
+						<input type="text" class="select_top product_title_add_form" id="product_title" name="product_title" placeholder="Please Enter The Product Representative Title." value=''>
 					</div>
-					<label>----- 상품 상세 정보 --------------------------------------</label>
-					<div class="product_total_content">
-						<div class="wrap">
-							<label style="color: #a97228">상품 판매일 : </label><input type="text" class="datePick" name="sell_start" id="sell_start"> 
-						</div>
-						<div class="wrap">
-							<label style="color: #a97228">상품 마감일 : </label><input type="text" class="datePick" name="sell_end" id="sell_end">
-						</div>
-						<div class="wrap">
-							<label style="color: #a97228">상품 가격 (1인당) : </label><input type="text" name="cost" value=''>
-						</div>
-					</div>
-					
 					<table><thead><tr>
-						<td> <label style="color: #a97228">프로필 </label> </td>
+						<td> <label style="color: #a97228">Profile </label> </td>
 					</tr></thead>
 					<tbody><tr>
-						<td> <textarea name="user_profile" class="product_content_textArea"><p></p></textarea> </td>
-					</tr></tbody></table>
+						<td> <textarea name="user_profile" class="product_content_textArea">Introduce Yourself</textarea> </td>
+					</tr></tbody></table> 
 					
-					<table class="product_photo_table"><thead><tr>
-						<td> 
-							<label style="color: #a97228">여행 상품 사진 등록 (최대 10장) </label>
-							<input type="button" class="photo_btn" id="add" value="추가">
-							<input type="button" class="photo_btn" id="del" value="제거">
-						</td>
-					</tr></thead>
-					<tbody><tr>
+					
+					<table style="width: 100%"><tbody style="float: right"><tr>
 						<td>
-							<ul class="product_image_ul">
-								<li class="product_image_upload filebox bs3-primary preview-image">
-								</li>
+							<ul>
+								<li><input type="button" class='common_btn' id="oneStageBtn" name="seatbtn" value="NEXT"></li>
 							</ul>
 						</td>
 					</tr></tbody></table>
+					</div>
+					<!-- 공백용 -->
+					<table style="height: 40px">
+					<tbody><tr><td></td></tr></tbody></table>
+				</form>
+				
+				
+				
+				
+				
+				<div class="form_basic_wrap" id="twoStageWrap">
+					 <form action="<%=request.getContextPath()%>/product/add2" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform2();" id="twoStageForm">
+							<input type='hidden' id='twoProductNo' value=''>
+							<label>  <font style="font-size: 20px"> [ 2 Level ]</font> 상품 사진, 상품 소개 및 필수 주의 사항 <font style="color: red">(필수) </font>-----------------------</label>
+							<table class="product_photo_table"><thead><tr>
+								<td> 
+									<label style='color: #a97228'>여행 상품 사진 NEXT (최대 10장) </label>
+								</td>
+							</tr></thead>
+							<tbody><tr>
+								<td>
+									<ul class="product_image_ul">
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file1' for='input_file1'>
+												<input type='file' id='input_file1' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file2' for='input_file2'>
+												<input type='file' id='input_file2' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file3' for='input_file3'>
+												<input type='file' id='input_file3' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file4' for='input_file4'>
+												<input type='file' id='input_file4' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file5' for='input_file5'>
+												<input type='file' id='input_file5' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file6' for='input_file6'>
+												<input type='file' id='input_file6' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file7' for='input_file7'>
+												<input type='file' id='input_file7' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file8' for='input_file8'>
+												<input type='file' id='input_file8' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file9' for='input_file9'>
+												<input type='file' id='input_file9' class='upload-hidden' name='file'>
+											</label>
+										</li>
+										<li class='product_image_upload filebox bs3-primary preview-image'>
+											<label class='input_file10' for='input_file10'>
+												<input type='file' id='input_file10' class='upload-hidden' name='file'>
+											</label>
+										</li>
+									</ul>
+								</td>
+							</tr></tbody></table>
+							
+							<table><thead><tr>
+								<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
+							</tr></thead>
+							<tbody><tr>
+								<td> <textarea name="product_content" class="product_content_textArea"></textarea> </td>
+							</tr></tbody></table>
+							
+							<table><thead><tr>
+								<td> <label style="color: #a97228">주의 사항 (필수사항) </label> </td>
+							</tr></thead>
+							<tbody><tr>
+								<td>
+									<textarea name="product_info" class="product_content_textArea"></textarea>
+								</td>
+							</tr></tbody></table>
+							
+							<table style="width: 100%"><tbody style="float: right"><tr>
+								<td>
+									<ul>
+										<li><input type="button" class='common_btn' id="twoStageBtn" name="seatbtn" value="NEXT"></li>
+									</ul>
+								</td>
+							</tr></tbody></table>
+						</form>
+					</div>
 					
-					<table><thead><tr>
-						<td> <label style="color: #a97228">상품 상세 설명 </label> </td>
-					</tr></thead>
-					<tbody><tr>
-						<td> <textarea name="product_content" class="product_content_textArea"><p></p></textarea> </td>
-					</tr></tbody></table>
 					
+					
+					
+			<div class="form_basic_wrap" id="threeStageWrap">
+				<form action="<%=request.getContextPath()%>/product/add3" method="post" name="addform" enctype="multipart/form-data" onsubmit="return checkform2();" id="threeStageForm">
+					<input type='hidden' id='threeProductNo' value=''>
+					<label>  <font style="font-size: 20px"> [ 3 Level ]</font> 코스 상세 설정 <font style="color: red">(필수) </font>-----------------------</label>
 					<table><thead><tr>
 						<td> <label style="color: #a97228">코스 상세 설정 </label> </td>
 					</tr></thead>
@@ -252,32 +415,48 @@ $(function(){
 						</td>
 					</tr></tbody></table>
 					
+					<table style="width: 100%"><tbody style="float: right"><tr>
+						<td>
+							<ul>
+								<li><input type="button" class='common_btn' id="threeStageBtn" name="seatbtn" value="NEXT"></li>
+							</ul>
+						</td>
+					</tr></tbody></table>
+					<!-- 공백용 -->
+					<table style="height: 50px">
+					<tbody><tr><td></td></tr></tbody></table>
+				</form>
+			</div>
+			
+			
+			<div class="form_basic_wrap" id="fourStageWrap">
+				<form action="<%=request.getContextPath()%>/product/add4" method="post" 
+					name="addform" enctype="multipart/form-data" onsubmit="return checkform2();" id="fourStageForm">
+					<input type='hidden' id='fourProductNo' value=''>
+					<label>  <font style="font-size: 20px"> [ 4 Level ]</font> 상품 상세 이름, 상품 가격 및 일일 최대 구매 가능 사람 수 <font style="color: red">(필수) </font>-----------------------</label>
 					<table><thead><tr>
-						<td> <label style="color: #a97228">주의 사항 (필수사항) </label> </td>
+						<td>  </td>
 					</tr></thead>
 					<tbody><tr>
 						<td>
-							<textarea name="product_info" class="product_content_textArea"><p></p></textarea>
+							<input type='text' class="select_top" name='product_name' placeholder='상품 상세 이름 입력'>
+							<input type="number" name='cost' placeholder='상품 가격 입력'>
+							<input type='number' name="max_people" placeholder='일일 최대 구매 가능 수'>
 						</td>
 					</tr></tbody></table>
 					
 					<table style="width: 100%"><tbody style="float: right"><tr>
 						<td>
-							<ul id="btnstyle">
-								<li><input type="submit" id="Registration" name="seatbtn" value="등록"></li>
-							</ul>
-						</td>
-						<td>
-							<ul id="btnstyle">
-								<li><input type="reset" id="reset" name="resetbtn" value="초기화"></li>
+							<ul>
+								<li><input type="button" class='common_btn' id="fourStageBtn" name="seatbtn" value="NEXT"></li>
 							</ul>
 						</td>
 					</tr></tbody></table>
 					<!-- 공백용 -->
-					<table style="height: 160px">
+					<table style="height: 50px">
 					<tbody><tr><td></td></tr></tbody></table>
-				</div>
-			</form>
+				</form>
+			</div>
 		</article>
 	</section>
 </div>

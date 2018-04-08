@@ -60,26 +60,6 @@
 	padding: 5px 10px 5px 10px;
 }
 
-#btnstyle input {
-	padding: 5px;
-	margin: 5px;
-	color: #fff;
-	display: inline-block;
-	cursor: pointer;
-	padding: 10px;
-	background-color: #16bab4;
-	border: none;
-	width: 100px;
-}
-
-#btnstyle input:hover {
-	background-color: #00938e;
-}
-
-#btnstyle {
-	margin-left: 120px;
-}
-
 #add_search_header {
 	font-size: 20px;
 	color: #006c69;
@@ -208,21 +188,6 @@
 
 .List_menu tr {
 	text-align: center;
-}
-
-#btnstyleSeat input {
-	padding: 5px;
-	margin: 5px;
-	color: #fff;
-	display: inline-block;
-	cursor: pointer;
-	padding: 10px;
-	background-color: #16bab4;
-	border: none;
-}
-
-#btnstyleSeat input:hover {
-	background-color: #00938e;
 }
 
 .textstyle input {

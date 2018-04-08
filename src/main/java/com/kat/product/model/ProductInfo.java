@@ -13,9 +13,6 @@ public class ProductInfo {
 	private String country;
 	private String city;
 	private String product_title;
-	private String sell_start;
-	private String sell_end;
-	private int cost;
 	private String product_content;
 	private int product_content_no;
 	private String product_photo1;
@@ -128,24 +125,6 @@ public class ProductInfo {
 	public void setProduct_title(String product_title) {
 		this.product_title = product_title;
 	}
-	public String getSell_start() {
-		return sell_start;
-	}
-	public void setSell_start(String sell_start) {
-		this.sell_start = sell_start;
-	}
-	public String getSell_end() {
-		return sell_end;
-	}
-	public void setSell_end(String sell_end) {
-		this.sell_end = sell_end;
-	}
-	public int getCost() {
-		return cost;
-	}
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
 	public String getProduct_content() {
 		return product_content;
 	}
@@ -229,9 +208,8 @@ public class ProductInfo {
 	public String toString() {
 		return "ProductInfo [product_no=" + product_no + ", product_main_photo=" + product_main_photo
 				+ ", product_type=" + product_type + ", user_profile=" + user_profile + ", continent=" + continent
-				+ ", country=" + country + ", city=" + city + ", product_title=" + product_title + ", sell_start="
-				+ sell_start + ", sell_end=" + sell_end + ", cost=" + cost + ", product_content=" + product_content
-				+ ", product_content_no=" + product_content_no + ", product_photo1=" + product_photo1
+				+ ", country=" + country + ", city=" + city + ", product_title=" + product_title + ", product_content="
+				+ product_content + ", product_content_no=" + product_content_no + ", product_photo1=" + product_photo1
 				+ ", product_photo2=" + product_photo2 + ", product_photo3=" + product_photo3 + ", product_photo4="
 				+ product_photo4 + ", product_photo5=" + product_photo5 + ", product_photo6=" + product_photo6
 				+ ", product_photo7=" + product_photo7 + ", product_photo8=" + product_photo8 + ", product_photo9="

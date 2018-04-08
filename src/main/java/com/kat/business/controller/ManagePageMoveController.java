@@ -14,8 +14,8 @@ public class ManagePageMoveController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView productManageMenu(HttpServletRequest request) throws Exception {
 System.out.println("[SearchListController SearchList] Product Manage Page ACCESS");
-System.out.println("[SearchListController SearchList] go ====>  manage_main");		
+System.out.println("[SearchListController SearchList] go ====>  adminLayout/roomManageLayout");		
 System.out.println("=============================================================");	
-		return new ModelAndView("manage_main");
+		return new ModelAndView("adminLayout/roomManageLayout");
 	}
 }

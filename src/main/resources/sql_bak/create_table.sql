@@ -53,18 +53,19 @@ CREATE TABLE NOTICE (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE `member` (
+CREATE TABLE MEMBER (
   `member_no` int(11) NOT NULL AUTO_INCREMENT,
   `member_type` int(2) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
+  `password1` varchar(100) NOT NULL,
+  `password2` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
+  `email_confirm` int(11) NOT NULL,
   `create_date` date NOT NULL,
   `delete_flag` int(11) NOT NULL,
-  `user_id` varchar(45) NOT NULL,
   PRIMARY KEY (`member_no`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE BUSINESS (
   `business_no` int(11) NOT NULL AUTO_INCREMENT, 
@@ -196,10 +197,11 @@ CREATE TABLE PRODUCT_PHOTO (
 
 CREATE TABLE PRODUCT_COURSE (
   `product_no` int(20) NOT NULL,
-  `course_no` varchar(400) NOT NULL,
+  `course_no` int(20) NOT NULL AUTO_INCREMENT,
   `course` varchar(4000) DEFAULT NULL,
   `course_photo_dir` varchar(30) DEFAULT NULL,
-  `delete_flag` INT(2)
+  `delete_flag` INT(2),
+  PRIMARY KEY (`course_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE PRODUCT_REVIEW (

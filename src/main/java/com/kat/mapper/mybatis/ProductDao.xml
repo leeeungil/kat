@@ -4,32 +4,60 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.kat.product.dao.ProductDao">
+	<!-- 카테고리 가져오기 Start -->
+	<select id="selectProductType" resultType="com.kat.product.model.ProductTypeModel">
+		SELECT PRODUCT_TYPE_NO, PRODUCT_TYPE_NAME, DELETE_FLAG FROM PRODUCT_TYPE WHERE DELETE_FLAG = 0;
+	</select>
+	<select id="selectContinent" resultType="com.kat.product.model.ContinentModel">
+		SELECT CONTINENT_NO, CONTINENT, DELETE_FLAG FROM MENU_CONTINENT WHERE DELETE_FLAG = 0;
+	</select>
+	<select id="selectCountry" resultType="com.kat.product.model.CountryModel">
+		SELECT COUNTRY_NO, COUNTRY, CONTINENT_NO, DELETE_FLAG FROM MENU_COUNTRY WHERE DELETE_FLAG = 0;
+	</select>
+	<select id="selectCiy" resultType="com.kat.product.model.CityModel">
+		SELECT CITY_NO, CITY, COUNTRY_NO, DELETE_FLAG FROM MENU_CITY WHERE DELETE_FLAG = 0;
+	</select>
+	<!-- 카테고리 가져오기 END -->
+	
+	
+	
 	<!-- 상품 데이터 등록 START-->
 	<select id="findBusinessNumber" resultType="String">
-		SELECT BUSINESS_NUMBER FROM BUSINESS WHERE USER_ID=#{user_id}
+		SELECT BUSINESS_NUMBER FROM MEMBER WHERE USER_ID=#{user_id}
 	</select>
-	<insert id="insertProduct" parameterType="com.kat.product.model.ProductInfo">
-		INSERT INTO PRODUCT
-		VALUES (0, #{product_title}, #{product_type}, now(), #{cost}, #{continent}, #{country}, #{city}, #{user_id}, #{business_number}, #{product_main_photo}, #{sell_start}, #{sell_end}, 0)
-	</insert>
 	<select id="findProductNo" resultType="int">
-		SELECT PRODUCT_NO FROM PRODUCT WHERE BUSINESS_NUMBER=#{business_number} AND PRODUCT_TITLE=#{product_title} AND USER_ID=#{user_id}
+		SELECT AUTO_INCREMENT from INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='PRODUCT'
 	</select>
-  	<insert id="insertProductContent" parameterType="com.kat.product.model.ProductInfo">
-		INSERT INTO PRODUCT_CONTENT
-		VALUES (0, #{product_no}, #{user_profile}, #{product_content} ,#{product_info}, 0)
+	<insert id="insertProduct" parameterType="com.kat.product.model.ProductModel">
+		INSERT INTO PRODUCT
+		VALUES (#{product_no}, #{product_title}, #{product_type_no}, now(), #{continent}, #{country}, #{city},
+				(SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id}), #{user_profile}, #{business_number}, 
+				#{product_main_photo}, 0, 0)
 	</insert>
 	<select id="findProductContentNo" resultType="int">
-		SELECT PRODUCT_CONTENT_NO FROM PRODUCT_CONTENT WHERE PRODUCT_NO=#{product_no} AND DELETE_FLAG=0
+		SELECT AUTO_INCREMENT from INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME='PRODUCT_CONTENT'
 	</select>
-	<insert id="insertProductPhoto" parameterType="com.kat.product.model.ProductInfo">
+  	<insert id="insertProductContent" parameterType="com.kat.product.model.PhotoContentModel">
+		INSERT INTO PRODUCT_CONTENT
+		VALUES (0, (SELECT PRODUCT_NO FROM PRODUCT WHERE MEMBER_NO = (SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id})
+				ORDER BY PRODUCT_NO DESC LIMIT 1), #{product_content}, #{product_info}, 0)
+	</insert>
+	<insert id="insertProductPhoto" parameterType="com.kat.product.model.PhotoContentModel">
 		INSERT INTO PRODUCT_PHOTO
 		VALUES (0, #{product_photo1}, #{product_photo2} ,#{product_photo3}, #{product_photo4}, #{product_photo5}, #{product_photo6}, 
 			#{product_photo7}, #{product_photo8}, #{product_photo9}, #{product_photo10}, #{product_content_no}, 0)
 	</insert>
-	<insert id="insertProductCourse" parameterType="com.kat.product.model.ProductInfo">
+	
+	<insert id="insertProductCourse" parameterType="com.kat.product.model.ProductCourseModel">
 		INSERT INTO PRODUCT_COURSE
-		VALUES (#{product_no}, 0, #{course} ,#{course_photo_dir}, 0)
+		VALUES ((SELECT PRODUCT_NO FROM PRODUCT WHERE MEMBER_NO = (SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id}) 
+				ORDER BY PRODUCT_NO DESC LIMIT 1), 0, #{course} ,#{course_photo_dir}, 0)
+	</insert>
+	
+	<insert id="insertProductSub" parameterType="com.kat.product.model.ProductSubModel">
+		INSERT INTO PRODUCT_SUB	
+		VALUES (0, (SELECT PRODUCT_NO FROM PRODUCT WHERE MEMBER_NO = (SELECT MEMBER_NO FROM MEMBER WHERE USER_ID=#{user_id}) 
+				ORDER BY PRODUCT_NO DESC LIMIT 1), #{product_name}, #{cost} ,#{max_people}, 0)
 	</insert>
 	<!-- 상품 데이터 등록 END-->
 

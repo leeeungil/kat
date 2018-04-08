@@ -16,7 +16,9 @@
  })
 </script>
 <style>
-
+#main {
+	margin-left: calc(100%/7);
+}
 </style>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
@@ -25,7 +27,6 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/main_search.css" />
 <div class="header_wrap">
 	<!-- 로그인 폼 -->
 	<div class="login_wrap" id="login_wrap" style="display: none" >
@@ -61,24 +62,19 @@
 	</div>
 	<!-- 메인 슬라이드 쇼 -->
 	<div class="top_wrap"> 
-		<div class="content-wrap">
+		<div class="content-wrap" style="max-width: 99%;">
 			<div class="top_right">
 				<ul class="top-loginbox">
 				<c:if test="${user_id == null}">
 					<li><a onclick="login()">로그인</a></li>
-					<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a></li>
 				</c:if>
 				<c:if test="${user_id != null}">
-					<li style="color:#000000"><font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님
-						<c:if test="${user_id == 'Master'}">
-							<span style="color: red;"><strong> Master </strong></span>
-						</c:if> 
+					<li style="color:#000000">
+						<font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님
 					</li>
-					<c:if test="${member_type == '3'}">
-						<li id="categoryfont">
-							<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
-						</li>
-					</c:if>
+					<li>
+						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>정보수정</strong></a>
+					</li>
 					<li>
 						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
 					</li>
@@ -100,15 +96,15 @@
 		<section>
 			<div class="tabs tabs-style-iconbox">
 				<nav style='width: 100%!important'>
-					<ul style='width: 100vw!important'>
-						<li>
-							<a href="<%=request.getContextPath()%>/kat_main.do" style="padding: 5px;">
+					<ul style='width: 99vw!important'>
+						<li style="background-color: #151719">
+							<a href="<%=request.getContextPath()%>/kat/business/managePage.do" style="padding: 5px;">
 								<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform" style="height: 74px;">
 							</a>
 						</li>
 						<%-- <li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct" class="fa fa-gift"><span>상품 관리</span></a></li> --%>
 						<li><a href="#section-iconbox-1" class="fa fa-home"><span>숙박 관리</span></a></li>
-						<li><a href="#" class="fa fa-gift"><span>상품 관리</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/move/adminLayout/productManageLayout" class="fa fa-gift"><span>상품 관리</span></a></li>
 						<li><a href="#section-iconbox-3" class="fa fa-calendar"><span>예약관리</span></a></li>
 						<li><a href="#section-iconbox-4" class="fa fa-comments"><span>게시물관리</span></a></li>
 						<li><a href="#" class="fa fa-area-chart"><span>통계</span></a></li>

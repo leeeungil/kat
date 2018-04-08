@@ -2,8 +2,16 @@ package com.kat.product.dao;
 
 import java.util.List;
 
+import com.kat.product.model.CityModel;
+import com.kat.product.model.ContinentModel;
+import com.kat.product.model.CountryModel;
 import com.kat.product.model.FavoriteProduct;
+import com.kat.product.model.PhotoContentModel;
+import com.kat.product.model.ProductCourseModel;
 import com.kat.product.model.ProductInfo;
+import com.kat.product.model.ProductModel;
+import com.kat.product.model.ProductSubModel;
+import com.kat.product.model.ProductTypeModel;
 import com.kat.seat.model.InfoShopAddress;
 import com.kat.seat.model.InfoShopSearch;
 import com.kat.seat.model.MenuInfo;
@@ -66,16 +74,22 @@ public interface ProductDao {
 	public int productCount_(String country);
 	public List<InfoShopSearch> productSearch_1(String country, int firstRow, int searchPerPage);
 	
-	
 	// 장준영 수정 완료
+	// 주요 카테고리 가져오기
+	public List<ProductTypeModel> selectProductType();
+	public List<ContinentModel> selectContinent();
+	public List<CountryModel> selectCountry();
+	public List<CityModel> selectCiy();
+	
 	// 상품 추가하기
 	public String findBusinessNumber(String user_id);
-	public void insertProduct(ProductInfo productInfo);
-	public int findProductNo(ProductInfo productInfo);
-	public void insertProductContent(ProductInfo productInfo);
-	public int findProductContentNo(ProductInfo productInfo);
-	public void insertProductPhoto(ProductInfo productInfo);
-	public void insertProductCourse(ProductInfo productInfo);
+	public int findProductNo();
+	public void insertProduct(ProductModel productModel);
+	public int findProductContentNo();
+	public void insertProductContent(PhotoContentModel photoContentModel);
+	public void insertProductPhoto(PhotoContentModel photoContentModel);
+	public void insertProductCourse(ProductCourseModel productCourseModel);
+	public void insertProductSub(ProductSubModel productSubModel);
 	
 	// 상품 전체 가져오기 ( 여행 상품 메인 )
 	public List<ProductInfo> findAllTravelProduct();

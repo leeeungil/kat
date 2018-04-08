@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kat.product.model.FavoriteProduct;
+import com.kat.product.model.PhotoContentModel;
+import com.kat.product.model.ProductCourseModel;
 import com.kat.product.model.ProductInfo;
+import com.kat.product.model.ProductModel;
+import com.kat.product.model.ProductSubModel;
 import com.kat.product.service.ProductService;
 
 @Controller
@@ -76,7 +80,7 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				htmlCode += "<p>"
-						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+//						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
 						+"	</p>"	
@@ -126,7 +130,7 @@ System.out.println("[ProductController findTravelProductOfWord] search_word : " 
 							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
 				}
 				htmlCode += "<p>"
-						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
+//						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
 						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
 						+"	</p>"	
@@ -161,7 +165,7 @@ System.out.println("[ProductController findProductDetailInfo] product_no : " + p
 						+ "					</div>"
 						+ "					<div class='product_total_content'>"
 						+ "						<div class='cost_text_wrap'>"
-						+ "							<font id='product_cost' class='"+productInfo.getCost()+"'> ￦"+productInfo.getCost()+"</font>/ 1인"
+//						+ "							<font id='product_cost' class='"+productInfo.getCost()+"'> ￦"+productInfo.getCost()+"</font>/ 1인"
 						+ "						</div>"
 						+ "					</div>"
 						+ "					<div class='product_total_content date_wrap'>"
@@ -311,79 +315,130 @@ System.out.println("============================================================
 	}
 	
 	/* 상풍 추가하기 */
-	@RequestMapping("add")
-	public ModelAndView addProduct(ProductInfo productInfo, HttpServletRequest request) throws Exception {
+	@RequestMapping("add1")
+	@ResponseBody
+	public void addProduct(ProductModel productModel, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController addProduct] PRODUCT ADD ACCESS");
-System.out.println("[ProductController addProduct] " + productInfo.toString());
-		productInfo.setUser_profile(productInfo.getUser_profile().replaceAll("\r\n", "<br>"));
-		productInfo.setProduct_content(productInfo.getProduct_content().replaceAll("\r\n", "<br>"));
-		productInfo.setCourse(productInfo.getCourse().replaceAll("\r\n", "<br>"));
-		productInfo.setProduct_info(productInfo.getProduct_info().replaceAll("\r\n", "<br>"));
+System.out.println("[ProductController addProduct] " + productModel.toString());
+		productModel.setUser_profile(productModel.getUser_profile().replaceAll("\r\n", "<br>"));
 		
-		if(productInfo.getFile()!=null){
-			productInfo.setProduct_main_photo("null");
-			productInfo.setProduct_photo1("null");
-			productInfo.setProduct_photo2("null");
-			productInfo.setProduct_photo3("null");
-			productInfo.setProduct_photo4("null");
-			productInfo.setProduct_photo5("null");
-			productInfo.setProduct_photo6("null");
-			productInfo.setProduct_photo7("null");
-			productInfo.setProduct_photo8("null");
-			productInfo.setProduct_photo9("null");
-			productInfo.setProduct_photo10("null");
+		if(productModel.getFile()!=null){
+			productModel.setProduct_main_photo("null");
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
+			String Time = dayTime.format(new Date(System.currentTimeMillis()));
+			String user_id = (String) request.getSession(false).getAttribute("user_id");
+			productModel.setUser_id(user_id);
+			String file_full_name = productModel.getFile().getOriginalFilename();
+			String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());
+			String imgName = user_id+"_"+productModel.getProduct_type_no()+"_"+Time+"_main."+imgType;
+System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
+			String path = request.getSession().getServletContext().getRealPath("/") + "uploadfile\\product_img\\"+imgName;
+System.out.println("[ProductController addProduct] imgName[<== save file path] : " + path);
+			File file = new File(path);
+			productModel.getFile().transferTo(file);
+			
+			String db = "/uploadfile/product_img/"+ imgName;
+			productModel.setProduct_main_photo(db);
+		} else {
+			productModel.setProduct_main_photo("null");
+		}
+		addProductService.addProduct(productModel);
+System.out.println("[ProductController addProduct] addProductService.addProduct FINISH");
+System.out.println("=============================================================");
+	}
+	
+	/* 상풍 추가하기 */
+	@RequestMapping("add2")
+	@ResponseBody
+	public void addProductPhotoAndContent(PhotoContentModel photoContentModel, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController addProductPhotoAndContent] PRODUCT PHOTO AND CONTENT ADD ACCESS");
+System.out.println("[ProductController addProductPhotoAndContent] " + photoContentModel.toString());
+		photoContentModel.setProduct_content(photoContentModel.getProduct_content().replaceAll("\r\n", "<br>"));
+		
+		if(photoContentModel.getFile()!=null){
+			photoContentModel.setProduct_photo1("null");
+			photoContentModel.setProduct_photo2("null");
+			photoContentModel.setProduct_photo3("null");
+			photoContentModel.setProduct_photo4("null");
+			photoContentModel.setProduct_photo5("null");
+			photoContentModel.setProduct_photo6("null");
+			photoContentModel.setProduct_photo7("null");
+			photoContentModel.setProduct_photo8("null");
+			photoContentModel.setProduct_photo9("null");
+			photoContentModel.setProduct_photo10("null");
 
-			for(int i =0; i<productInfo.getFile().size(); i++){			
+			for(int i =0; i<photoContentModel.getFile().size(); i++){			
 				SimpleDateFormat dayTime = new SimpleDateFormat("yyyymmdd-hhmmss");
 				String Time = dayTime.format(new Date(System.currentTimeMillis()));
 				String user_id = (String) request.getSession(false).getAttribute("user_id");
-				productInfo.setUser_id(user_id);
-				String file_full_name = productInfo.getFile().get(i).getOriginalFilename();
+				photoContentModel.setUser_id(user_id);
+				String file_full_name = photoContentModel.getFile().get(i).getOriginalFilename();
 				String imgType = file_full_name.substring(file_full_name.length()-3, file_full_name.length());
-				String imgName = user_id+"_"+productInfo.getProduct_type()+"_"+Time+"_"+i+"."+imgType;
+				String imgName = user_id+"_"+Time+"_"+i+"."+imgType;
 System.out.println("[ProductController addProduct] imgName[<== save file name] : " + imgName);
 				String path = request.getSession().getServletContext().getRealPath("/") + "uploadfile\\product_img\\"+imgName;
 System.out.println("[ProductController addProduct] imgName[<== save file path] : " + path);
 				File file = new File(path);
-				productInfo.getFile().get(i).transferTo(file);
+				photoContentModel.getFile().get(i).transferTo(file);
 				
 				String db = "/uploadfile/product_img/"+ imgName;
 				switch (i) {
-					case 0: productInfo.setProduct_main_photo(db); break;
-					case 1: productInfo.setProduct_photo1(db);  break;
-					case 2: productInfo.setProduct_photo2(db);  break;
-					case 3: productInfo.setProduct_photo3(db);  break;
-					case 4: productInfo.setProduct_photo4(db);  break;
-					case 5: productInfo.setProduct_photo5(db);  break;
-					case 6: productInfo.setProduct_photo6(db);  break;
-					case 7: productInfo.setProduct_photo7(db);  break;
-					case 8: productInfo.setProduct_photo8(db);  break;
-					case 9: productInfo.setProduct_photo9(db);   break;
-					case 10: productInfo.setProduct_photo10(db); break;
+					case 0: photoContentModel.setProduct_photo1(db);  break;
+					case 1: photoContentModel.setProduct_photo2(db);  break;
+					case 2: photoContentModel.setProduct_photo3(db);  break;
+					case 3: photoContentModel.setProduct_photo4(db);  break;
+					case 4: photoContentModel.setProduct_photo5(db);  break;
+					case 5: photoContentModel.setProduct_photo6(db);  break;
+					case 6: photoContentModel.setProduct_photo7(db);  break;
+					case 7: photoContentModel.setProduct_photo8(db);  break;
+					case 8: photoContentModel.setProduct_photo9(db);   break;
+					case 9: photoContentModel.setProduct_photo10(db); break;
 				}
 			}
 		}else{
-			productInfo.setProduct_main_photo("null");
-			productInfo.setProduct_photo1("null");
-			productInfo.setProduct_photo2("null");
-			productInfo.setProduct_photo3("null");
-			productInfo.setProduct_photo4("null");
-			productInfo.setProduct_photo5("null");
-			productInfo.setProduct_photo6("null");
-			productInfo.setProduct_photo7("null");
-			productInfo.setProduct_photo8("null");
-			productInfo.setProduct_photo9("null");
-			productInfo.setProduct_photo10("null");
+			photoContentModel.setProduct_photo1("null");
+			photoContentModel.setProduct_photo2("null");
+			photoContentModel.setProduct_photo3("null");
+			photoContentModel.setProduct_photo4("null");
+			photoContentModel.setProduct_photo5("null");
+			photoContentModel.setProduct_photo6("null");
+			photoContentModel.setProduct_photo7("null");
+			photoContentModel.setProduct_photo8("null");
+			photoContentModel.setProduct_photo9("null");
+			photoContentModel.setProduct_photo10("null");
 		}
 
-		ModelAndView modelAndView = new ModelAndView();
-
-		addProductService.addProduct(productInfo);
-System.out.println("[ProductController addProduct] addProductService.addProduct FINISH");
-		modelAndView.setViewName("redirect:/kat/business/managePage.do");
+		addProductService.addProductPhotoAndContent(photoContentModel);
+System.out.println("[ProductController addProductPhotoAndContent] addProductService.addProduct FINISH");
 System.out.println("=============================================================");
-		return modelAndView;
+	}	
+	/* 상풍 추가하기 */
+	@RequestMapping("add3")
+	@ResponseBody
+	public void addProductCourse(ProductCourseModel productCouseModel, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController addProductCourse] couser ADD ACCESS");
+System.out.println("[ProductController addProductCourse] " + productCouseModel.toString());
+		productCouseModel.setCourse(productCouseModel.getCourse().replaceAll("\r\n", "<br>"));
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+		productCouseModel.setUser_id(user_id);
+		addProductService.addCourse(productCouseModel);
+System.out.println("[ProductController addProductCourse] addProductService.addCourse FINISH");
+System.out.println("=============================================================");
 	}
+	
+	/* 상풍 추가하기 */
+	@RequestMapping("add4")
+	@ResponseBody
+	public void addProductSub(ProductSubModel productSubModel, HttpServletRequest request) throws Exception {
+System.out.println("[ProductController addProductSub] PRODUCT SUB ADD ACCESS");
+System.out.println("[ProductController addProductSub] " + productSubModel.toString());
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+		productSubModel.setUser_id(user_id);
+		addProductService.addSub(productSubModel);
+System.out.println("[ProductController addProductCourse] addProductService.addCourse FINISH");
+System.out.println("=============================================================");
+	}
+	
 	/* 상품 즐겨찾기 */
 	@RequestMapping(value ="addfavoriteProduct", produces = "application/text; charset=utf8")
 	@ResponseBody
