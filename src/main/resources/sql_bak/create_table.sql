@@ -149,6 +149,7 @@ CREATE TABLE PRODUCT (
   `product_main_photo` varchar(200) NOT NULL,
   `use_flag` INT(2) NOT NULL,
   `delete_flag` INT(2) NOT NULL,
+  `sales_start_date` datetime DEFAULT NULL,
   PRIMARY KEY (`product_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 

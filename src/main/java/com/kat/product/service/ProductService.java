@@ -9,6 +9,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kat.product.dao.ProductDao;
+import com.kat.product.model.AdminProductList;
 import com.kat.product.model.CityModel;
 import com.kat.product.model.ContinentModel;
 import com.kat.product.model.CountryModel;
@@ -113,6 +114,16 @@ System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoL
 System.out.println("[AddProductService findAllTravelProduct] " + productAllInfoList.get(0).toString());
 		return productAllInfoList;
 	}
+	// FIND USER_ID PRODUCT
+		public List<AdminProductList> findUserIdProduct(String user_id) {
+	System.out.println("[AddProductService findUserIdProduct] ACCESS");
+	        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+			List<AdminProductList> adminProductList = null;
+			adminProductList = dao.findUserIdProduct(user_id);
+	System.out.println("[AddProductService findUserIdProduct] MAPPER(findUserIdProduct) RETURN");
+	System.out.println("[AddProductService findUserIdProduct] " + adminProductList.size());
+			return adminProductList;
+		}
 	// FIND PRODUCT_TYPE PRODUCT
 	public List<ProductInfo> findTypeTravelProduct(int product_type) {
 System.out.println("[AddProductService findTypeTravelProduct] FIND TYPE PRODUCT ACCESS");

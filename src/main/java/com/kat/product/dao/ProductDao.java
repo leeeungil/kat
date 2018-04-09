@@ -2,6 +2,7 @@ package com.kat.product.dao;
 
 import java.util.List;
 
+import com.kat.product.model.AdminProductList;
 import com.kat.product.model.CityModel;
 import com.kat.product.model.ContinentModel;
 import com.kat.product.model.CountryModel;
@@ -94,6 +95,7 @@ public interface ProductDao {
 	// 상품 전체 가져오기 ( 여행 상품 메인 )
 	public List<ProductInfo> findAllTravelProduct();
 	public List<ProductInfo> findTypeTravelProduct(int product_type);
+	public List<AdminProductList> findUserIdProduct(String user_id); 
 	public List<ProductInfo> findWordTravelProduct(String search_word);
 	
 	//product_no로 상품 정보 가져오기

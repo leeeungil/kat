@@ -90,7 +90,7 @@
     <beans:bean id="photoContentModel" class="com.kat.product.model.PhotoContentModel" scope="prototype" />
     <beans:bean id="productCouseModel" class="com.kat.product.model.ProductCourseModel" scope="prototype" />
     <beans:bean id="productSubModel" class="com.kat.product.model.ProductSubModel" scope="prototype" />
-    
+    <beans:bean id="adminProductList" class="com.kat.product.model.AdminProductList" scope="prototype" />
     
 	<!--서비스 등록 -->
 	<beans:bean id="boardService" class="com.kat.article.service.BoardService" />

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kat.product.model.AdminProductList;
 import com.kat.product.model.FavoriteProduct;
 import com.kat.product.model.PhotoContentModel;
 import com.kat.product.model.ProductCourseModel;
@@ -30,15 +31,31 @@ public class ProductController {
 	@Autowired
 	private ProductService addProductService;
 	
+	/* 유저 아이디로 검색 */
+	@RequestMapping("findUserIdProduct")
+	public ModelAndView findUserIdProduct(HttpServletRequest request) throws Exception {
+System.out.println("[ProductController findUserIdProduct] FIND ALL PRODUCT ACCESS");
+		ModelAndView modelAndView = new ModelAndView();
+		List<AdminProductList> adminProductList = null;
+		String user_id = (String) request.getSession(false).getAttribute("user_id");
+System.out.println("[ProductController findUserIdProduct] user_id : "+user_id);
+		adminProductList = addProductService.findUserIdProduct(user_id);
+System.out.println("[ProductController findUserIdProduct] ProductList.size() : "+ adminProductList.size());
+		modelAndView.addObject("adminProductList", adminProductList);
+		modelAndView.setViewName("adminLayout/adminProductList");
+System.out.println("=============================================================");
+		return modelAndView;
+	}
+	
 	/* 전체 검색 */
 	@RequestMapping("findAllTravelProduct")	
 	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
-		List<ProductInfo> ProductList = null;
-		ProductList = addProductService.findAllTravelProduct();
-System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ ProductList.size());
-		modelAndView.addObject("ProductAllList",ProductList);
+		List<ProductInfo> productList = null;
+		productList = addProductService.findAllTravelProduct();
+System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ productList.size());
+		modelAndView.addObject("ProductAllList",productList);
 		modelAndView.setViewName("layout/travelProductLayout");
 System.out.println("[ProductController findAllTravelProduct] go =======>  layout/travelProductLayout");
 System.out.println("=============================================================");

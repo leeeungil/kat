@@ -16,7 +16,7 @@ $(document).ready(function() {
 			</a>
 		</li>
 		<li>
-		  	<a href="<%=request.getContextPath()%>/kat/productForm/productUpdate.do">
+		  	<a href="<%=request.getContextPath()%>/product/findUserIdProduct">
 				<font>상품 수정</font> 
 			</a>
 		</li>

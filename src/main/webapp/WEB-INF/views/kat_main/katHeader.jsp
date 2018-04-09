@@ -15,7 +15,8 @@
  		 	$(this).children("span").css("color","#74777b");
 		 }
 	 })
-	 
+
+	$(".mainSlider > img").lazyload({threshold : 200});
  })
 </script>
 <style>
@@ -111,23 +112,13 @@
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<script type="text/javascript">
-	        function googleTranslateElementInit() {
-	        	new google.translate.TranslateElement({pageLanguage: 'ko',
-	        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
-	        	multilanguagePage: true}, 'google_translate_element');
-	        }
-		</script>
 		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/1.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/2.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/3.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/4.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/5.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/6.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/7.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/8.jpg)"></div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/9.jpg)"></div>
+		
+		<%-- <div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/1.jpg"></div>
+		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/2.jpg"></div>
+		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/3.jpg"></div>
+		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/4.jpg"></div>
+		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/5.jpg"></div> --%>
 	<!-- 컨텐츠 메뉴 통합 검색 -->
 	</div>
 	<form class='content_form' method="post" id="content_form" action="<%=request.getContextPath()%>/kat/SearchList/SearchInfo.do">
@@ -169,4 +160,11 @@
 		</section>
 	</div><!-- /container -->
 </div> 
-
+<script src="<%=request.getContextPath()%>/script/googleTrans/googleTrans.min.js"></script>
+<script>
+function googleTranslateElementInit() {
+	new google.translate.TranslateElement({pageLanguage: 'ko',
+	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
+	multilanguagePage: true}, 'google_translate_element');
+}
+</script>

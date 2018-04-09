@@ -34,7 +34,7 @@
 	display: block;
 	min-height: 100%;
 	max-width: 100%;
-	opacity: 0.8;
+	opacity: 0.9;
 }
 
 .product_wrap figure figcaption {
@@ -78,6 +78,7 @@
 .product_wrap figure h2 span {
     font-weight: 800;
     font-size: 1.3em;
+    color: #ffffff;
 }
 
 .product_wrap figure h2,
@@ -97,16 +98,16 @@ figcaption > h2 > br {
 	line-height: 22px;
 }
 .tour_color {
-    background: #0084fe;
+    background: #0084fe !important;
 }
 .shuttle_color {
-    background: #ffa500;
+    background: #ffa500 !important;
 }
 .ticket_color {
-    background: #29a600;
+    background: #29a600 !important;
 }
 .snap_color {
-    background: #ff0000;
+    background: #ff0000 !important;
 }
 
 /* Individual effects */
@@ -163,17 +164,15 @@ figure.effect-goliath:hover p {
 	transform: translate3d(0,0,0);
 }
 
-
+.product_fig > h2 {
+    background: #00000085;	
+}
 /*-----------------*/
 /***** Winston *****/
 /*-----------------*/
 
 figure.effect-winston {
-	background: #162633;
 	text-align: left;
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 figure.effect-winston img {
@@ -216,7 +215,7 @@ figure.effect-winston p {
 
 figure.effect-winston a {
 	margin: 0 10px;
-	color: #5d504f;
+	color: #ffffff;
 	font-size: 170%;
 }
 

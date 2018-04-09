@@ -4,27 +4,25 @@
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/main/mainSimpleCard.css">
 <%-- <script type="text/javascript">
 $(document).ready(function() {
-	$(document).ready(function() {
-		$.ajax({
-			url:'<%=request.getContextPath()%>/mainController/selectMainProductList',
-			type: 'get',
-			dataType: 'text',
-			beforeSend: function() {
-				$(".area").append("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
-			}
-		}).done(function(data) {
-			
-		}).fail(function() {
-			alert("호출 실패")
-		}).always(function() {
-			
-		})
+	$.ajax({
+		url:'<%=request.getContextPath()%>/mainController/selectMainProductList',
+		type: 'get',
+		dataType: 'text',
+		beforeSend: function() {
+			$(".area").append("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+		}
+	}).done(function(data) {
+		
+	}).fail(function() {
+		alert("호출 실패")
+	}).always(function() {
+		
 	})
 })
 </script> --%>
-<script type="text/javascript">
+<script>
 	$(function(){
-		$('img.lazy').lazyload();
+		$(".thumbnail").lazyload();
 	});
 </script>
 <!-- 메인 부분 -->
@@ -32,11 +30,24 @@ $(document).ready(function() {
 	<div class='area area_wrap'>
 		<div class='product_wrap'>
  		<c:forEach var='product' items='${ProductAllList}'>
- 			<figure class='effect-winston'>
+ 			<c:choose>
+				<c:when test="${product.product_type eq '1' }">
+					<figure class='effect-winston tour_color'>
+				</c:when>
+				<c:when test="${product.product_type eq '2' }">
+					<figure class='effect-winston shuttle_color'>
+				</c:when>
+				<c:when test="${product.product_type eq '3' }">
+					<figure class='effect-winston ticket_color'>
+				</c:when>
+				<c:when test="${product.product_type eq '4' }">
+					<figure class='effect-winston snap_color'>
+				</c:when>
+			</c:choose> 
 			<%-- <figure class='effect-winston' style='background-image: url(<%=request.getContextPath()%>${product.product_main_photo})'> --%>
  			<input type='hidden' class='product_no' name='product_no' value='${product.product_no}'>
-				<img src='<%=request.getContextPath()%>${product.product_main_photo}'/>
-				<figcaption class='product_fig'>
+				<img data-original='<%=request.getContextPath()%>${product.product_main_photo}' class='thumbnail'/>
+				<figcaption class='product_fig'> 
 					<c:choose>
 						<c:when test="${product.product_type eq '1' }">
 							<h2><font class='tour_color'>${product.country} > ${product.city}</font><br> <span>${product.product_title}</span></h2>

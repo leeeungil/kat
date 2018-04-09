@@ -19,12 +19,15 @@
     background-size: cover;
     margin-top: -35px;
     width: 100% !important;
-    position: absolute !important;
-    height: 80vh !important;
-    min-height: 550px !important;
-    max-height: 900px !important;
-    overflow: hidden !important;
-    contain: strict !important;
+    position: absolute;
+    height: 80vh;
+    min-height: 550px;
+    max-height: 900px;
+    overflow: hidden;
+}
+.mainSlider > img {
+    height: 80vh;
+    width: 100%;
 }
 /* header_sub */
 .header-width-wrap {

@@ -17,7 +17,7 @@
 </script>
 <style>
 #main {
-	margin-left: calc(100%/7);
+	margin-left: calc(100%/7 + 2px);
 }
 </style>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
