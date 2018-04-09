@@ -45,7 +45,7 @@ System.out.println("============================================================
 		return modelAndView;
 	}
 	
-	@RequestMapping(value ="findTravelProductOfType", produces = "application/text; charset=utf8")
+	@RequestMapping(value ="findTravelProductOfType", produces = "application/text; charset=utf-8")
 	@ResponseBody
 	public String findTravelProductOfType(@RequestParam(value="productType") int product_type, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findTravelProductOfType] FIND ALL PRODUCT ACCESS");
@@ -93,7 +93,7 @@ System.out.println("============================================================
 		return htmlCode;
 	}
 	
-	@RequestMapping(value ="findTravelProductOfWord", produces = "application/text; charset=utf8")
+	@RequestMapping(value ="findTravelProductOfWord", produces = "application/text; charset=utf-8")
 	@ResponseBody
 	public String findTravelProductOfWord(@RequestParam(value="search_word") String search_word, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findTravelProductOfWord] FIND WORD PRODUCT ACCESS");
@@ -440,7 +440,7 @@ System.out.println("============================================================
 	}
 	
 	/* 상품 즐겨찾기 */
-	@RequestMapping(value ="addfavoriteProduct", produces = "application/text; charset=utf8")
+	@RequestMapping(value ="addfavoriteProduct", produces = "application/text; charset=utf-8")
 	@ResponseBody
 	public void addfavoriteProduct(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController addfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
@@ -455,7 +455,7 @@ System.out.println("[ProductController addfavoriteProduct] user_id : " + user_id
 System.out.println("=============================================================");
 	}
 	
-	@RequestMapping(value ="delfavoriteProduct", produces = "application/text; charset=utf8")
+	@RequestMapping(value ="delfavoriteProduct", produces = "application/text; charset=utf-8")
 	@ResponseBody
 	public void delfavoriteProduct(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController delfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");

@@ -3,6 +3,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/script/jquery/jquery.lazyload.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/login.js"></script>
 <script src="<%=request.getContextPath()%>/script/lightslider.js"></script>
 <script>

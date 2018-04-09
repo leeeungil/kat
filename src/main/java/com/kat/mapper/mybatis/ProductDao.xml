@@ -72,7 +72,7 @@
 				FROM PRODUCT P, MENU_COUNTRY MCOUN, MENU_CITY MCI
 				WHERE P.COUNTRY=MCOUN.COUNTRY_NO AND P.CITY=MCI.CITY_NO AND P.DELETE_FLAG=0) PMM
 		LEFT JOIN PRODUCT_SUB PS  ON PMM.PRODUCT_NO=PS.PRODUCT_NO
-		<!-- LIMIT 1, 12 -->
+		LIMIT 1, 6
 	</select>
 	<!-- product_type 별로 가져오기 -->
 	<select id="findTypeTravelProduct" resultType="com.kat.product.model.ProductInfo">

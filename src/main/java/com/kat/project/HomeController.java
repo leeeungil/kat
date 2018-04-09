@@ -28,13 +28,15 @@ System.out.println("first?");
 
 	@RequestMapping(value ="/kat_main.do", method = RequestMethod.GET)
 	public ModelAndView home() throws Exception{
-		ModelAndView modelAndView = new ModelAndView();
-		List<ProductInfo> ProductList = null;
-		ProductList = addProductService.findAllTravelProduct();
-System.out.println("[HomeController home] ProductList.size() : "+ ProductList.size());		
-		modelAndView.addObject("ProductAllList",ProductList);
-		modelAndView.setViewName("kat_main");
 System.out.println("[HomeController home] go =======>  kat_main");
+System.out.println("=============================================================");
+System.out.println("[MainController selectMainProductList] SELECT PRODUCT MAIN LIST ACCESS");
+ModelAndView modelAndView = new ModelAndView();
+List<ProductInfo> productList = null;
+productList = addProductService.findAllTravelProduct();
+System.out.println("[KatMainController selectMainProductList] ProductList.size() : "+ productList.size());		
+modelAndView.addObject("ProductAllList",productList);
+modelAndView.setViewName("kat_main");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
