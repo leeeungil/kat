@@ -168,6 +168,16 @@ System.out.println("[AddProductService findUserProfile] MAPPER(findUserProfile) 
 	return productModel;
 	}
 	
+	public ProductInfo findProductContent(int product_no) {
+System.out.println("[AddProductService findPhotoContent] FIND PRODUCT DETAIL INFO ACCESS");
+System.out.println("[AddProductService findPhotoContent] product_no : " + product_no);
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+        ProductInfo productInfo = null;
+        productInfo = dao.findProductContent(product_no);
+System.out.println("[AddProductService findPhotoContent] MAPPER(findProductContent) RETURN");
+	return productInfo;
+	}
+	
 	// ADD FAVORITE PRODUCT
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct) {
 System.out.println("[AddProductService addfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");
@@ -384,9 +394,9 @@ System.out.println("[AddProductService getListInfo] " + infoShopSearch.toString(
 	}
 
 	//User_profile 수정하기 은길
-	public void UserProfileUpdate(ProductInfo productInfo) {
+	public void UserProfileUpdate(ProductModel productModel) {
 		dao = sqlSessionTemplate.getMapper(ProductDao.class);
-		dao.userProfileUpdate(productInfo);
+		dao.userProfileUpdate(productModel);
 		
 	}
 }

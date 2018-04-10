@@ -2,23 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script>
 $(document).ready(function() {
-	<%-- $.ajax({
-		url: '<%=request.getContextPath()%>/product/findUserIdProduct',
-		type: 'post',
-		dataType: 'json',
-		beforeSend: function() {
-			$("#article_main").append("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
-		},
-		success: function(data) {
-			alert("Loading Success")
-		}
-	}) --%>
 	$(document).on("mouseenter", ".product_list_table > tbody > tr", function() {
 		$(this).addClass("hover_tr");
 	}).on("mouseleave", ".product_list_table > tbody > tr", function() {
 		$(this).removeClass("hover_tr");
 	})
-	$(document).on("click", ".info_td > a", function() {
+	$(document).on("click", ".user_profile_a", function() {
 		var targetModal = $(this).attr("data-modal");
 		var product_no = $(this).parents("td").attr("name")
 		$("#"+targetModal).addClass("md-show");
@@ -30,8 +19,34 @@ $(document).ready(function() {
 			success: function(productModel) {
 				var contextPath = '<%=request.getContextPath()%>'
 				var mainPhoto = contextPath + productModel.product_main_photo; 
+				if(productModel.user_profile!=null){
+					var userProfile = productModel.user_profile.replace(/<br>/gi, "\r\n");
+				}
 				$("#"+targetModal +" > .md-content > h3").html(productModel.product_title)
-				$("#"+targetModal +" #user_profile").val(productModel.user_profile)
+				$("#"+targetModal +" > .md-content > form > .product_no ").val(productModel.product_no)
+				$("#"+targetModal +" #user_profile").val(userProfile)
+				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
+			}
+		})
+	})
+	$(document).on("click", ".product_content_a", function() {
+		var targetModal = $(this).attr("data-modal");
+		var product_no = $(this).parents("td").attr("name")
+		$("#"+targetModal).addClass("md-show");
+		$.ajax({
+			url: '<%=request.getContextPath()%>/product/findProductContent',
+			type: 'post',
+			data: { "product_no": product_no},
+			dataType: 'json',
+			success: function(productInfo) {
+				var contextPath = '<%=request.getContextPath()%>'
+				var mainPhoto = contextPath + productInfo.product_main_photo; 
+				if(productInfo.product_content!=null){
+					var userProfile = productInfo.product_content.replace(/<br>/gi, "\r\n");
+				}
+				$("#"+targetModal +" > .md-content > h3").html(productInfo.product_title)
+				$("#"+targetModal +" > .md-content > form > .product_no ").val(productInfo.product_no)
+				$("#"+targetModal +" #product_content").val(userProfile)
 				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
 			}
 		})
@@ -47,7 +62,7 @@ $(document).ready(function() {
 .hover_tr {
     cursor: pointer;
     box-shadow: #000000 0px 0px 22px 2px;
-	transform: scale(1.03, 1.23);
+	transform: scale(1.03);
 	transition: transform 0.3s cubic-bezier(0, 0.5, 0.59, 0.85);
 	-ms-transition: transform 0.3s cubic-bezier(0, 0.5, 0.59, 0.85);
 	-o-transition: transform 0.3s cubic-bezier(0, 0.5, 0.59, 0.85);
@@ -59,14 +74,14 @@ $(document).ready(function() {
     text-align: center;
 }
 .product_list_table > thead > tr > td { 
-	font-size: 20px;
-    font-weight: 800;
-    background: #151719;
-    color: white;
+    font-size: 16px;
+    background: #000000a3;
+    color: #ffffff;
     padding: 5px;
+    border-right: 1px solid white;
 }
 .product_list_table > tbody > tr {
-    border-bottom: 3px solid #ffffff;
+    border-top: 2px solid #ffffff;
     text-align: center;
     line-height: 1.4;
     background-position: center;
@@ -76,10 +91,11 @@ $(document).ready(function() {
 }
 .product_list_table > tbody > tr > td {
     background-color: #00000078;
-    font-weight: 800;
     transition: unset;
     font-size: 17px;
     color: white;
+	border-right: 1px solid #9b9b9b;
+    border-right-style: dotted;
 }
 .product_list_table > tbody > tr > td:nth-child(1) { 
 	min-width: 40px;
@@ -100,14 +116,17 @@ $(document).ready(function() {
 }
 .product_list_table > tbody > tr > td:nth-child(7) {
     width: 4%;
-    min-width: 66px;
+    min-width: 75px;
 }
 .product_list_table > tbody > tr > td:nth-child(8) {
     width: 8%;
     min-width: 100px;
 	background-color: #000000b0;
 }
-.product_list_table > tbody > tr > td:nth-child(9) { width: 10% }
+.product_list_table > tbody > tr > td:nth-child(9) {
+	width: 4%;
+    min-width: 80px;
+}
 .product_list_table > tbody > tr > td:nth-child(10) { width: 5% }
 .product_list_table > tbody > tr > td:nth-child(11) { width: 5% }
 
@@ -136,6 +155,7 @@ p {
 	<section>
 		<article id="article_main">
 			<jsp:include page="/WEB-INF/views/modal/userProfileInfoModal_1.jsp" flush="false"></jsp:include>
+			<jsp:include page="/WEB-INF/views/modal/productContentModal_2.jsp" flush="false"></jsp:include>
 			<table class='product_list_table'><thead><tr>
 				<td>Product Number</td>
 				<td>Product Type</td>
@@ -167,57 +187,60 @@ p {
 							<c:choose>
 								<c:when test="${1 eq adminProduct.delete_flag}">
 									<c:if test="${empty adminProduct.user_profile}">
-										<p class="empty-effect" data-modal="modal-1">User profile</a> 
+										<a class="empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
 									</c:if>
 									<c:if test="${!empty adminProduct.user_profile}"> 
-										<p class="none-empty-effect" data-modal="modal-1"><a href="<%=request.getContextPath()%>/product/update_user_profile.do">User profile</a> 
-									</c:if>
-									<c:if test="${empty adminProduct.product_content}">
-										<p class="empty-effect" data-modal="modal-2">Product content</a>
-									</c:if>
-									<c:if test="${!empty adminProduct.product_content}">
-										<p class="none-empty-effect" data-modal="modal-2">Product content</a>
-									</c:if>
-									<c:if test="${empty adminProduct.product_info}">
-										<p class="empty-effect" data-modal="modal-3">Product info</a>
-									</c:if>
-									<c:if test="${!empty adminProduct.product_info}">
-										<p class="none-empty-effect" data-modal="modal-4">Product info</a>
-									</c:if>
-									<c:if test="${empty adminProduct.course}">
-										<p class="empty-effect" data-modal="modal-5">Course</a>
-									</c:if>
-									<c:if test="${!empty adminProduct.course}">
-										<p class="none-empty-effect" data-modal="modal-5">Course</a>
-									</c:if>
-								</c:when>
-								<c:otherwise>
-									<c:if test="${empty adminProduct.user_profile}">
-										<a class="empty-effect" data-modal="modal-1">User profile</a> 
-									</c:if>
-									<c:if test="${!empty adminProduct.user_profile}"> 
-										<a class="none-empty-effect" data-modal="modal-1">User profile</a> 
+										<a class="none-empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.product_content}">
-										<a class="empty-effect" data-modal="modal-2">Product content</a>
+										<a class="empty-effect product_content_a" data-modal="modal-2">Product content</a>
 									</c:if>
-									<c:if test="${!empty adminProduct.product_content}">
-										<a class="none-empty-effect" data-modal="modal-2">Product content</a>
+									<c:if test="${!empty adminProduct.product_content}"> 
+										<a class="none-empty-effect product_content_a" data-modal="modal-2">Product content</a>
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.product_info}">
 										<a class="empty-effect" data-modal="modal-3">Product info</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.product_info}">
-										<a class="none-empty-effect" data-modal="modal-4">Product info</a>
+										<a class="none-empty-effect" data-modal="modal-3">Product info</a>
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.course}">
-										<a class="empty-effect" data-modal="modal-5">Course</a>
+										<a class="empty-effect" data-modal="modal-4">Course</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.course}">
-										<a class="none-empty-effect" data-modal="modal-5">Course</a>
+										<a class="none-empty-effect" data-modal="modal-4">Course</a>
+									</c:if>
+								</c:when>
+								<c:otherwise>
+									<c:if test="${empty adminProduct.user_profile}">
+										<a class="empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
+									</c:if>
+									<c:if test="${!empty adminProduct.user_profile}"> 
+										<a class="none-empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
+									</c:if>
+									<p></p>
+									<c:if test="${empty adminProduct.product_content}">
+										<a class="empty-effect product_content_a" data-modal="modal-2">Product content</a>
+									</c:if>
+									<c:if test="${!empty adminProduct.product_content}">
+										<a class="none-empty-effect product_content_a" data-modal="modal-2">Product content</a>
+									</c:if>
+									<p></p>
+									<c:if test="${empty adminProduct.product_info}">
+										<a class="empty-effect" data-modal="modal-3">Product info</a>
+									</c:if>
+									<c:if test="${!empty adminProduct.product_info}">
+										<a class="none-empty-effect" data-modal="modal-3">Product info</a>
+									</c:if>
+									<p></p>
+									<c:if test="${empty adminProduct.course}">
+										<a class="empty-effect" data-modal="modal-4">Course</a>
+									</c:if>
+									<c:if test="${!empty adminProduct.course}">
+										<a class="none-empty-effect" data-modal="modal-4">Course</a>
 									</c:if>
 								</c:otherwise>
 							</c:choose>

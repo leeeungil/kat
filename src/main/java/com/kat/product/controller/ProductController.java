@@ -1,7 +1,6 @@
 package com.kat.product.controller;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -62,6 +61,18 @@ System.out.println("[ProductController findUserProfile] product_no : "+product_n
 System.out.println("[ProductController findUserProfile] " + productModel.toString());
 System.out.println("=============================================================");
 		return productModel;
+	}
+	
+	@RequestMapping(value ="findProductContent", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public ProductInfo findProductContent(int product_no) throws Exception {
+System.out.println("[ProductController findPhotoContent] FIND USER PROFILE BY PRODUCT NO ACCESS");
+System.out.println("[ProductController findPhotoContent] product_no : "+product_no);
+		ProductInfo productInfo = null;
+		productInfo = productService.findProductContent(product_no);
+System.out.println("[ProductController findPhotoContent] " + productInfo.toString());
+System.out.println("=============================================================");
+		return productInfo;
 	}
 
 	/* 전체 검색 */
@@ -516,13 +527,15 @@ System.out.println("============================================================
 	}
 	
 	//프로필 수정하기 은길
-	@RequestMapping(value ="update_user_profile.do")
-	@ResponseBody
-	public String update_user_profile_send (@RequestParam(name = "no", defaultValue = "1")int no, ProductInfo productInfo)throws IllegalStateException,IOException {
-		productInfo.setProduct_content_no(no);
-System.out.println("[ProductController update_user_profile_send] no :" + no);		
-		productService.UserProfileUpdate(productInfo);
-System.out.println("[ProductController update_user_profile_send] productInfo :" + productInfo);		
+	@RequestMapping(value ="updateUserProfile", produces = "application/text; charset=utf8")
+	public String updateUserProfile (ProductModel productModel, HttpServletRequest request)throws Exception {
+System.out.println("[ProductController updateUserProfile] UPDATE USER PROFILE ACCESS");
+System.out.println("[ProductController updateUserProfile] "+productModel.toString());
+		request.setCharacterEncoding("utf-8");
+		productModel.setUser_profile(productModel.getUser_profile().replaceAll("\r\n", "<br>"));
+System.out.println("[ProductController updateUserProfile] User_profile() : "+productModel.getUser_profile());
+		productService.UserProfileUpdate(productModel);
+System.out.println("[ProductController update_user_profile_send] GO =======> redirect:/product/findUserIdProduct.do");		
 		return "redirect:/product/findUserIdProduct.do";
 	}
 }

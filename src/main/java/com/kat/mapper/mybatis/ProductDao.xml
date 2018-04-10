@@ -131,10 +131,8 @@
 	<select id="findUserProfile" resultType="com.kat.product.model.ProductModel">
 		SELECT PRODUCT_NO, PRODUCT_TITLE, USER_PROFILE, PRODUCT_MAIN_PHOTO FROM PRODUCT WHERE PRODUCT_NO=#{product_no}
 	</select>
-	<select id="findProductContent" resultType="com.kat.product.model.PhotoContentModel">
-		SELECT *
-		FROM PRODUCT_PHOTO PPHO
-		WHERE PPHO.PRODUCT_CONTENT_NO=PTOTAL.PRODUCT_CONTENT_NO;
+	<select id="findProductContent" resultType="com.kat.product.model.ProductInfo">
+	    SELECT P.PRODUCT_NO, PRODUCT_TITLE, PRODUCT_MAIN_PHOTO, PRODUCT_CONTENT FROM PRODUCT P, PRODUCT_CONTENT PC WHERE P.PRODUCT_NO=PC.PRODUCT_NO AND P.PRODUCT_NO=#{product_no}
 	</select>
 	<select id="findProductInfo" resultType="com.kat.product.model.PhotoContentModel">
 		SELECT *
@@ -295,11 +293,13 @@
 		from member inner joinbusiness on member.company_no = business.company_no inner join product on business.company_no = product.company_no
 		where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
 	</select>
+	
 	<!-- 프로필 수정중 이은길 -->
-	<select id="userProfileUpdate" parameterType="com.kat.product.model.ProductInfo">
-	    UPDATE productInfo
+	<select id="userProfileUpdate" parameterType="com.kat.product.model.ProductModel">
+	    UPDATE PRODUCT
 	    SET user_profile = #{user_profile}
 	    WHERE product_no = #{product_no}
 	</select>
+
 </mapper>
 

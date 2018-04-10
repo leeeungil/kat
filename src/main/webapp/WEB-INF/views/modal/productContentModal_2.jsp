@@ -8,7 +8,7 @@ $(document).ready(function() {
 		$(this).parent().parent(".md-modal").removeClass("md-show");
 	})
 	$(document).on("click", ".edit_btn", function() {
-		$("#update_form").submit();
+		$("#content_update_form").submit();
 	})
 })
 </script>
@@ -30,17 +30,17 @@ $(document).ready(function() {
     opacity: 0.8;
 }
 </style>
-<div class="md-modal md-effect-1" id="modal-1">
+<div class="md-modal md-effect-1" id="modal-2">
 	<div class="md-content">
 		<span id="modal_close">닫기</span>
 		<h3></h3>
-		<form id='update_form' action="<%=request.getContextPath()%>/product/updateUserProfile.do" method="post">
+		<form id='content_update_form' action="" method="post">
 		<input type='hidden' class='product_no' name='product_no' value=''>
 			<div>
-					<p>Edit User Profile</p>
+					<p>Edit Product Content</p>
 					<ul>
 						<li>
-							<textArea id='user_profile' class='user_profile_textArea' name='user_profile'></textArea>
+							<textArea id='product_content' class='product_content_textArea' name='product_content'></textArea>
 						</li>
 					</ul>
 					<button class="edit_btn">Immediately Edit</button>
