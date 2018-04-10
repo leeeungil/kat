@@ -105,6 +105,7 @@ $(document).ready(function() {
 .product_list_table > tbody > tr > td:nth-child(8) {
     width: 8%;
     min-width: 100px;
+	background-color: #000000b0;
 }
 .product_list_table > tbody > tr > td:nth-child(9) { width: 10% }
 .product_list_table > tbody > tr > td:nth-child(10) { width: 5% }
