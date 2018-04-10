@@ -28,7 +28,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/admin_sub_side_menu.css" />
 <div class="header_wrap">
 	<!-- 로그인 폼 -->
 	<div class="login_wrap" id="login_wrap" style="display: none" >
