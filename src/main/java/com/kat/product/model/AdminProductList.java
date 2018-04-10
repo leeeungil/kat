@@ -13,22 +13,17 @@ public class AdminProductList {
 	private String user_id;
 	private String product_name;
 	private String cost;
-	private String user_profile;
 	private int delete_flag;
-	private String content;
 	private String create_date;
 	private int use_flag;
+	private String sales_start_date;
+
+	private String user_profile;
+	private String product_content;
 	private String product_info;
 	private String course;
-	private String sales_start_date;
+	private String product_main_photo;
 	
-	
-	public int getUse_flag() {
-		return use_flag;
-	}
-	public void setUse_flag(int use_flag) {
-		this.use_flag = use_flag;
-	}
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -101,17 +96,43 @@ public class AdminProductList {
 	public void setCost(String cost) {
 		this.cost = cost;
 	}
+	public int getDelete_flag() {
+		return delete_flag;
+	}
+	public void setDelete_flag(int delete_flag) {
+		this.delete_flag = delete_flag;
+	}
+	public String getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(String create_date) {
+		String date[] = create_date.split(":");
+		this.create_date = date[0]+":"+date[1];
+	}
+	public int getUse_flag() {
+		return use_flag;
+	}
+	public void setUse_flag(int use_flag) {
+		this.use_flag = use_flag;
+	}
+	public String getSales_start_date() {
+		return sales_start_date;
+	}
+	public void setSales_start_date(String sales_start_date) {
+		this.sales_start_date = sales_start_date;
+	}
 	public String getUser_profile() {
 		return user_profile;
 	}
 	public void setUser_profile(String user_profile) {
 		this.user_profile = user_profile;
 	}
-	public String getContent() {
-		return content;
+	
+	public String getProduct_content() {
+		return product_content;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setProduct_content(String product_content) {
+		this.product_content = product_content;
 	}
 	public String getProduct_info() {
 		return product_info;
@@ -125,32 +146,20 @@ public class AdminProductList {
 	public void setCourse(String course) {
 		this.course = course;
 	}
-	public String getCreate_date() {
-		return create_date;
+	public String getProduct_main_photo() {
+		return product_main_photo;
 	}
-	public void setCreate_date(String create_date) {
-		this.create_date = create_date;
-	}
-	public int getDelete_flag() {
-		return delete_flag;
-	}
-	public void setDelete_flag(int delete_flag) {
-		this.delete_flag = delete_flag;
-	}
-	public String getSales_start_date() {
-		return sales_start_date;
-	}
-	public void setSales_start_date(String sales_start_date) {
-		this.sales_start_date = sales_start_date;
+	public void setProduct_main_photo(String product_main_photo) {
+		this.product_main_photo = product_main_photo;
 	}
 	@Override
 	public String toString() {
 		return "AdminProductList [product_no=" + product_no + ", product_type=" + product_type + ", product_type_name="
 				+ product_type_name + ", country_no=" + country_no + ", country=" + country + ", city_no=" + city_no
 				+ ", city=" + city + ", product_title=" + product_title + ", member_no=" + member_no + ", user_id="
-				+ user_id + ", product_name=" + product_name + ", cost=" + cost + ", user_profile=" + user_profile
-				+ ", delete_flag=" + delete_flag + ", content=" + content + ", create_date=" + create_date
-				+ ", use_flag=" + use_flag + ", product_info=" + product_info + ", course=" + course
-				+ ", sales_start_date=" + sales_start_date + "]";
+				+ user_id + ", product_name=" + product_name + ", cost=" + cost + ", delete_flag=" + delete_flag
+				+ ", create_date=" + create_date + ", use_flag=" + use_flag + ", sales_start_date=" + sales_start_date
+				+ ", user_profile=" + user_profile + ", product_content=" + product_content + ", product_info="
+				+ product_info + ", course=" + course + ", product_main_photo=" + product_main_photo + "]";
 	}
 }

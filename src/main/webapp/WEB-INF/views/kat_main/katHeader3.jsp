@@ -20,6 +20,7 @@
 	margin-left: calc(100%/7 + 2px);
 }
 </style>
+
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header.css">
@@ -27,6 +28,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
+
 <div class="header_wrap">
 	<!-- 로그인 폼 -->
 	<div class="login_wrap" id="login_wrap" style="display: none" >
@@ -114,5 +116,4 @@
 			</div><!-- /tabs -->
 		</section>
 	</div><!-- /container -->
-</div> 
-
+</div>

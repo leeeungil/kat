@@ -29,7 +29,7 @@ import com.kat.product.service.ProductService;
 public class ProductController {
 
 	@Autowired
-	private ProductService addProductService;
+	private ProductService productService;
 	
 	/* 유저 아이디로 검색 */
 	@RequestMapping("findUserIdProduct")
@@ -39,21 +39,37 @@ System.out.println("[ProductController findUserIdProduct] FIND ALL PRODUCT ACCES
 		List<AdminProductList> adminProductList = null;
 		String user_id = (String) request.getSession(false).getAttribute("user_id");
 System.out.println("[ProductController findUserIdProduct] user_id : "+user_id);
-		adminProductList = addProductService.findUserIdProduct(user_id);
+		adminProductList = productService.findUserIdProduct(user_id);
 System.out.println("[ProductController findUserIdProduct] ProductList.size() : "+ adminProductList.size());
+if(adminProductList.size() != 0) {
+	System.out.println("[ProductController findUserIdProduct] "+ adminProductList.get(0).toString());
+}
 		modelAndView.addObject("adminProductList", adminProductList);
 		modelAndView.setViewName("adminLayout/adminProductList");
+System.out.println("[ProductController findUserIdProduct] go  ========> adminLayout/adminProductList");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
 	
+	@RequestMapping(value ="findUserProfile", produces = "application/json; charset=utf-8")
+	@ResponseBody
+	public ProductModel findUserProfile(int product_no) throws Exception {
+System.out.println("[ProductController findUserProfile] FIND USER PROFILE BY PRODUCT NO ACCESS");
+System.out.println("[ProductController findUserProfile] product_no : "+product_no);
+		ProductModel productModel = null;
+		productModel = productService.findUserProfile(product_no);
+System.out.println("[ProductController findUserProfile] " + productModel.toString());
+System.out.println("=============================================================");
+		return productModel;
+	}
+
 	/* 전체 검색 */
 	@RequestMapping("findAllTravelProduct")	
 	public ModelAndView findAllTravelProduct(HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
 		List<ProductInfo> productList = null;
-		productList = addProductService.findAllTravelProduct();
+		productList = productService.findAllTravelProduct();
 System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ productList.size());
 		modelAndView.addObject("ProductAllList",productList);
 		modelAndView.setViewName("layout/travelProductLayout");
@@ -69,9 +85,9 @@ System.out.println("[ProductController findTravelProductOfType] FIND ALL PRODUCT
 System.out.println("[ProductController findTravelProductOfType] product_type : " + product_type);
 		List<ProductInfo> productList = null;
 		if(product_type==0) {
-			productList = addProductService.findAllTravelProduct();
+			productList = productService.findAllTravelProduct();
 		} else {
-			productList = addProductService.findTypeTravelProduct(product_type);
+			productList = productService.findTypeTravelProduct(product_type);
 		}
 		String htmlCode = "";
 		if(productList.size()!=0) {
@@ -117,9 +133,9 @@ System.out.println("[ProductController findTravelProductOfWord] FIND WORD PRODUC
 System.out.println("[ProductController findTravelProductOfWord] search_word : " + search_word);
 		List<ProductInfo> productList = null;
 		if(search_word.trim().equals("")){
-			productList = addProductService.findAllTravelProduct();
+			productList = productService.findAllTravelProduct();
 		} else {
-			productList = addProductService.findWordTravelProduct(search_word);
+			productList = productService.findWordTravelProduct(search_word);
 		}
 		String htmlCode = "";
 		if(productList.size()==0) {
@@ -165,7 +181,7 @@ System.out.println("============================================================
 	public ModelAndView findProductDetailInfo(@RequestParam(value="productNo") int product_no, HttpServletRequest request) throws Exception {
 System.out.println("[ProductController findProductDetailInfo] FIND PRODUCT DETAIL INFO ACCESS");
 System.out.println("[ProductController findProductDetailInfo] product_no : " + product_no);
-		ProductInfo productInfo = addProductService.findProductDetailInfo(product_no);
+		ProductInfo productInfo = productService.findProductDetailInfo(product_no);
 		String htmlBefore = "<div class='product_main_photo_zone'>"
 						+ "	<img src='"+request.getContextPath()+productInfo.getProduct_main_photo() + "'>"
 						+ "</div>";
@@ -359,8 +375,8 @@ System.out.println("[ProductController addProduct] imgName[<== save file path] :
 		} else {
 			productModel.setProduct_main_photo("null");
 		}
-		addProductService.addProduct(productModel);
-System.out.println("[ProductController addProduct] addProductService.addProduct FINISH");
+		productService.addProduct(productModel);
+System.out.println("[ProductController addProduct] productService.addProduct FINISH");
 System.out.println("=============================================================");
 	}
 	
@@ -425,8 +441,8 @@ System.out.println("[ProductController addProduct] imgName[<== save file path] :
 			photoContentModel.setProduct_photo10("null");
 		}
 
-		addProductService.addProductPhotoAndContent(photoContentModel);
-System.out.println("[ProductController addProductPhotoAndContent] addProductService.addProduct FINISH");
+		productService.addProductPhotoAndContent(photoContentModel);
+System.out.println("[ProductController addProductPhotoAndContent] productService.addProduct FINISH");
 System.out.println("=============================================================");
 	}	
 	/* 상풍 추가하기 */
@@ -438,8 +454,8 @@ System.out.println("[ProductController addProductCourse] " + productCouseModel.t
 		productCouseModel.setCourse(productCouseModel.getCourse().replaceAll("\r\n", "<br>"));
 		String user_id = (String) request.getSession(false).getAttribute("user_id");
 		productCouseModel.setUser_id(user_id);
-		addProductService.addCourse(productCouseModel);
-System.out.println("[ProductController addProductCourse] addProductService.addCourse FINISH");
+		productService.addCourse(productCouseModel);
+System.out.println("[ProductController addProductCourse] productService.addCourse FINISH");
 System.out.println("=============================================================");
 	}
 	
@@ -451,8 +467,8 @@ System.out.println("[ProductController addProductSub] PRODUCT SUB ADD ACCESS");
 System.out.println("[ProductController addProductSub] " + productSubModel.toString());
 		String user_id = (String) request.getSession(false).getAttribute("user_id");
 		productSubModel.setUser_id(user_id);
-		addProductService.addSub(productSubModel);
-System.out.println("[ProductController addProductCourse] addProductService.addCourse FINISH");
+		productService.addSub(productSubModel);
+System.out.println("[ProductController addProductCourse] productService.addCourse FINISH");
 System.out.println("=============================================================");
 	}
 	
@@ -468,7 +484,7 @@ System.out.println("[ProductController addfavoriteProduct] product_no : " + prod
 System.out.println("[ProductController addfavoriteProduct] user_id : " + user_id);
 		favoriteProduct.setUser_id(user_id);
 		
-		addProductService.addfavoriteProduct(favoriteProduct);
+		productService.addfavoriteProduct(favoriteProduct);
 System.out.println("=============================================================");
 	}
 	
@@ -482,7 +498,7 @@ System.out.println("[ProductController delfavoriteProduct] product_no : " + prod
 		String user_id = (String) request.getSession(false).getAttribute("user_id");
 System.out.println("[ProductController delfavoriteProduct] user_id : " + user_id);
 		favoriteProduct.setUser_id(user_id);
-		addProductService.delfavoriteProduct(favoriteProduct);
+		productService.delfavoriteProduct(favoriteProduct);
 System.out.println("=============================================================");
 	}
 	
@@ -493,7 +509,7 @@ System.out.println("[ProductController chkFavoriteProduct] ADD FAVORITE PRODUCT 
 		String user_id = (String) request.getSession(false).getAttribute("user_id");
 System.out.println("[ProductController chkFavoriteProduct] user_id : " + user_id);
 		List<String> favoriteList = new ArrayList<String>();
-		favoriteList = addProductService.chkFavoriteProduct(user_id);
+		favoriteList = productService.chkFavoriteProduct(user_id);
 System.out.println("=============================================================");
 		return favoriteList;
 	}

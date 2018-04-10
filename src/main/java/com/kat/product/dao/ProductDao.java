@@ -100,6 +100,10 @@ public interface ProductDao {
 	
 	//product_no로 상품 정보 가져오기
 	public ProductInfo findProductDetailInfo(int product_no);
+	public ProductModel findUserProfile(int product_no);
+	public PhotoContentModel findProductContent(int product_no);
+	public PhotoContentModel findProductInfo(int product_no);
+	public ProductCourseModel findProductCourse(int product_no);
 	
 	// 즐겨찾기 등록
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct);

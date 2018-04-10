@@ -157,6 +157,17 @@ System.out.println("[AddProductService findProductDetailInfo] " + productInfo.to
 		return productInfo;
 	}
 	
+	// FIND USER PROFILE BY PRODUCT NO
+	public ProductModel findUserProfile(int product_no) {
+System.out.println("[AddProductService findUserProfile] FIND PRODUCT DETAIL INFO ACCESS");
+System.out.println("[AddProductService findUserProfile] product_no : " + product_no);
+        dao = sqlSessionTemplate.getMapper(ProductDao.class);
+        ProductModel productModel = null;
+        productModel = dao.findUserProfile(product_no);
+System.out.println("[AddProductService findUserProfile] MAPPER(findUserProfile) RETURN");
+	return productModel;
+	}
+	
 	// ADD FAVORITE PRODUCT
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct) {
 System.out.println("[AddProductService addfavoriteProduct] ADD FAVORITE PRODUCT ACCESS");

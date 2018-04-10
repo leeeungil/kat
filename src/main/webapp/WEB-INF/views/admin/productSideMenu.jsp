@@ -25,7 +25,7 @@ $(document).ready(function() {
 <style>
 #sidebar{
 	position: absolute;
-    width: calc(100%/7 - 2px);
+    width: calc(99vw/7);
     height: calc(100% - 122px);
     background-color: #151719;
     min-width: 129px; 
