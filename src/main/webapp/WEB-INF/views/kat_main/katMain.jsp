@@ -2,24 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/main/mainSimpleCard.css">
-<%-- <script type="text/javascript">
-$(document).ready(function() {
-	$.ajax({
-		url:'<%=request.getContextPath()%>/mainController/selectMainProductList',
-		type: 'get',
-		dataType: 'text',
-		beforeSend: function() {
-			$(".area").append("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
-		}
-	}).done(function(data) {
-		
-	}).fail(function() {
-		alert("호출 실패")
-	}).always(function() {
-		
-	})
-})
-</script> --%>
 <script>
 	$(function(){
 		$(".thumbnail").lazyload();
