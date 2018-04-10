@@ -2,6 +2,8 @@ package com.kat.login.controller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,7 @@ public class JoinFormInsertController {
 	private LoginService loginService;
 
 	@RequestMapping("kat/join/joinFormInsert.do")
-	public ModelAndView joinFormInsert(JoinInfo joinInfo) throws IllegalStateException, IOException {
+	public ModelAndView joinFormInsert(JoinInfo joinInfo, HttpServletRequest request) throws IllegalStateException, IOException {
 System.out.println("[JoinFormInsertController joinFormInsert] MEMBER ACCESS");		
 System.out.println("[JoinFormInsertController joinFormInsert] joinInfo : " + joinInfo);		
 		ModelAndView modelAndView = new ModelAndView();
@@ -26,6 +28,8 @@ System.out.println("[JoinFormInsertController joinFormInsert] joinInfo : " + joi
 //			if (level.equals("1")) 
 //			else if (level.equals("2")) loginService.joinInsertBusiness(joinInfo);
 
+			String user_id = (String) request.getSession(false).getAttribute("email");
+			joinInfo.getUser_id();
 			loginService.joinInsert(joinInfo);
 			modelAndView.addObject("joinName", joinInfo);
 			modelAndView.setViewName("joinSucess_main");

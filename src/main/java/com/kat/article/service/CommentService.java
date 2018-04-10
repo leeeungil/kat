@@ -26,7 +26,7 @@ System.out.println("[CommentService commentInsert] comment : "+ comment.toString
 	private CommentDao commentdao;
 	private static final int MESSAGE_COUNT_PER_PAGE = 5;
 	
-	public CommentInfoListView sendCommentList(int pageNumber, int cmt_parent) {
+	public CommentInfoListView sendCommentList(int pageNumber) {
 System.out.println("[CommentService sendCommentList()] ACCESS SUCCESS");		
 		commentdao = sqlSessionTemplate.getMapper(CommentDao.class);
 		CommentInfoListView view = new CommentInfoListView();
@@ -34,10 +34,10 @@ System.out.println("[CommentService sendCommentList()] ACCESS SUCCESS");
 		int PageNumber;
 		int firstRow = 0;
 		
-		int TotalCount = commentdao.commentSelectCount(cmt_parent);
+		int TotalCount = commentdao.commentSelectCount();
 System.out.println("[CommentService sendCommentList()] TotalCount :" + TotalCount);
 		firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE;
-		commentList = commentdao.commentList(cmt_parent,firstRow,MESSAGE_COUNT_PER_PAGE);
+		commentList = commentdao.commentList(firstRow,MESSAGE_COUNT_PER_PAGE);
 System.out.println("[CommentService sendCommentList()] commentList :" + commentList.toString());		
 		PageNumber = TotalCount / MESSAGE_COUNT_PER_PAGE;
 System.out.println("[CommentService sendCommentList()] PageNumber :" + PageNumber);	

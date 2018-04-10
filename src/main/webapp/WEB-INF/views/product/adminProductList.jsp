@@ -170,7 +170,7 @@ p {
 										<p class="empty-effect" data-modal="modal-1">User profile</a> 
 									</c:if>
 									<c:if test="${!empty adminProduct.user_profile}"> 
-										<p class="none-empty-effect" data-modal="modal-1">User profile</a> 
+										<p class="none-empty-effect" data-modal="modal-1"><a href="<%=request.getContextPath()%>/product/update_user_profile.do">User profile</a> 
 									</c:if>
 									<c:if test="${empty adminProduct.product_content}">
 										<p class="empty-effect" data-modal="modal-2">Product content</a>

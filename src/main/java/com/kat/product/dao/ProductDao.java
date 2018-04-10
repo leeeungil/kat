@@ -109,4 +109,7 @@ public interface ProductDao {
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct);
 	public void delfavoriteProduct(FavoriteProduct favoriteProduct);
 	public List<String> chkFavoriteProduct(String user_id);
+
+	//User_profile 수정하기
+	public void userProfileUpdate(ProductInfo productInfo);
 }

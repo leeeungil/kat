@@ -33,7 +33,7 @@ $(document).ready(function() {
 			<p>Edit User Profile</p>
 			<ul>
 				<li>
-					<form>
+					<form action="<%=request.getContextPath()%>/product/update_user_profile.do?no=${ProductList.product_no}">
 						<textArea id='user_profile' class='user_profile_textArea' name='user_profile'></textArea>
 					</form>
 				</li>

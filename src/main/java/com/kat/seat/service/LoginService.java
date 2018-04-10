@@ -42,8 +42,11 @@ System.out.println("[LoginService login_member] user_pass : " + user_pass);
 		int result = 0;
 		dao = sqlSessionTemplate.getMapper(LoginDao.class);
 		JoinInfoChk joinInfoChk = dao.login_member(user_id);
+System.out.println("====================================");
+System.out.println("[LoginService login_member] joinInfoChk : " + joinInfoChk);	
+System.out.println("=================================");
 System.out.println("[LoginService login_member] MAPPER(login_member) RETURN");
-if(joinInfoChk!=null) System.out.println("[LoginService login_member] " + joinInfoChk.toString());
+if(joinInfoChk!=null) System.out.println("[LoginService login_member]joinInfoChK" + joinInfoChk.toString());
 else System.out.println("[LoginService login_member] joinInfoChk NULL");
 		
 		if(joinInfoChk==null) result = 1;

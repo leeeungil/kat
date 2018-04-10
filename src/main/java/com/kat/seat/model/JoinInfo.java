@@ -13,17 +13,12 @@ public class JoinInfo {
 	private int delete_flag;
 	private String user_id;
 	
+	
 	public String getUser_id() {
 		return user_id;
 	}
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public int getMember_no() {
 		return member_no;
@@ -49,6 +44,12 @@ public class JoinInfo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	public String getPhone() {
 		return phone;
 	}
@@ -73,7 +74,6 @@ public class JoinInfo {
 				+ email + ", password=" + password + ", phone=" + phone + ", create_date=" + create_date
 				+ ", delete_flag=" + delete_flag + ", user_id=" + user_id + "]";
 	}
-	
 	
 	
 }

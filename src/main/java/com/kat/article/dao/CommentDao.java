@@ -11,9 +11,9 @@ public interface CommentDao {
 	public void commentInsert(Comment comment);
 
     //댓글갯수
-	public int commentSelectCount(int cmt_parent);
+	public int commentSelectCount();
 
 	//댓글리스트
-	public List<Comment> commentList(int cmt_parent,int firstRow, int messageCountPerPage);
+	public List<Comment> commentList(int firstRow, int messageCountPerPage);
 	
 }

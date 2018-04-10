@@ -382,4 +382,11 @@ System.out.println("[AddProductService getListInfo] " + infoShopSearch.toString(
 		
 		return category;
 	}
+
+	//User_profile 수정하기 은길
+	public void UserProfileUpdate(ProductInfo productInfo) {
+		dao = sqlSessionTemplate.getMapper(ProductDao.class);
+		dao.userProfileUpdate(productInfo);
+		
+	}
 }

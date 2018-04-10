@@ -1,0 +1,53 @@
+@charset "UTF-8";
+.parter_choice_form_wrap{
+	width:800px;
+	margin-left:400px;
+	margin-top:200px;
+	height:150px;
+	text-align:center;	
+}
+
+.personalBtn {
+	color: #086A87;
+	border: 2px solid #F2F2F2;
+    background-color:#196cf8;
+	border-radius: 5px;
+	width: 240px;
+	height: 100px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+	float:left;
+	line-height: 100px;
+}
+
+.personalBtn a {
+	color: white;
+	font-weight: 500;
+	font-size:16px;
+}
+
+.companyBtn {
+	color: #086A87;
+	border: 2px solid #F2F2F2;
+    background-color:#196cf8;
+	border-radius: 5px;
+	width: 240px;
+	height: 100px;
+	letter-spacing: normal;
+	text-align: center;
+	margin-left: 45px;
+	margin-bottom: 10px;
+	line-height: 45px;
+	float:left;
+	line-height: 100px;
+}
+
+.companyBtn a {
+	color: white;
+	font-weight: 500;
+	font-size:16px;
+}
+

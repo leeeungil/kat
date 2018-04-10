@@ -294,5 +294,11 @@
 		from member inner joinbusiness on member.company_no = business.company_no inner join product on business.company_no = product.company_no
 		where menu_name like CONCAT('%',#{param1},'%') limit #{param2}, #{param3}
 	</select>
+	<!-- 프로필 수정중 이은길 -->
+	<select id="userProfileUpdate" parameterType="com.kat.product.model.ProductInfo">
+	    UPDATE productInfo
+	    SET user_profile = #{user_profile}
+	    WHERE product_no = #{product_no}
+	</select>
 </mapper>
 
