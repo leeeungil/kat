@@ -5,7 +5,7 @@
 
 	<!-- 예약자 목록 가져오기 -->
 	<select id="selectReservList" resultType="com.kat.reserv.model.ReservCountModel">
-		SELECT SUBSTR(RESERV_TIME, 1, 10) daily, COUNT(*) reserv_count 
+		SELECT SUBSTR(RESERV_TIME, 1, 10) daily, COUNT(*) reserv_count, product_no 
 		FROM RESERVATION WHERE PRODUCT_NO=#{product_no}
 		GROUP BY SUBSTR(RESERV_TIME, 1, 10);
 	</select>

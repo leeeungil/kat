@@ -9,26 +9,39 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/jquery.calendario.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/data.js"></script>
 <script> 
-cal = null; 
 $(document).ready(function() {
 	$("#calc_cost").click(function() {
 		$.ajax({
-			url: '<%=request.getContextPath()%>/partner/findUserProfile',
+			url: '<%=request.getContextPath()%>/reserv/selectReservList',
 			type : 'post',
-			dataType : 'text',
+			dataType : 'json',
 			data: { "product_no": '1'},
 			success : function(data) {
-				var reservData = {'04-11-2018' : '<a href="http://tympanus.net/codrops/2012/11/14/creative-css-loading-animations/">Creative CSS Loading Animations</a>'}
+				var dataLength = data.length;
+				console.log(codropsEvents)
+				codropsEvents = '{ ';
+				for(i=0; i<dataLength; i++) {
+					var convertDate = data[i].daily.split('-');
+					var reDate = convertDate[1]+"-"+convertDate[2]+"-"+convertDate[0];
+					if(i<(dataLength-1)) {
+						codropsEvents += reDate +': "<a>'+data[i].reserv_count+'</a>", ';
+					} else {
+						codropsEvents += reDate +': "<a>'+data[i].reserv_count+'</a>" }';
+					}
+				}
+				console.log("sss " + codropsEvents)
 				cal = $('#calendar').calendario({
 								onDayClick : function($el, $contentEl, dateProperties) {
 									for(var key in dateProperties) {
 										console.log(key + ' = ' + dateProperties[key]);
-									}
+									}   
 								},
-								caldata : reservData
+								caldata : codropsEvents
 							}),
 							$month = $('#custom-month').html(cal.getMonthName()),
 							$year = $('#custom-year').html(cal.getYear());
+			}, error: function() {
+				alert('error')
 			}
 		})
 	})
