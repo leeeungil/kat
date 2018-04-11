@@ -26,10 +26,10 @@ System.out.println("=============================================");
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String updateResultGowithSubmit(@RequestParam(name = "no",defaultValue = "1")int no, Go_with go_with)throws IllegalStateException, IOException {
+	public String updateResultGowithSubmit(@RequestParam(name = "go_with_no")int go_with_no, Go_with go_with)throws IllegalStateException, IOException {
 System.out.println("[GoWithYouUpdateResultController updateResultGowithSubmit()]");
-System.out.println("[GoWithYouUpdateResultController updateResultGowithSubmit()] no"+ no);
-        go_with.setGo_with_no(no);
+System.out.println("[GoWithYouUpdateResultController updateResultGowithSubmit()] go_with_no"+ go_with_no);
+        go_with.setGo_with_no(go_with_no);
 		gowithService.gowithUpdate(go_with);
 System.out.println("======================================");		
 		return "redirect:/kat/gowith/gowith_write_list.do";

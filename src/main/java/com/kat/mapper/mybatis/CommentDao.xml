@@ -7,14 +7,16 @@
 
    <insert id="commentInsert" parameterType="com.kat.article.model.Comment">
       INSERT INTO COMMENT
-      VALUES (0, #{cmt_no}, #{cmt_content}, #{cmt_user_id}, #{cmt_password}, now(), 0)
+      VALUES (0, #{go_with_no}, #{cmt_content}, #{cmt_user_id}, #{cmt_password}, now(), 0, 0)
    </insert>
+
+   
+   
    
    <select id="commentList" resultType="com.kat.article.model.Comment">
       SELECT *
       FROM comment
       WHERE go_with_no = #{param1} AND delete_flag = 0
-      ORDER BY cmt_create_date DESC LIMIT #{param2}
    </select>
    
    <select id="commentSelectCount" resultType="int">

@@ -5,7 +5,7 @@
 <div class="totalView">
 <div class="gowith_main_update_title"><span>동행 게시판 수정하기</span></div>
 <div class="mainSize">
-     <form method="post" action="<%=request.getContextPath()%>/kat/gowith/updateResult.do?no=${ListInfoUpdateGo_with.go_with_no}">
+     <form method="post" action="<%=request.getContextPath()%>/kat/gowith/updateResult.do?go_with_no=${ListInfoUpdateGo_with.go_with_no}">
         <table>
            <tr>
               <td><input type="text" class="gowith_update_write_title" name="go_with_title" value="${ListInfoUpdateGo_with.go_with_title}"/></td>

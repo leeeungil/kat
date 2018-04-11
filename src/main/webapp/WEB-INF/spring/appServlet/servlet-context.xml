@@ -106,6 +106,7 @@
     <beans:bean id="commentService" class="com.kat.article.service.CommentService" />
     <beans:bean id="marketService" class="com.kat.article.service.MarketService" />
 	<beans:bean id="UpdateService" class="com.kat.seat.service.UpdateService" />
+    <beans:bean id="CommentListService" class="com.kat.article.service.CommentListService" />
 
 	<!-- 파일업로드 처리를 위한 multipartResolver bean 등록 -->
 	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">

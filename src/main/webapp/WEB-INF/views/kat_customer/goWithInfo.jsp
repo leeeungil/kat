@@ -45,10 +45,10 @@
    <input type="button" value="동행게시판" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do'">
    </div>
     <div class="gowith_go">
-   <input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?no=${ListInfoGowith.go_with_no}'">
+   <input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?go_with_no=${ListInfoGowith.go_with_no}'">
    </div>
    <div class="gowith_go">
-    <input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/deleteInfo.do?no=${ListInfoGowith.go_with_no}'">
+    <input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/deleteInfo.do?go_with_no=${ListInfoGowith.go_with_no}'">
    </div>
    </div>
 </form>   

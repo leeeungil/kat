@@ -12,7 +12,7 @@
      <tbody>
         <c:forEach items="${ListInfoComment.commentList}" var="cmt">
            <tr class="light">
-              <td><input type="hidden" name="go_with_no" id="go_with_no" value="${cmt.go_with_no}">${cmt.go_with_no}</td>
+              <td class="comment_info">${cmt.cmt_no}</td>
               <td class="comment_info">${cmt.cmt_content}</td>
               <td class="comment_info">${cmt.cmt_user_id}</td>
               <td class="comment_info"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${cmt_create_date}"/></td>

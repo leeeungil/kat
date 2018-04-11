@@ -17,8 +17,8 @@ public class GoWithYouInfoDeleteController {
 	private GoWithListService gowithListService;
 	
 	@RequestMapping("kat/gowith/deleteInfo.do")
-	public String infoDeleteSubmit(@RequestParam(name = "no", defaultValue ="1")int no, Go_with go_with) throws IllegalStateException, IOException {
-		go_with.setGo_with_no(no);
+	public String infoDeleteSubmit(@RequestParam(name = "go_with_no")int go_with_no, Go_with go_with) throws IllegalStateException, IOException {
+		go_with.setGo_with_no(go_with_no);
 		gowithListService.infoDelete(go_with);
 		
 		return "redirect:/kat/gowith/gowith_write_list.do";

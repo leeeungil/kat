@@ -18,12 +18,12 @@ public class GoWithYouInfoController {
 	private GoWithListService goWithListService;
 	
 	@RequestMapping("kat/gowith/gowith_info_list.do")
-	public ModelAndView gowithSubmit(@RequestParam(name = "no", defaultValue = "1") int no, Go_with go_with) throws IllegalStateException, IOException {
+	public ModelAndView gowithSubmit(@RequestParam(name = "go_with_no") int go_with_no, Go_with go_with) throws IllegalStateException, IOException {
 
 		ModelAndView modelAndView = new ModelAndView();
-		
-		Go_with go_withListView = goWithListService.findInfo(no);
-		
+System.out.println("[GoWithYouInfoController gowithSubmit] ACCESS");		
+		Go_with go_withListView = goWithListService.findInfo(go_with_no);
+System.out.println("[GoWithYouInfoController gowithSubmit] go_with_no :" +go_with_no);		
 		modelAndView.setViewName("gowithDetailInfo_main");
 		modelAndView.addObject("ListInfoGowith", go_withListView);
 		

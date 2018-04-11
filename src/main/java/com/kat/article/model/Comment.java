@@ -4,7 +4,6 @@ public class Comment {
 	private int cmt_no; //댓글번호
 	private int go_with_no; //부모글번호
 	private String cmt_content;  //댓글내용
-	private String go_with_content; //부모글
 	private String cmt_user_id;  //댓글작성자
 	private String cmt_password;  //댓글 비밀번호
 	private String cmt_create_date; //댓글작성일
@@ -27,12 +26,6 @@ public class Comment {
 	}
 	public void setCmt_content(String cmt_content) {
 		this.cmt_content = cmt_content;
-	}
-	public String getGo_with_content() {
-		return go_with_content;
-	}
-	public void setGo_with_content(String go_with_content) {
-		this.go_with_content = go_with_content;
 	}
 	public String getCmt_user_id() {
 		return cmt_user_id;
@@ -67,9 +60,8 @@ public class Comment {
 	@Override
 	public String toString() {
 		return "Comment [cmt_no=" + cmt_no + ", go_with_no=" + go_with_no + ", cmt_content=" + cmt_content
-				+ ", go_with_content=" + go_with_content + ", cmt_user_id=" + cmt_user_id + ", cmt_password="
-				+ cmt_password + ", cmt_create_date=" + cmt_create_date + ", cmt_del=" + cmt_del + ", delete_flag="
-				+ delete_flag + "]";
+				+ ", cmt_user_id=" + cmt_user_id + ", cmt_password=" + cmt_password + ", cmt_create_date="
+				+ cmt_create_date + ", cmt_del=" + cmt_del + ", delete_flag=" + delete_flag + "]";
 	}
     
     
