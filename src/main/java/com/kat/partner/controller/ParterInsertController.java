@@ -1,4 +1,4 @@
-package com.kat.parter.controller;
+package com.kat.partner.controller;
 
 import java.io.IOException;
 

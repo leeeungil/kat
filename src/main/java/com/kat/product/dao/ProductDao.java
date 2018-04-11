@@ -102,8 +102,8 @@ public interface ProductDao {
 	public ProductInfo findProductDetailInfo(int product_no);
 	public ProductModel findUserProfile(int product_no);
 	public ProductInfo findProductContent(int product_no);
-	public PhotoContentModel findProductInfo(int product_no);
-	public ProductCourseModel findProductCourse(int product_no);
+	public ProductInfo findProductInfo(int product_no);
+	public ProductInfo findProductCourse(int product_no);
 	
 	// 즐겨찾기 등록
 	public void addfavoriteProduct(FavoriteProduct favoriteProduct);
@@ -111,5 +111,9 @@ public interface ProductDao {
 	public List<String> chkFavoriteProduct(String user_id);
 
 	//User_profile 수정하기
-	public void userProfileUpdate(ProductModel productModel);
+	public void reUseFlag(int product_no);
+	public void updateUserProfile(ProductModel productModel);
+	public void updateProductContent(ProductInfo productInfo);
+	public void updateProductInfo(ProductInfo productInfo);
+	public void updateProductCourse(ProductInfo productInfo);
 }

@@ -15,7 +15,7 @@ $(document).ready(function() {
 <style>
 .user_profile_textArea {
 	width: 100%;
-    min-height: 50vh;
+    min-height: 40vh;
     font-size: 16px;
     max-height: 70vh;
 }
@@ -34,7 +34,7 @@ $(document).ready(function() {
 	<div class="md-content">
 		<span id="modal_close">닫기</span>
 		<h3></h3>
-		<form id='update_form' action="<%=request.getContextPath()%>/product/updateUserProfile.do" method="post">
+		<form id='update_form' action="<%=request.getContextPath()%>/partner/updateUserProfile.do" method="post">
 		<input type='hidden' class='product_no' name='product_no' value=''>
 			<div>
 					<p>Edit User Profile</p>
@@ -45,6 +45,8 @@ $(document).ready(function() {
 					</ul>
 					<button class="edit_btn">Immediately Edit</button>
 					<label style='font-size: 15px'>* 버튼 선택시 즉시 수정되므로 '수정 전'으로 되돌릴 수 없습니다.</label>
+					<P>
+					<label style='font-size: 15px'>* 수정 시 판매 일시 정지 됩니다. (관리자 승인 후 재판매)</label>
 			</div>
 		</form>
 	</div>

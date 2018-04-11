@@ -47,10 +47,7 @@ $(document).ready(function(){
 		} else if(e.target.className == "fa fa-fw fa-envelope-o") {
 			alert('문의하기 서비스 예정')
 		} else if(e.target.className == "product_fig") {
-			$(".product_wrap").css("transform", "scale(0.0)");
-			setTimeout(function() {
-				location.href='<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo;
-			}, 200);
+			window.open('<%=request.getContextPath()%>/product/findProductDetailInfo?productNo='+productNo);
 		}
 	});
 	

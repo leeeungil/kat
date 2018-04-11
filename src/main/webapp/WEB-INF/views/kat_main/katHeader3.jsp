@@ -72,13 +72,13 @@
 				</c:if>
 				<c:if test="${user_id != null}">
 					<li style="color:#000000">
-						<font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님
+						<font style='color: #196cf8;font-weight: 400;'>${user_id}</font> 님
 					</li>
 					<li>
-						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>정보수정</strong></a>
+						<a href="<%=request.getContextPath()%>/kat/login/logout.do">정보수정</a>
 					</li>
 					<li>
-						<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
+						<a href="<%=request.getContextPath()%>/kat/login/logout.do">로그아웃</a>
 					</li>
 				</c:if>
 				</ul>

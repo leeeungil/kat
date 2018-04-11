@@ -7,34 +7,45 @@ $(document).ready(function() {
 	}).on("mouseleave", ".product_list_table > tbody > tr", function() {
 		$(this).removeClass("hover_tr");
 	})
+	
+	/* 테이블 검색 기능 */
+	$("#keyword").keyup(function() {
+		var k = $(this).val();
+		$(".product_list_table > tbody > tr").hide();
+		var temp = $(".product_list_table > tbody > tr > td:contains('" + k + "')");
+		
+		$(temp).parent().show();
+	})
 	$(document).on("click", ".user_profile_a", function() {
 		var targetModal = $(this).attr("data-modal");
 		var product_no = $(this).parents("td").attr("name")
 		$("#"+targetModal).addClass("md-show");
-		$.ajax({
-			url: '<%=request.getContextPath()%>/product/findUserProfile',
-			type: 'post',
-			data: { "product_no": product_no},
-			dataType: 'json',
-			success: function(productModel) {
-				var contextPath = '<%=request.getContextPath()%>'
-				var mainPhoto = contextPath + productModel.product_main_photo; 
-				if(productModel.user_profile!=null){
-					var userProfile = productModel.user_profile.replace(/<br>/gi, "\r\n");
+		if(targetModal='modal-1') {
+			$.ajax({
+				url: '<%=request.getContextPath()%>/partner/findUserProfile',
+				type: 'post',
+				data: { "product_no": product_no},
+				dataType: 'json',
+				success: function(productModel) {
+					var contextPath = '<%=request.getContextPath()%>'
+					var mainPhoto = contextPath + productModel.product_main_photo; 
+					if(productModel.user_profile!=null){
+						var userProfile = productModel.user_profile.replace(/<br>/gi, "\r\n");
+					}
+					$("#"+targetModal +" > .md-content > h3").html(productModel.product_title)
+					$("#"+targetModal +" > .md-content > form > .product_no ").val(productModel.product_no)
+					$("#"+targetModal +" #user_profile").val(userProfile)
+					$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
 				}
-				$("#"+targetModal +" > .md-content > h3").html(productModel.product_title)
-				$("#"+targetModal +" > .md-content > form > .product_no ").val(productModel.product_no)
-				$("#"+targetModal +" #user_profile").val(userProfile)
-				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
-			}
-		})
+			})
+		}
 	})
 	$(document).on("click", ".product_content_a", function() {
 		var targetModal = $(this).attr("data-modal");
 		var product_no = $(this).parents("td").attr("name")
 		$("#"+targetModal).addClass("md-show");
 		$.ajax({
-			url: '<%=request.getContextPath()%>/product/findProductContent',
+			url: '<%=request.getContextPath()%>/partner/findProductContent',
 			type: 'post',
 			data: { "product_no": product_no},
 			dataType: 'json',
@@ -42,11 +53,55 @@ $(document).ready(function() {
 				var contextPath = '<%=request.getContextPath()%>'
 				var mainPhoto = contextPath + productInfo.product_main_photo; 
 				if(productInfo.product_content!=null){
-					var userProfile = productInfo.product_content.replace(/<br>/gi, "\r\n");
+					var productContent = productInfo.product_content.replace(/<br>/gi, "\r\n");
 				}
 				$("#"+targetModal +" > .md-content > h3").html(productInfo.product_title)
 				$("#"+targetModal +" > .md-content > form > .product_no ").val(productInfo.product_no)
-				$("#"+targetModal +" #product_content").val(userProfile)
+				$("#"+targetModal +" #product_content").val(productContent)
+				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
+			}
+		})
+	})
+	$(document).on("click", ".product_info_a", function() {
+		var targetModal = $(this).attr("data-modal");
+		var product_no = $(this).parents("td").attr("name")
+		$("#"+targetModal).addClass("md-show");
+		$.ajax({
+			url: '<%=request.getContextPath()%>/partner/findProductInfo',
+			type: 'post',
+			data: { "product_no": product_no},
+			dataType: 'json',
+			success: function(productInfo) {
+				var contextPath = '<%=request.getContextPath()%>'
+				var mainPhoto = contextPath + productInfo.product_main_photo; 
+				if(productInfo.product_info!=null){
+					var productInfo = productInfo.product_info.replace(/<br>/gi, "\r\n");
+				}
+				$("#"+targetModal +" > .md-content > h3").html(productInfo.product_title)
+				$("#"+targetModal +" > .md-content > form > .product_no ").val(productInfo.product_no)
+				$("#"+targetModal +" #product_info").val(productInfo)
+				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
+			}
+		})
+	})
+	$(document).on("click", ".product_course_a", function() {
+		var targetModal = $(this).attr("data-modal");
+		var product_no = $(this).parents("td").attr("name")
+		$("#"+targetModal).addClass("md-show");
+		$.ajax({
+			url: '<%=request.getContextPath()%>/partner/findProductCourse',
+			type: 'post',
+			data: { "product_no": product_no},
+			dataType: 'json',
+			success: function(productInfo) {
+				var contextPath = '<%=request.getContextPath()%>'
+				var mainPhoto = contextPath + productInfo.product_main_photo; 
+				if(productInfo.course!=null){
+					var productCourse = productInfo.course.replace(/<br>/gi, "\r\n");
+				}
+				$("#"+targetModal +" > .md-content > h3").html(productInfo.product_title)
+				$("#"+targetModal +" > .md-content > form > .product_no ").val(productInfo.product_no)
+				$("#"+targetModal +" #product_course").val(productCourse)
 				$("#"+targetModal +" .md-content").css("background-image",'url('+mainPhoto+')')
 			}
 		})
@@ -73,6 +128,13 @@ $(document).ready(function() {
     height: 60px;
     text-align: center;
 }
+.product_list_table > thead > tr:nth-child(1) { 
+    text-align: right;
+}
+.product_list_table > thead > tr:nth-child(1) > td {
+    background-color: #ffffff;
+    color: black;	
+}
 .product_list_table > thead > tr > td { 
     font-size: 16px;
     background: #000000a3;
@@ -87,48 +149,49 @@ $(document).ready(function() {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-	height: 200px;
+    height: 10vh;
+    min-height: 100px;
 }
 .product_list_table > tbody > tr > td {
     background-color: #00000078;
     transition: unset;
-    font-size: 17px;
     color: white;
 	border-right: 1px solid #9b9b9b;
     border-right-style: dotted;
 }
-.product_list_table > tbody > tr > td:nth-child(1) { 
+.product_list_table > thead > tr > td:nth-child(1),
+.product_list_table > thead > tr > td:nth-child(2) { 
 	min-width: 40px;
 	width: 1%;
 }
-.product_list_table > tbody > tr > td:nth-child(2) {
-    width: 2%;
-}
-.product_list_table > tbody > tr > td:nth-child(3),
-.product_list_table > tbody > tr > td:nth-child(4) {
+.product_list_table > thead > tr > td:nth-child(3),
+.product_list_table > thead > tr > td:nth-child(4) {
 	min-width: 64px;
     width: 4%;
 }
-.product_list_table > tbody > tr > td:nth-child(5) { width: 18% }
-.product_list_table > tbody > tr > td:nth-child(6) {
+.product_list_table > thead > tr > td:nth-child(5) { width: 18% }
+.product_list_table > thead > tr > td:nth-child(6) {
     width: 8%;
     min-width: 60px;
 }
-.product_list_table > tbody > tr > td:nth-child(7) {
+.product_list_table > thead > tr > td:nth-child(7) {
     width: 4%;
     min-width: 75px;
 }
-.product_list_table > tbody > tr > td:nth-child(8) {
+.product_list_table > thead > tr > td:nth-child(8) {
     width: 8%;
     min-width: 100px;
-	background-color: #000000b0;
 }
-.product_list_table > tbody > tr > td:nth-child(9) {
+.product_list_table > thead > tr > td:nth-child(9) {
 	width: 4%;
     min-width: 80px;
 }
-.product_list_table > tbody > tr > td:nth-child(10) { width: 5% }
-.product_list_table > tbody > tr > td:nth-child(11) { width: 5% }
+.product_list_table > thead > tr > td:nth-child(10) { width: 5% }
+.product_list_table > thead > tr > td:nth-child(11) { width: 5% }
+
+.product_list_table > tbody > tr > td:nth-child(8) {
+	background-color: #000000b0;
+}
 
 a {
 	cursor: pointer;
@@ -146,8 +209,19 @@ p {
     font-size: 15px;
     text-decoration: underline;
 }
+.del-effect {
+	color: #ffffff;
+	font-size: 13px;
+	text-decoration: none;
+}
 .none-empty-effect:hover {
 	color: #ffffff;
+}
+.keyword {
+    height: 30px;
+    border-radius: 6px;
+    border: 1px solid black;
+    width: 244px;
 }
 </style>
 <!-- 메인 부분 -->
@@ -156,7 +230,15 @@ p {
 		<article id="article_main">
 			<jsp:include page="/WEB-INF/views/modal/userProfileInfoModal_1.jsp" flush="false"></jsp:include>
 			<jsp:include page="/WEB-INF/views/modal/productContentModal_2.jsp" flush="false"></jsp:include>
+			<jsp:include page="/WEB-INF/views/modal/productInfoModal_3.jsp" flush="false"></jsp:include>
+			<jsp:include page="/WEB-INF/views/modal/productCourseModal_4.jsp" flush="false"></jsp:include>
 			<table class='product_list_table'><thead><tr>
+				<td colspan='11'>
+					<div id="input-form">
+						<font style='font-size: 17px'>Search : </font><input type="text" class='keyword' id="keyword" />
+					</div>
+				</td>
+			</tr><tr>
 				<td>Product Number</td>
 				<td>Product Type</td>
 				<td>Country</td>
@@ -187,31 +269,31 @@ p {
 							<c:choose>
 								<c:when test="${1 eq adminProduct.delete_flag}">
 									<c:if test="${empty adminProduct.user_profile}">
-										<a class="empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
+										<a class="empty-effect del-effect" data-modal="modal-1">User profile</a> 
 									</c:if>
 									<c:if test="${!empty adminProduct.user_profile}"> 
-										<a class="none-empty-effect user_profile_a" data-modal="modal-1">User profile</a> 
+										<a class="none-empty-effect del-effect" data-modal="modal-1">User profile</a> 
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.product_content}">
-										<a class="empty-effect product_content_a" data-modal="modal-2">Product content</a>
+										<a class="empty-effect del-effect" data-modal="modal-2">Product content</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.product_content}"> 
-										<a class="none-empty-effect product_content_a" data-modal="modal-2">Product content</a>
+										<a class="none-empty-effect del-effect" data-modal="modal-2">Product content</a>
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.product_info}">
-										<a class="empty-effect" data-modal="modal-3">Product info</a>
+										<a class="empty-effect del-effect" data-modal="modal-3">Product info</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.product_info}">
-										<a class="none-empty-effect" data-modal="modal-3">Product info</a>
+										<a class="none-empty-effect del-effect" data-modal="modal-3">Product info</a>
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.course}">
-										<a class="empty-effect" data-modal="modal-4">Course</a>
+										<a class="empty-effect del-effect" data-modal="modal-4">Course</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.course}">
-										<a class="none-empty-effect" data-modal="modal-4">Course</a>
+										<a class="none-empty-effect del-effect" data-modal="modal-4">Course</a>
 									</c:if>
 								</c:when>
 								<c:otherwise>
@@ -230,17 +312,17 @@ p {
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.product_info}">
-										<a class="empty-effect" data-modal="modal-3">Product info</a>
+										<a class="empty-effect product_info_a" data-modal="modal-3">Product info</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.product_info}">
-										<a class="none-empty-effect" data-modal="modal-3">Product info</a>
+										<a class="none-empty-effect product_info_a" data-modal="modal-3">Product info</a>
 									</c:if>
 									<p></p>
 									<c:if test="${empty adminProduct.course}">
-										<a class="empty-effect" data-modal="modal-4">Course</a>
+										<a class="empty-effect product_course_a" data-modal="modal-4">Course</a>
 									</c:if>
 									<c:if test="${!empty adminProduct.course}">
-										<a class="none-empty-effect" data-modal="modal-4">Course</a>
+										<a class="none-empty-effect product_course_a" data-modal="modal-4">Course</a>
 									</c:if>
 								</c:otherwise>
 							</c:choose>

@@ -75,38 +75,38 @@
 						<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a></li>
 					</c:if>
 					<c:if test="${user_id != null}">
-						<li style="color:#000000"><font style='color: #196cf8;font-weight: 800;'>${user_id}</font> 님
+						<li style="color:#000000"><font style='color: #196cf8;font-weight: 400;'>${user_id}</font> 님
 							<c:if test="${user_id == 'Master'}">
-								<span style="color: red;"><strong> Master </strong></span>
+								<span style="color: red;">  Master  </span>
 							</c:if> 
 						</li>
 						<c:if test="${user_id != 'Master'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"><strong>내정보</strong></a>
+								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"> 내정보 </a>
 							</li>
 							<c:if test="${member_type == '4'}">
 								<li id="categoryfont">
-									<a href="<%=request.getContextPath()%>/kat/business/managePage.do" target="_blank"><strong>상품관리</strong></a>
+									<a href="<%=request.getContextPath()%>/kat/business/managePage.do" target="_blank"> 상품관리 </a>
 								</li>
 							</c:if>
 						</c:if>
 						<c:if test="${user_id == 'Master'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/master/board/noticelist.do"><strong>페이지 관리</strong></a>
+								<a href="<%=request.getContextPath()%>/master/board/noticelist.do"> 페이지 관리 </a>
 							</li>
 						</c:if>
 						<c:if test="${member_type == '3'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"><strong>예약내역</strong></a>
+								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"> 예약내역 </a>
 							</li>
 							<li>
-								<a href="<%=request.getContextPath()%>/kat/parter/parterInsert.do"><strong>파트너 등록</strong></a>
+								<a href="<%=request.getContextPath()%>/kat/parter/parterInsert.do"> 파트너 등록 </a>
 							</li>
 						</c:if>
 						<li>
-							<a href="<%=request.getContextPath()%>/kat/login/logout.do"><strong>로그아웃</strong></a>
+							<a href="<%=request.getContextPath()%>/kat/login/logout.do"> 로그아웃 </a>
 						</li>
-					</c:if>
+					</c:if> 
 					</ul>
 					<span class="btn-fullmenu" id="google_translate_element"></span>
 				</div>

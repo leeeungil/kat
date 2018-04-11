@@ -13,9 +13,9 @@ $(document).ready(function() {
 })
 </script>
 <style>
-.user_profile_textArea {
+.product_content_textArea {
 	width: 100%;
-    min-height: 50vh;
+    min-height: 40vh;
     font-size: 16px;
     max-height: 70vh;
 }
@@ -34,7 +34,7 @@ $(document).ready(function() {
 	<div class="md-content">
 		<span id="modal_close">닫기</span>
 		<h3></h3>
-		<form id='content_update_form' action="" method="post">
+		<form id='content_update_form' action="<%=request.getContextPath()%>/partner/updateProductContent.do" method="post">
 		<input type='hidden' class='product_no' name='product_no' value=''>
 			<div>
 					<p>Edit Product Content</p>

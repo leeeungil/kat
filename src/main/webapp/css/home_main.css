@@ -150,7 +150,7 @@ main_slideshow
 #search_data:hover {
 	background-color: rgb(46, 154, 254);
 	box-shadow: #7bb3e6 3px 3px 9px 0px;
-    font-weight: 800;
+    font-weight: 400;
     opacity: 1;
 }
 

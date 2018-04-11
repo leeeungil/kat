@@ -14,13 +14,13 @@
     width: 100%;
 }
 .category_text_wrap > font{
-    font-weight: 800;
+    font-weight: 400;
     color: #575757;
     line-height: 3;
 }
 .main_title_text_wrap > font {
     font-size: 30px;
-    font-weight: 800;
+    font-weight: 400;
     line-height: 1.4;
 }
 .cost_text_wrap {
@@ -29,20 +29,20 @@
 }
 .cost_text_wrap > font {
 	color: #0084fe;
-    font-weight: 800;
+    font-weight: 400;
     font-size: 25px;
     font-family: '';
     line-height: 2;
 }
 .date_wrap {
-	margin-top: 40px;
+	margin-top: 20px;
 }
 .date_wrap > table {
 	width: 100%;
 }
 .date_wrap > table > thead > tr > td {
 	font-size: 18px;
-    font-weight: 800;
+    font-weight: 400;
     padding: 0px 10px 10px 0px;
 }
 .date_wrap > table > tbody > tr > td > input,
@@ -58,7 +58,7 @@
     padding-left: 15px;
     position: relative;
     text-align: left;
-    width: 300px;
+    width: 88%;
     -webkit-text-fill-color: #343a40;
     -webkit-opacity: 1;
     margin-right: 19px;
@@ -68,7 +68,7 @@
     border: 0;
     cursor: pointer;
     font-size: 14px;
-    font-weight: 800;
+    font-weight: 400;
     line-height: 36px;
     padding: 0;
     text-align: center;

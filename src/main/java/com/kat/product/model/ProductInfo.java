@@ -4,6 +4,7 @@ public class ProductInfo {
 	private int product_no;
 	private String product_main_photo;				// 메인 사진
 	private int product_type;
+	private String product_type_name;
 	private String user_profile;
 	private String continent;
 	private String country;
@@ -30,6 +31,13 @@ public class ProductInfo {
 	private String create_date;
 	private String cost;
 	
+	
+	public String getProduct_type_name() {
+		return product_type_name;
+	}
+	public void setProduct_type_name(String product_type_name) {
+		this.product_type_name = product_type_name;
+	}
 	public String getCost() {
 		return cost;
 	}
@@ -202,16 +210,16 @@ public class ProductInfo {
 	@Override
 	public String toString() {
 		return "ProductInfo [product_no=" + product_no + ", product_main_photo=" + product_main_photo
-				+ ", product_type=" + product_type + ", user_profile=" + user_profile + ", continent=" + continent
-				+ ", country=" + country + ", city=" + city + ", product_title=" + product_title + ", product_content="
-				+ product_content + ", product_content_no=" + product_content_no + ", product_photo1=" + product_photo1
-				+ ", product_photo2=" + product_photo2 + ", product_photo3=" + product_photo3 + ", product_photo4="
-				+ product_photo4 + ", product_photo5=" + product_photo5 + ", product_photo6=" + product_photo6
-				+ ", product_photo7=" + product_photo7 + ", product_photo8=" + product_photo8 + ", product_photo9="
-				+ product_photo9 + ", product_photo10=" + product_photo10 + ", course=" + course + ", course_photo_dir="
-				+ course_photo_dir + ", product_info=" + product_info + ", user_id=" + user_id + ", business_number="
-				+ business_number + ", delete_flag=" + delete_flag + ", create_date=" + create_date + ", cost=" + cost
-				+ "]";
+				+ ", product_type=" + product_type + ", product_type_name=" + product_type_name + ", user_profile="
+				+ user_profile + ", continent=" + continent + ", country=" + country + ", city=" + city
+				+ ", product_title=" + product_title + ", product_content=" + product_content + ", product_content_no="
+				+ product_content_no + ", product_photo1=" + product_photo1 + ", product_photo2=" + product_photo2
+				+ ", product_photo3=" + product_photo3 + ", product_photo4=" + product_photo4 + ", product_photo5="
+				+ product_photo5 + ", product_photo6=" + product_photo6 + ", product_photo7=" + product_photo7
+				+ ", product_photo8=" + product_photo8 + ", product_photo9=" + product_photo9 + ", product_photo10="
+				+ product_photo10 + ", course=" + course + ", course_photo_dir=" + course_photo_dir + ", product_info="
+				+ product_info + ", user_id=" + user_id + ", business_number=" + business_number + ", delete_flag="
+				+ delete_flag + ", create_date=" + create_date + ", cost=" + cost + "]";
 	}
 	
 	

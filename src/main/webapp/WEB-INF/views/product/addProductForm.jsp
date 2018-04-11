@@ -185,7 +185,7 @@ $(function(){
     padding: 14px;
     margin: auto;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 400;
     color: black;
     height: 53px;
 }
@@ -202,7 +202,7 @@ $(function(){
     border: 0px;
     background-color: #151719;
     color: white;
-    font-weight: 800;
+    font-weight: 400;
     font-size: 20px;
 }
 </style>

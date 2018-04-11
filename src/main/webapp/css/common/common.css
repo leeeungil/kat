@@ -1,17 +1,21 @@
 @charset "UTF-8";
 
-@font-face {
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,700);
+/* body, table, div, p{ font-family: ‘Roboto’, ‘Spoqa Han Sans’, ‘Spoqa Han Sans JP’, ‘Sans-serif’; } */
+
+/* @font-face {
     font-family: 'NanumBarunGothic';
     src: url('src/main/webapp/font/NanumBarunGothic.eot');
          url('src/main/webapp/font/NanumBarunGothic.woff') format('woff'),
          url('src/main/webapp/font/NanumBarunGothic.ttf') format('truetype'),
     font-weight: normal;
     font-style: normal;
-}
+} */
 
 * { padding: 0; margin: 0; 
-	font-family: 'Nanum Gothic Coding', serif; 
-	/* font-family: 'NanumBarunGothic', serif; */
+	/* font-family: 'Nanum Gothic Coding', serif;  */
+	font-family: 'Spoqa Han Sans', serif;
 	font-size: 13px;
 	transition: all 0.3s ease;}
 html, body { width: 100%;}
