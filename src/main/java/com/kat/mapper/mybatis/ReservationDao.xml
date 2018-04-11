@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.kat.reserv.dao.ReservDao">
+
+	<!-- 예약자 목록 가져오기 -->
+	<select id="selectReservList" resultType="com.kat.reserv.model.ReservCountModel">
+		SELECT SUBSTR(RESERV_TIME, 1, 10) daily, COUNT(*) reserv_count 
+		FROM RESERVATION WHERE PRODUCT_NO=#{product_no}
+		GROUP BY SUBSTR(RESERV_TIME, 1, 10);
+	</select>
+</mapper>

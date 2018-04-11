@@ -8,34 +8,45 @@
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/modernizr.custom.63321.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/jquery.calendario.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/data.js"></script>
-<script>
-$(function() {
-	var cal = $( '#calendar' ).calendario( {
-			onDayClick : function( $el, $contentEl, dateProperties ) {
-				for( var key in dateProperties ) {
-					console.log( key + ' = ' + dateProperties[ key ] );
-				}
-			},
-			caldata : codropsEvents
-		} ),
-		$month = $( '#custom-month' ).html( cal.getMonthName() ),
-		$year = $( '#custom-year' ).html( cal.getYear() );
-	$( '#custom-next' ).on( 'click', function() {
-		cal.gotoNextMonth( updateMonthYear );
-	} );
-	$( '#custom-prev' ).on( 'click', function() {
-		cal.gotoPreviousMonth( updateMonthYear );
-	} );
-	$( '#custom-current' ).on( 'click', function() {
-		cal.gotoNow( updateMonthYear );
-	} );
-	function updateMonthYear() {				
+<script> 
+cal = null; 
+$(document).ready(function() {
+	$("#calc_cost").click(function() {
+		$.ajax({
+			url: '<%=request.getContextPath()%>/partner/findUserProfile',
+			type : 'post',
+			dataType : 'text',
+			data: { "product_no": '1'},
+			success : function(data) {
+				var reservData = {'04-11-2018' : '<a href="http://tympanus.net/codrops/2012/11/14/creative-css-loading-animations/">Creative CSS Loading Animations</a>'}
+				cal = $('#calendar').calendario({
+								onDayClick : function($el, $contentEl, dateProperties) {
+									for(var key in dateProperties) {
+										console.log(key + ' = ' + dateProperties[key]);
+									}
+								},
+								caldata : reservData
+							}),
+							$month = $('#custom-month').html(cal.getMonthName()),
+							$year = $('#custom-year').html(cal.getYear());
+			}
+		})
+	})
+	$('#custom-next').on('click', function() {
+		cal.gotoNextMonth(updateMonthYear);
+	});
+	$('#custom-prev').on('click', function() {
+		cal.gotoPreviousMonth(updateMonthYear);
+	});
+	$('#custom-current').on('click', function() {
+		$("#modal-5").removeClass("md-show")
+	});
+	function updateMonthYear() {            
 		$month.html( cal.getMonthName() );
 		$year.html( cal.getYear() );
 	}
-});
 
-$(document).ready(function() {
+
 	$(document).on("click", "#modal_close", function() {
 		$(this).parent().parent(".md-modal").removeClass("md-show");
 	})
