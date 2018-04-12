@@ -5,6 +5,18 @@
 <link rel='stylesheet' href='<%=request.getContextPath()%>/css/datapicker/jquery-ui.css'>
 <link type='text/css' rel='stylesheet' href='<%=request.getContextPath()%>/css/product/productList.css'>
 <link type='text/css' rel='stylesheet' href='<%=request.getContextPath()%>/css/product/productInfo.css'>
+
+<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<link href="<%=request.getContextPath()%>/css/bootstrap/bootstrap-datetimepicker.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/bootstrap/bootstrap-grid.css" rel="stylesheet">
+<script src='<%=request.getContextPath()%>/script/calendar/moment.js'></script>
+<script src='<%=request.getContextPath()%>/script/calendar/daterangepicker.js'></script>
+<link rel="stylesheet" type="text/css" media="all" href="<%=request.getContextPath()%>/css/calendar/daterangepicker.css" />
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 <script type='text/javascript'>
 $(document).ready(function(){
 	$(".product_choice_btn > div").on("click", function(){
@@ -31,7 +43,7 @@ $(document).ready(function(){
 	    $(this).datepicker()
 	})
 	$(document).on("click", ".product_relate_photo_table > tbody img", function(){
-		var select_img_src = $(this).attr(src)
+		var select_img_src = $(this).attr("src")
 		if($(this).attr("class")=='blank_image') {
 			alert('없는 이미지 입니다.')
 		} else { 
@@ -40,17 +52,20 @@ $(document).ready(function(){
 	})
 
 	$(document).on("click", "#calc_cost",function(){
-		var targetModal = $(this).attr("data-modal");
-		var product_no = $(this).parents("td").attr("name")
-		$("#"+targetModal).addClass("md-show");
 		$(".calc_result").show()
 		var people = $("#people_number").val()
 		var product_cost = $("#product_cost").attr("class")
 		var htmlCostResult = "<div><font>경비 계산 결과</font></div>"
-							 "<div><font>+people+ X +product_cost+</font><font class='second_line_font'>₩"+(people * product_cost)+"</font></div>"
-							 "<div class='non_border reserve_btn_wrap'><button class='calc_cost reserve_btn'>예약하기</button></div>"
+							+ "<div><font>"+people+" X "+product_cost+"</font><font class='second_line_font'>₩"+(people * product_cost)+"</font></div>"
+							+ "<div class='non_border reserve_btn_wrap'><button class='calc_cost reserve_btn'>결제하기</button></div>"
 	 	$(".calc_result").html(htmlCostResult)
 	})
+	
+	$(document).on("click", "#start_date_picker",function(){
+		var targetModal = $(this).attr("data-modal");
+		$("#"+targetModal).addClass("md-show");
+	})
+	
 })
 </script>
 <style>
@@ -68,6 +83,8 @@ $(document).ready(function(){
 <div class='product_top_wrap'>
 	<div class='area area_wrap'>
 		<jsp:include page="/WEB-INF/views/modal/userReserveModal_5.jsp" flush="false"></jsp:include>
+		<input type='hidden' value='${productInfo.product_no}' id='product_no' name='product_no'>
+		<input type='hidden' value='${productInfo.max_people}' id='max_people' name='max_people'>
 		<div class='category' id='category'>
 			<div class='category_text_wrap'> <font> ${productInfo.country} > ${productInfo.city} </font> </div>
 		</div>
@@ -79,12 +96,19 @@ $(document).ready(function(){
 		</div>
 		<div class='product_total_content date_wrap'>
 			<table> <thead><tr>
-				<td colspan='3'>날짜와 인원을 선택해주세요.</td>
+				<td colspan='3'>달력 선택 후 원하는 날짜의 인원을 선택해주세요.</td>
 			</tr></thead>
 			<tbody><tr>
-				<td> <input type='text' class='datePick' name='select_date' id='select_date' placeholder='날짜 선택'> </td>
 				<td>
-					<select class='select' id='people_number' name='people_number' title='인원 선택'>
+					<div class="col-md-10 col-md-offset-2 demo">
+						<span>
+							<i class='fa fa-calendar' style='position: absolute; padding: 9px;'></i>
+						</span>
+						<input type="text" id="start_date_picker" class="form-control" name='select_date' data-modal="modal-5">
+					</div>
+				</td>
+				<td>
+					<select class='select form-control' id='people_number' name='people_number' title='인원 선택'>
 				        <option value='0' selected='selected'>인원 선택</option>
 				        <option value='1'>1명</option>
 				        <option value='2'>2명</option>
@@ -95,8 +119,8 @@ $(document).ready(function(){
 				        <option disabled>그 외 문의요청</option>
 				    </select>
 				</td>
-				<td> <button class='calc_cost' id='calc_cost' name='calc_cost' value='calc_cost' data-modal="modal-5">경비 계산기</button> </td>
-			</tr> <tr>
+				<td> <button class='calc_cost' id='calc_cost' name='calc_cost' value='calc_cost'>경비 계산기</button> </td>
+			</tr><tr>
 				<td colspan='3' class='calc_result'></td>
 			</tr></tbody></table>
 		</div>

@@ -3,7 +3,6 @@
 .main_slideshow {
     text-align: center;
     margin: auto;
-    height: 80vh !important;
     min-height: 550px !important;
     max-height: 900px !important;
     position: relative !important;
@@ -20,7 +19,6 @@
     margin-top: -35px;
     width: 100% !important;
     position: absolute;
-    height: 80vh;
     min-height: 550px;
     max-height: 900px;
     overflow: hidden;
@@ -44,6 +42,7 @@
     width: auto;
     z-index: 1000;
     padding: 0;
+    border-bottom: 1px solid #196cf8;
 }
 .top_wrap {
 	font-size: 12px;

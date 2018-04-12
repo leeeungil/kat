@@ -30,8 +30,14 @@ public class ProductInfo {
 	private String delete_flag;
 	private String create_date;
 	private String cost;
+	private String max_people;
 	
-	
+	public String getMax_people() {
+		return max_people;
+	}
+	public void setMax_people(String max_people) {
+		this.max_people = max_people;
+	}
 	public String getProduct_type_name() {
 		return product_type_name;
 	}
@@ -219,7 +225,7 @@ public class ProductInfo {
 				+ ", product_photo8=" + product_photo8 + ", product_photo9=" + product_photo9 + ", product_photo10="
 				+ product_photo10 + ", course=" + course + ", course_photo_dir=" + course_photo_dir + ", product_info="
 				+ product_info + ", user_id=" + user_id + ", business_number=" + business_number + ", delete_flag="
-				+ delete_flag + ", create_date=" + create_date + ", cost=" + cost + "]";
+				+ delete_flag + ", create_date=" + create_date + ", cost=" + cost + ", max_people=" + max_people + "]";
 	}
 	
 	

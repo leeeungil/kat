@@ -4,65 +4,47 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/modal/component.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/calendar/calendar.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/calendar/custom_1.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/calendar/demo.css" /> 
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/modernizr.custom.63321.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/jquery.calendario.js"></script>
+<%-- <script type="text/javascript" src="<%=request.getContextPath()%>/script/calendar/data.js"></script> --%>
 <script> 
 $(document).ready(function() {
-	test = [];
+	codropsEvents = '{ ';
 	$.ajax({
 		url: '<%=request.getContextPath()%>/reserv/selectReservList',
 		type : 'post',
 		dataType : 'json',
 		data: { "product_no": $("#product_no").val()},
 		success : function(data) {
-			var max_people = $("#max_people").val();
 			var dataLength = data.length;
-			var now = new Date();
-			var year= now.getFullYear();
-			var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-			var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-		
+			console.log(codropsEvents)
 			for(i=0; i<dataLength; i++) {
-				emptyPeople = max_people - data[i].reserv_count;
-				convertDate = data[i].daily.split('-');
-				reDate = convertDate[1]+"-"+convertDate[2]+"-"+convertDate[0];
-				var json = {};
-				if(convertDate[0] < year || (convertDate[0] == year && convertDate[1] < mon)
-						|| (convertDate[0] == year && convertDate[1] == mon && convertDate[2] < day) ) {
-				} else if(convertDate[0] < year || (convertDate[0] == year && convertDate[1] < mon)
-						|| (convertDate[0] == year && convertDate[1] == mon && convertDate[2]==day) ) {
-					json[reDate] = '<a> 당일 예약시 <p>직접 문의해주세요. </a>';
+				var convertDate = data[i].daily.split('-');
+				var reDate = convertDate[1]+"-"+convertDate[2]+"-"+convertDate[0];
+				if(i<(dataLength-1)) {
+					codropsEvents += "'"+reDate+"'"+" : '<a>"+data[i].reserv_count+"</a>', ";
 				} else {
-					if(emptyPeople > 1){
-						var possiblePeople = max_people - data[i].reserv_count;
-						var resultComment = '<span>'+possiblePeople+'명 예약 가능 </span>'
-											+ '<br><a name="possible_su" class='+possiblePeople+'>예약하기</a>';
-						json[reDate] = resultComment;
-					}else {
-						json[reDate] = '<a>예약 불가능</a>';
-					}
+					codropsEvents += "'"+reDate+"'"+" : '<a>"+data[i].reserv_count+"</a>' }";
 				}
-				test.push(json);
 			}
+			console.log("sss " + codropsEvents)
 		}, error: function() {
 			alert('error')
 		}
 	})
 	
-	$("#start_date_picker").click(function() {
+	$("#calc_cost").click(function() {
 		cal = $('#calendar').calendario({
 							onDayClick : function($el, $contentEl, dateProperties) {
 								for(var key in dateProperties) {
 									console.log(key + ' = ' + dateProperties[key]);
 								}   
-							}
+							},
+							caldata : codropsEvents
 						}),
 						$month = $('#custom-month').html(cal.getMonthName()),
 						$year = $('#custom-year').html(cal.getYear());
-		
-		for(var i=0; i<test.length; i++){
-			cal.setData(test[i]);
-		}
 	});
 	
 	$('#custom-next').on('click', function() {
@@ -78,23 +60,7 @@ $(document).ready(function() {
 		$month.html( cal.getMonthName() );
 		$year.html( cal.getYear() );
 	}
-	$(document).on("click", ".fc-calendar .fc-row > div > div > a[name=possible_su]", function() {
-		var selectYear = cal.getYear();
-		var selectMonth = cal.getMonth();
-		var selectDay = $(this).parent().parent("div").children(".fc-date").html();
-		$("#start_date_picker").val(selectYear+"-"+selectMonth+"-"+selectDay)
-		$("#modal-5").removeClass("md-show")
-		/* var htmlCode = "<div class='choice'>"
-					+ "<button class='plus su_btn'>+</button>"
-					+ "<label class='su'>1</label>"
-					+ "<button class='minus su_btn'>-</button>"
-					+"</div>"
-		$(".choice").remove();
-		$(this).append(htmlCode) */
-	})
-	/* $(document).on("mouseleave", ".fc-calendar .fc-row > div > div", function() {
-		$(".choice").remove();
-	}) */
+
 
 	$(document).on("click", "#modal_close", function() {
 		$(this).parent().parent(".md-modal").removeClass("md-show");
@@ -105,32 +71,6 @@ $(document).ready(function() {
 })
 </script>
 <style>
-#modal-5 {
-	overflow-y: overlay;
-	top: 47%!important;
-}
-/* .choice {
-	background-color: #000000;
-    padding: 10px 15px;
-    z-index: 9999;
-    border-radius: 6px;
-    position: fixed;
-    margin-top: 10px;
-    margin-left: -8px;
-}
-.su_btn {
-	padding: 2px;
-    width: 32px;
-    border-radius: 20px;
-    font-size: 25px;
-    border: 0px solid;
-    background-color: #ffffff;
-}
-.su {
-    font-size: 25px;
-    color: #ffffff;
-    padding: 0 12px;	
-} */
 .md-modal {
     width: 100%;
     height: 100%;
