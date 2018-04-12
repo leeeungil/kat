@@ -19,6 +19,11 @@
 <![endif]-->
 <script type='text/javascript'>
 $(document).ready(function(){
+	var now = new Date();
+	var year= now.getFullYear();
+	var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+	var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+	
 	$(".product_choice_btn > div").on("click", function(){
 		$.ajax({
 			url:'<%=request.getContextPath()%>/product/findTravelProductOfType',
@@ -36,9 +41,7 @@ $(document).ready(function(){
 			}
 		})
 	})
-})
 
-$(document).ready(function(){
 	$(document).on("click", "#select_date", function(){
 	    $(this).datepicker()
 	})
@@ -62,8 +65,49 @@ $(document).ready(function(){
 	})
 	
 	$(document).on("click", "#start_date_picker",function(){
-		var targetModal = $(this).attr("data-modal");
-		$("#"+targetModal).addClass("md-show");
+		/* var targetModal = $(this).attr("data-modal");
+		$("#"+targetModal).addClass("md-show"); */
+	})
+	
+	$("#start_date_picker").daterangepicker({
+		"singleDatePicker": true,
+	    "linkedCalendars": false,
+	    "showCustomRangeLabel": false,
+	    "startDate": "04/13/2018",
+	    "endDate": "04/13/2018",
+	    "minDate": mon+'/'+day+'/'+year,
+	    "opens": "center"
+	});
+	
+	$(document).on("click", ".demo", function() {
+		alert("ss")
+		$.ajax({
+			url: '<%=request.getContextPath()%>/reserv/selectReservList',
+			type : 'post',
+			dataType : 'json',
+			data: { "product_no": $("#product_no").val()},
+			success : function(data) {
+				var max_people = $("#max_people").val();
+				var dataLength = data.length;
+				var now = new Date();
+				var year= now.getFullYear();
+				var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+				var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+				
+				for(i=0; i<dataLength; i++) {
+					emptyPeople = max_people - data[i].reserv_count;
+					
+					convertDate = data[i].daily.split('-');
+					reDate = convertDate[1]+"/"+convertDate[2]+"/"+convertDate[0];
+					
+					if($("#start_date_picker").val() == reDate && emptyPeople==0) {
+						alert('dd')
+					}
+				}
+			}, error: function() {
+				alert('error')
+			}
+		})
 	})
 	
 })

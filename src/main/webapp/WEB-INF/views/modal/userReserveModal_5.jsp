@@ -21,7 +21,7 @@ $(document).ready(function() {
 			var year= now.getFullYear();
 			var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
 			var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
-		
+			$("#modal-5 h2").html("최대"+max_people+"명까지 예약 가능합니다.")
 			for(i=0; i<dataLength; i++) {
 				emptyPeople = max_people - data[i].reserv_count;
 				convertDate = data[i].daily.split('-');
@@ -31,24 +31,25 @@ $(document).ready(function() {
 						|| (convertDate[0] == year && convertDate[1] == mon && convertDate[2] < day) ) {
 				} else if(convertDate[0] < year || (convertDate[0] == year && convertDate[1] < mon)
 						|| (convertDate[0] == year && convertDate[1] == mon && convertDate[2]==day) ) {
+					$(".fc-date")
 					json[reDate] = '<a> 당일 예약시 <p>직접 문의해주세요. </a>';
 				} else {
-					if(emptyPeople > 1){
-						var possiblePeople = max_people - data[i].reserv_count;
-						var resultComment = '<span>'+possiblePeople+'명 예약 가능 </span>'
-											+ '<br><a name="possible_su" class='+possiblePeople+'>예약하기</a>';
+					if(emptyPeople >= 1){
+						var resultComment = '<span>'+emptyPeople+'명 남음 </span>';
 						json[reDate] = resultComment;
-					}else {
-						json[reDate] = '<a>예약 불가능</a>';
+					} else if (emptyPeople == 0) {
+						json[reDate] = '<a>예약 끝</a>';
 					}
 				}
 				test.push(json);
+				if($(".fc-row > div").attr("class")!='fc-content') {
+					$(".fc-row > div").append("djalsdj;flasd")
+				}
 			}
 		}, error: function() {
 			alert('error')
 		}
 	})
-	
 	$("#start_date_picker").click(function() {
 		cal = $('#calendar').calendario({
 							onDayClick : function($el, $contentEl, dateProperties) {
@@ -78,12 +79,16 @@ $(document).ready(function() {
 		$month.html( cal.getMonthName() );
 		$year.html( cal.getYear() );
 	}
-	$(document).on("click", ".fc-calendar .fc-row > div > div > a[name=possible_su]", function() {
+	$(document).on("click", ".fc-calendar .fc-row > div", function() {
 		var selectYear = cal.getYear();
 		var selectMonth = cal.getMonth();
-		var selectDay = $(this).parent().parent("div").children(".fc-date").html();
-		$("#start_date_picker").val(selectYear+"-"+selectMonth+"-"+selectDay)
-		$("#modal-5").removeClass("md-show")
+		var selectDay = $(this).children(".fc-date").html();
+		if($(this).children("div").children("a").length) {
+			alert("다른 날짜를 선택해주세요.")			
+		} else {
+			$("#start_date_picker").val(selectYear+"-"+selectMonth+"-"+selectDay)
+			$("#modal-5").removeClass("md-show")
+		}
 		/* var htmlCode = "<div class='choice'>"
 					+ "<button class='plus su_btn'>+</button>"
 					+ "<label class='su'>1</label>"
@@ -141,7 +146,7 @@ $(document).ready(function() {
 		<!-- Codrops top bar -->
 		<div class="custom-calendar-wrap custom-calendar-full">
 			<div class="custom-header clearfix">
-				<h2>Reservation <span></span></h2>
+				<h2></h2>
 				<h3 class="custom-month-year">
 					<span id="custom-month" class="custom-month"></span>
 					<span id="custom-year" class="custom-year"></span>

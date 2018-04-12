@@ -124,31 +124,23 @@
 
 				// this loop is for weekdays (cells)
 				for ( var j = 0; j <= 6; j++ ) {
-
 					var pos = this.startingDay - this.options.startIn,
 						p = pos < 0 ? 6 + pos + 1 : pos,
 						inner = '',
 						today = this.month === this.today.getMonth() && this.year === this.today.getFullYear() && day === this.today.getDate(),
 						content = '';
-					
 					if ( day <= monthLength && ( i > 0 || j >= p ) ) {
-
 						inner += '<span class="fc-date">' + day + '</span><span class="fc-weekday">' + this.options.weekabbrs[ j + this.options.startIn > 6 ? j + this.options.startIn - 6 - 1 : j + this.options.startIn ] + '</span>';
-
 						// this day is:
 						var strdate = ( this.month + 1 < 10 ? '0' + ( this.month + 1 ) : this.month + 1 ) + '-' + ( day < 10 ? '0' + day : day ) + '-' + this.year,
 							dayData = this.caldata[ strdate ];
-
 						if( dayData ) {
 							content = dayData;
 						}
-
 						if( content !== '' ) {
 							inner += '<div>' + content + '</div>';
 						}
-
 						++day;
-
 					}
 					else {
 						today = false;
