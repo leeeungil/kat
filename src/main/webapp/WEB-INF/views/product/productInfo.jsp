@@ -22,7 +22,7 @@ $(document).ready(function(){
 	var now = new Date();
 	var year= now.getFullYear();
 	var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-	var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+	var day2 = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
 	
 	$(".product_choice_btn > div").on("click", function(){
 		$.ajax({
@@ -69,47 +69,52 @@ $(document).ready(function(){
 		$("#"+targetModal).addClass("md-show"); */
 	})
 	
+	// 특정날짜들 배열
+	var disabledate = "2018-04-14, 2018-09-07, 2018-09-07";
+	/* var disabledDays = "04/14/2018"; */
 	$("#start_date_picker").daterangepicker({
 		"singleDatePicker": true,
 	    "linkedCalendars": false,
 	    "showCustomRangeLabel": false,
 	    "startDate": "04/13/2018",
 	    "endDate": "04/13/2018",
-	    "minDate": mon+'/'+day+'/'+year,
-	    "opens": "center"
+	    "minDate": mon+'/'+day2+'/'+year,
+	    "opens": "center",
+	    beforeShowDay: function(day) {
+	    	console.log($.datepicker.formatDate('YYYY-MM-DD', day))
+            if(disabledate.indexOf($.datepicker.formatDate('YYYY-MM-DD', day)) != -1) return [false, "disabled", "beforeShowDay로 블록"];
+            else return [true, "", ""];
+        }
+	}, function(start, end, label) {
+	  console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
 	});
-	
-	$(document).on("click", ".demo", function() {
-		alert("ss")
-		$.ajax({
-			url: '<%=request.getContextPath()%>/reserv/selectReservList',
-			type : 'post',
-			dataType : 'json',
-			data: { "product_no": $("#product_no").val()},
-			success : function(data) {
-				var max_people = $("#max_people").val();
-				var dataLength = data.length;
-				var now = new Date();
-				var year= now.getFullYear();
-				var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
-				var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+
+	$.ajax({
+		url: '<%=request.getContextPath()%>/reserv/selectReservList',
+		type : 'post',
+		dataType : 'json',
+		data: { "product_no": $("#product_no").val()},
+		success : function(data) {
+			var max_people = $("#max_people").val();
+			var dataLength = data.length;
+			var now = new Date();
+			var year= now.getFullYear();
+			var mon = (now.getMonth()+1)>9 ? ''+(now.getMonth()+1) : '0'+(now.getMonth()+1);
+			var day = now.getDate()>9 ? ''+now.getDate() : '0'+now.getDate();
+			
+			for(i=0; i<dataLength; i++) {
+				emptyPeople = max_people - data[i].reserv_count;
 				
-				for(i=0; i<dataLength; i++) {
-					emptyPeople = max_people - data[i].reserv_count;
-					
-					convertDate = data[i].daily.split('-');
-					reDate = convertDate[1]+"/"+convertDate[2]+"/"+convertDate[0];
-					
-					if($("#start_date_picker").val() == reDate && emptyPeople==0) {
-						alert('dd')
-					}
+				convertDate = data[i].daily.split('-');
+				reDate = convertDate[1]+"/"+convertDate[2]+"/"+convertDate[0];
+
+				if($("#start_date_picker").val() == reDate && emptyPeople==0) {
 				}
-			}, error: function() {
-				alert('error')
 			}
-		})
+		}, error: function() {
+			alert('error')
+		}
 	})
-	
 })
 </script>
 <style>
