@@ -8,15 +8,14 @@
     position: relative !important;
     z-index: 1 !important;
 }
-.main_slideshow:hover {
-	opacity: 0.8;
+.mainSlider:hover {
+	/* opacity: 0.8; */
 }
 .mainSlider {
 	z-index: 10;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-top: -35px;
     width: 100% !important;
     position: absolute;
     min-height: 550px;
@@ -42,11 +41,10 @@
     width: auto;
     z-index: 1000;
     padding: 0;
-    border-bottom: 1px solid #196cf8;
 }
 .top_wrap {
 	font-size: 12px;
-    background: rgba(255,255,255,0.4);
+    background: #a8a8a8;
     height: 35px;
     line-height: 35px;
     position: relative;
@@ -103,6 +101,62 @@
     color: white;
 }
 
+.top_logo_wrap{
+    font-size: 12px;
+    background: #ffffff;
+    height: 100px;
+    position: relative;
+    z-index: 11;
+    border-bottom: 1px solid #196cf8;
+}
+.top_menu_wrap {
+    background: #ffffff;
+    position: relative;
+    z-index: 11;
+    height: 34px;
+	max-width: 900px;
+    margin: auto;
+}
+.top_logo_wrap > div:nth-child(1) {
+	width: 340px;
+	margin: auto;
+}
+.top_logo_wrap > div:nth-child(1) > a > img {
+    margin: 8px 0px;
+    width: 100%;
+}
+.top_menu_wrap > div {
+	
+}
+.main_slide_wrap {
+	min-height: 550px;
+}
+
+/* tabstyles.css */
+.tabs-style-iconbox nav {
+	margin: auto;
+    width: 1200px;
+    height: 100%;
+}
+.tabs-style-iconbox nav ul li a {
+    overflow: visible;
+    padding: 10px 0;
+    line-height: 1;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+    font-weight: bold;
+    font-size: 13px;
+    color: #333;
+    transition: color .4s;
+}
+.tabs-style-iconbox nav ul li a span {
+    font-size: 15px;
+	color: #196cf8;
+}
+.tabs-style-iconbox nav ul li a:hover {
+	color: #196cf8;
+	border-bottom: 1px solid #196cf8;
+}
 /* header main */
 .header {
     position: relative;

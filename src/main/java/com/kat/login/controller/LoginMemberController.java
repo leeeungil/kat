@@ -32,7 +32,7 @@ System.out.println("[LoginMemberController login] idchk : " + idchk);
 		if (idchk == 3 || idchk == 4) {
 			req.getSession(false).setAttribute("user_id", user_id);
 			req.getSession(false).setAttribute("member_type", idchk);
-			modelAndView.setViewName("kat_main");
+			modelAndView.setViewName("redirect:/kat_main.do");
 System.out.println("[LoginMemberController login] MEMBER LOGIN SUCCESS");			
 		} else {
 			modelAndView.setViewName("/kat_login/LoginFormChk");

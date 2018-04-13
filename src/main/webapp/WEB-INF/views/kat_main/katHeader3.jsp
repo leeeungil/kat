@@ -25,7 +25,6 @@
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/login.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/admin_sub_side_menu.css" />

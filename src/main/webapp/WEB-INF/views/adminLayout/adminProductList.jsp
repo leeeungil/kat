@@ -7,7 +7,6 @@
 <title>사업자 메뉴 등록</title>
 
 <!-- css 가져오기 -->
-<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/home_main.css">
 
 <!-- 스크립트 가져오기 -->
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>

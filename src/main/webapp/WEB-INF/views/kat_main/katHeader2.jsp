@@ -23,10 +23,9 @@
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/login.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
-<div class="header_wrap" style='height: 122px'> 
+<div class="header_wrap" style='height: 169px'> 
 	<!-- 로그인 폼 -->
 	<div class="login_wrap" id="login_wrap" style="display: none" >
 		<!-- 로그인 팝업 부분 -->
@@ -39,7 +38,7 @@
 				<div>
 					<ul class="login_form" id="member_in"><li class="login_sty" id="id_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="ID" class="login_form_input" name="user_id">
+						<input type="text" placeholder="EMAIL" class="login_form_input" name="user_id">
 					</li>
 					<li class="login_sty" id="pw_sty">
 						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
@@ -60,11 +59,10 @@
 		</div>
 	</div>
 	<!-- 메인 슬라이드 쇼 -->
-	<div class="">
+	<div class="main_slideshow" style='min-height: 169px!important'>
 		<div class="top_wrap"> 
 			<div class="content-wrap">
 				<div class="top_right">
-					<div class="search-box">검색폼</div>
 					<ul class="top-loginbox">
 					<c:if test="${user_id == null}">
 						<li><a onclick="login()">로그인</a></li>
@@ -73,71 +71,71 @@
 					<c:if test="${user_id != null}">
 						<li style="color:#000000"><font style='color: #196cf8;font-weight: 400;'>${user_id}</font> 님
 							<c:if test="${user_id == 'Master'}">
-								<span style="color: red;">마스터 </span>
+								<span style="color: red;">  Master  </span>
 							</c:if> 
 						</li>
 						<c:if test="${user_id != 'Master'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do">내정보</a>
+								<a href="<%=request.getContextPath()%>/kat/mypage/pwchk.do"> 내정보 </a>
 							</li>
 							<c:if test="${member_type == '4'}">
 								<li id="categoryfont">
-									<a href="<%=request.getContextPath()%>/kat/business/managePage.do" target="_blank">상품관리</a>
+									<a href="<%=request.getContextPath()%>/kat/business/managePage.do" target="_blank"> 상품관리 </a>
 								</li>
 							</c:if>
 						</c:if>
 						<c:if test="${user_id == 'Master'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/master/board/noticelist.do">페이지 관리</a>
+								<a href="<%=request.getContextPath()%>/master/board/noticelist.do"> 페이지 관리 </a>
 							</li>
 						</c:if>
 						<c:if test="${member_type == '3'}">
 							<li id="categoryfont">
-								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do">예약내역</a>
+								<a href="<%=request.getContextPath()%>/shopInfoSeat/userbreakdown.do"> 예약내역 </a>
+							</li>
+							<li>
+								<a href="<%=request.getContextPath()%>/kat/parter/parterInsert.do"> 파트너 등록 </a>
 							</li>
 						</c:if>
 						<li>
-							<a href="<%=request.getContextPath()%>/kat/login/logout.do">로그아웃</a>
+							<a href="<%=request.getContextPath()%>/kat/login/logout.do"> 로그아웃 </a>
 						</li>
-					</c:if>
+					</c:if> 
 					</ul>
-					<!-- <span class="btn-fullmenu"></span>			 -->													
 					<span class="btn-fullmenu" id="google_translate_element"></span>
 				</div>
 			</div>
 		</div>
-		<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-		<script type="text/javascript">
-	        function googleTranslateElementInit() {
-	        	new google.translate.TranslateElement({pageLanguage: 'ko',
-	        	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
-	        	multilanguagePage: true}, 'google_translate_element');
-	        }
-		</script>
-	</div>
-	
-	
-	<div class="container">
-		<section>
+		<div class='top_logo_wrap'>
+			<div>
+				<a href="<%=request.getContextPath()%>/kat_main.do">
+					<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform">
+				</a>
+			</div>
+		</div>
+		<div class='top_menu_wrap'>
 			<div class="tabs tabs-style-iconbox">
 				<nav>
 					<ul>
-						<li style='background-color: #ffffff'>
-							<a href="<%=request.getContextPath()%>/kat_main.do"  style="padding: 5px;margin-top: -35px;">
-								<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform" style="height: 109px;">
-							</a>
-						</li>
-						<li><a href="#section-iconbox-1" class="fa fa-home"><span>숙박</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct" class="fa fa-gift"><span>여행상품</span></a></li>
-						<li><a href="#section-iconbox-3" class="fa fa-book"><span>여행정보</span></a></li>
-						<li><a href="#section-iconbox-4" class="fa fa-shopping-cart"><span>Travel Mall</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do" class="fa fa-comments"><span>커뮤니티</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-headphones"><span>고객센터</span></a></li>
-<%-- 						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-config"><span>로그인 / 회원가입</span></a></li> --%>
+					<li><a href="#section-iconbox-1">숙박</a></li>
+						<li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct">여행상품</a></li>
+						<li><a href="#section-iconbox-3">여행정보</a></li>
+						<li><a href="#section-iconbox-4">Travel Mall</a></li>
+						<li><a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do">커뮤니티</a></li>
+						<li><a href="<%=request.getContextPath()%>/master/board/list.do">고객센터</a></li>
 					</ul>
 				</nav>
 			</div><!-- /tabs -->
-		</section>
-	</div><!-- /container -->
+		</div>
+	</div>
 </div> 
 
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+  	new google.translate.TranslateElement({pageLanguage: 'ko',
+  	layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT,
+  	multilanguagePage: true}, 'google_translate_element');
+  }
+</script>

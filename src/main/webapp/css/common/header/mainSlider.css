@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.lSSlideWrapper {
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+.lSSlideWrapper .lSSlide {
+	-webkit-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+	-webkit-transition: all 1s;
+	-webkit-transition-property: -webkit-transform, height;
+	-moz-transition-property: -moz-transform, height;
+	transition-property: transform, height;
+	-webkit-transition-duration: inherit !important;
+	transition-duration: inherit !important;
+	-webkit-transition-timing-function: inherit !important;
+	transition-timing-function: inherit !important;
+}
+
+.lSSlideOuter {
+	margin: 0px;
+}
+
+.lSSlideOuter .lSPager.lSpg {
+	margin: 10px 0 0;
+	padding: 0;
+	text-align: center;
+}
+
+.lSSlideOuter .lSPager.lSpg>li {
+	cursor: pointer;
+	display: inline-block;
+	padding: 0 5px;
+}
+
+.lSSlideOuter .lSPager.lSpg>li a {
+	background-color: #222222;
+	border-radius: 30px;
+	display: inline-block;
+	height: 8px;
+	overflow: hidden;
+	text-indent: -999em;
+	width: 8px;
+	position: relative;
+	z-index: 18;
+	-webkit-transition: all 0.5s linear 0s;
+	transition: all 0.5s linear 0s;
+}
+
+.lSSlideOuter .lSPager.lSpg>li:hover a, .lSSlideOuter .lSPager.lSpg>li.active a
+	{
+	background-color: #428bca;
+}
+/* slider actions */
+.lSAction>a {
+	width: 32px;
+	display: block;
+	top: 50%;
+	height: 32px;
+	background-image: url('../img/controls.png');
+	cursor: pointer;
+	position: absolute;
+	z-index: 9999;
+	margin-top: -16px;
+	opacity: 0.5;
+	-webkit-transition: opacity 0.35s linear 0s;
+	transition: opacity 0.35s linear 0s;
+}
+
+.lSAction>a:hover {
+	opacity: 1;
+}
+
+.lSAction>.lSPrev {
+	background-position: 0 0;
+	left: 10px;
+}
+
+.lSAction>.lSNext {
+	background-position: -32px 0;
+	right: 10px;
+}
+
+.lSAction>a.disabled {
+	pointer-events: none;
+}
+
+.cS-hidden {
+	height: 1px;
+	opacity: 0;
+	filter: alpha(opacity = 0);
+	overflow: hidden;
+}
+/* Rtl */
+.lSSlideOuter .lightSlider>*, .lSSlideOuter .lSGallery li {
+	float: left;
+    height: 550px!important;
+}

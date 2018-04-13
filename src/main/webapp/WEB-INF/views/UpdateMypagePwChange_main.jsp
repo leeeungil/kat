@@ -3,8 +3,6 @@
 
 
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
-<link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/MypagePwChangeSuccess_css.css">
 
 <jsp:include page="/WEB-INF/views/kat_main/katHeader.jsp"

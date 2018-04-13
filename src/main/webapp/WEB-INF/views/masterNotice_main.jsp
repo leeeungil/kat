@@ -10,8 +10,6 @@
 <!-- css 가져오기 -->
 
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
-<link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/master_css.css">	
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/masterNoticeWrite_css.css">

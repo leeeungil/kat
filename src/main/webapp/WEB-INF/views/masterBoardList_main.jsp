@@ -11,8 +11,6 @@
 
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/master_boardListView_css.css">
-<link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
 
 
 <!-- 스크립트 가져오기 -->

@@ -8,8 +8,6 @@
 
 <!--  css 가져오기  -->
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
-<link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/mypageViewForm_css.css">
 
 </head>

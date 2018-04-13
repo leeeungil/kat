@@ -11,8 +11,6 @@
 <link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/shopView_css.css">
 <link type="text/css" rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/home_main.css">
-<link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/seatadd_css.css">
 	<link type="text/css" rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/seatPosition_css.css">

@@ -1,7 +1,7 @@
 .content_form {
 	display: table !important;
    	width: 100% !important;
-	margin-top: -86px;
+	margin-top: -106px;
     position: absolute;
     z-index: 99;
 }
@@ -10,7 +10,7 @@
     margin: auto;
 }
 .content_form > .container > section{
-	width: 880px;
+	/* width: 880px; */
     margin: auto;
 }
 .search-icon {

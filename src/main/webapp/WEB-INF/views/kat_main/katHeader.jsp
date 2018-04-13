@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet"> -->
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/jquery/jquery.lazyload.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/login.js"></script>
@@ -25,8 +25,8 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/common.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header.css">
+<link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/header/mainSlider.css">
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/common/login.css">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/demo.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/tabstyles.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/common/header/main_search.css" />
@@ -68,7 +68,6 @@
 		<div class="top_wrap"> 
 			<div class="content-wrap">
 				<div class="top_right">
-					<div class="search-box">검색폼</div>
 					<ul class="top-loginbox">
 					<c:if test="${user_id == null}">
 						<li><a onclick="login()">로그인</a></li>
@@ -112,15 +111,68 @@
 				</div>
 			</div>
 		</div>
-		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/1.jpg)"></div>
+		<div class='top_logo_wrap'>
+			<div>
+				<a href="<%=request.getContextPath()%>/kat_main.do">
+					<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform">
+				</a>
+			</div>
+		</div>
+		<div class='top_menu_wrap'>
+			<div class="tabs tabs-style-iconbox">
+				<nav>
+					<ul>
+					<li><a href="#section-iconbox-1">숙박</a></li>
+						<li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct">여행상품</a></li>
+						<li><a href="#section-iconbox-3">여행정보</a></li>
+						<li><a href="#section-iconbox-4">Travel Mall</a></li>
+						<li><a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do">커뮤니티</a></li>
+						<li><a href="<%=request.getContextPath()%>/master/board/list.do">고객센터</a></li>
+						<%-- <li><a href="#section-iconbox-1" class="fa fa-home"><span>숙박</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct" class="fa fa-gift"><span>여행상품</span></a></li>
+						<li><a href="#section-iconbox-3" class="fa fa-book"><span>여행정보</span></a></li>
+						<li><a href="#section-iconbox-4" class="fa fa-shopping-cart"><span>Travel Mall</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do" class="fa fa-comments"><span>커뮤니티</span></a></li>
+						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-headphones"><span>고객센터</span></a></li> --%>
+	<%-- 						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-config"><span>로그인 / 회원가입</span></a></li> --%>
+					</ul>
+				</nav>
+			</div><!-- /tabs -->
+		</div>
 		
-		<%-- <div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/1.jpg"></div>
+		<script>
+		$(document).ready(function() {
+			$('#slide_active').lightSlider({
+		        /* auto:true, */
+		        loop:true,
+		        item:1,
+		        slideMargin:0,
+		        speed: 2000,
+		        pauseOnHover: true
+		    });
+		})
+		</script>
+		<div class='main_slide_wrap'>
+			<div id="slide_active">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/1.jpg">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/2.jpg">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/3.jpg">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/4.jpg">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/5.jpg">
+			<img src="<%=request.getContextPath()%>/img/mainSlider/6.jpg"> 
+			</div>
+		</div>
+		
+		<%-- <div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/1.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/2.jpg)"></div>
+		<div class="mainSlider" style="background-image:url(<%=request.getContextPath()%>/img/mainSlider/3.jpg)"></div> --%>
+		<%-- <div class="mainSlider"></div>
 		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/2.jpg"></div>
 		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/3.jpg"></div>
 		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/4.jpg"></div>
 		<div class="mainSlider"><img src="<%=request.getContextPath()%>/img/mainSlider/5.jpg"></div> --%>
-	<!-- 컨텐츠 메뉴 통합 검색 -->
 	</div>
+	<!-- 컨텐츠 메뉴 통합 검색 -->
 	<form class='content_form' method="post" id="content_form" action="<%=request.getContextPath()%>/kat/SearchList/SearchInfo.do">
 		<div class="container">
 			<section class="content bgcolor-3">
@@ -135,30 +187,6 @@
 			</section>
 		</div><!-- /container -->
 	</form>
-	 
-	
-	<div class="container">
-		<section>
-			<div class="tabs tabs-style-iconbox">
-				<nav>
-					<ul>
-						<li>
-							<a href="<%=request.getContextPath()%>/kat_main.do" style="padding: 5px;">
-								<img src="<%=request.getContextPath()%>/img/logo/logo_1.png" alt="your_Platform" style="height: 74px;">
-							</a>
-						</li>
-						<li><a href="#section-iconbox-1" class="fa fa-home"><span>숙박</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/product/findAllTravelProduct" class="fa fa-gift"><span>여행상품</span></a></li>
-						<li><a href="#section-iconbox-3" class="fa fa-book"><span>여행정보</span></a></li>
-						<li><a href="#section-iconbox-4" class="fa fa-shopping-cart"><span>Travel Mall</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do" class="fa fa-comments"><span>커뮤니티</span></a></li>
-						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-headphones"><span>고객센터</span></a></li>
-<%-- 						<li><a href="<%=request.getContextPath()%>/master/board/list.do" class="fa fa-config"><span>로그인 / 회원가입</span></a></li> --%>
-					</ul>
-				</nav>
-			</div><!-- /tabs -->
-		</section>
-	</div><!-- /container -->
 </div> 
 <script src="<%=request.getContextPath()%>/script/googleTrans/googleTrans.min.js"></script>
 <script>

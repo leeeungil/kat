@@ -40,24 +40,7 @@
 /* Icon box */
 /*****************************/
 
-.tabs-style-iconbox nav {
-	margin: auto;
-    width: 1200px;
-    height: 100%;
-}
 
-.tabs-style-iconbox nav ul li a {
-	overflow: visible;
-	padding: 2em 0;
-	line-height: 1;
-	-webkit-transition: color 0.2s;
-	transition: color 0.2s;
-}
-
-.tabs-style-iconbox nav ul li a span {
-    font-size: 15px;
-	color: #196cf8;
-}
 
 .tabs-style-iconbox nav ul li.tab-current {
 	z-index: 100;

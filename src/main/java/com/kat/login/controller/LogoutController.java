@@ -17,7 +17,7 @@ System.out.println("[LogoutController logout] LOGOUT - SESSION CLEAR ACCESS");
 		session.invalidate();
 System.out.println("[LogoutController logout] LOGOUT - SESSION CLEAR FINISH");
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("kat_main");
+		modelAndView.setViewName("redirect:/kat_main.do");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
