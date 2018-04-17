@@ -31,7 +31,42 @@ public class ProductInfo {
 	private String create_date;
 	private String cost;
 	private String max_people;
+	private int main_ad_no;
+	private int ad_rank;
+	private String main_ad;
+	private String max_rank;
+	private String product_name;
 	
+	public String getProduct_name() {
+		return product_name;
+	}
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+	public int getMain_ad_no() {
+		return main_ad_no;
+	}
+	public void setMain_ad_no(int main_ad_no) {
+		this.main_ad_no = main_ad_no;
+	}
+	public int getAd_rank() {
+		return ad_rank;
+	}
+	public void setAd_rank(int ad_rank) {
+		this.ad_rank = ad_rank;
+	}
+	public String getMain_ad() {
+		return main_ad;
+	}
+	public void setMain_ad(String main_ad) {
+		this.main_ad = main_ad;
+	}
+	public String getMax_rank() {
+		return max_rank;
+	}
+	public void setMax_rank(String max_rank) {
+		this.max_rank = max_rank;
+	}
 	public String getMax_people() {
 		return max_people;
 	}
@@ -225,7 +260,9 @@ public class ProductInfo {
 				+ ", product_photo8=" + product_photo8 + ", product_photo9=" + product_photo9 + ", product_photo10="
 				+ product_photo10 + ", course=" + course + ", course_photo_dir=" + course_photo_dir + ", product_info="
 				+ product_info + ", user_id=" + user_id + ", business_number=" + business_number + ", delete_flag="
-				+ delete_flag + ", create_date=" + create_date + ", cost=" + cost + ", max_people=" + max_people + "]";
+				+ delete_flag + ", create_date=" + create_date + ", cost=" + cost + ", max_people=" + max_people
+				+ ", main_ad_no=" + main_ad_no + ", ad_rank=" + ad_rank + ", main_ad=" + main_ad + ", max_rank="
+				+ max_rank + ", product_name=" + product_name + "]";
 	}
 	
 	

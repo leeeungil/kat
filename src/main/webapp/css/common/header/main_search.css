@@ -10,7 +10,7 @@
     margin: auto;
 }
 .content_form > .container > section{
-	/* width: 880px; */
+	max-width: 800px;
     margin: auto;
 }
 .search-icon {

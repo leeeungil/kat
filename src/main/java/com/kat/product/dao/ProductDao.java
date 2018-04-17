@@ -92,8 +92,11 @@ public interface ProductDao {
 	public void insertProductCourse(ProductCourseModel productCourseModel);
 	public void insertProductSub(ProductSubModel productSubModel);
 	
-	// 상품 전체 가져오기 ( 여행 상품 메인 )
+	// 상품 전체 가져오기 ( 여행 상품 )
 	public List<ProductInfo> findAllTravelProduct();
+	// 메인 광고 상품 가져오기 ( 광고 )
+	public List<ProductInfo> findMainAdProduct();
+	
 	public List<ProductInfo> findTypeTravelProduct(int product_type);
 	public List<AdminProductList> findUserIdProduct(String user_id); 
 	public List<ProductInfo> findWordTravelProduct(String search_word);

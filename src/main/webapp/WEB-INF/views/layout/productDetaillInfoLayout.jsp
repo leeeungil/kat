@@ -4,6 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
 <title>예약, 당신만의 여행 공간</title>
 <link rel="icon" href="<%=request.getContextPath()%>/img/logo/favicon.png" type="image/x-icon">
 <!-- 스크립트 가져오기 -->

@@ -26,11 +26,11 @@ $(document).ready(function(){
 			dataType: 'text',
 			data:{ "productType": productType },
 			beforeSend: function() {
-				$(".area").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
+				$(".row").html("<div class='loading_wrap'><img src='<%=request.getContextPath()%>/img/loading.gif'</div>");
 			},
 			success: function(htmlCode){
 				setTimeout(function() {
-					$(".area").html(htmlCode);
+					$(".row").html(htmlCode);
 				}, 1000);
 			}
 		})
@@ -79,7 +79,7 @@ $(document).ready(function(){
     background: #196cf8;
 }
 .product_choice_btn{
-	width: 1200px;
+	max-width: 900px;
 	height: 100%;
 	margin: auto;
 }

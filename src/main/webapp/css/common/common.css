@@ -7195,3 +7195,10 @@ fieldset[disabled] .form-control {
 textarea.form-control { 
   height: auto;
 } */
+/* 준영 추가 */
+.loading_wrap {
+	width: 130px;
+    margin: auto;
+    top: 25vh;
+    position: relative;
+}

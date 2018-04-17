@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet">
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
+<script src="<%=request.getContextPath()%>/script/jquery/jquery.lazyload.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/login.js"></script>
 <script>
  $(document).ready(function() {

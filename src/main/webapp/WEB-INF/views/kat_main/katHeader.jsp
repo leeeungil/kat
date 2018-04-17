@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding|Quattrocento" rel="stylesheet"> -->
 <script src="<%=request.getContextPath()%>/script/jquery/jquery-1.12.4.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/jquery/jquery.lazyload.min.js"></script>
 <script src="<%=request.getContextPath()%>/script/login.js"></script>
@@ -42,15 +41,13 @@
 			<form method="post" action="<%=request.getContextPath()%>/kat/login/loginProcess.do" name="member">
 				<div>
 					<ul class="login_form" id="member_in"><li class="login_sty" id="id_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/id.png"></span> 
-						<input type="text" placeholder="EMAIL" class="login_form_input" name="user_id">
+						<input type="text" class="login_form_input" name="user_id" placeholder='E-mail Total Login' autocomplete="off">
 					</li>
 					<li class="login_sty" id="pw_sty">
-						<span class="login_form_ico"><img src="<%=request.getContextPath()%>/img/unlocked.png"></span> 
-						<input type="password" placeholder="PASSWORD" class="login_form_input" name="user_pass">
+						<input type="password" class="login_form_input" name="user_pass" placeholder="PASSWORD" autocomplete="off">
 					</li>
 					<li>
-						<input type="submit" class="btn_login" value="로그인" >
+						<input type="submit" class="btn_login" value="login" >
 					</li>
 					<li class="join_login">
 						<div class="find_join">
@@ -70,11 +67,11 @@
 				<div class="top_right">
 					<ul class="top-loginbox">
 					<c:if test="${user_id == null}">
-						<li><a onclick="login()">로그인</a></li>
-						<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">회원가입</a></li>
+						<li><a onclick="login()">login</a></li>
+						<li><a href="<%=request.getContextPath()%>/join/memberJoin.do">signUp</a></li>
 					</c:if>
 					<c:if test="${user_id != null}">
-						<li style="color:#000000"><font style='color: #196cf8;font-weight: 400;'>${user_id}</font> 님
+						<li style="color:#000000"><font style='color: #ffffff;font-weight: 400;'>${user_id}</font> 님
 							<c:if test="${user_id == 'Master'}">
 								<span style="color: red;">  Master  </span>
 							</c:if> 

@@ -58,6 +58,7 @@ System.out.println("[ProductController findAllTravelProduct] FIND ALL PRODUCT AC
 		ModelAndView modelAndView = new ModelAndView();
 		List<ProductInfo> productList = null;
 		productList = productService.findAllTravelProduct();
+
 System.out.println("[ProductController findAllTravelProduct] ProductList.size() : "+ productList.size());
 		modelAndView.addObject("ProductAllList",productList);
 		modelAndView.setViewName("layout/travelProductLayout");
@@ -79,34 +80,32 @@ System.out.println("[ProductController findTravelProductOfType] product_type : "
 		}
 		String htmlCode = "";
 		if(productList.size()!=0) {
-			htmlCode += "<div class='product_wrap'>";
+			htmlCode += "<div class='row'>";
 			for(int i =0; i<productList.size(); i++) {
-				htmlCode +="	<figure class='effect-winston' style='background-image: url("+request.getContextPath()+productList.get(i).getProduct_main_photo()+")'>"
-						+ "	<input type='hidden' class='product_no' name='product_no' value='"+productList.get(i).getProduct_no()+"'>"
-						+"		<figcaption class='product_fig'>";
+				htmlCode += "<div class='col-lg-3 col-md-4 col-sm-6 portfolio-item popular_room'>"
+							+ "	<input type='hidden' name='product_no' class='"+productList.get(i).getProduct_no()+"' value='"+productList.get(i).getProduct_no()+"'>"
+							+ "	<div class='card h-100'>"
+							+ "		<a> <img class='card-img-top' src='"+request.getContextPath()+productList.get(i).getProduct_main_photo()+"'> </a>"
+							+ "		<div class='card-body'>";
 				if(productList.get(i).getProduct_type()==1) {
-					htmlCode += "<h2><font class='tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
-							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
+					htmlCode += "		<h6 class='card-sub-title tour_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"<font class='product_type_name'>Tour</font></h6>";
 				}
 				if(productList.get(i).getProduct_type()==2) {
-					htmlCode += "<h2><font class='shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
-							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
+					htmlCode += "		<h6 class='card-sub-title shuttle_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"<font class='product_type_name'>Tour</font></h6>";
 				}
 				if(productList.get(i).getProduct_type()==3) {
-					htmlCode += "<h2><font class='ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
-							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
+					htmlCode += "		<h6 class='card-sub-title ticket_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"<font class='product_type_name'>Tour</font></h6>";
 				}
 				if(productList.get(i).getProduct_type()==4) {
-					htmlCode += "<h2><font class='snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()
-							+"</font><br> <span>"+productList.get(i).getProduct_title()+"</span></h2>";
+					htmlCode += "		<h6 class='card-sub-title snap_color'>"+productList.get(i).getCountry()+" > "+productList.get(i).getCity()+"<font class='product_type_name'>Tour</font></h6>";
 				}
-				htmlCode += "<p>"
-						+"		<a href='#'><i class=''>"+productList.get(i).getCost()+" / 1인</i></a>"
-						+"		<a href='#'><i class='fa fa-fw fa-envelope-o'></i></a>"
-						+"		<a href='#'><i class='fa fa-fw fa-star-o'></i></a>"
-						+"	</p>"	
-						+"</figcaption>" 
-						+"</figure>";
+				htmlCode += "			<h4 class='card-title'>"
+						+"					<a href='#' title='"+productList.get(i).getProduct_title()+"'>"+productList.get(i).getProduct_title()+"</a>"
+						+"				</h4>"	
+						+"				<p class='card-text'>₩ "+productList.get(i).getCost()+" Per Person</p>" 
+						+"			</div>"
+						+"		</div>"
+						+"	</div>";;
 			}
 			htmlCode +="</div>";
 		}
