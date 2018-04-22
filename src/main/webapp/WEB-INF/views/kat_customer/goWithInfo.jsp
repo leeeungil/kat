@@ -22,7 +22,7 @@
              <th>글 번호</th>
              <td id='board_no' class='${ListInfoGowith.bno}'>${ListInfoGowith.bno}</td>
              <th>조회수</th>
-             <td>${ListInfoGowith.read_count}</td>
+             <td>${ListInfoGowith.viewcnt}</td>
           </tr>
           <tr>
              <th>작성자</th>

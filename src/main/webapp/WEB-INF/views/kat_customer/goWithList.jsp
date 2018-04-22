@@ -34,7 +34,7 @@
               <td class="list_info"><a href="<c:url value="/kat/gowith/gowith_info_list.do?bno=${go_with.bno}"/>">${go_with.go_with_title}</a>
               <td class="list_info" align="center">${user_id}</td>
               <td class="list_info" align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${go_with.create_date}"/></td>
-              <td class="list_info" align="center">${go_with.read_count}</td>
+              <td class="list_info" align="center">${go_with.viewcnt}</td>
             </tr>
             </c:forEach>  
      </tbody>

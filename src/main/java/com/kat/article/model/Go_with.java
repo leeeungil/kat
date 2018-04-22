@@ -63,8 +63,7 @@ public class Go_with {
 	@Override
 	public String toString() {
 		return "Go_with [bno=" + bno + ", go_with_content=" + go_with_content + ", go_with_title=" + go_with_title
-				+ ", user_id=" + user_id + ", create_date=" + create_date + ", viewcount=" +
-				delete_flag + ", viewcnt=" + viewcnt + ", username=" + username + "]";
+				+ ", user_id=" + user_id + ", create_date=" + create_date + ", delete_flag=" + delete_flag + ", viewcnt=" + viewcnt + ", username=" + username + "]";
 	}
 	
 	
