@@ -30,8 +30,8 @@
      <tbody>
         <c:forEach items="${ListInfoGowith.goWithList}" var="go_with">
            <tr class="light">
-              <td class="list_info" align="center">[${go_with.go_with_no}]</td>
-              <td class="list_info"><a href="<c:url value="/kat/gowith/gowith_info_list.do?go_with_no=${go_with.go_with_no}"/>">${go_with.go_with_title}</a>
+              <td class="list_info" align="center">[${go_with.bno}]</td>
+              <td class="list_info"><a href="<c:url value="/kat/gowith/gowith_info_list.do?bno=${go_with.bno}"/>">${go_with.go_with_title}</a>
               <td class="list_info" align="center">${user_id}</td>
               <td class="list_info" align="center"><fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${go_with.create_date}"/></td>
               <td class="list_info" align="center">${go_with.read_count}</td>

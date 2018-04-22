@@ -8,7 +8,7 @@
 </div>
 <div class="totalView">
 <div class="mainSize">
-<form method="post">
+<form method="post" action="<%=request.getContextPath()%>/kat/gowith/gowith_info_list.do?bno=${ListInfoGowith.bno}">
    <table class="board_view">
       <colgroup>
           <col width="15%" />
@@ -20,7 +20,7 @@
       <tbody>
           <tr>
              <th>글 번호</th>
-             <td id='board_no' class='${ListInfoGowith.go_with_no}'>${ListInfoGowith.go_with_no}</td>
+             <td id='board_no' class='${ListInfoGowith.bno}'>${ListInfoGowith.bno}</td>
              <th>조회수</th>
              <td>${ListInfoGowith.read_count}</td>
           </tr>
@@ -45,10 +45,10 @@
    <input type="button" value="동행게시판" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/gowith_write_list.do'">
    </div>
     <div class="gowith_go">
-   <input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?go_with_no=${ListInfoGowith.go_with_no}'">
+   <input type="button" value="수정" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/updateInfo.do?bno=${ListInfoGowith.bno}'">
    </div>
    <div class="gowith_go">
-    <input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/deleteInfo.do?go_with_no=${ListInfoGowith.go_with_no}'">
+    <input type="button" value="삭제" onclick="location.href='<%=request.getContextPath()%>/kat/gowith/deleteInfo.do?bno=${ListInfoGowith.bno}'">
    </div>
    </div>
 </form>   

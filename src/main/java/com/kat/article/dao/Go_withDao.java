@@ -16,10 +16,10 @@ public interface Go_withDao {
 	public List<Go_with> goWithList(int firstRow, int messageCountPerPage);
 
 	//특정번호의 동행글 가져오기
-	public Go_with gowithInfo(int go_with_no);
+	public Go_with gowithInfo(int bno);
 
 	//특정번호의 수정할 내용 가져오기
-	public Go_with sendgowithUpdateInfo(int no);
+	public Go_with sendgowithUpdateInfo(int bno);
 
 	//특정번호의 수정글 작성하기
 	public void gowithUpdate(Go_with go_with);

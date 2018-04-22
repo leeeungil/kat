@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.kat.article.dao.ReplyDao">
+
+   <!-- 댓글입력 -->
+   <insert id="insertReply">
+      INSERT INTO reply(rno,bno,replytext,replyer,secret_reply)
+      VALUES (0,#{bno},#{replytext},#{replyer},#{secretReply})
+   </insert>
+   
+   <select id="listReply" resultType="com.kat.article.model.Reply">
+     <include refid="pagingHeader" />
+     SELECT
+     r.rno,bno,r.replytext,r.replyer,r.secret_reply AS secretReply,r.regdate,r.updatedate,m.user_name AS userName,
+     (SELECT writer FROM go_with WHERE bno = r.bno)AS writer
+     FROM reply r, member m
+     WHERE r.replyer = m.user_id AND bno = #{bno}
+     ORDER BY rno
+     <include refid="pagingFooter" />
+   </select>
+
+   <!-- 댓글 갯수(페이징 처리) -->
+   <select id="countReply" resultType = "int">
+     SELECT COUNT(*)
+     FROM reply 
+     WHERE bno = #{bno}
+   </select>
+   
+   <sql id="pagingHeader">
+     SELECT * FROM (
+         SELECT ROWNUM AS rn,A.* FROM(
+  </sql>
+  <sql id="pagingFooter">
+         )A
+     )WHERE rn BETWEEN #{start}AND#{end}
+   </sql>
+   
+</mapper>

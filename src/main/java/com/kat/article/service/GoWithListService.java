@@ -51,22 +51,22 @@ System.out.println("[GoWithListService findGoWithList()] FINESH");
 	}
 
 	//동행글 내용가져오기 
-	public Go_with findInfo(int go_with_no) {
+	public Go_with findInfo(int bno) {
 System.out.println("[GoWithListService findInfo()] ACCESS SUCCEE");		
 		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
-System.out.println("[GoWithListService findInfo()] go_with_no :" + go_with_no);			
-		Go_with info = dao.gowithInfo(go_with_no);
+System.out.println("[GoWithListService findInfo()] bno :" + bno);			
+		Go_with info = dao.gowithInfo(bno);
 System.out.println("[GoWithListService findInfo()] info :" + info.toString());			
 System.out.println("=============================================");			
 		return info;
 	}
 
 	//수정할 내용 가져오기
-	public Go_with sendgowithInfoUpdate(int no) {
+	public Go_with sendgowithInfoUpdate(int bno) {
 System.out.println("[GoWithListService sendgowithInfoUpdate()] ACCESS SUCCEE");			
 		dao = sqlSessionTemplate.getMapper(Go_withDao.class);
-System.out.println("[GoWithListService sendgowithInfoUpdate()] no :" + no);		
-		Go_with info = dao.sendgowithUpdateInfo(no);
+System.out.println("[GoWithListService sendgowithInfoUpdate()] bno :" + bno);		
+		Go_with info = dao.sendgowithUpdateInfo(bno);
 System.out.println("[GoWithListService sendgowithInfoUpdate()] info :" + info.toString());				
 		return info;
 	}

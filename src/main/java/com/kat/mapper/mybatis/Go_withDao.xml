@@ -8,7 +8,7 @@
   
   <insert id="go_withInsert" parameterType="com.kat.article.model.Go_with">
      INSERT INTO go_with
-     VALUES (#{go_with_no}, #{go_with_title}, #{go_with_content}, #{user_id}, now(), #{read_count}, 0)
+     VALUES (#{bno}, #{go_with_title}, #{go_with_content}, #{user_id}, now(), #{viewcount}, 0, #{username})
   </insert>
   
   <select id="goWithSelectCount" resultType="int">
@@ -23,26 +23,26 @@
   </select>
   
   <select id="gowithInfo" resultType="com.kat.article.model.Go_with">
-     SELECT go_with_no, go_with_title,go_with_content, user_id,create_date, read_count, delete_flag
+     SELECT bno, go_with_title, go_with_content, user_id, create_date, viewcount, delete_flag, username
      FROM go_with
-     WHERE go_with_no = #{no1}
+     WHERE bno = #{no1}
   </select>
   
   <select id="sendgowithUpdateInfo" resultType="com.kat.article.model.Go_with">
      SELECT *
      FROM go_with
-     WHERE go_with_no = #{no1}
+     WHERE bno = #{no1}
   </select>
   
   <select id="gowithUpdate" parameterType="com.kat.article.model.Go_with">
      UPDATE go_with
      SET go_with_title = #{go_with_title}, go_with_content = #{go_with_content}
-     WHERE go_with_no = #{go_with_no}
+     WHERE bno = #{bno}
   </select>
   
   <select id="go_withDelete">
      DELETE FROM go_with
-     WHERE go_with_no = #{go_with_no}
+     WHERE bno = #{bno}
   </select>
   
   </mapper>

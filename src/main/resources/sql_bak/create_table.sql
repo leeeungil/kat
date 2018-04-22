@@ -58,12 +58,11 @@ CREATE TABLE MEMBER (
   `member_type` int(2) NOT NULL,
   `name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `password1` varchar(100) NOT NULL,
-  `password2` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `email_confirm` int(11) NOT NULL,
   `create_date` date NOT NULL,
   `delete_flag` int(11) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
   PRIMARY KEY (`member_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -120,6 +119,7 @@ DROP TABLE PRODUCT_PHOTO;
 DROP TABLE PRODUCT_COURSE;
 DROP TABLE PRODUCT_REVIEW;
 DROP TABLE FAVORITE_PRODUCT;
+
 /*
  * 0. 공지사항 NOTICE
  * 
@@ -227,27 +227,7 @@ CREATE TABLE FAVORITE_PRODUCT (
 	PRIMARY KEY (`FAVORITE_NO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-DROP TABLE MAIN_AD;
-DROP TABLE MAIN_AD_PRODUCT;
 
-CREATE TABLE MAIN_AD (
-	`MAIN_AD_NO` INT(11) NOT NULL AUTO_INCREMENT,
-	`MAIN_AD` varchar(45) NOT NULL,
-	`MAX_RANK` INT(11) NOT NULL,
-	`CREATE_DATE` datetime NOT NULL,
-	`DELETE_FLAG` INT(2) NOT NULL,
-	PRIMARY KEY (`MAIN_AD_NO`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
-CREATE TABLE MAIN_AD_PRODUCT (
-	`MAIN_AD_PRODUCT_NO` INT(11) NOT NULL AUTO_INCREMENT,
-	`MAIN_AD_NO` INT(11) NOT NULL,
-	`PRODUCT_NO` INT(20) NOT NULL,
-	`AD_RANK` INT(11) NOT NULL,
-	`CREATE_DATE` datetime NOT NULL,
-	`DELETE_FLAG` INT(2) NOT NULL,
-	PRIMARY KEY (`MAIN_AD_PRODUCT_NO`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 
@@ -268,31 +248,19 @@ CREATE TABLE PHOTO (
 
 
 DROP TABLE GO_WITH;
-DROP TABLE COMMENT;
+
 
 
 /* 동행, 댓글 */
 CREATE TABLE `GO_WITH` (
-  `go_with_no` int(11) NOT NULL AUTO_INCREMENT,
-  `go_with_title` varchar(200) NOT NULL,
+  `bno` int(11) NOT NULL AUTO_INCREMENT,
   `go_with_content` varchar(2000) NOT NULL,
+  `go_with_title` varchar(200) NOT NULL,
   `user_id` varchar(200) NOT NULL,
   `create_date` datetime NOT NULL,
-  `read_count` int(11) DEFAULT NULL,
   `delete_flag` int(2) DEFAULT NULL,
+  `viewcnt` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
   PRIMARY KEY (`go_with_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-/* 댓글 테이블 */
-CREATE TABLE COMMENT (
-  `cmt_no` int(11) NOT NULL AUTO_INCREMENT, /*댓글번호*/
-  `cmt_content` varchar(200) NOT NULL, /*댓글 내용*/
-  `cmt_user_id` varchar(45) NOT NULL, /*댓글 작성자*/
-  `cmt_password` varchar(45) NOT NULL, /*댓글 비밀번호*/
-  `cmt_create_date` datetime NOT NULL, /*댓글 작성일*/
-  `cmt_ip` int(11) NOT NULL, /*댓글 등록한 아이피*/
-  `cmt_del` int(11) DEFAULT NULL, /*댓글 삭제여부 삭제:1 존재:0*/ 
-  `cmt_parent` int(11) NOT NULL, /*부모글*/
-  `delete_flag` INT(2),
-  PRIMARY KEY (`cmt_no`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
