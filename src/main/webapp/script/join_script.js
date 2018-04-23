@@ -7,20 +7,3 @@ function checkBox(f) {
 	return true;
 
 }
-
-$(document).ready(function() {
-
-	$(".memberbtn").click(function() {
-		$("#business_display1").hide();
-		$("#business_display2").hide();
-		$("#business_display3").hide();
-		$("#business_display4").hide();
-	});
-
-	$(".businessbtn").click(function() {
-		$("#business_display1").show();
-		$("#business_display2").show();
-		$("#business_display3").show();
-		$("#business_display4").show();
-	});
-});

@@ -111,81 +111,95 @@ function joinFormBlankChk() {
 <link type="text/css" rel="stylesheet" href="<%=request.getContextPath()%>/css/login/selectJoinType.css">
 <style>
 .join_form_wrap {
-    min-height: calc(100vh - 130px);
+    min-height: calc(100vh - 210px);
 	width: 100%;
     height: 100%;
 }
+.join_form {
+	margin: auto;
+    width: 25%;
+    min-width: 300px;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #a8a8a8;
+}
+#sign_up_form > table > tbody > tr > td:nth-child(odd) {
 
+}
 
 </style>
 <div class='join_form_wrap'>
 	<div class='join_form'>
-		<form name="kat_joinchk" onsubmit="return joinFormBlankChk()" method="post" action="<%=request.getContextPath()%>/kat/join/joinForm.do">
+		<form id='sign_up_form' name="kat_joinchk" onsubmit="return joinFormBlankChk()" method="post" action="<%=request.getContextPath()%>/kat/join/joinForm.do">
+			<input type="hidden" name="member_type" value="1">
 			<table>
 				<tbody><tr>
-					  <td><input type="hidden" name="member_type" value="1"></td>
-				   </tr>
-				   <tr>
-				      <td>이름<br><input type="text" name="name" value=""></td>
-				   </tr>
-				    <tr>
-				      <td><br>
-				      <ul>
-						<li id="add_search_li_border">이메일</li>
-						<li class="textstyle">
-							<input type="email" id="email" name="email" onfocus="emailfocus()">
-						</li>
-						<li class="textstyle">
-							<input type="button" value="이메일 확인" id="ajaxemail">
-							<input type="hidden" id="ajaxemail_1" value="N">
-						</li>
-						<li class="textstyle">
-							<input type="button" value="이메일인증" id="emailcertification">
-							<input type="hidden" id="email_sendcode_1" value="jr3110">
-							<input type="hidden" id="email_sendcode_2" value="n">
-						</li>
-					</ul>
+					<td>이름</td>
+					<td><input type="text" name="name" value=""></td>
+				</tr>
+				<tr>
+					<td>이메일</td>
+					<td>
+						<input type="email" id="email" name="email" onfocus="emailfocus()">
 					</td>
-				   </tr>
-				   <tr>
-				   <td><br>
-				      <ul>
-						<li id="add_search_li_border">인증코드확인</li>
-						<li class="textstyle">
-							<input type="text" id="user_sendcode">
-							<input type="button" value="확인" onclick="okok()">
-						</li>
-					</ul>
-				   </td>
-				   </tr>
-				   <tr>
-				      <td>비밀번호<br><input type="text" name="password" value=""></td>
-				   </tr>
-				   <tr>
-				      <td>비밀번호 확인<br><input type="text" name="passReChk" value=""></td>
-				   </tr>
-				   <tr>
-				      <td>전화번호<br><input type="text" name="phone" value=""></td>
-				   </tr>
-				   <tr>
-				      <td>약관 동의</td>
-				   </tr>
-				   <tr>
-				      <td><input type="checkbox" class="check-all">아래 약관에 모두 동의합니다</td>
-				   </tr>
-				   <tr>
-				      <td><input type="checkbox" id='requirement1' class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">회원가입 및 운영약관(필수)</a></td>
-				   </tr>
-				   <tr>
-				      <td><input type="checkbox" id='requirement2' class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">개인정보 수집 및 이용(필수)</a></td>
-				   </tr>
-				   <tr>
-				      <td><input type="checkbox" class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">위치정보 이용약관(선택)</a></td>
-			   </tr></tbody>
-			</table>
-			<div>
-			<input type="submit" value="회원가입">
-			</div>
+				</tr>
+				<tr>
+					<td colspan='2'>
+						<ul>
+							<li class="textstyle">
+								<input type="button" value="이메일 확인" id="ajaxemail">
+								<input type="hidden" id="ajaxemail_1" value="N">
+							</li>
+							<li class="textstyle">
+								<input type="button" value="이메일인증" id="emailcertification">
+								<input type="hidden" id="email_sendcode_1" value="jr3110">
+								<input type="hidden" id="email_sendcode_2" value="n">
+							</li>
+						</ul>
+					</td>
+				</tr>
+			   <tr>
+			   <td colspan='2'>
+			      <ul>
+					<li id="add_search_li_border">인증코드확인</li>
+					<li class="textstyle">
+						<input type="text" id="user_sendcode">
+						<input type="button" value="확인" onclick="okok()">
+					</li>
+				</ul>
+			   </td>
+			   </tr>
+			   <tr>
+			      <td>비밀번호</td>
+			      <td><input type="text" name="password" value=""></td>
+			   </tr>
+			   <tr>
+			      <td>비밀번호 확인</td>
+			      <td><input type="text" name="passReChk" value=""></td>
+			   </tr>
+			   <tr>
+			      <td>전화번호</td>
+			      <td><input type="text" name="phone" value=""></td>
+			   </tr>
+			   <tr>
+			      <td colspan='2'>약관 동의</td>
+			   </tr>
+			   <tr>
+			      <td colspan='2'><input type="checkbox" class="check-all">아래 약관에 모두 동의합니다</td>
+			   </tr>
+			   <tr>
+			      <td colspan='2'><input type="checkbox" id='requirement1' class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">회원가입 및 운영약관(필수)</a></td>
+			   </tr>
+			   <tr>
+			      <td colspan='2'><input type="checkbox" id='requirement2' class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">개인정보 수집 및 이용(필수)</a></td>
+			   </tr>
+			   <tr>
+			      <td colspan='2'><input type="checkbox" class="service_check"><a href="<%=request.getContextPath()%>/aaa/aaa/aaa.do">위치정보 이용약관(선택)</a></td>
+		   </tr></tbody>
+		</table>
+	<div>
+	<input type="submit" value="회원가입">
+	</div>
 		</form>
 	</div>
 </div>

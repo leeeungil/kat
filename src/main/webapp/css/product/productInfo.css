@@ -5,8 +5,7 @@
 	height: 1030px;
 }
 .area {
-    width: 1220px;
-    height: calc(100% - 40px);
+    width: 900px;
     margin: auto;
 }
 .form_basic_wrap {

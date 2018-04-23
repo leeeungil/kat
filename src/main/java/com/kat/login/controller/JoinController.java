@@ -14,8 +14,8 @@ public class JoinController {
 	public ModelAndView memberJoin() throws IllegalStateException, IOException {
 System.out.println("[JoinAgreeController memberJoin] MEMBER JOIN ACCESS");
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("memberJoinLayout");
-System.out.println("[JoinAgreeController memberJoin] GO ====>> memberJoinLayout");
+		modelAndView.setViewName("layout/memberJoinLayout");
+System.out.println("[JoinAgreeController memberJoin] GO ====>> layout/memberJoinLayout");
 System.out.println("=============================================================");
 		return modelAndView;
 	}
